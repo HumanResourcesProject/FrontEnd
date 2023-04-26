@@ -1,5 +1,5 @@
 import React from "react";
-import '../assets/styles/sidebar.scss'
+import './sidebar.scss'
 const Sidebar = () => {
   return (
     <aside className="main-sidebar sidebar-dark-primary elevation-4">
@@ -21,7 +21,6 @@ const Sidebar = () => {
             </a>
           </div>
         </div>
-
         <nav className="mt-2">
           <ul
             className="nav nav-pills nav-sidebar flex-column"
