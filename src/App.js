@@ -1,9 +1,9 @@
 import React from 'react'
-import Sidebar from './components/sidebar/Sidebar'
+import AdminPage from './pages/adminpage/AdminPage'
 
 const App = () => {
   return (
-    <Sidebar/>
+    <AdminPage/>
   )
 }
 
