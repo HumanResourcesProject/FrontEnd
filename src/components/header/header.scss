@@ -2,13 +2,10 @@
     --color1: #807F7F;
     --color2: #DCE0E3;
 }
-*{
-    margin: 0;
-    padding: 0;
-    color: var(--color1);
-}
+
 
 .navbar{
+    color: var(--color1);
     display: flex;
     justify-content: space-between;
     align-items: center;

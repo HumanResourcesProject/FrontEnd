@@ -1,17 +1,17 @@
-import React from 'react'
-import Header from '../../components/header/Header'
-import Footer from '../../components/footer/Footer'
-import Sidebar from '../../components/sidebar/Sidebar'
-import './adminpage.scss'
+import React from "react";
+import Header from "../../components/header/Header";
+import Sidebar from "../../components/sidebar/Sidebar";
+import "./adminpage.scss";
 
 const AdminPage = () => {
   return (
-    <div>
-        <Header/>
-        <Sidebar/>
-        <Footer/>
+    <div className="adminpage">
+      <div className="admin_sidebar">
+        <Sidebar />
+      </div>
+      <Header />
     </div>
-  )
-}
+  );
+};
 
-export default AdminPage
+export default AdminPage;
