@@ -3,7 +3,7 @@
     --color2: #DCE0E3;
 }
 .navbar{
-    position: fixed;
+    position: sticky;
     padding-left: 250px;
     color: var(--color1);
     display: flex;
