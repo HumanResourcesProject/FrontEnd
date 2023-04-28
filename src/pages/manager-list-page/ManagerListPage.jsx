@@ -1,13 +1,13 @@
 import React from "react";
 import Header from "../../components/header/Header";
 import Sidebar from "../../components/sidebar/Sidebar";
-import "./adminListPage.scss";
-import TableAdmin from "../../components/table-admin/TableAdmin";
+import "./managerListPage.scss";
+import TableAdmin from "../../components/table-admin/TableManager";
 
-const AdminListPage = () => {
+const ManagerListPage = () => {
   return (
-    <div className="admin-page">
-      <div className="admin_sidebar">
+    <div>
+      <div>
         <Sidebar />
       </div>
       <div className="admin-right">
@@ -18,4 +18,4 @@ const AdminListPage = () => {
     </div>
   )
 }
-export default AdminListPage
+export default ManagerListPage

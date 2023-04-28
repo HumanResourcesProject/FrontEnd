@@ -10,6 +10,7 @@ const AdminPage = () => {
         <Sidebar />
       </div>
         <Header /> 
+        
     </div>
   );
 };

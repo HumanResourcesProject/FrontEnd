@@ -140,7 +140,7 @@ const data = [
   },
 ];
 
-const TableAdmin = () => {
+const TableManager = () => {
   const columns = useMemo(
     () => [
       {
@@ -174,4 +174,4 @@ const TableAdmin = () => {
   );
 };
 
-export default TableAdmin;
+export default TableManager;
