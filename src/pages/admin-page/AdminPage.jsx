@@ -9,7 +9,7 @@ const AdminPage = () => {
       <div className="admin_sidebar">
         <Sidebar />
       </div>
-      <Header />
+        <Header /> 
     </div>
   );
 };

@@ -29,7 +29,7 @@ const Sidebar = () => {
         <ul className="sidebar-nav">
         <li><Link className="link d-flex"><AccountCircleOutlinedIcon/><div>My Profile</div></Link></li>
           <li><Link className="link d-flex"> <HowToRegOutlinedIcon/><div>Register</div></Link></li>
-          <li><Link className="link d-flex"><SupervisorAccountOutlinedIcon/><div>Admin List</div></Link></li>
+          <li><Link to="/adminlistpage" className="link d-flex"><SupervisorAccountOutlinedIcon/><div>Admin List</div></Link></li>
           <li><Link className="link d-flex"><Groups3Icon/><div>Project Manager List</div></Link></li>
           <li><Link className="link d-flex"><EngineeringOutlinedIcon/><div>Worker List</div></Link></li>
         </ul>
@@ -38,7 +38,9 @@ const Sidebar = () => {
       <div className="logout d-flex">
       <LogoutOutlinedIcon/><div className="fw-large lout">Logout</div>
       </div>
+      
     </aside>
+    
   );
 };
 export default Sidebar;
