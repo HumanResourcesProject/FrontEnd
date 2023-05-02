@@ -13,14 +13,14 @@ const Sidebar = () => {
     <aside className="full-sidebar">
       <div>
       <div className="sidebar-top">
-        <Link className="sidebar-title-link">
+        <Link to="/" className="sidebar-title-link">
           <img src="https://adminlte.io/themes/v3/dist/img/AdminLTELogo.png" alt="" />
           <p className="sidebar-title">HR Admin Page</p>
         </Link>
         
         <div className="sidebar-admin-panel">
           <Link className="sidebar-admin-panel-link">
-          <img src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" alt="admin-image" />
+          <img src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" alt="admin" />
           <p className="admin-name">Mahmut</p>
           </Link>
         </div>
@@ -29,16 +29,18 @@ const Sidebar = () => {
         <ul className="sidebar-nav">
         <li><Link className="link d-flex"><AccountCircleOutlinedIcon/><div>My Profile</div></Link></li>
           <li><Link className="link d-flex"> <HowToRegOutlinedIcon/><div>Register</div></Link></li>
-          <li><Link className="link d-flex"><SupervisorAccountOutlinedIcon/><div>Admin List</div></Link></li>
-          <li><Link className="link d-flex"><Groups3Icon/><div>Project Manager List</div></Link></li>
-          <li><Link className="link d-flex"><EngineeringOutlinedIcon/><div>Worker List</div></Link></li>
+          <li><Link to="/adminlistpage" className="link d-flex"><SupervisorAccountOutlinedIcon/><div>Admin List</div></Link></li>
+          <li><Link to="/managerlistpage" className="link d-flex"><Groups3Icon/><div>Project Manager List</div></Link></li>
+          <li><Link to="/workerlistpage" className="link d-flex"><EngineeringOutlinedIcon/><div>Worker List</div></Link></li>
         </ul>
       </div>
       </div>
       <div className="logout d-flex">
       <LogoutOutlinedIcon/><div className="fw-large lout">Logout</div>
       </div>
+      
     </aside>
+    
   );
 };
 export default Sidebar;
