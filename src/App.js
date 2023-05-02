@@ -9,7 +9,6 @@ const App = () => {
       <Route path ="/adminlistpage" element={<AdminListPage/>}/>
       <Route path ="/managerlistpage" element={<AdminListPage/>}/>
       <Route path ="/workerlistpage" element={<AdminListPage/>}/>
-      
       <Route path="*" element={<Navigate to="/"/>} />
     </Routes>
     
