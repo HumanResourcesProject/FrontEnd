@@ -1,12 +1,15 @@
 .profil{
     margin: 30px;
-    background-color: violet;
+    background-color: grey;
     display: flex;
     height: 500px;
     .photoSection{
+        margin: 15px;
+        margin-left: 15px;
+        border-radius: 15%;
         width: 30%;
         height: 350px;
-        background-color: greenyellow;
+        background-color:  #6699cc;
         .profileHolder{
             h2{
                 text-align: center;
@@ -16,6 +19,7 @@
                 img{
                     height: 150px;
                     margin-left: 30px;
+                    border-radius: 45%;
                 }
             }
         }
@@ -30,7 +34,7 @@
         }
     }
     .profilInfo{
-        margin-left: 150px;
+        margin-left: 120px;
         display: flex;
         flex-direction: column;
         
