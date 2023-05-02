@@ -1,0 +1,73 @@
+.profil{
+    margin: 30px;
+    background-color: violet;
+    display: flex;
+    height: 500px;
+    .photoSection{
+        width: 30%;
+        height: 350px;
+        background-color: greenyellow;
+        .profileHolder{
+            h2{
+                text-align: center;
+            }
+            .profileImage{
+            
+                img{
+                    height: 150px;
+                    margin-left: 30px;
+                }
+            }
+        }
+        .buttons{
+            margin: 30px;
+            .selectButton{
+                margin-right: 8px;
+            }
+            .saveButton{
+                margin-left: 8px;
+            }
+        }
+    }
+    .profilInfo{
+        margin-left: 150px;
+        display: flex;
+        flex-direction: column;
+        
+        #gizlenecekDiv {
+            display: block;
+          }
+          
+          #gosterilecekDiv {
+            display: none;
+          }
+        
+        .informationHead{
+            text-align: center;
+        }
+        .information{
+            display: none;
+            display: flex;
+            flex-direction: column;
+            form label {
+                display: inline-block;
+                width: 100px;
+                text-align: right;
+                margin-right: 10px;
+              }
+              form p {
+                background-color: wheat;
+                display: inline-block;
+                width: 200px;
+                margin-bottom: 10px;
+              }
+              button{
+                margin-left: 18px;
+                margin-right: 48px;
+              }
+            
+        }
+
+    }
+}
+
