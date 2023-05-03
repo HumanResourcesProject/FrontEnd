@@ -2,11 +2,29 @@ import React from 'react'
 import { useState } from 'react';
 import axios from 'axios';
 import './createAdmin.scss'
+import DriveFolderUploadIcon from '@mui/icons-material/DriveFolderUpload';
+import AdminService from '../../service/AdminService';
 
 const ProfilPage = () => {
 
   const [imageUrl, setImageUrl] = useState('');
   const [userId, setUserId] = useState('');
+
+const [adminInfo, setAdminInfo] = useState({
+  name:"",
+  surname:"",
+  email:"",
+  password:"",
+  phone:"",
+  address:"",
+  avatar:"",
+})
+  const [image,setImage] = useState('');
+  const onchangeImage = (e) => {
+    const file = e.target.files[0];
+    setImage(file);
+    alert(image)
+  }
 
   const handleImageUpload = (event) => {
     const formData = new FormData();
@@ -18,47 +36,87 @@ const ProfilPage = () => {
       .catch(error => console.log(error));
   };
 
-  const handleCreate = () => {
-  
-    window.location.reload();
+  const handleCreate = async (event) => {
+    console.log(image)
+    event.preventDefault();
+
+      AdminService.postCreateAdmin(adminInfo).then(
+        () =>{
+          alert("added successfully")
+        },        
+        () =>{
+          alert("something went wrong")
+        }
+      )
+    
   };
 
   return (
     <div className='register'>
     <div className='register-photo-section'>
       <div className='register-profile-holder'>
-        <h2>Profil Photo</h2>
         <div className='register-profile-image'>
-          {imageUrl ? <img src={imageUrl} alt="Rengoku" /> : <img src="https://cdn.pixabay.com/photo/2017/11/10/04/47/user-2935373_960_720.png" alt="Rengoku" />}
+          {image ? <img src={URL.createObjectURL(image)} /> : <img src="https://cdn.pixabay.com/photo/2017/11/10/04/47/user-2935373_960_720.png" alt="Rengoku" />}
         </div>
       </div>
       <div className='register-buttons'>
-        <form>
-        <input type="text" placeholder="User ID" value={userId} onChange={(event) => setUserId(event.target.value)} />
-          <input type="file" name="image" onChange={handleImageUpload} />
-          <span id="file-selected"></span>
-        </form>
-        <button onClick={handleCreate}>Update</button>
+       <label htmlFor="file" className='choosefilebutton' ><DriveFolderUploadIcon className='uploadicon'/>Choose a File</label>
+       <input type="file" id='file' style={{display:'none'}} onChange={onchangeImage}/>
+
       </div>
     </div>
       <div className='register-profil-info'>
-        <div className='register-information-head'>
-        </div>
         <div className='register-information'>
-          <form action="">
-            <label for="ad">Name:</label>
-            <input type="text" />
-            <label for="soyad">Surname:</label>
-            <input type="text" />
-            <label for="email">E-mail:</label>
-            <input type="text" />
-            <label for="phone">Phone Number:</label>
-            <input type="text" />
-            <label for="phone">Address:</label>
-            <input type="text" />
-            <label for="sifre">Password:</label>
-            <input type="password" id="sifre" name="sifre" value="sifre123"></input>
-            <button type="button">Create</button>
+          <form onSubmit={handleCreate}>
+            <label htmlFor="ad">Name:</label>
+            <input type="text" onChange={(e) =>
+                  setAdminInfo({
+                    ...adminInfo,
+                    name: e.target.value,
+                  })
+                } />
+            <label htmlFor="soyad">Surname:</label>
+            <input type="text" onChange={(e) =>
+                  setAdminInfo({
+                    ...adminInfo,
+                    surname: e.target.value,
+                  })
+                }/>
+            <label htmlFor="email">E-mail:</label>
+            <input type="text" onChange={(e) =>
+                  setAdminInfo({
+                    ...adminInfo,
+                    email: e.target.value,
+                  })
+                }/>
+            <label htmlFor="phone">Phone Number:</label>
+            <input type="text" onChange={(e) =>
+                  setAdminInfo({
+                    ...adminInfo,
+                    name: e.target.value,
+                  })
+                }/>
+            <label htmlFor="address">Address:</label>
+            <input type="text" onChange={(e) =>
+                  setAdminInfo({
+                    ...adminInfo,
+                    address: e.target.value,
+                  })
+                }/>
+            <label htmlFor="sifre">Password:</label>
+            <input type="password" id="sifre" name="sifre"
+            onChange={(e) =>
+                  setAdminInfo({
+                    ...adminInfo,
+                    password: e.target.value,
+                  })
+                }></input>
+            <button type="submit" onClick={(e) =>
+                  setAdminInfo({
+                    ...adminInfo,
+                    avatar: image
+                  })
+                }>Create</button>
           </form>
         </div>
       </div>
