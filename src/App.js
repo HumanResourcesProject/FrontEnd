@@ -13,6 +13,7 @@ const App = () => {
       <Route path ="/managerlistpage" element={<AdminListPage/>}/>
       <Route path ="/workerlistpage" element={<AdminListPage/>}/>
       <Route path ="/adminprofilpage" element={<AdminProfilPage/>}/>
+      {/* routelar düzelmesi lazım  */}
       <Route path="*" element={<Navigate to="/"/>} />
     </Routes>
     

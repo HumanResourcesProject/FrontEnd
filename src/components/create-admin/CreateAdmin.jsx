@@ -93,7 +93,7 @@ const [adminInfo, setAdminInfo] = useState({
             <input type="text" onChange={(e) =>
                   setAdminInfo({
                     ...adminInfo,
-                    name: e.target.value,
+                    phone: e.target.value,
                   })
                 }/>
             <label htmlFor="address">Address:</label>
