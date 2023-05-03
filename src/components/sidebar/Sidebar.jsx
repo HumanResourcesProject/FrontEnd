@@ -28,7 +28,7 @@ const Sidebar = () => {
         <div className="sidebar-main">
           <ul className="sidebar-nav">
             <li><Link to="/adminprofilpage" className="link d-flex"><AccountCircleOutlinedIcon /><div>My Profile</div></Link></li>
-            <li><Link className="link d-flex"> <HowToRegOutlinedIcon /><div>Register</div></Link></li>
+            <li><Link to="/createadmin" className="link d-flex"> <HowToRegOutlinedIcon /><div>Register</div></Link></li>
             <li><Link to="/adminlistpage" className="link d-flex"><SupervisorAccountOutlinedIcon /><div>Admin List</div></Link></li>
             <li><Link to="/managerlistpage" className="link d-flex"><Groups3Icon /><div>Project Manager List</div></Link></li>
             <li><Link to="/workerlistpage" className="link d-flex"><EngineeringOutlinedIcon /><div>Worker List</div></Link></li>

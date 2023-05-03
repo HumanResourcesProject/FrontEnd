@@ -1,0 +1,70 @@
+.register{
+    margin: 30px;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    height: 500px;
+    .register-photo-section{
+        margin: 15px;
+        margin-left: 15px;
+        border-radius: 15%;
+        width: 30%;
+        height: 350px;
+        background-color:  #6699cc;
+        .register-profile-holder{
+            h2{
+                text-align: center;
+            }
+            .register-profile-image{
+            
+                img{
+                    height: 150px;
+                    margin-left: 30px;
+                    border-radius: 45%;
+                }
+            }
+        }
+        .register-buttons{
+            margin: 30px;
+            .selectButton{
+                margin-right: 8px;
+            }
+            .saveButton{
+                margin-left: 8px;
+            }
+        }
+    }
+    .register-profil-info{
+        margin-left: 120px;
+        display: flex;
+        flex-direction: column;
+        
+        
+        .register-information-head{
+            text-align: center;
+        }
+        .register-information{
+            display: none;
+            display: flex;
+            flex-direction: column;
+            form label {
+                display: inline-block;
+                width: 100px;
+                text-align: right;
+                margin-right: 10px;
+              }
+              form input {
+                background-color: wheat;
+                display: inline-block;
+                width: 200px;
+                margin-bottom: 10px;
+              }
+              button{
+                margin-left: 18px;
+                margin-right: 48px;
+              }
+            
+        }
+
+    }
+}
+
