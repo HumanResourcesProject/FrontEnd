@@ -1,175 +1,66 @@
-import React, { useMemo } from "react";
+import React, { useMemo,useState,useEffect } from "react";
 import MaterialReactTable from "material-react-table";
 import "./tableAdmin.scss";
+import AdminService from "../../service/AdminService";
+import {
+  Box
+} from '@mui/material';
 
-const data = [
-  {
-    name: {
-      firstName: "John",
-      lastName: "Doe",
-    },
-    address: "261 Erdman Ford",
-    city: "East Daphne",
-    state: "Kentucky",
-  },
-  {
-    name: {
-      firstName: "Jane",
-      lastName: "Doe",
-    },
-    address: "769 Dominic Grove",
-    city: "Columbus",
-    state: "Ohio",
-  },
-  {
-    name: {
-      firstName: "Joe",
-      lastName: "Doe",
-    },
-    address: "566 Brakus Inlet",
-    city: "South Linda",
-    state: "West Virginia",
-  },
-  {
-    name: {
-      firstName: "Kevin",
-      lastName: "Vandy",
-    },
-    address: "722 Emie Stream",
-    city: "Lincoln",
-    state: "Nebraska",
-  },
-  {
-    name: {
-      firstName: "Joshua",
-      lastName: "Rolluffs",
-    },
-    address: "32188 Larkin Turnpike",
-    city: "Charleston",
-    state: "South Carolina",
-  },
-  {
-    name: {
-      firstName: "John",
-      lastName: "Doe",
-    },
-    address: "261 Erdman Ford",
-    city: "East Daphne",
-    state: "Kentucky",
-  },
-  {
-    name: {
-      firstName: "Jane",
-      lastName: "Doe",
-    },
-    address: "769 Dominic Grove",
-    city: "Columbus",
-    state: "Ohio",
-  },
-  {
-    name: {
-      firstName: "Joe",
-      lastName: "Doe",
-    },
-    address: "566 Brakus Inlet",
-    city: "South Linda",
-    state: "West Virginia",
-  },
-  {
-    name: {
-      firstName: "Kevin",
-      lastName: "Vandy",
-    },
-    address: "722 Emie Stream",
-    city: "Lincoln",
-    state: "Nebraska",
-  },
-  {
-    name: {
-      firstName: "Joshua",
-      lastName: "Rolluffs",
-    },
-    address: "32188 Larkin Turnpike",
-    city: "Charleston",
-    state: "South Carolina",
-  },
-  {
-    name: {
-      firstName: "John",
-      lastName: "Doe",
-    },
-    address: "261 Erdman Ford",
-    city: "East Daphne",
-    state: "Kentucky",
-  },
-  {
-    name: {
-      firstName: "Jane",
-      lastName: "Doe",
-    },
-    address: "769 Dominic Grove",
-    city: "Columbus",
-    state: "Ohio",
-  },
-  {
-    name: {
-      firstName: "Joe",
-      lastName: "Doe",
-    },
-    address: "566 Brakus Inlet",
-    city: "South Linda",
-    state: "West Virginia",
-  },
-  {
-    name: {
-      firstName: "Kevin",
-      lastName: "Vandy",
-    },
-    address: "722 Emie Stream",
-    city: "Lincoln",
-    state: "Nebraska",
-  },
-  {
-    name: {
-      firstName: "Joshua",
-      lastName: "Rolluffs",
-    },
-    address: "32188 Larkin Turnpike",
-    city: "Charleston",
-    state: "South Carolina",
-  },
-];
 
 const TableAdmin = () => {
+  const [data2,setData] = useState([])
+  useEffect(() => {
+    AdminService.getAllAdmins().then((response) => {
+      setData(() => (response.data
+      ));
+    });
+  }, []);
+  
   const columns = useMemo(
     () => [
-      {
-        accessorKey: "name.firstName", 
-        header: "First Name",
-      },
-      {
-        accessorKey: "name.lastName",
-        header: "Last Name",
-      },
-      {
-        accessorKey: "address", 
-        header: "Address",
-      },
-      {
-        accessorKey: "city",
-        header: "City",
-      },
-      {
-        accessorKey: "state",
-        header: "State",
-      },
-    ],
+          {
+            accessorFn: (row) => `${row.title} ${row.title}`, //accessorFn used to join multiple data into a single cell
+            id: 'name', //id is still required when using accessorFn instead of accessorKey
+            header: 'Name',
+            size: 250,
+            Cell: ({ renderedCellValue, row }) => (
+              <Box
+                sx={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '1rem',
+                }}
+              >
+                <img
+                  alt="avatar"
+                  height={30}
+                  src={row.original.thumbnailUrl}
+                  loading="lazy"
+                  style={{ borderRadius: '50%' }}
+                />
+                {/* using renderedCellValue instead of cell.getValue() preserves filter match highlighting */}
+                <span>{renderedCellValue}</span>
+              </Box>
+            ),
+          },
+          {
+            accessorKey: 'title', //accessorKey used to define `data` column. `id` gets set to accessorKey automatically
+            enableClickToCopy: true,
+            header: 'Email',
+            size: 300,
+          },
+        ],
+      
     []
   );
 
   return (
     <div className="table-admin">
-      <MaterialReactTable  columns={columns} data={data} />
+      <MaterialReactTable  
+        columns={columns} 
+        data={data2} 
+        
+        />
     </div>
   );
 };

@@ -1,8 +1,8 @@
 import React from "react";
 import Header from "../../components/header/Header";
 import Sidebar from "../../components/sidebar/Sidebar";
-import AdminProfil from "../../components/adminProfil/AdminProfil"
-import "./adminprofilpage.scss"
+import AdminProfil from "../../components/adminProfil/AdminProfil";
+import "./adminprofilpage.scss";
 
 const AdminProfilPage = () => {
   return (
