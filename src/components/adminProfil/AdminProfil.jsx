@@ -1,9 +1,17 @@
 import React from 'react'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 import './adminProfil.scss'
 
 const ProfilPage = () => {
+  const [admin, setAdmin] = useState([]);
+  
+  useEffect(() => {
+    axios.get('http://localhost:7070/admin/getadmin?id=1').then((response) => {
+      setAdmin(response.data);
+    });
+  }, []);
+
   const update = () => {
     const gizlenecekDiv = document.getElementById('gizlenecekDiv')
     const gosterilecekDiv = document.getElementById('gosterilecekDiv')
@@ -13,22 +21,44 @@ const ProfilPage = () => {
   const refresh = () => {
     window.location.reload()
   }
-  const [imageUrl, setImageUrl] = useState('');
-  const [userId, setUserId] = useState('');
+// Burası pp update http://localhost:7070/admin/imagescloud?id=1
+const [selectedFile, setSelectedFile] = useState(null);
+const handleImageUpload = (event) => {
+  const formData = new FormData();
+  formData.append('file', selectedFile);
+  
+  axios.post('http://localhost:7070/admin/imagescloud?id=1', formData)
+  .then(() => {
+    console.log("Profil fotoğrafı başarıyla yüklendi ve database'e kaydedildi.");
+  })
+  .catch((error) => {
+    console.log(error);
+  });
+};
+// Burası pd update http://localhost:7070/admin/updateadmin?id=1'
+const [adminInfo, setAdminInfo] = useState({ 
+  id: "",
+  phone: "",
+  address: "",
+});
 
-  const handleImageUpload = (event) => {
-    const formData = new FormData();
-    formData.append('file', event.target.files[0]);
-    formData.append('id', userId);
+const handleSubmit = (event) => {
+  event.preventDefault();
 
-    axios.post('http://localhost:7070/admin/imagescloud', formData)
-      .then(response => setImageUrl(response.data.imageUrl))
-      .catch(error => console.log(error));
-  };
+  axios.post('http://localhost:7070/admin/updateadmin', adminInfo,{headers:{
+    "Content-Type": 'application/json'
+  }
 
-  const handleUpdate = () => {
-    window.location.reload();
-  };
+  })
+    .then((response) => {
+      console.log('Başarılı:', response);
+    })
+    .catch((error) => {
+      // alert(adminInfo);
+      console.log(adminInfo);
+      console.log('Hata:', error);
+    });
+};
 
   return (
     <div className='profil'>
@@ -36,16 +66,14 @@ const ProfilPage = () => {
       <div className='profileHolder'>
         <h2>Profil Photo</h2>
         <div className='profileImage'>
-          {imageUrl ? <img src={imageUrl} alt="Rengoku" /> : <img src="https://cdn.pixabay.com/photo/2017/11/10/04/47/user-2935373_960_720.png" alt="Rengoku" />}
+          {admin.avatar ? <img src={admin.avatar} alt="Rengoku" /> : <img src="https://cdn.pixabay.com/photo/2017/11/10/04/47/user-2935373_960_720.png" alt="Rengoku" />}
         </div>
       </div>
       <div className='buttons'>
-        <form>
-        <input type="text" placeholder="User ID" value={userId} onChange={(event) => setUserId(event.target.value)} />
-          <input type="file" name="image" onChange={handleImageUpload} />
-          <span id="file-selected"></span>
+        <form onSubmit={handleImageUpload}>
+          <input type="file" onChange={event => setSelectedFile(event.target.files[0])} />
+          <button type="button" onClick={handleImageUpload}>Upload</button>
         </form>
-        <button onClick={handleUpdate}>Update</button>
       </div>
     </div>
       <div className='profilInfo'>
@@ -53,34 +81,50 @@ const ProfilPage = () => {
           <h2>Profil Information</h2>
         </div>
         <div id="gizlenecekDiv" className='information'>
-          <form action="">
-            <label for="ad">Name:</label>
-            <p>John</p><br />
-            <label for="soyad">Surname:</label>
-            <p>Doe</p><br />
-            <label for="email">E-mail:</label>
-            <p>johndoe@example.com </p><br />
-            <label for="phone">Phone number:</label>
-            <p>+905413529614 </p><br />
-            <label for="phone">Address:</label>
-            <p>Etimesgut/Ankara</p><br />
-            <label for="email">E-posta:</label>
-            <p>johndoe@example.com </p><br />
-            <label for="sifre">Şifre:</label>
-            <input type="password" id="sifre" name="sifre" value="sifre123"></input><br />
-            <button type="button" onClick={update}>Update</button>
-          </form>
+        <form action="">
+          <label htmlFor="name">Name:</label>
+          <p>{admin.name}</p>
+          <br />
+          <label htmlFor="surname">Surname:</label>
+          <p>{admin.surname}</p>
+          <br />
+          <label htmlFor="email">E-mail:</label>
+          <p>{admin.email}</p>
+          <br />
+          <label htmlFor="phone">Phone number:</label>
+          <p>{admin.phone}</p>
+          <br />
+          <label htmlFor="address">Address:</label>
+          <p>{admin.address}</p>
+          <br />
+          <button type="button" onClick={update}>Update</button>
+        </form>
         </div>
         <div id="gosterilecekDiv" className='information'>
-          <form action="">
-
-            <label for="phone">Phone number:</label>
-            <input type="tel" id="phone" name="phone" placeholder='Enter Phone number' /><br /><br />
-            <label for="address">Address:</label>
-            <input type="text" id="address" name="address" placeholder='Enter Address' /><br /><br />
-
-            <button type="button" onClick={refresh}>Update Informations</button>
-            <button type='button' onClick={refresh}>Cancel</button>
+          <form onSubmit={handleSubmit}>
+        <label htmlFor="id">Id:</label>
+        <input type="text" id="id" name="id" placeholder='Enter id' onChange={(e) =>
+                  setAdminInfo({
+                    ...adminInfo,
+                    id: e.target.value,
+                  })
+                } /><br /><br />
+        <label htmlFor="phone">Phone number:</label>
+        <input type="text" id="phone" name="phone" placeholder='Enter Phone number' onChange={(e) =>
+                  setAdminInfo({
+                    ...adminInfo,
+                    phone: e.target.value,
+                  })
+                } /><br /><br />
+        <label htmlFor="address">Address:</label>
+        <input type="text" id="address" name="address" value={adminInfo.address} placeholder='Enter Address' onChange={(e) =>
+                  setAdminInfo({
+                    ...adminInfo,
+                    address: e.target.value,
+                  })
+                } /><br /><br />
+        <button type="submit">Update Information</button>
+        <button type='button' onClick={refresh}>Cancel</button>
           </form>
         </div>
       </div>
