@@ -10,8 +10,13 @@ class AdminService{
     }
 
 
-    postCreateAdmin(){
-        return axios.post(CREATE_ADMIN)
+    postCreateAdmin(admin){
+        return axios.post(CREATE_ADMIN, admin,{
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            }
+        });
+
     }
 }
 
