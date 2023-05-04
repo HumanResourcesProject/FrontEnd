@@ -4,6 +4,7 @@ import axios from 'axios';
 import './createAdmin.scss'
 import DriveFolderUploadIcon from '@mui/icons-material/DriveFolderUpload';
 import AdminService from '../../service/AdminService';
+import { colors } from '@mui/material';
 
 const ProfilPage = () => {
 
@@ -23,7 +24,7 @@ const [adminInfo, setAdminInfo] = useState({
   const onchangeImage = (e) => {
     const file = e.target.files[0];
     setImage(file);
-    alert(image)
+    
   }
 
   const handleImageUpload = (event) => {
@@ -37,7 +38,7 @@ const [adminInfo, setAdminInfo] = useState({
   };
 
   const handleCreate = async (event) => {
-    console.log(image)
+    
     event.preventDefault();
 
       AdminService.postCreateAdmin(adminInfo).then(
@@ -61,7 +62,7 @@ const [adminInfo, setAdminInfo] = useState({
       </div>
       <div className='register-buttons'>
        <label htmlFor="file" className='choosefilebutton' ><DriveFolderUploadIcon className='uploadicon'/>Choose a File</label>
-       <input type="file" id='file' style={{display:'none'}} onChange={onchangeImage}/>
+       <input type="file" id='file' style={{display:'none' }} onChange={onchangeImage}/>
 
       </div>
     </div>
@@ -93,7 +94,7 @@ const [adminInfo, setAdminInfo] = useState({
             <input type="text" onChange={(e) =>
                   setAdminInfo({
                     ...adminInfo,
-                    name: e.target.value,
+                    phone: e.target.value,
                   })
                 }/>
             <label htmlFor="address">Address:</label>

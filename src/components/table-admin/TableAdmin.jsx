@@ -7,19 +7,21 @@ import {
 } from '@mui/material';
 
 
+
 const TableAdmin = () => {
   const [data2,setData] = useState([])
   useEffect(() => {
     AdminService.getAllAdmins().then((response) => {
       setData(() => (response.data
       ));
+      
     });
   }, []);
   
   const columns = useMemo(
     () => [
           {
-            accessorFn: (row) => `${row.title} ${row.title}`, //accessorFn used to join multiple data into a single cell
+            accessorFn: (row) => `${row.name} `, //accessorFn used to join multiple data into a single cell
             id: 'name', //id is still required when using accessorFn instead of accessorKey
             header: 'Name',
             size: 250,
@@ -33,10 +35,12 @@ const TableAdmin = () => {
               >
                 <img
                   alt="avatar"
-                  height={30}
-                  src={row.original.thumbnailUrl}
+                  
+                  width={40}
+                  height={40}
+                  src={row.original.avatar}
                   loading="lazy"
-                  style={{ borderRadius: '50%' }}
+                  style={{ borderRadius: '50%', objectFit: 'cover'}}
                 />
                 {/* using renderedCellValue instead of cell.getValue() preserves filter match highlighting */}
                 <span>{renderedCellValue}</span>
@@ -44,9 +48,27 @@ const TableAdmin = () => {
             ),
           },
           {
-            accessorKey: 'title', //accessorKey used to define `data` column. `id` gets set to accessorKey automatically
+            accessorKey: 'surname', //accessorKey used to define `data` column. `id` gets set to accessorKey automatically
+            enableClickToCopy: true,
+            header: 'Surname',
+            size: 300,
+          },
+          {
+            accessorKey: 'address', //accessorKey used to define `data` column. `id` gets set to accessorKey automatically
             enableClickToCopy: true,
             header: 'Email',
+            size: 300,
+          },
+          {
+            accessorKey: 'email', //accessorKey used to define `data` column. `id` gets set to accessorKey automatically
+            enableClickToCopy: true,
+            header: 'Phone',
+            size: 300,
+          },
+          {
+            accessorKey: 'phone', //accessorKey used to define `data` column. `id` gets set to accessorKey automatically
+            enableClickToCopy: true,
+            header: 'Address',
             size: 300,
           },
         ],

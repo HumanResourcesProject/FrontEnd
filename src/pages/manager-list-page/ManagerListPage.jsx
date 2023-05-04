@@ -12,7 +12,7 @@ const ManagerListPage = () => {
       </div>
       <div className="admin-right">
         <Header />
-        <TableAdmin/>
+        
       </div> 
    
     </div>
