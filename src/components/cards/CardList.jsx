@@ -5,7 +5,7 @@ import "./card.scss";
 const CardList = ({ people }) => {
     return (
 <div className='cardlistcontainer'>
-    {people.map((person) => <Card userData={person} />)}
+    {people.map((person,index) => <Card userData={person} key={index}/>)}
 </div>
     )
 }
