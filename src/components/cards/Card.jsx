@@ -5,12 +5,12 @@ import ManageAccountsIcon from "@mui/icons-material/ManageAccounts";
 import DeleteIcon from "@mui/icons-material/Delete";
 import MailOutlineIcon from "@mui/icons-material/MailOutline";
 
-const Card = () => {
+const Card = ({userData}) => {
   return (
       <div className="widget-user-mini">
-        <div className="widget-user-header-mini bg-info">
-          <h3 className="widget-user-username-mini">Alexander Pierce</h3>
-          <h5 className="widget-user-desc-mini">Founder & CEO</h5>
+        <div className="widget-user-header-mini ">
+          <h3 className="widget-user-username-mini">{userData.name}</h3>
+          <h5 className="widget-user-desc-mini">Admin</h5>
         </div>
         <div className="img-cropper-mini">
           <img
