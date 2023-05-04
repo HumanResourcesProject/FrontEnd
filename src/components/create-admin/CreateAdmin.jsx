@@ -4,8 +4,8 @@ import axios from 'axios';
 import './createAdmin.scss'
 import DriveFolderUploadIcon from '@mui/icons-material/DriveFolderUpload';
 import AdminService from '../../service/AdminService';
-import { colors } from '@mui/material';
-import avatar from '../../images/avatar.png'
+
+
 const ProfilPage = () => {
 
   const [imageUrl, setImageUrl] = useState('');
@@ -40,7 +40,14 @@ const [adminInfo, setAdminInfo] = useState({
 
  
     event.preventDefault();
-   
+
+    if(image === "https://cdn.pixabay.com/photo/2017/11/10/04/47/user-2935373_960_720.png"){
+      const newImage = URL.createObjectURL(image)
+        setAdminInfo({
+          ...adminInfo,
+          avatar: newImage
+        })
+    }
 
       AdminService.postCreateAdmin(adminInfo).then(
         () =>{
@@ -92,7 +99,7 @@ const [adminInfo, setAdminInfo] = useState({
                   })
                 }/>
             <label htmlFor="phone">Phone Number:</label>
-            <input type="text" onChange={(e) =>
+            <input type="number" onChange={(e) =>
                   setAdminInfo({
                     ...adminInfo,
                     phone: e.target.value,
