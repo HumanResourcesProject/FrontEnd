@@ -35,28 +35,26 @@ const handleImageUpload = (event) => {
     console.log(error);
   });
 };
-// Burası pd update http://localhost:7070/admin/updateadmin?id=1'
-const [adminInfo, setAdminInfo] = useState({ 
-  id: "",
-  phone: "",
-  address: "",
-});
+// Burası pd update http://localhost:7070/admin/updateadmin'
+const [id, setId] = useState("");
+  const [phone, setPhone] = useState("");
+  const [address, setAddress] = useState("");
 
 const handleSubmit = (event) => {
   event.preventDefault();
+  const data = { id: id, phone: phone, address: address };
 
-  axios.post('http://localhost:7070/admin/updateadmin', adminInfo,{headers:{
-    "Content-Type": 'application/json'
-  }
-
-  })
+  axios.put('http://localhost:7070/admin/updateadmin', data)
     .then((response) => {
-      console.log('Başarılı:', response);
+      console.log(response);
+      alert("Admin updated successfully!");
+      setId("");
+      setPhone("");
+      setAddress("");
     })
     .catch((error) => {
-      // alert(adminInfo);
-      console.log(adminInfo);
-      console.log('Hata:', error);
+      console.log(error);
+        alert("An error occurred while updating the admin.");
     });
 };
 
@@ -101,31 +99,25 @@ const handleSubmit = (event) => {
         </form>
         </div>
         <div id="gosterilecekDiv" className='information'>
-          <form onSubmit={handleSubmit}>
-        <label htmlFor="id">Id:</label>
-        <input type="text" id="id" name="id" placeholder='Enter id' onChange={(e) =>
-                  setAdminInfo({
-                    ...adminInfo,
-                    id: e.target.value,
-                  })
-                } /><br /><br />
-        <label htmlFor="phone">Phone number:</label>
-        <input type="text" id="phone" name="phone" placeholder='Enter Phone number' onChange={(e) =>
-                  setAdminInfo({
-                    ...adminInfo,
-                    phone: e.target.value,
-                  })
-                } /><br /><br />
-        <label htmlFor="address">Address:</label>
-        <input type="text" id="address" name="address" value={adminInfo.address} placeholder='Enter Address' onChange={(e) =>
-                  setAdminInfo({
-                    ...adminInfo,
-                    address: e.target.value,
-                  })
-                } /><br /><br />
-        <button type="submit">Update Information</button>
-        <button type='button' onClick={refresh}>Cancel</button>
-          </form>
+        <form onSubmit={handleSubmit}>
+      <label>
+        Id:
+        <input type="text" value={id} onChange={(e) => setId(e.target.value)} />
+      </label>
+      <br />
+      <label>
+        Phone:
+        <input type="text" value={phone} onChange={(e) => setPhone(e.target.value)} />
+      </label>
+      <br />
+      <label>
+        Address:
+        <input type="text" value={address} onChange={(e) => setAddress(e.target.value)} />
+      </label>
+      <br />
+      <button type="submit">Update Admin</button>
+      <button type='button' onClick={refresh}>Cancel</button>
+    </form>
         </div>
       </div>
     </div>
