@@ -1,15 +1,21 @@
 import React from "react";
-import { useState } from "react";
 import Box from "@mui/material/Box";
 import Popper from "@mui/material/Popper";
 import Fade from "@mui/material/Fade";
+import { unstable_styleFunctionSx } from '@mui/system';
+import { createTheme } from '@mui/material/styles';
 
 import "./card.scss";
 import ManageAccountsIcon from "@mui/icons-material/ManageAccounts";
 import DeleteIcon from "@mui/icons-material/Delete";
 import MailOutlineIcon from "@mui/icons-material/MailOutline";
+import styled from "@emotion/styled";
 
 const Card = ({ userData }) => {
+  const theme = createTheme();
+
+  const P = styled('p')(unstable_styleFunctionSx);
+
   const [open, setOpen] = React.useState(false);
   const [anchorEl, setAnchorEl] = React.useState(null);
 
@@ -41,18 +47,21 @@ const Card = ({ userData }) => {
               className="mailicon cardicons"
               onClick={handleClick}
             />
-              <Popper id={id} open={open} anchorEl={anchorEl} transition>
-                {({ TransitionProps }) => (
-                  <Fade {...TransitionProps} timeout={350}>
-                    <Box>
-                      <p className="popperheader">Phone:</p>
-                      <p className="popperexplain">{userData.phone}</p>
-                      <p className="popperheader">Email:</p>
-                      <p className="popperexplain">{userData.email}</p>
-                    </Box>
-                  </Fade>
-                )}
-              </Popper>
+            <Popper id={id} open={open} anchorEl={anchorEl} transition>
+              {({ TransitionProps }) => (
+                <Fade {...TransitionProps} timeout={350}>
+                  <Box
+                    sx={{ border: 1, p: 1, bgcolor: "background.paper"  }}
+                    className="popperbox"
+                  >
+                    <P sx={{  fontWeight: 'bold'}} >Phone:</P>
+                    <P  >{userData.phone}</P>
+                    <P sx={{  fontWeight: 'bold'}}>Email:</P>
+                    <P>{userData.email}</P>
+                  </Box>
+                </Fade>
+              )}
+            </Popper>
           </div>
 
           <div className="description-block-mini border-leftright-mini">
