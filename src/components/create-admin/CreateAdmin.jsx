@@ -90,10 +90,10 @@ const [adminInfo, setAdminInfo] = useState({
                   })
                 }/>
             <label htmlFor="phone">Phone Number:</label>
-            <input type="text" onChange={(e) =>
+            <input type="number" onChange={(e) =>
                   setAdminInfo({
                     ...adminInfo,
-                    name: e.target.value,
+                    phone: e.target.value,
                   })
                 }/>
             <label htmlFor="address">Address:</label>
