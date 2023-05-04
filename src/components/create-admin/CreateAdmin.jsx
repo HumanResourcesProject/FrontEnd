@@ -4,7 +4,7 @@ import axios from 'axios';
 import './createAdmin.scss'
 import DriveFolderUploadIcon from '@mui/icons-material/DriveFolderUpload';
 import AdminService from '../../service/AdminService';
-import { colors } from '@mui/material';
+
 
 const ProfilPage = () => {
 
