@@ -19,27 +19,32 @@ const ProfilPage = () => {
     gosterilecekDiv.style.display = "block";
   };
   const refresh = () => {
-    window.location.reload();
-  };
-  // Burası pp update http://localhost:7070/admin/imagescloud?id=1
-  const [selectedFile, setSelectedFile] = useState(null);
-  const handleImageUpload = (event) => {
-    const formData = new FormData();
-    formData.append("file", selectedFile);
-
-    axios
-      .post("http://localhost:7070/admin/imagescloud?id=1", formData)
-      .then(() => {
-        console.log(
-          "Profil fotoğrafı başarıyla yüklendi ve database'e kaydedildi."
-        );
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
-  // Burası pd update http://localhost:7070/admin/updateadmin'
-  const [id, setId] = useState("");
+    window.location.reload()
+  }
+// Burası pp update http://localhost:7070/admin/imagescloud?id=1
+const [selectedFile, setSelectedFile] = useState(null);
+const [imageUrl, setImageUrl] = useState(null);
+const [loading, setLoading] = useState(false);
+const handleImageUpload = (event) => {
+  event.preventDefault();
+  setLoading(true);
+  const formData = new FormData();
+  formData.append('file', selectedFile);
+  
+  axios.post('http://localhost:7070/admin/imagescloud?id=1', formData)
+  .then((response) => {
+    console.log("Profil fotoğrafı başarıyla yüklendi ve database'e kaydedildi.");
+    setTimeout(() => window.location.reload(), 1000);
+    setLoading(false);
+    setImageUrl(response.data.imageUrl);
+  })
+  .catch((error) => {
+    console.log(error);
+    setLoading(false);
+  });
+};
+// Burası pd update http://localhost:7070/admin/updateadmin'
+const [id, setId] = useState("");
   const [phone, setPhone] = useState("");
   const [address, setAddress] = useState("");
 
@@ -67,20 +72,12 @@ const ProfilPage = () => {
   };
 
   return (
-    <div className="profil">
-      <div className="photoSection">
-        <div className="profileHolder">
-          <h2>Profil Photo</h2>
-          <div className="profileImage">
-            {admin.avatar ? (
-              <img src={admin.avatar} alt="Rengoku" />
-            ) : (
-              <img
-                src="https://cdn.pixabay.com/photo/2017/11/10/04/47/user-2935373_960_720.png"
-                alt="Rengoku"
-              />
-            )}
-          </div>
+    <div className='profil'>
+    <div className='photoSection'>
+      <div className='profileHolder'>
+        <h2>Profil Photo</h2>
+        <div className='profileImage'>
+          {imageUrl  ? <img src={imageUrl} alt="Rengoku" /> : <img src={admin.avatar} alt="Rengoku" />}
         </div>
         <div className="buttons">
           <form onSubmit={handleImageUpload}>
@@ -91,7 +88,8 @@ const ProfilPage = () => {
             <button type="button" onClick={handleImageUpload}>
               Upload
             </button>
-          </form>
+            {loading && <span>Yükleniyor...</span>}
+        </form>
         </div>
       </div>
       <div className="profilInfo">
@@ -177,4 +175,4 @@ const ProfilPage = () => {
     </div>
   );
 };
-export default ProfilPage;
+export default ProfilPage
