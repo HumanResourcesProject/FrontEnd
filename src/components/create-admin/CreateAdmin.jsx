@@ -5,7 +5,7 @@ import './createAdmin.scss'
 import DriveFolderUploadIcon from '@mui/icons-material/DriveFolderUpload';
 import AdminService from '../../service/AdminService';
 import { colors } from '@mui/material';
-
+import avatar from '../../images/avatar.png'
 const ProfilPage = () => {
 
   const [imageUrl, setImageUrl] = useState('');
@@ -24,8 +24,7 @@ const [adminInfo, setAdminInfo] = useState({
   const onchangeImage = (e) => {
     const file = e.target.files[0];
     setImage(file);
-    
-  }
+      }
 
   const handleImageUpload = (event) => {
     const formData = new FormData();
@@ -38,17 +37,19 @@ const [adminInfo, setAdminInfo] = useState({
   };
 
   const handleCreate = async (event) => {
-    
+
+ 
     event.preventDefault();
+   
 
       AdminService.postCreateAdmin(adminInfo).then(
         () =>{
-          alert("added successfully")
-        },        
-        () =>{
-          alert("something went wrong")
-        }
-      )
+          
+          alert("added successfully *****")
+        })       
+        .catch((error) => {
+          alert(error.response.data.message+"isterler: password 3'den asaği olmucak ... mail: gmail.com ile bitecek.... telefon sadece numara olmalı... hicbir alan bos gecilemez");
+        });
     
   };
 

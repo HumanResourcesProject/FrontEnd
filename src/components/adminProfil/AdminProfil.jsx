@@ -7,7 +7,8 @@ const ProfilPage = () => {
   const [admin, setAdmin] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:7070/admin/getadmin?id=1").then((response) => {
+    axios.get("http://localhost:7070/admin/getadmin?id=1")
+    .then((response) => {
       setAdmin(response.data);
     });
   }, []);
@@ -67,7 +68,7 @@ const [id, setId] = useState("");
       })
       .catch((error) => {
         console.log(error);
-        alert("An error occurred while updating the admin.");
+        alert(error.response.data.message);
       });
   };
 
