@@ -173,6 +173,7 @@ const [id, setId] = useState("");
         </div>
       </div>
     </div>
+    </div>
   );
 };
 export default ProfilPage
