@@ -5,7 +5,7 @@ import AdminService from "../../service/AdminService";
 import {
   Box
 } from '@mui/material';
-import { Margin } from "@mui/icons-material";
+
 
 
 const TableAdmin = () => {
@@ -14,7 +14,7 @@ const TableAdmin = () => {
     AdminService.getAllAdmins().then((response) => {
       setData(() => (response.data
       ));
-      console.log(response);
+      
     });
   }, []);
   
