@@ -58,7 +58,11 @@ const [id, setId] = useState("");
     };
 
     axios
-      .put("http://localhost:7070/admin/updateadmin", data)
+      .put("http://localhost:7070/admin/updateadmin", data, {
+        headers: {
+          'Content-Type': 'application/json'
+      }
+      })
       .then((response) => {
         console.log(response);
         alert("Admin updated successfully!");
