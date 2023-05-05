@@ -56,7 +56,7 @@ const [id, setId] = useState("");
       phone: phone,
       address: address,
     };
-
+    console.log(data);
     axios
       .put("http://localhost:7070/admin/updateadmin", data, {
         headers: {
