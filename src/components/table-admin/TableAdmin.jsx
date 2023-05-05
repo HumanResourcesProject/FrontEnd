@@ -62,7 +62,7 @@ const TableAdmin = () => {
           {
             accessorKey: 'email', //accessorKey used to define `data` column. `id` gets set to accessorKey automatically
             enableClickToCopy: true,
-            header: 'Email',
+            header: 'E-Mail',
             size: 300,
           },
           {
