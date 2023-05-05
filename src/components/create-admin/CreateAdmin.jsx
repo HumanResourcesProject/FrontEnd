@@ -24,8 +24,7 @@ const [adminInfo, setAdminInfo] = useState({
   const onchangeImage = (e) => {
     const file = e.target.files[0];
     setImage(file);
-    
-  }
+      }
 
 
   const handleCreate = async (event) => {
@@ -36,13 +35,13 @@ const [adminInfo, setAdminInfo] = useState({
 
       AdminService.postCreateAdmin(adminInfo).then(
         () =>{
-
-          alert("added successfully *")
-        })
+          
+          alert("added successfully *****")
+        })       
         .catch((error) => {
           alert(error.response.data.message+"isterler: password 3'den asaği olmucak ... mail: gmail.com ile bitecek.... telefon sadece numara olmalı... hicbir alan bos gecilemez");
         });
-
+    
   };
 
 
