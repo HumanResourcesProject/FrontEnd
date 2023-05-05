@@ -2,6 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import "./adminProfil.scss";
+import AdminService from "../../service/AdminService";
 
 const ProfilPage = () => {
   const [admin, setAdmin] = useState([]);
@@ -31,8 +32,8 @@ const handleImageUpload = (event) => {
   const formData = new FormData();
   formData.append('file', selectedFile);
   
-  axios.post('http://localhost:7070/admin/imagescloud?id=1', formData)
-  .then((response) => {
+
+  AdminService.getFirstAdminInfo(formData).then((response) => {
     console.log("Profil fotoğrafı başarıyla yüklendi ve database'e kaydedildi.");
     setTimeout(() => window.location.reload(), 1000);
     setLoading(false);
