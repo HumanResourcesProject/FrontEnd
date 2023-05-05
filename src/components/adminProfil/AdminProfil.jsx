@@ -67,7 +67,7 @@ const [id, setId] = useState("");
       })
       .catch((error) => {
         console.log(error);
-        alert("An error occurred while updating the admin.");
+        alert(error.response.data.message);
       });
   };
 
