@@ -52,11 +52,11 @@ const [adminInfo, setAdminInfo] = useState({
       AdminService.postCreateAdmin(adminInfo).then(
         () =>{
           alert("added successfully")
-        },        
-        () =>{
-          alert("something went wrong")
-        }
-      )
+        }).catch((error)=>{
+          alert(error.response.data.message);
+        });
+       
+      
     
   };
 
