@@ -2,12 +2,13 @@ import React from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import "./adminProfil.scss";
+import AdminService from '../../service/AdminService';
 
 const ProfilPage = () => {
   const [admin, setAdmin] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:7070/admin/getadmin?id=1")
+    AdminService.getAdminInformations()
     .then((response) => {
       setAdmin(response.data);
     });
@@ -32,7 +33,7 @@ const handleImageUpload = (event) => {
   const formData = new FormData();
   formData.append('file', selectedFile);
   
-  axios.post('http://localhost:7070/admin/imagescloud?id=1', formData)
+  AdminService.getAdminProfilePhoto(formData)
   .then((response) => {
     console.log("Profil fotoğrafı başarıyla yüklendi ve database'e kaydedildi.");
     setTimeout(() => window.location.reload(), 1000);
@@ -57,16 +58,11 @@ const [id, setId] = useState("");
       address: address,
     };
 
-    axios
-      .put("http://localhost:7070/admin/updateadmin", data, {
-        headers: {
-          'Content-Type': 'application/json'
-      }
-      })
+    AdminService.updateAdminInfo(data)
       .then((response) => {
         console.log(response);
         alert("Admin updated successfully!");
-        setId("");
+        setId(""); // Kaldırılacak
         setPhone("");
         setAddress("");
       })
@@ -136,7 +132,8 @@ const [id, setId] = useState("");
         <div id="gosterilecekDiv" className="informationsecret">
           <form onSubmit={handleSubmit}>
             <div className="input-profile">
-              <label>
+            {/* ID BOLUMU Kaldırılacak */}
+              <label> 
                 Id:
               </label>
                 <input
