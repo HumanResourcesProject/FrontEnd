@@ -108,19 +108,27 @@ body{
       
     } 
   }
-  .logout{
-    display: flex;
-    align-items: center;
-    padding-left: 2rem;
-    border-top: 1px solid rgb(102, 102, 102);
-    height: 70px;
-    &:hover{
-      background-color: rgb(112, 110, 110);
+  .lg{
+    .linklogout{
+      text-decoration: none;
+      .logout{
+        display: flex;
+        align-items: center;
+        padding-left: 2rem;
+        border-top: 1px solid rgb(102, 102, 102);
+        height: 70px;
+        
+        &:hover{
+          background-color: rgb(112, 110, 110);
+        }
+        .lout{
+          color: rgb(255, 255, 255);
+    
+        }
+      }
     }
-    .lout{
-      color: rgb(255, 255, 255);
-
-    }
+    
   }
+  
 }
 

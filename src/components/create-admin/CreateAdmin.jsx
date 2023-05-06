@@ -48,7 +48,7 @@ const [adminInfo, setAdminInfo] = useState({
           avatar: newImage
         })
     }
-
+      console.log(adminInfo);
       AdminService.postCreateAdmin(adminInfo).then(
         () =>{
           

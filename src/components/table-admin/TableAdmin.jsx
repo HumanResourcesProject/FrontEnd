@@ -80,7 +80,8 @@ const TableAdmin = () => {
     <div className="table-admin">
       <MaterialReactTable  
         columns={columns} 
-        data={data2} 
+        data={data2}
+        enableEditing={true} 
         
         />
     </div>
