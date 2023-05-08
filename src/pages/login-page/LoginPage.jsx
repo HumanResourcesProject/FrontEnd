@@ -1,17 +1,41 @@
 import React, {useState} from "react";
 import "./loginpage.scss";
 import loginpage from "../../images/19197061.jpg";
-import { Link } from "react-router-dom";
-
+import AuthService from "../../service/AuthService";
 
 export const LoginPage = () => {
     const[user,setUser] = useState({
         email: "",
         password: "",
     });
-    //AUTH SERVICE GELINCE BAGLANCAK !!!! SESSION STORAGE a response dan gelen token ı yollıcaz
     const handleSubmit = (e)=>{
         e.preventDefault();
+        console.log(user);
+        if(user.email === ""){
+          alert("Email can't be empty");
+          return;
+        }
+        if(user.password === ""){
+          alert("Password can't be empty");
+          return;
+        }
+        if(!user.email.includes('@')){
+          alert("Email should include @");
+          return;
+        }
+        AuthService.login(user).then((response)=>{
+          console.log(response);
+          if(response.data.code === "You have entered an invalid parameter"){
+            alert("Wrong email or password")
+          }else{
+              sessionStorage.setItem("token",response.data.token)
+              window.location.replace("http://localhost:3000/")
+              
+          }
+        }).catch((error)=> {
+          alert("Wrong email and password");
+          
+        });
         
     }
   return (
@@ -31,7 +55,7 @@ export const LoginPage = () => {
               <div className="group">
                 <input 
                 type="text"
-                onChange={(e) => setUser({ ...user, email: e.target.value})} 
+                onChange={(e) => setUser({ ...user, email: e.target.value})}
                 required
                  />
                 <span className="highlight"></span>
@@ -43,7 +67,7 @@ export const LoginPage = () => {
               <div className="group">
                 <input 
                 type="text" 
-                onChange={(e) => setUser({ ...user, email: e.target.value})} 
+                onChange={(e) => setUser({ ...user, password: e.target.value})} 
                 required />
                 <span className="highlight"></span>
                 <span className="bar"></span>
@@ -54,9 +78,9 @@ export const LoginPage = () => {
             </form>
           </div>
           <div className="login-bottom">
-            <Link to="/">
-              <button className="raise">Sign Up</button>
-            </Link>
+            
+              <button className="raise" onClick={handleSubmit}>Sign Up</button>
+            
           </div>
         </div>
       </div>
