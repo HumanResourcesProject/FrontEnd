@@ -40,7 +40,6 @@ const Sidebar = () => {
             </li>
             <li>
               <Link to="/createadmin" className="link d-flex">
-                {" "}
                 <HowToRegOutlinedIcon />
                 <div>Register</div>
               </Link>
