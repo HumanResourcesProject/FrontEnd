@@ -40,7 +40,6 @@ const Sidebar = () => {
             </li>
             <li>
               <Link to="/createadmin" className="link d-flex">
-                {" "}
                 <HowToRegOutlinedIcon />
                 <div>Register</div>
               </Link>
@@ -63,6 +62,15 @@ const Sidebar = () => {
                 <div>Worker List</div>
               </Link>
             </li>
+
+            <li>
+              <Link to="/companyregisterpage" className="link d-flex">
+                <EngineeringOutlinedIcon />
+                <div>company register </div>
+              </Link>
+            </li>
+
+
           </ul>
         </div>
       </div>

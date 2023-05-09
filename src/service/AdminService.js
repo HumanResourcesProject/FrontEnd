@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const FINDALL_ADMIN = "http://localhost:7070/admin/getalladmin";
+const FINDALL_ADMIN = "http://localhost:7979/auth/create";
 
 
 const CREATE_ADMIN = 'http://localhost:7070/admin/createadmin'
