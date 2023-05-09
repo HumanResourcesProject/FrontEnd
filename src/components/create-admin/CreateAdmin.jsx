@@ -1,15 +1,11 @@
 import React from 'react'
 import { useState } from 'react';
-import axios from 'axios';
 import './createAdmin.scss'
 import DriveFolderUploadIcon from '@mui/icons-material/DriveFolderUpload';
 import AdminService from '../../service/AdminService';
 
 
 const ProfilPage = () => {
-
-  const [imageUrl, setImageUrl] = useState('');
-  const [userId, setUserId] = useState('');
 
 const [adminInfo, setAdminInfo] = useState({
   name:"",
@@ -21,20 +17,11 @@ const [adminInfo, setAdminInfo] = useState({
   avatar:"",
 })
   const [image,setImage] = useState('');
+  
   const onchangeImage = (e) => {
     const file = e.target.files[0];
     setImage(file);
       }
-
-  const handleImageUpload = (event) => {
-    const formData = new FormData();
-    formData.append('file', event.target.files[0]);
-    formData.append('id', userId);
-
-    axios.post('http://localhost:7070/admin/imagescloud', formData)
-      .then(response => setImageUrl(response.data.imageUrl))
-      .catch(error => console.log(error));
-  };
 
   const handleCreate = async (event) => {
 

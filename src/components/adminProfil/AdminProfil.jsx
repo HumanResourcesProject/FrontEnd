@@ -1,6 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import axios from "axios";
+import PhoneInput from 'react-phone-number-input'
+import "./style.css";
 import "./adminProfil.scss";
 import AdminService from '../../service/AdminService';
 
@@ -147,12 +148,12 @@ const [id, setId] = useState("");
               <label>
                 Phone:
                 </label>
-                <input
-                  type="text"
+                <PhoneInput
+                  international
+                  defaultCountry="TR"
                   value={phone}
-                  onChange={(e) => setPhone(e.target.value)}
+                  onChange={setPhone}
                 />
-              
             </div>
             <div className="input-profile">
               <label>
