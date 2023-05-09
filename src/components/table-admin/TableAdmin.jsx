@@ -50,6 +50,7 @@ const TableAdmin = () => {
                 <span>{renderedCellValue}</span>
               </Box>
             ),
+            enableEditing:false 
           },
           {
             accessorKey: 'surname', //accessorKey used to define `data` column. `id` gets set to accessorKey automatically
