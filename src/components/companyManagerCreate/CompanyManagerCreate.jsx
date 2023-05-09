@@ -28,7 +28,7 @@ const CompanyManagerCreate = () => {
     phone:"",
     address:"",
   })
-  // 
+  // bir seyler yazdım buraya
   useEffect(() => {
     axios.get("https://example.com/api/findallcompanies").then((response) => {
       setCompanies(response.data);
