@@ -5,6 +5,8 @@ import AdminService from "../../service/AdminService";
 import {
   Box
 } from '@mui/material';
+import { Link } from "react-router-dom"
+
 
 
 
@@ -17,6 +19,8 @@ const TableAdmin = () => {
       
     });
   }, []);
+
+
   
   const columns = useMemo(
     () => [
@@ -46,43 +50,65 @@ const TableAdmin = () => {
                 <span>{renderedCellValue}</span>
               </Box>
             ),
+            enableEditing:false 
           },
           {
             accessorKey: 'surname', //accessorKey used to define `data` column. `id` gets set to accessorKey automatically
-            enableClickToCopy: true,
             header: 'Surname',
             size: 300,
+            enableEditing:false 
           },
           {
             accessorKey: 'address', //accessorKey used to define `data` column. `id` gets set to accessorKey automatically
-            enableClickToCopy: true,
             header: 'Address',
             size: 300,
+            enableEditing:true 
+
           },
           {
             accessorKey: 'email', //accessorKey used to define `data` column. `id` gets set to accessorKey automatically
-            enableClickToCopy: true,
             header: 'E-Mail',
             size: 300,
+            enableEditing:false 
+
           },
           {
             accessorKey: 'phone', //accessorKey used to define `data` column. `id` gets set to accessorKey automatically
-            enableClickToCopy: true,
             header: 'Phone',
             size: 300,
+            enableEditing:true 
+
           },
         ],
       
     []
   );
 
+  const [tableData, setTableData] = useState(() => data2);
+
+  const handleSaveRow = async ({ exitEditingMode, row, values }) => {
+    //if using flat data and simple accessorKeys/ids, you can just do a simple assignment here.
+    tableData[row._valuesCache] = values;
+    const rowData = {
+      "email" : row._valuesCache.email,
+      "phone" : row._valuesCache.phone,
+      "address" : row._valuesCache.address
+  }
+    //send/receive api updates here
+    AdminService.updateMethod(rowData);
+    //setTableData([...tableData]);
+    exitEditingMode(); 
+    window.location.reload();
+  };
+
   return (
     <div className="table-admin">
       <MaterialReactTable  
         columns={columns} 
-        data={data2}
+        data={data2} 
+        editingMode="modal"
         enableEditing={true} 
-        
+        onEditingRowSave={handleSaveRow}
         />
     </div>
   );

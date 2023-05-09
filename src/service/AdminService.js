@@ -11,6 +11,11 @@ class AdminService{
         return axios.get(FINDALL_ADMIN);
     }
 
+    updateMethod(data){
+        axios.put("http://localhost:7070/admin/updateadminbuse", data)
+    }
+    
+
     postCreateAdmin(admin){
         return axios.post(CREATE_ADMIN, admin,{
             headers: {
@@ -19,6 +24,8 @@ class AdminService{
         });
 
     }
+
+    
 }
 
 

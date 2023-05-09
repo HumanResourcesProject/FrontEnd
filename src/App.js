@@ -1,7 +1,7 @@
 import React from 'react'
-import AdminPage from './pages/admin-page/AdminPage'
+import AdminPage from './pages/admin-main-page/AdminPage'
 import { Routes, Route, Navigate} from "react-router-dom"
-import CreateAdminPage from './pages/create-admin-page/CreateAdminPage'
+import CreateAdminPage from './pages/admin-create-page/CreateAdminPage'
 import AdminListPage from './pages/admin-list-page/AdminListPage'
 import AdminProfilPage from './pages/admin-profil-page/AdminProfilPage'
 import { LoginPage } from './pages/login-page/LoginPage'

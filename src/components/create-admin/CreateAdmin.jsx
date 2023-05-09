@@ -26,15 +26,6 @@ const [adminInfo, setAdminInfo] = useState({
     setImage(file);
       }
 
-  const handleImageUpload = (event) => {
-    const formData = new FormData();
-    formData.append('file', event.target.files[0]);
-    formData.append('id', userId);
-
-    axios.post('http://localhost:7070/admin/imagescloud', formData)
-      .then(response => setImageUrl(response.data.imageUrl))
-      .catch(error => console.log(error));
-  };
 
   const handleCreate = async (event) => {
 
@@ -48,7 +39,7 @@ const [adminInfo, setAdminInfo] = useState({
           avatar: newImage
         })
     }
-      console.log(adminInfo);
+
       AdminService.postCreateAdmin(adminInfo).then(
         () =>{
           
@@ -59,6 +50,7 @@ const [adminInfo, setAdminInfo] = useState({
         });
     
   };
+
 
   return (
     <div className='register'>
@@ -99,7 +91,7 @@ const [adminInfo, setAdminInfo] = useState({
                   })
                 }/>
             <label htmlFor="phone">Phone Number:</label>
-            <input type="number" onChange={(e) =>
+            <input type="tel" onChange={(e) =>
                   setAdminInfo({
                     ...adminInfo,
                     phone: e.target.value,
