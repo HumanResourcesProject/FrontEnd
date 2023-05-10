@@ -15,6 +15,7 @@ const MainPage = () => {
     });
   }, []);
 
+  
   return (
     <div className="maincontainer">
       <div className="widget-user">

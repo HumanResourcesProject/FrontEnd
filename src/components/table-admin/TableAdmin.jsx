@@ -8,8 +8,6 @@ import {
 import { Link } from "react-router-dom"
 
 
-
-
 const TableAdmin = () => {
   const [data2,setData] = useState([])
   useEffect(() => {

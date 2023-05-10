@@ -8,32 +8,34 @@ export const LoginPage = () => {
         email: "",
         password: "",
     });
+    const[error,setError] = useState({
+      emailError: "",
+      passwordError: "",
+    })
     const handleSubmit = (e)=>{
         e.preventDefault();
         console.log(user);
         if(user.email === ""){
-          alert("Email can't be empty");
+          setError({...error, emailError: "E-mail can't be empty"})
           return;
         }
         if(user.password === ""){
-          alert("Password can't be empty");
+          setError({...error, passwordError: "Password can't be empty"})
           return;
         }
-        if(!user.email.includes('@')){
-          alert("Email should include @");
-          return;
-        }
+        
         AuthService.login(user).then((response)=>{
           console.log(response);
           if(response.data.code === "You have entered an invalid parameter"){
             alert("Wrong email or password")
           }else{
               sessionStorage.setItem("token",response.data.token)
-              window.location.replace("http://localhost:3000/")
+              window.location.replace("http://localhost:3000/") //navigate le sayfa değişir 
+              
               
           }
         }).catch((error)=> {
-          alert("Wrong email and password");
+          alert("Unexpected Error");
           
         });
         
@@ -61,6 +63,7 @@ export const LoginPage = () => {
                 <span className="highlight"></span>
                 <span className="bar"></span>
                 <label>Email</label>
+                <div className="error-email">{error.emailError}</div>
                 
                 
               </div>
@@ -72,6 +75,7 @@ export const LoginPage = () => {
                 <span className="highlight"></span>
                 <span className="bar"></span>
                 <label>Password</label>
+                <div className="error-password">{error.passwordError}</div>
                 <div className="forgot-password">Forgot Password?</div>
               </div>
 

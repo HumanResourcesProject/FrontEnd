@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState,useEffect } from "react";
 import "./sidebar.scss";
 import { Link } from "react-router-dom";
 import HowToRegOutlinedIcon from "@mui/icons-material/HowToRegOutlined";
@@ -7,7 +7,24 @@ import SupervisorAccountOutlinedIcon from "@mui/icons-material/SupervisorAccount
 import LogoutOutlinedIcon from "@mui/icons-material/LogoutOutlined";
 import EngineeringOutlinedIcon from "@mui/icons-material/EngineeringOutlined";
 import Groups3Icon from "@mui/icons-material/Groups3";
+import AdminService from "../../service/AdminService";
 const Sidebar = () => {
+  const [profil, setProfil] = useState([]);
+  const [token] = useState({
+    token: sessionStorage.getItem("token")
+  });
+
+  const profilpart = () => {
+    AdminService.postShortDetails(token).then((response) => {
+      setProfil(response.data);
+    });
+  };
+
+  useEffect(() => {
+    profilpart();
+  }, []);
+
+
   return (
     <aside className="full-sidebar">
       <div>
@@ -20,15 +37,7 @@ const Sidebar = () => {
             <p className="sidebar-title">HR Admin Page</p>
           </Link>
 
-          <div className="sidebar-admin-panel">
-            <Link className="sidebar-admin-panel-link">
-              <img
-                src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
-                alt="admin"
-              />
-              <p className="admin-name">Mahmut</p>
-            </Link>
-          </div>
+          
         </div>
         <div className="sidebar-main">
           <ul className="sidebar-nav">
@@ -82,7 +91,7 @@ const Sidebar = () => {
                 
                 <EngineeringOutlinedIcon />
                 
-                <div>Worker List</div>
+                <div>Employee List</div>
               
               </Link>
             
@@ -91,7 +100,7 @@ const Sidebar = () => {
             <li>
               <Link to="/companyregisterpage" className="link d-flex">
                 <EngineeringOutlinedIcon />
-                <div>company register </div>
+                <div>Company Register </div>
               </Link>
             </li>
 
