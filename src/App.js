@@ -8,6 +8,7 @@ import CreateCompanyPage from './pages/create-company-page/CreateCompanyPage'
 
 import { LoginPage } from './pages/login-page/LoginPage'
 
+import CompanyManagerCreatePage from './pages/company-manager-create-page/CompanyManagerCreatePage'
 const App = () => {
   return (
     <Routes>
@@ -15,6 +16,7 @@ const App = () => {
       <Route path ="/createadmin" element={<CreateAdminPage/>}/>
       <Route path ="/adminlistpage" element={<AdminListPage/>}/>
       <Route path ="/managerlistpage" element={<AdminListPage/>}/>
+      <Route path ="/companymanagercreatepage" element={<CompanyManagerCreatePage/>}/>
       <Route path ="/workerlistpage" element={<AdminListPage/>}/>
       <Route path ="/adminprofilpage" element={<AdminProfilPage/>}/>
       <Route path ="/loginpage" element={<LoginPage/>}/>

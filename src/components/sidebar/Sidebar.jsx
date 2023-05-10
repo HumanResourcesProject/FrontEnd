@@ -74,6 +74,7 @@ const Sidebar = () => {
               </Link>
             
             </li>
+            <li><Link to="/companymanagercreatepage" className="link d-flex"><SupervisorAccountOutlinedIcon /><div>Create Company Manager</div></Link></li>
             <li>
               
               <Link to="/managerlistpage" className="link d-flex">
