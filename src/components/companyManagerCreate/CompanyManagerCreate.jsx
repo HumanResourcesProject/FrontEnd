@@ -1,8 +1,8 @@
 import React from 'react'
 import { useState, useEffect } from 'react';
-import axios from "axios";
 import DriveFolderUploadIcon from '@mui/icons-material/DriveFolderUpload';
 import "./companyManagerCreate.scss";
+import CompanyManagerService from "../../service/CompanyManagerService";
 
 const CompanyManagerCreate = () => {
  
