@@ -79,7 +79,6 @@ const CompanyManagerCreate = () => {
                type="text"
                id="id-number"
                name="id-number"
-               value={managerInfo.identifynumber}
                />
                <br />
               <label for="first-name">Name:</label>
@@ -87,14 +86,12 @@ const CompanyManagerCreate = () => {
                type="text" 
                id="first-name" 
                name="first-name"
-               value={managerInfo.name}
                />
               <label for="last-name">Surname:</label>
               <input 
               type="text" 
               id="last-name" 
               name="last-name"
-              value={managerInfo.surname}
               />
             </div>
             <br />
@@ -104,13 +101,11 @@ const CompanyManagerCreate = () => {
                type="date" 
                id="birth-date" 
                name="birth-date"
-               value={managerInfo.birthdate}
                /> <br />
               <label for="birth-place">Birth-place:</label>
               <input type="text" 
               id="birth-place" 
               name="birth-place"
-              value={managerInfo.birthplace}
               />
             </div>
             <br />
@@ -119,19 +114,16 @@ const CompanyManagerCreate = () => {
               <input type="date" 
               id="job-start-date" 
               name="job-start-date"
-              value={managerInfo.hiredate}
               /><br />
               <label for="job-title">Occupation:</label>
               <input type="text" 
               id="job-title" 
               name="job-title"
-              value={managerInfo.jobtitle}
               /><br />
               <label for="department">Department:</label>
               <input type="text" 
               id="department" 
               name="department"
-              value={managerInfo.department}
               />
             </div>
             <br />
@@ -140,20 +132,17 @@ const CompanyManagerCreate = () => {
               <input type="email" 
               id="email" 
               name="email"
-              value={managerInfo.email}
               />
               <label for="phone">Phone:</label>
               <input type="tel" 
               id="phone" 
               name="phone"
-              value={managerInfo.phone}
               />
               <br />
               <label for="address">Address:</label>
               <input type="text" 
               id="address" 
               name="address"
-              value={managerInfo.address}
               />
             </div>
             <button type="submit" class="save-button">Save</button>
