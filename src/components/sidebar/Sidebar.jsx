@@ -52,6 +52,7 @@ const Sidebar = () => {
               </Link>
             
             </li>
+
             <li>
               
               <Link to="/createadmin" className="link d-flex">
@@ -63,6 +64,7 @@ const Sidebar = () => {
               </Link>
             
             </li>
+
             <li>
               
               <Link to="/adminlistpage" className="link d-flex">
@@ -74,38 +76,10 @@ const Sidebar = () => {
               </Link>
             
             </li>
+
             <li><Link to="/companymanagercreatepage" className="link d-flex"><SupervisorAccountOutlinedIcon /><div>Create Company Manager</div></Link></li>
-            <li>
-              
-              <Link to="/managerlistpage" className="link d-flex">
-                
-                <Groups3Icon />
-                
-                <div>Project Manager List</div>
-              
-              </Link>
-            
-            </li>
-            <li>
-              
-              <Link to="/workerlistpage" className="link d-flex">
-                
-                <EngineeringOutlinedIcon />
-                
-                <div>Employee List</div>
-              
-              </Link>
-            
-            </li>
-
-            <li>
-              <Link to="/companyregisterpage" className="link d-flex">
-                <EngineeringOutlinedIcon />
-                <div>Company Register </div>
-              </Link>
-            </li>
-
-
+            <li><Link to="/managerlistpage" className="link d-flex"><Groups3Icon /><div>Project Manager List</div></Link></li>
+            <li><Link to="/workerlistpage" className="link d-flex"><EngineeringOutlinedIcon /><div>Worker List</div></Link></li>
           </ul>
         </div>
       </div>
