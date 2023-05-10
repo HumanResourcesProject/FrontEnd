@@ -11,7 +11,7 @@ import {
 const CompanyManagerListTable = () => {
   const [data2,setData] = useState([])
   useEffect(() => {
-    CompanyManagerService.getAllAdmins().then((response) => {
+    CompanyManagerService.getAllManager().then((response) => {
       setData(() => (response.data
       ));
       
@@ -69,6 +69,18 @@ const CompanyManagerListTable = () => {
             accessorKey: 'phone', //accessorKey used to define `data` column. `id` gets set to accessorKey automatically
             enableClickToCopy: true,
             header: 'Phone',
+            size: 300,
+          },
+                    {
+            accessorKey: 'company', //accessorKey used to define `data` column. `id` gets set to accessorKey automatically
+            enableClickToCopy: true,
+            header: 'Company Name',
+            size: 300,
+          },
+                    {
+            accessorKey: 'jobStart', //accessorKey used to define `data` column. `id` gets set to accessorKey automatically
+            enableClickToCopy: true,
+            header: 'Hire Date',
             size: 300,
           },
         ],
