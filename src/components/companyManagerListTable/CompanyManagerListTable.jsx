@@ -1,7 +1,7 @@
 import React, { useMemo,useState,useEffect } from "react";
 import MaterialReactTable from "material-react-table";
 import "./companyManagerListTable.scss";
-import CompanyManagerListTable from "../../service/AdminService";
+import CompanyManagerService from "../../service/CompanyManagerService";
 import {
   Box
 } from '@mui/material';
