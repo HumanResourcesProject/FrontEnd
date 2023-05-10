@@ -1,9 +1,11 @@
 import axios from "axios";
-const LOGIN = "";
 
-class AuthService{
-    getAllAdmins() { 
-        return axios.get(LOGIN);
+const FINDALL_MANAGER = "http://localhost:7072/companymanager/getallmanager";
+const CREATE_MANAGER = "http://localhost:7072/companymanager/createcompanymanager";
+
+class CompanyManagerService {
+    getAllManager(){
+        return axios.get(FINDALL_MANAGER);
     }
 
     createCompanyManager(manager){
