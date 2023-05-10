@@ -5,6 +5,7 @@ import "./style.css";
 import "./adminProfil.scss";
 import AdminService from '../../service/AdminService';
 
+
 const ProfilPage = () => {
   const [admin, setAdmin] = useState([]);
 

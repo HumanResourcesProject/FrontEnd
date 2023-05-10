@@ -8,7 +8,7 @@ class CompanyManagerService {
         return axios.get(FINDALL_MANAGER);
     }
 
-    createCompanyManager(admin){
+    createCompanyManager(manager){
         return axios.post(CREATE_MANAGER, manager,{
             headers: {
                 'Content-Type': 'multipart/form-data'
@@ -17,3 +17,4 @@ class CompanyManagerService {
 
     }
 }
+export default new CompanyManagerService();
