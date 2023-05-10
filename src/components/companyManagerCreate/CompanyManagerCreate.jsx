@@ -90,11 +90,11 @@ const CompanyManagerCreate = () => {
               >
                 {/* Burada companyMs nin endpoint' inden gelen Companyler listelenecek */}
                 <option value="">Please select a company</option>
-                {companies.map((company) => (
+                {/* {companies.map((company) => (
                   <option key={company.id} value={company.id}>
                     {company.name}
                   </option>
-                ))}
+                ))} */}
               </select>
             </div>
             <br />
