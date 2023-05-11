@@ -1,16 +1,16 @@
 import React, { useMemo,useState,useEffect } from "react";
 import MaterialReactTable from "material-react-table";
 import "./tableManager.scss";
-import CompanyManagerService from "../../service/CompanyManagerService";
+import EmployeeService from "../../service/CompanyManagerService";
 import {
   Box
 } from '@mui/material';
 
 
-const TableAdmin = () => {
+const TableEmployee = () => {
   const [data2,setData] = useState([])
   useEffect(() => {
-    CompanyManagerService.getAllManager().then((response) => {
+    EmployeeService.getAllManager().then((response) => {
       setData(() => (response.data
       ));
       
@@ -111,4 +111,4 @@ const TableAdmin = () => {
   );
 };
 
-export default TableAdmin;
+export default TableEmployee;

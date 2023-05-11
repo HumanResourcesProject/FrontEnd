@@ -75,9 +75,9 @@ const Sidebar = () => {
               </Link>
             </li>
             <li>
-              <Link to="/workerlistpage" className="link d-flex">
+              <Link to="/employeelistpage" className="link d-flex">
                 <EngineeringOutlinedIcon />
-                <div>Worker List</div>
+                <div>Employee List</div>
               </Link>
             </li>
             <li>
