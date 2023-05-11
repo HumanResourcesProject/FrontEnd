@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import axios from "axios";
 import DriveFolderUploadIcon from '@mui/icons-material/DriveFolderUpload';
 import "./companyManagerCreate.scss";
+import CompanyManagerService from "../../service/CompanyManagerService";
 
 const CompanyManagerCreate = () => {
  
@@ -90,11 +91,11 @@ const CompanyManagerCreate = () => {
               >
                 {/* Burada companyMs nin endpoint' inden gelen Companyler listelenecek */}
                 <option value="">Please select a company</option>
-                {companies.map((company) => (
+                {/* {companies.map((company) => (
                   <option key={company.id} value={company.id}>
                     {company.name}
                   </option>
-                ))}
+                ))} */}
               </select>
             </div>
             <br />
