@@ -77,6 +77,19 @@ const Sidebar = () => {
             
             </li>
 
+
+            <li>
+              
+              <Link to="/createcompanypage" className="link d-flex">
+                
+                <AccountCircleOutlinedIcon />
+                
+                <div>create company</div>
+              
+              </Link>
+            
+            </li>
+
             <li><Link to="/companymanagercreatepage" className="link d-flex"><SupervisorAccountOutlinedIcon /><div>Create Company Manager</div></Link></li>
             <li><Link to="/managerlistpage" className="link d-flex"><Groups3Icon /><div>Project Manager List</div></Link></li>
             <li><Link to="/workerlistpage" className="link d-flex"><EngineeringOutlinedIcon /><div>Worker List</div></Link></li>

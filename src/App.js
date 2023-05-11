@@ -5,7 +5,6 @@ import CreateAdminPage from './pages/admin-create-page/CreateAdminPage'
 import AdminListPage from './pages/admin-list-page/AdminListPage'
 import AdminProfilPage from './pages/admin-profil-page/AdminProfilPage'
 import CreateCompanyPage from './pages/create-company-page/CreateCompanyPage'
-
 import { LoginPage } from './pages/login-page/LoginPage'
 
 import CompanyManagerCreatePage from './pages/company-manager-create-page/CompanyManagerCreatePage'
@@ -22,7 +21,7 @@ const App = () => {
       <Route path ="/workerlistpage" element={<AdminListPage/>}/>
       <Route path ="/adminprofilpage" element={<AdminProfilPage/>}/>
       <Route path ="/loginpage" element={<LoginPage/>}/>
-      <Route path ="/companyregisterpage" element={<CreateCompanyPage/>}/>
+      <Route path ="/createcompanypage" element={<CreateCompanyPage/>}/>
 
       {/* routelar düzelmesi lazım  */}
       <Route path="*" element={<Navigate to="/"/>} />
