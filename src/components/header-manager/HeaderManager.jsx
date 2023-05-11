@@ -1,9 +1,9 @@
 import React,{useState,useEffect}from "react";
-import "./header.scss";
+import "./headerManager.scss";
 import MenuIcon from "@mui/icons-material/Menu";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
-import AdminService from '../../service/AdminService';
+import CompanyManagerService from '../../service/CompanyManagerService';
 
 const Header = () => {
 
@@ -13,7 +13,7 @@ const Header = () => {
   });
   
   const profilpart = () => {
-    AdminService.postShortDetails(token).then((response) => {
+    CompanyManagerService.postShortDetails(token).then((response) => {
       setProfil(response.data);
     });
   };

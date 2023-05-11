@@ -30,7 +30,14 @@ export const LoginPage = () => {
             alert("Wrong email or password")
           }else{
               sessionStorage.setItem("token",response.data.token)
-              window.location.replace("http://localhost:3000/") //navigate le sayfa değişir 
+              sessionStorage.setItem("role",response.data.role)
+              if(response.data.role === "ADMIN"){
+                window.location.replace("http://localhost:3000/")
+              }else if(response.data.role === "COMPANY_MANAGER")
+              {
+                window.location.replace("http://localhost:3000/manager")
+              }
+               //navigate le sayfa değişir 
               
               
           }

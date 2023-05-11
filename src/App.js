@@ -5,25 +5,32 @@ import CreateAdminPage from './pages/admin-create-page/CreateAdminPage'
 import AdminListPage from './pages/admin-list-page/AdminListPage'
 import AdminProfilPage from './pages/admin-profil-page/AdminProfilPage'
 import CreateCompanyPage from './pages/create-company-page/CreateCompanyPage'
+import ManagerMainPage from './pages/manager-main-page/ManagerMainPage'
 import { LoginPage } from './pages/login-page/LoginPage'
 
 import CompanyManagerCreatePage from './pages/company-manager-create-page/CompanyManagerCreatePage'
 import CompanyManagerListTablePage from './pages/company-manager-list-table-page/CompanyManagerListTablePage'
+import ManagerListManagerPage from './pages/manager-list-manager-page/ManagerListManagerPage'
+import ManagerListPage from './pages/manager-list-page/ManagerListPage'
+import EmployeeRegister from './pages/employee-register-page/EmployeeRegister'
 const App = () => {
   return (
     <Routes>
       <Route path ="/" element={<AdminPage/>}/>
       <Route path ="/createadmin" element={<CreateAdminPage/>}/>
       <Route path ="/adminlistpage" element={<AdminListPage/>}/>
-      <Route path ="/managerlistpage" element={<AdminListPage/>}/>
+      <Route path ="/managerlistpage" element={<ManagerListPage/>}/>
       <Route path ="/companymanagercreatepage" element={<CompanyManagerCreatePage/>}/>
       <Route path ="/companymanagerlisttablepage" element={<CompanyManagerListTablePage/>}/>
-      <Route path ="/workerlistpage" element={<AdminListPage/>}/>
+      <Route path ="/employeelistpage" element={<AdminListPage/>}/>
       <Route path ="/adminprofilpage" element={<AdminProfilPage/>}/>
       <Route path ="/loginpage" element={<LoginPage/>}/>
-      <Route path ="/createcompanypage" element={<CreateCompanyPage/>}/>
-
+      <Route path ="/companyregisterpage" element={<CreateCompanyPage/>}/>
+      <Route path ="/manager" element={<ManagerMainPage/>}/>
+      <Route path ="/managerlistmanagerpage" element={<ManagerListManagerPage/>}/>
+      <Route path ="/employeeregister" element={<EmployeeRegister/>}/>
       {/* routelar düzelmesi lazım  */}
+      
       <Route path="*" element={<Navigate to="/"/>} />
     </Routes>
     
