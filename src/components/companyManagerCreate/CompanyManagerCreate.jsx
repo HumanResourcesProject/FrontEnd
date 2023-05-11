@@ -107,15 +107,11 @@ const CompanyManagerCreate = () => {
 
           <form onSubmit={handleCreate}>
             <div className="manager-company-section">
-              <label for="company-select">Select Company:</label>
-              <select
-                id="company-select"
-                onChange={(event) =>
-                  setManagerInfo({
-                    ...managerInfo,
-                    company: event.target.value,
-                  })
-                }
+              <label htmlFor="company-select">Select Company:</label>
+              <select id="company-select"
+              onChange={(event) => 
+                setManagerInfo({...managerInfo, 
+                  companyName: event.target.value})}
               >
                 {/* Burada companyMs nin endpoint' inden gelen Companyler listelenecek */}
                 <option value="">Please select a company</option>
@@ -128,38 +124,34 @@ const CompanyManagerCreate = () => {
               </select>
             </div>
             <br />
-            <div className="manager-name-section">
-              <label for="id-number">Identify number:</label>
+            <div className='manager-name-section'>
+            <label>Identify number:</label>
               <input
-                type="text"
-                onChange={(e) =>
-                  setManagerInfo({
-                    ...managerInfo,
-                    identityNumber: e.target.value,
-                  })
-                }
-              />
-              <br />
-              <label for="first-name">Name:</label>
+               type="text" onChange={(e) =>
+                setManagerInfo({
+                  ...managerInfo,
+                  identifynumber: e.target.value,
+                })
+              } 
+               />
+               <br />
+              <label>Name:</label>
               <input
-                type="text"
-                onChange={(e) =>
-                  setManagerInfo({
-                    ...managerInfo,
-                    name: e.target.value,
-                  })
-                }
-              />
-
-              <label for="last-name">Surname:</label>
-          <input
-                type="text"
-                onChange={(e) =>
-                  setManagerInfo({
-                    ...managerInfo,
-                    surname: e.target.value,
-                  })
-                }
+               type="text" onChange={(e) =>
+                setManagerInfo({
+                  ...managerInfo,
+                  name: e.target.value,
+                })
+              }
+               />
+              <label>Surname:</label>
+              <input 
+               type="text" onChange={(e) =>
+                setManagerInfo({
+                  ...managerInfo,
+                  surname: e.target.value,
+                })
+              }
               />
 
               <label for="last-name">mid name:</label>
@@ -175,7 +167,7 @@ const CompanyManagerCreate = () => {
             </div>
             <br />
             <div className="manager-birth-section">
-              <label for="birth-date">Birth-date:</label>
+              <label>Birth-date:</label>
               <input
                 type="text"
                 onChange={(e) =>
@@ -184,12 +176,10 @@ const CompanyManagerCreate = () => {
                     birthDate: e.target.value,
                   })
                 }
-              />{" "}
-              <br />
-              <label for="birth-place">Birth-place:</label>
-              <input
-                type="text"
-                onChange={(e) =>
+               /> <br />
+              <label>Birth-place:</label>
+              <input 
+                type="text" onChange={(e) =>
                   setManagerInfo({
                     ...managerInfo,
                     birthPlace: e.target.value,
@@ -199,32 +189,27 @@ const CompanyManagerCreate = () => {
             </div>
             <br />
             <div className="manager-job-section">
-              <label for="job-start-date">Job-start-date:</label>
-              <input
-                type="text"
-                onChange={(e) =>
+              <label>Job-start-date:</label>
+              <input 
+                type="text" onChange={(e) =>
                   setManagerInfo({
                     ...managerInfo,
                     jobStart: e.target.value,
                   })
                 }
-              />
-              <br />
-              <label for="job-title">Occupation:</label>
-              <input
-                type="text"
-                onChange={(e) =>
+              /><br />
+              <label>Occupation:</label>
+              <input 
+                type="text" onChange={(e) =>
                   setManagerInfo({
                     ...managerInfo,
                     job: e.target.value,
                   })
                 }
-              />
-              <br />
-              <label for="department">Department:</label>
-              <input
-                type="text"
-                onChange={(e) =>
+              /><br />
+              <label>Department:</label>
+              <input 
+                type="text" onChange={(e) =>
                   setManagerInfo({
                     ...managerInfo,
                     birthdate: e.target.value,
@@ -234,20 +219,18 @@ const CompanyManagerCreate = () => {
             </div>
             <br />
             <div className="manager-com-section">
-              <label for="email">E-Mail</label>
-              <input
-                type="text"
-                onChange={(e) =>
+              <label>E-Mail</label>
+              <input 
+                type="text" onChange={(e) =>
                   setManagerInfo({
                     ...managerInfo,
                     email: e.target.value,
                   })
                 }
               />
-              <label for="phone">Phone:</label>
-              <input
-                type="text"
-                onChange={(e) =>
+              <label>Phone:</label>
+              <input 
+                type="text" onChange={(e) =>
                   setManagerInfo({
                     ...managerInfo,
                     phone: e.target.value,
@@ -255,10 +238,9 @@ const CompanyManagerCreate = () => {
                 }
               />
               <br />
-              <label for="address">Address:</label>
-              <input
-                type="text"
-                onChange={(e) =>
+              <label>Address:</label>
+              <input 
+                type="text" onChange={(e) =>
                   setManagerInfo({
                     ...managerInfo,
                     address: e.target.value,
@@ -266,9 +248,7 @@ const CompanyManagerCreate = () => {
                 }
               />
             </div>
-            <button type="submit" class="save-button">
-              Save
-            </button>
+            <button type="submit" className="save-button">Save</button>
           </form>
         </div>
       </div>
