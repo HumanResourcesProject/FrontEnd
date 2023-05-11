@@ -8,9 +8,9 @@ import AdminService from '../../service/AdminService';
 
 const ProfilPage = () => {
   const [admin, setAdmin] = useState([]);
-
+  const token = sessionStorage.getItem("token");
   useEffect(() => {
-    AdminService.getAdminInformations()
+    AdminService.getAdminInformations(token)
     .then((response) => {
       setAdmin(response.data);
     });
