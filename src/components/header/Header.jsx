@@ -3,7 +3,6 @@ import "./header.scss";
 import MenuIcon from "@mui/icons-material/Menu";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
-import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import AdminService from '../../service/AdminService';
 
 const Header = () => {
@@ -14,7 +13,6 @@ const Header = () => {
   });
   
   const profilpart = () => {
-    console.log(token);
     AdminService.postShortDetails(token).then((response) => {
       setProfil(response.data);
     });
