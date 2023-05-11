@@ -15,7 +15,6 @@ const [adminInfo, setAdminInfo] = useState({
   name:"",
   surname:"",
   email:"",
-  password:"",
   phone:"",
   address:"",
   avatar:"",
@@ -104,14 +103,6 @@ const [adminInfo, setAdminInfo] = useState({
                     address: e.target.value,
                   })
                 }/>
-            <label htmlFor="sifre">Password:</label>
-            <input type="password" id="sifre" name="sifre"
-            onChange={(e) =>
-                  setAdminInfo({
-                    ...adminInfo,
-                    password: e.target.value,
-                  })
-                }></input>
             <button type="submit" onClick={(e) =>
                   setAdminInfo({
                     ...adminInfo,
