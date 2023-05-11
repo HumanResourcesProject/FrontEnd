@@ -15,6 +15,7 @@ const [adminInfo, setAdminInfo] = useState({
   phone:"",
   address:"",
   avatar:"",
+  
 })
   const [image,setImage] = useState('');
   

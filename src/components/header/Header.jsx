@@ -12,8 +12,9 @@ const Header = () => {
   const [token] = useState({
     token: sessionStorage.getItem("token")
   });
-
+  
   const profilpart = () => {
+    console.log(token);
     AdminService.postShortDetails(token).then((response) => {
       setProfil(response.data);
     });
