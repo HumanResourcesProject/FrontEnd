@@ -164,6 +164,16 @@ $colors: (
                           from { background:#5264AE; }
                         to 	{ width:0; background:transparent; }
                       }
+                      .error-email{
+                        padding: 5px;
+                        color: red;
+                        font-size: small;
+                      }
+                      .error-password{
+                        padding: 5px;
+                        color: red;
+                        font-size: small;
+                      }
                 }
             }
             .login-bottom{

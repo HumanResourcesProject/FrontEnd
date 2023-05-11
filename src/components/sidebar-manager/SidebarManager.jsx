@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import "./sidebar.scss";
 import { Link } from "react-router-dom";
 import HowToRegOutlinedIcon from "@mui/icons-material/HowToRegOutlined";
@@ -11,7 +11,7 @@ import AdminService from "../../service/AdminService";
 const Sidebar = () => {
   const [profil, setProfil] = useState([]);
   const [token] = useState({
-    token: sessionStorage.getItem("token")
+    token: sessionStorage.getItem("token"),
   });
 
   const profilpart = () => {
@@ -24,72 +24,71 @@ const Sidebar = () => {
     profilpart();
   }, []);
 
-
   return (
     <aside className="full-sidebar">
       <div>
         <div className="sidebar-top">
           <Link to="/" className="sidebar-title-link">
             <img
-              src="https://adminlte.io/themes/v3/dist/img/AdminLTELogo.png"
+              src="https://img.icons8.com/?size=512&id=fsLxpvuZmjB4&format=png"
               alt=""
             />
-            <p className="sidebar-title">HR Admin Page</p>
+            <p className="sidebar-title">HR Manager Page</p>
           </Link>
-
-          
         </div>
         <div className="sidebar-main">
           <ul className="sidebar-nav">
             <li>
-              
               <Link to="/adminprofilpage" className="link d-flex">
-                
                 <AccountCircleOutlinedIcon />
-                
+
                 <div>My Profile</div>
-              
               </Link>
-            
             </li>
-
             <li>
-              
               <Link to="/createadmin" className="link d-flex">
-               
                 <HowToRegOutlinedIcon />
-                
+
                 <div>Register</div>
-              
               </Link>
-            
             </li>
 
             <li>
-              
               <Link to="/adminlistpage" className="link d-flex">
-                
                 <SupervisorAccountOutlinedIcon />
-                
+
                 <div>Admin List</div>
-              
               </Link>
-            
             </li>
 
-            <li><Link to="/companymanagercreatepage" className="link d-flex"><SupervisorAccountOutlinedIcon /><div>Create Company Manager</div></Link></li>
-            <li><Link to="/managerlistpage" className="link d-flex"><Groups3Icon /><div>Project Manager List</div></Link></li>
-            <li><Link to="/workerlistpage" className="link d-flex"><EngineeringOutlinedIcon /><div>Worker List</div></Link></li>
+            <li>
+              <Link to="/companymanagercreatepage" className="link d-flex">
+                <SupervisorAccountOutlinedIcon />
+                <div>Create Company Manager</div>
+              </Link>
+            </li>
+            <li>
+              <Link to="/managerlistpage" className="link d-flex">
+                <Groups3Icon />
+                <div>Project Manager List</div>
+              </Link>
+            </li>
+            <li>
+              <Link to="/workerlistpage" className="link d-flex">
+                <EngineeringOutlinedIcon />
+                <div>Worker List</div>
+              </Link>
+            </li>
           </ul>
         </div>
       </div>
       <div className="lg">
-      <Link to="/loginpage" className="linklogout">
-        <div className="logout d-flex">
-          <LogoutOutlinedIcon style={{color: 'white'}}/>
-          <div className="fw-large lout">Logout </div>
-        </div>
-      </Link>
+        <Link to="/loginpage" className="linklogout">
+          <div className="logout d-flex">
+            <LogoutOutlinedIcon style={{ color: "white" }} />
+            <div className="fw-large lout">Logout </div>
+          </div>
+        </Link>
       </div>
     </aside>
   );

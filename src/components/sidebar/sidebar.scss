@@ -77,7 +77,9 @@ body{
       }
       img{
         width: 35px;
+        height: 35px;
         border-radius: 50%;
+        object-fit: cover;
         margin-left: 1.6rem;
         
       }
@@ -101,9 +103,8 @@ body{
         padding: 2px;
         &:hover{
           background-color: rgb(112, 110, 110);
-          
-          
         }
+        font-size: small;
       }
       
     } 

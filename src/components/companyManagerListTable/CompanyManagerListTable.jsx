@@ -1,24 +1,22 @@
 import React, { useMemo,useState,useEffect } from "react";
 import MaterialReactTable from "material-react-table";
-import "./tableAdmin.scss";
-import AdminService from "../../service/AdminService";
+import "./companyManagerListTable.scss";
+import CompanyManagerService from "../../service/CompanyManagerService";
 import {
   Box
 } from '@mui/material';
-import { Link } from "react-router-dom"
 
 
-const TableAdmin = () => {
+
+const CompanyManagerListTable = () => {
   const [data2,setData] = useState([])
   useEffect(() => {
-    AdminService.getAllAdmins().then((response) => {
+    CompanyManagerService.getAllManager().then((response) => {
       setData(() => (response.data
       ));
       
     });
   }, []);
-
-
   
   const columns = useMemo(
     () => [
@@ -48,68 +46,56 @@ const TableAdmin = () => {
                 <span>{renderedCellValue}</span>
               </Box>
             ),
-            enableEditing:false 
           },
           {
             accessorKey: 'surname', //accessorKey used to define `data` column. `id` gets set to accessorKey automatically
+            enableClickToCopy: true,
             header: 'Surname',
             size: 300,
-            enableEditing:false 
           },
           {
             accessorKey: 'address', //accessorKey used to define `data` column. `id` gets set to accessorKey automatically
+            enableClickToCopy: true,
             header: 'Address',
             size: 300,
-            enableEditing:true 
-
           },
           {
             accessorKey: 'email', //accessorKey used to define `data` column. `id` gets set to accessorKey automatically
+            enableClickToCopy: true,
             header: 'E-Mail',
             size: 300,
-            enableEditing:false 
-
           },
           {
             accessorKey: 'phone', //accessorKey used to define `data` column. `id` gets set to accessorKey automatically
+            enableClickToCopy: true,
             header: 'Phone',
             size: 300,
-            enableEditing:true 
-
+          },
+                    {
+            accessorKey: 'company', //accessorKey used to define `data` column. `id` gets set to accessorKey automatically
+            enableClickToCopy: true,
+            header: 'Company Name',
+            size: 300,
+          },
+                    {
+            accessorKey: 'jobStart', //accessorKey used to define `data` column. `id` gets set to accessorKey automatically
+            enableClickToCopy: true,
+            header: 'Hire Date',
+            size: 300,
           },
         ],
       
     []
   );
 
-  const [tableData, setTableData] = useState(() => data2);
-
-  const handleSaveRow = async ({ exitEditingMode, row, values }) => {
-    //if using flat data and simple accessorKeys/ids, you can just do a simple assignment here.
-    tableData[row._valuesCache] = values;
-    const rowData = {
-      "email" : row._valuesCache.email,
-      "phone" : row._valuesCache.phone,
-      "address" : row._valuesCache.address
-  }
-    //send/receive api updates here
-    AdminService.updateMethod(rowData);
-    //setTableData([...tableData]);
-    exitEditingMode(); 
-    window.location.reload();
-  };
-
   return (
     <div className="table-admin">
       <MaterialReactTable  
         columns={columns} 
         data={data2} 
-        editingMode="modal"
-        enableEditing={true} 
-        onEditingRowSave={handleSaveRow}
         />
     </div>
   );
 };
 
-export default TableAdmin;
+export default CompanyManagerListTable;

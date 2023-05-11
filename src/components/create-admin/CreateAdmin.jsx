@@ -1,15 +1,11 @@
 import React from 'react'
 import { useState } from 'react';
-import axios from 'axios';
 import './createAdmin.scss'
 import DriveFolderUploadIcon from '@mui/icons-material/DriveFolderUpload';
 import AdminService from '../../service/AdminService';
 
 
 const ProfilPage = () => {
-
-  const [imageUrl, setImageUrl] = useState('');
-  const [userId, setUserId] = useState('');
 
 const [adminInfo, setAdminInfo] = useState({
   name:"",
@@ -20,6 +16,7 @@ const [adminInfo, setAdminInfo] = useState({
   avatar:"",
 })
   const [image,setImage] = useState('');
+  
   const onchangeImage = (e) => {
     const file = e.target.files[0];
     setImage(file);
