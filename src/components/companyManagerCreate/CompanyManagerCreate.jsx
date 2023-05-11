@@ -82,7 +82,7 @@ const CompanyManagerCreate = () => {
           <h2>Bilgi Alma Bölümü</h2>
             <form onSubmit={handleCreate}>
             <div className="manager-company-section">
-              <label for="company-select">Select Company:</label>
+              <label htmlFor="company-select">Select Company:</label>
               <select id="company-select"
               onChange={(event) => 
                 setManagerInfo({...managerInfo, 
@@ -99,7 +99,7 @@ const CompanyManagerCreate = () => {
             </div>
             <br />
             <div className='manager-name-section'>
-            <label for="id-number">Identify number:</label>
+            <label>Identify number:</label>
               <input
                type="text" onChange={(e) =>
                 setManagerInfo({
@@ -109,7 +109,7 @@ const CompanyManagerCreate = () => {
               } 
                />
                <br />
-              <label for="first-name">Name:</label>
+              <label>Name:</label>
               <input
                type="text" onChange={(e) =>
                 setManagerInfo({
@@ -118,7 +118,7 @@ const CompanyManagerCreate = () => {
                 })
               }
                />
-              <label for="last-name">Surname:</label>
+              <label>Surname:</label>
               <input 
                type="text" onChange={(e) =>
                 setManagerInfo({
@@ -130,7 +130,7 @@ const CompanyManagerCreate = () => {
             </div>
             <br />
             <div className="manager-birth-section">
-              <label for="birth-date">Birth-date:</label>
+              <label>Birth-date:</label>
               <input
                 type="text" onChange={(e) =>
                   setManagerInfo({
@@ -139,7 +139,7 @@ const CompanyManagerCreate = () => {
                   })
                 }
                /> <br />
-              <label for="birth-place">Birth-place:</label>
+              <label>Birth-place:</label>
               <input 
                 type="text" onChange={(e) =>
                   setManagerInfo({
@@ -151,7 +151,7 @@ const CompanyManagerCreate = () => {
             </div>
             <br />
             <div className="manager-job-section">
-              <label for="job-start-date">Job-start-date:</label>
+              <label>Job-start-date:</label>
               <input 
                 type="text" onChange={(e) =>
                   setManagerInfo({
@@ -160,7 +160,7 @@ const CompanyManagerCreate = () => {
                   })
                 }
               /><br />
-              <label for="job-title">Occupation:</label>
+              <label>Occupation:</label>
               <input 
                 type="text" onChange={(e) =>
                   setManagerInfo({
@@ -169,7 +169,7 @@ const CompanyManagerCreate = () => {
                   })
                 }
               /><br />
-              <label for="department">Department:</label>
+              <label>Department:</label>
               <input 
                 type="text" onChange={(e) =>
                   setManagerInfo({
@@ -181,7 +181,7 @@ const CompanyManagerCreate = () => {
             </div>
             <br />
             <div className="manager-com-section">
-              <label for="email">E-Mail</label>
+              <label>E-Mail</label>
               <input 
                 type="text" onChange={(e) =>
                   setManagerInfo({
@@ -190,7 +190,7 @@ const CompanyManagerCreate = () => {
                   })
                 }
               />
-              <label for="phone">Phone:</label>
+              <label>Phone:</label>
               <input 
                 type="text" onChange={(e) =>
                   setManagerInfo({
@@ -200,7 +200,7 @@ const CompanyManagerCreate = () => {
                 }
               />
               <br />
-              <label for="address">Address:</label>
+              <label>Address:</label>
               <input 
                 type="text" onChange={(e) =>
                   setManagerInfo({
@@ -210,7 +210,7 @@ const CompanyManagerCreate = () => {
                 }
               />
             </div>
-            <button type="submit" class="save-button">Save</button>
+            <button type="submit" className="save-button">Save</button>
           </form>
         </div>
       </div>
