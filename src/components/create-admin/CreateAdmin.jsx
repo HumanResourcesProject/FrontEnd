@@ -31,10 +31,7 @@ const [adminInfo, setAdminInfo] = useState({
 
 
   const handleCreate = async (event) => {
-
- 
     event.preventDefault();
-
     if(image === "https://cdn.pixabay.com/photo/2017/11/10/04/47/user-2935373_960_720.png"){
       const newImage = URL.createObjectURL(image)
         setAdminInfo({
