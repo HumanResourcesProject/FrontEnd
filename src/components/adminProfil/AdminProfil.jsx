@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import PhoneInput from 'react-phone-number-input'
+//import PhoneInput from 'react-phone-number-input'
 import "./style.css";
 import "./adminProfil.scss";
 import AdminService from '../../service/AdminService';
@@ -136,12 +136,17 @@ const [id, setId] = useState("");
               <label>
                 Phone:
                 </label>
-                { <PhoneInput
+                {/* { <PhoneInput
                   international
                   defaultCountry="TR"
                   value={phone}
                   onChange={setPhone}
-                /> }
+                /> } */}
+                <input
+                  type="tel"
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
+                />
             </div>
             <div className="input-profile">
               <label>
