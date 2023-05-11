@@ -30,10 +30,10 @@ const Sidebar = () => {
         <div className="sidebar-top">
           <Link to="/" className="sidebar-title-link">
             <img
-              src="https://adminlte.io/themes/v3/dist/img/AdminLTELogo.png"
+              src="https://img.icons8.com/?size=512&id=fsLxpvuZmjB4&format=png"
               alt=""
             />
-            <p className="sidebar-title">HR Admin Page</p>
+            <p className="sidebar-title">HR Manager Page</p>
           </Link>
         </div>
         <div className="sidebar-main">
@@ -45,7 +45,6 @@ const Sidebar = () => {
                 <div>My Profile</div>
               </Link>
             </li>
-
             <li>
               <Link to="/createadmin" className="link d-flex">
                 <HowToRegOutlinedIcon />
@@ -78,12 +77,6 @@ const Sidebar = () => {
               <Link to="/workerlistpage" className="link d-flex">
                 <EngineeringOutlinedIcon />
                 <div>Worker List</div>
-              </Link>
-            </li>
-            <li>
-              <Link to="/companyregisterpage" className="link d-flex">
-                <EngineeringOutlinedIcon />
-                <div>Create Company</div>
               </Link>
             </li>
           </ul>
