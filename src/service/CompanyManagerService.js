@@ -17,6 +17,11 @@ class CompanyManagerService {
         });
 
     }
+
+    postShortDetails(token){
+        return axios.post(SHORT_DETAIL,token);
+    }
+
 }
 export default new CompanyManagerService();
 
