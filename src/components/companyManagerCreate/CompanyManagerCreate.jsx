@@ -1,14 +1,14 @@
 import React from 'react'
 import { useState, useEffect } from 'react';
-import axios from "axios";
 import DriveFolderUploadIcon from '@mui/icons-material/DriveFolderUpload';
 import "./companyManagerCreate.scss";
+import CompanyManagerService from "../../service/CompanyManagerService";
 
 const CompanyManagerCreate = () => {
  
   const [managerInfo, setManagerInfo] = useState({
     identifynumber:"",
-    avatar:"",
+    // avatar:"",
     companyName:"",
     name:"",
     surname:"",
@@ -30,27 +30,27 @@ const CompanyManagerCreate = () => {
       }
   //********* */
   //  burada CompanyMS' deki endpoint' e istek atılacak.
-  // // Section where the CompanyList come :) ********
+  // Section where the CompanyList come :) ********
   // const [companies, setCompanies] = useState([]);
   // useEffect(() => {
   //   axios.get("http://localhost:7071/company/getAllCompany").then((response) => {
   //     setCompanies(response.data);
   //   });
   // }, []);
-  // //*************** */
+  //*************** */
  
   const handleCreate = async (event) => {
 
  
     event.preventDefault();
 
-    if(image === "https://cdn.pixabay.com/photo/2017/11/10/04/47/user-2935373_960_720.png"){
-      const newImage = URL.createObjectURL(image)
-        setManagerInfo({
-          ...managerInfo,
-          avatar: newImage
-        })
-    }
+    // if(image === "https://cdn.pixabay.com/photo/2017/11/10/04/47/user-2935373_960_720.png"){
+    //   const newImage = URL.createObjectURL(image)
+    //     setManagerInfo({
+    //       ...managerInfo,
+    //       avatar: newImage
+    //     })
+    // }
 
       CompanyManagerService.createCompanyManager(managerInfo).then(
         () =>{
@@ -90,11 +90,11 @@ const CompanyManagerCreate = () => {
               >
                 {/* Burada companyMs nin endpoint' inden gelen Companyler listelenecek */}
                 <option value="">Please select a company</option>
-                {companies.map((company) => (
+                {/* {companies.map((company) => (
                   <option key={company.id} value={company.id}>
                     {company.name}
                   </option>
-                ))}
+                ))} */}
               </select>
             </div>
             <br />

@@ -5,7 +5,7 @@ import Sidebar from "../../components/sidebar/Sidebar";
 import CreateCompany from "../../components/create-company/CreateFurkan";
 
 
-const CreateAdminPage = () => {
+const CreateCompanyPage = () => {
   return (
     <div className="admin-page">
     <div className="admin_sidebar">
@@ -20,4 +20,4 @@ const CreateAdminPage = () => {
   )
 }
 
-export default CreateAdminPage
+export default CreateCompanyPage

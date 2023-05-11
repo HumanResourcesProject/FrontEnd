@@ -1,0 +1,51 @@
+:root{
+    --color1: #807F7F;
+    --color2: #DCE0E3;
+}
+.navbar{
+    position: sticky;
+    color: var(--color1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 56px;
+    border-bottom: var(--color2) 1px solid;
+    .navbarleftside{
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        margin-left: 20px;
+        .menuicon{
+            cursor: pointer;
+        }
+        p{
+            cursor: pointer;
+        }
+    }
+    .navbarrightside{
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        margin-right: 20px;
+
+        .searchicon{
+            cursor: pointer;
+        }
+        .darkmodeicon{
+            cursor: pointer;
+        }
+        .navbarprofile{
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            img{
+                width: 30px;
+                height: 30px;
+                border-radius: 50%;
+                object-fit: cover;
+            }
+        }
+    }
+}
