@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
-//import PhoneInput from 'react-phone-number-input'
+import PhoneInput from 'react-phone-number-input'
 import "./style.css";
 import "./adminProfil.scss";
 import AdminService from '../../service/AdminService';
@@ -25,7 +25,6 @@ const ProfilPage = () => {
   const refresh = () => {
     window.location.reload()
   }
-// Burası pp update http://localhost:7070/admin/imagescloud?id=1
 const [selectedFile, setSelectedFile] = useState(null);
 const [imageUrl, setImageUrl] = useState(null);
 const [loading, setLoading] = useState(false);
@@ -47,7 +46,6 @@ const handleImageUpload = (event) => {
     setLoading(false);
   });
 };
-// Burası pd update http://localhost:7070/admin/updateadmin'
 const [id, setId] = useState("");
   const [phone, setPhone] = useState("");
   const [address, setAddress] = useState("");
@@ -133,28 +131,17 @@ const [id, setId] = useState("");
         </div>
         <div id="gosterilecekDiv" className="informationsecret">
           <form onSubmit={handleSubmit}>
-            <div className="input-profile">
-            {/* ID BOLUMU Kaldırılacak */}
-              <label> 
-                Id:
-              </label>
-                <input
-                  type="text"
-                  value={id}
-                  onChange={(e) => setId(e.target.value)}
-                />
-              
-            </div>
+
             <div className="input-profile">
               <label>
                 Phone:
                 </label>
-                {/* <PhoneInput
+                { <PhoneInput
                   international
                   defaultCountry="TR"
                   value={phone}
                   onChange={setPhone}
-                /> */}
+                /> }
             </div>
             <div className="input-profile">
               <label>
