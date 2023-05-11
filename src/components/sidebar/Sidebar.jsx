@@ -74,12 +74,7 @@ const Sidebar = () => {
                 <div>Project Manager List</div>
               </Link>
             </li>
-            <li>
-              <Link to="/employeelistpage" className="link d-flex">
-                <EngineeringOutlinedIcon />
-                <div>Employee List</div>
-              </Link>
-            </li>
+            
             <li>
               <Link to="/companyregisterpage" className="link d-flex">
                 <EngineeringOutlinedIcon />

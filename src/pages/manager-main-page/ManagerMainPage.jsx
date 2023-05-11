@@ -1,5 +1,5 @@
 import React from 'react'
-import Header from "../../components/header/Header";
+import HeaderManager from "../../components/header-manager/HeaderManager";
 import SidebarManager from "../../components/sidebar-manager/SidebarManager";
 import MainPage from "../../components/mainpage/MainPage";
 import "./managerMainPage.scss";
@@ -11,7 +11,7 @@ const ManagerMainPage = () => {
         <SidebarManager />
       </div>
       <div className="manager-right">
-        <Header /> 
+        <HeaderManager /> 
         <MainPage/>
       </div>
 
