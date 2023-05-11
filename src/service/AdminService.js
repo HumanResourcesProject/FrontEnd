@@ -39,21 +39,6 @@ class AdminService{
         });
 
     }
-    getAdminInformations(){
-        return axios.get(GET_ADMIN_INFO);
-    }
-    getAdminProfilePhoto(formData){
-        return axios.post(UPDATE_PROFILEP, formData)
-    }
-    updateAdminInfo(data){
-        return axios
-        .put(UPDATE_ADMININFO, data, {
-          headers: {
-            'Content-Type': 'application/json'
-        }
-        });
-
-    }
     postShortDetails(token){
         return axios.post(SHORT_DETAIL,token);
     }
