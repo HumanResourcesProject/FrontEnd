@@ -20,6 +20,7 @@ const [adminInfo, setAdminInfo] = useState({
   address:"",
   avatar:"",
 })
+console.log((adminInfo));
   const [image,setImage] = useState('');
   const onchangeImage = (e) => {
     const file = e.target.files[0];

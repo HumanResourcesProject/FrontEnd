@@ -5,7 +5,7 @@ import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
 import CompanyManagerService from '../../service/CompanyManagerService';
 
-const Header = () => {
+const HeaderManager = () => {
 
   const [profil, setProfil] = useState([]);
   const [token] = useState({
@@ -14,6 +14,7 @@ const Header = () => {
   
   const profilpart = () => {
     CompanyManagerService.postShortDetails(token).then((response) => {
+      console.log(response);
       setProfil(response.data);
     });
   };
@@ -40,4 +41,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default HeaderManager;

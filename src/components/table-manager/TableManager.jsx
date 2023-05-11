@@ -50,6 +50,12 @@ const TableAdmin = () => {
             enableEditing:false 
           },
           {
+            accessorKey: 'middleName', //accessorKey used to define `data` column. `id` gets set to accessorKey automatically
+            header: 'Middle Name',
+            size: 300,
+            enableEditing:false 
+          },
+          {
             accessorKey: 'surname', //accessorKey used to define `data` column. `id` gets set to accessorKey automatically
             header: 'Surname',
             size: 300,
@@ -72,6 +78,33 @@ const TableAdmin = () => {
           {
             accessorKey: 'phone', //accessorKey used to define `data` column. `id` gets set to accessorKey automatically
             header: 'Phone',
+            size: 300,
+            enableEditing:true 
+
+          },
+          {
+            accessorKey: 'company', //accessorKey used to define `data` column. `id` gets set to accessorKey automatically
+            header: 'Company',
+            size: 300,
+            enableEditing:true 
+          },
+          {
+            accessorKey: 'dateOfBirth', //accessorKey used to define `data` column. `id` gets set to accessorKey automatically
+            header: 'Date Of Birth',
+            size: 300,
+            enableEditing:true 
+
+          },
+          {
+            accessorKey: 'job', //accessorKey used to define `data` column. `id` gets set to accessorKey automatically
+            header: 'Job',
+            size: 300,
+            enableEditing:true 
+
+          },
+          {
+            accessorKey: 'department', //accessorKey used to define `data` column. `id` gets set to accessorKey automatically
+            header: 'Department',
             size: 300,
             enableEditing:true 
 
