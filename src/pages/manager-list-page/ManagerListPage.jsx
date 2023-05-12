@@ -6,11 +6,11 @@ import TableManager from "../../components/table-manager/TableManager";
 
 const ManagerListPage = () => {
   return (
-    <div>
-      <div>
+    <div  className="manager-page">
+      <div className="manager-sidebar">
         <Sidebar />
       </div>
-      <div className="admin-right">
+      <div className="manager-right">
         <Header />
         <TableManager/>
       </div> 

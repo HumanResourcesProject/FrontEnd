@@ -25,12 +25,12 @@ const CompanyManagerCreate = () => {
   });
 
   // For Image ********
-  // const [image,setImage] = useState('');
+  const [image,setImage] = useState('');
 
-  // const onchangeImage = (e) => {
-  //   const file = e.target.files[0];
-  //   setImage(file);
-  //     }
+  const onchangeImage = (e) => {
+    const file = e.target.files[0];
+    setImage(file);
+      }
 
   const [companies, setCompanies] = useState([]);
   useEffect(() => {
@@ -49,31 +49,31 @@ const CompanyManagerCreate = () => {
     name: "",
   });
 
-  // const handleFindAllCompany = async (event) => {
+  const handleFindAllCompany = async (event) => {
 
-  //   event.preventDefault();
-  //     CompanyService.findAllCompany(token).then(
-  //       () =>{
-  //         alert("added successfully *****")
-  //         setCompanies(response.data);
-  //       })
-  //       .catch((error) => {
-  //         alert(error.response.data.message+"patladi token");
-  //         setCompanies(response.data);
-  //       });
+    event.preventDefault();
+      CompanyService.findAllCompany(token).then(
+        (response) =>{
+          alert("added successfully *****")
+          setCompanies(response.data);
+        })
+        .catch((error) => {
+          alert(error.response.data.message+"patladi token");
+          
+        });
 
-  // };
+  };
 
   const handleCreate = async (event) => {
     event.preventDefault();
 
-    // if(image === "https://cdn.pixabay.com/photo/2017/11/10/04/47/user-2935373_960_720.png"){
-    //   const newImage = URL.createObjectURL(image)
-    //     setManagerInfo({
-    //       ...managerInfo,
-    //       avatar: newImage
-    //     })
-    // }
+    if(image === "https://cdn.pixabay.com/photo/2017/11/10/04/47/user-2935373_960_720.png"){
+      const newImage = URL.createObjectURL(image)
+        setManagerInfo({
+          ...managerInfo,
+          avatar: newImage
+        })
+    }
 
     CompanyManagerService.createCompanyManager(managerInfo)
       .then(() => {
@@ -92,23 +92,24 @@ const CompanyManagerCreate = () => {
       <div className="register-photo-section">
         <div className="register-profile-holder">
           <div className="register-profile-image">
-            {/* {image ? <img src={URL.createObjectURL(image)} /> : <img src="https://cdn.pixabay.com/photo/2017/11/10/04/47/user-2935373_960_720.png" alt="Tanjiro" />} */}
+            {image ? <img src={URL.createObjectURL(image)} /> : <img src="https://cdn.pixabay.com/photo/2017/11/10/04/47/user-2935373_960_720.png" alt="Tanjiro" />}
           </div>
         </div>
         <div className="register-buttons">
-          {/* <label htmlFor="file" className='choosefilebutton' ><DriveFolderUploadIcon className='uploadicon'/>Choose a Image</label>
+          <label htmlFor="file" className='choosefilebutton' ><DriveFolderUploadIcon className='uploadicon'/>Change Avatar</label>
         <input type="file" id='file' style={{display:'none' }}
-        onChange={onchangeImage}/> */}
+        onChange={onchangeImage}/>
         </div>
       </div>
       <div className="manager-register-profil-info">
         <div className="manager-register-information">
-          <h2>Bilgi Alma Bölümü</h2>
+          <h2>Company Registration</h2>
 
           <form onSubmit={handleCreate}>
             <div className="manager-company-section">
               <label htmlFor="company-select">Select Company:</label>
               <select id="company-select"
+              className="select-style"
               onChange={(event) => 
                 setManagerInfo({...managerInfo, 
                   companyName: event.target.value})}
@@ -123,18 +124,21 @@ const CompanyManagerCreate = () => {
                 ))}
               </select>
             </div>
-            <br />
-            <div className='manager-name-section'>
-            <label>Identify number:</label>
-              <input
-               type="text" onChange={(e) =>
-                setManagerInfo({
-                  ...managerInfo,
-                  identifynumber: e.target.value,
-                })
-              } 
-               />
-               <br />
+            <div className="form-data">
+            <div className="first-6">
+            
+            <div className="data">
+              <label>Identify number:</label>
+                <input
+                type="text" onChange={(e) =>
+                  setManagerInfo({
+                    ...managerInfo,
+                    identifynumber: e.target.value,
+                  })
+                } 
+                />
+            </div>
+               <div className="data">
               <label>Name:</label>
               <input
                type="text" onChange={(e) =>
@@ -144,6 +148,8 @@ const CompanyManagerCreate = () => {
                 })
               }
                />
+               </div>
+               <div className="data">
               <label>Surname:</label>
               <input 
                type="text" onChange={(e) =>
@@ -153,8 +159,9 @@ const CompanyManagerCreate = () => {
                 })
               }
               />
-
-              <label for="last-name">mid name:</label>
+              </div>
+              <div className="data">
+              <label>mid name:</label>
               <input
                 type="text"
                 onChange={(e) =>
@@ -164,9 +171,10 @@ const CompanyManagerCreate = () => {
                   })
                 }
               />
-            </div>
-            <br />
-            <div className="manager-birth-section">
+              </div>
+            
+            
+            <div className="data">
               <label>Birth-date:</label>
               <input
                 type="text"
@@ -176,7 +184,9 @@ const CompanyManagerCreate = () => {
                     birthDate: e.target.value,
                   })
                 }
-               /> <br />
+               />
+               </div>
+               <div className="data">
               <label>Birth-place:</label>
               <input 
                 type="text" onChange={(e) =>
@@ -186,9 +196,10 @@ const CompanyManagerCreate = () => {
                   })
                 }
               />
-            </div>
-            <br />
-            <div className="manager-job-section">
+              </div> 
+              </div>
+            <div className="second-6">
+            <div className="data">
               <label>Job-start-date:</label>
               <input 
                 type="text" onChange={(e) =>
@@ -197,7 +208,9 @@ const CompanyManagerCreate = () => {
                     jobStart: e.target.value,
                   })
                 }
-              /><br />
+              />
+              </div>
+              <div className="data">
               <label>Occupation:</label>
               <input 
                 type="text" onChange={(e) =>
@@ -206,7 +219,9 @@ const CompanyManagerCreate = () => {
                     job: e.target.value,
                   })
                 }
-              /><br />
+              />
+              </div>
+              <div className="data">
               <label>Department:</label>
               <input 
                 type="text" onChange={(e) =>
@@ -216,9 +231,10 @@ const CompanyManagerCreate = () => {
                   })
                 }
               />
-            </div>
-            <br />
-            <div className="manager-com-section">
+              </div>
+            
+            
+            <div className="data">
               <label>E-Mail</label>
               <input 
                 type="text" onChange={(e) =>
@@ -228,6 +244,8 @@ const CompanyManagerCreate = () => {
                   })
                 }
               />
+              </div>
+              <div className="data">
               <label>Phone:</label>
               <input 
                 type="text" onChange={(e) =>
@@ -237,7 +255,8 @@ const CompanyManagerCreate = () => {
                   })
                 }
               />
-              <br />
+              </div>
+              <div className="data">
               <label>Address:</label>
               <input 
                 type="text" onChange={(e) =>
@@ -247,7 +266,10 @@ const CompanyManagerCreate = () => {
                   })
                 }
               />
-            </div>
+              </div>
+              </div>
+              </div>
+            
             <button type="submit" className="save-button">Save</button>
           </form>
         </div>
