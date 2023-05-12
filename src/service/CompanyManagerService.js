@@ -2,7 +2,7 @@ import axios from "axios";
 
 const FINDALL_MANAGER = "http://localhost:7072/companymanager/findall";
 const CREATE_MANAGER = "http://localhost:7070/admin/createcompanymanager";
-const CREATE_EMPLOYEE = "http://localhost:7070/admin/createemployee";
+const CREATE_EMPLOYEE = "http://localhost:7072/companymanager/createemployee";
 const SHORT_DETAIL = 'http://localhost:7072/companymanager/getshortdetail';
 
 

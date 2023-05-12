@@ -9,7 +9,7 @@ import CompanyService from "../../service/CompanyService";
 const CompanyManagerCreate = () => {
   const [managerInfo, setManagerInfo] = useState({
     identityNumber: "",
-    // avatar:"",
+    //avatar:"",
     name: "",
     middleName: "",
     surname: "",
@@ -91,7 +91,7 @@ const CompanyManagerCreate = () => {
     <div className="manager-register">
       <div className="register-photo-section">
         <div className="register-profile-holder">
-          <div className="register-profile-image">
+          {/* <div className="register-profile-image">
             {image ? (
               <img src={URL.createObjectURL(image)} />
             ) : (
@@ -100,9 +100,9 @@ const CompanyManagerCreate = () => {
                 alt="Tanjiro"
               />
             )}
-          </div>
+          </div> */}
         </div>
-        <div className="register-buttons">
+        {/* <div className="register-buttons">
           <label htmlFor="file" className="choosefilebutton">
             <DriveFolderUploadIcon className="uploadicon" />
             Change Avatar
@@ -113,11 +113,11 @@ const CompanyManagerCreate = () => {
             style={{ display: "none" }}
             onChange={onchangeImage}
           />
-        </div>
+        </div> */}
       </div>
       <div className="manager-register-profil-info">
         <div className="manager-register-information">
-          <h2>Company Registration</h2>
+          <h2>Company Manager</h2>
 
           <form onSubmit={handleCreate}>
             <div className="manager-company-section">

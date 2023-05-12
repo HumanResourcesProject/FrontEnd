@@ -56,6 +56,7 @@ const [id, setId] = useState("");
       id: id,
       phone: phone,
       address: address,
+      token : sessionStorage.getItem("token"),
     };
 
     AdminService.updateAdminInfo(data)

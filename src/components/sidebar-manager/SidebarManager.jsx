@@ -64,12 +64,12 @@ const Sidebar = () => {
                 <div>Company Manager List</div>
               </Link>
             </li>
-            <li>
+            {/* <li>
               <Link to="managerlistemployeepage" className="link d-flex">
                 <EngineeringOutlinedIcon />
                 <div>Employee List</div>
               </Link>
-            </li>
+            </li> */}
           </ul>
         </div>
       </div>

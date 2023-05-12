@@ -48,7 +48,6 @@ const ProfilPage = () => {
             .catch((error) => {
                 alert(error.response.data.message + "bir seyler yanlis gitti front satir:50");
             });
-            alert("calisan sayisi: "+companyInfo.calisanSayisi);
 
     };
 
