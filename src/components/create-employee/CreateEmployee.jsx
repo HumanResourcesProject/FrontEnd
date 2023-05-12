@@ -15,6 +15,7 @@ const CreateEmployee = () => {
     phone: "",
     address: "",
     dateOfBirth: "",
+    placeOfBirth:"",
     company: "",
     job: "",
     department: "",
@@ -199,6 +200,18 @@ const CreateEmployee = () => {
                     }
                   />
                 </div>
+                <div className="data">
+                  <label>Birth-place:</label>
+                  <input
+                    type="text"
+                    onChange={(e) =>
+                      setEmployeeInfo({
+                        ...employeeInfo,
+                        birthPlace: e.target.value,
+                      })
+                    }
+                  />
+                </div>
               </div>
               <div className="second-6">
                 <div className="data">
@@ -262,10 +275,7 @@ const CreateEmployee = () => {
                     }
                   />
                 </div>
-              </div>
-            </div>
-            <div className="longside">
-              <div className="data">
+                <div className="data">
                 <label>Address:</label>
                 <input
                   type="text"
@@ -277,7 +287,9 @@ const CreateEmployee = () => {
                   }
                 />
               </div>
+              </div>
             </div>
+
             <button
               type="submit"
               onClick={(e) =>

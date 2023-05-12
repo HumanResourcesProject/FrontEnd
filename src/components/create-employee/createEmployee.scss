@@ -62,12 +62,12 @@
         }
         .employee-register-company-section{
           display: flex;
-          width: 100%;
           gap: 30px;
           align-items: center;
-          .select-style{
+          select{
+              
                 background: none;
-                width: 100%;
+                width: 50%;
                 font-size: 16px;
                 border: 2px solid #afafaf;
                 border-radius: 10px;
@@ -102,14 +102,11 @@
           form {
             display: flex;
             flex-direction: column;
-            align-items: center;
-
             color: rgb(167, 166, 166);
             gap: 30px;
             .form-data{
               display: flex;
               gap: 10px;
-              align-items: center;
               .first-6{
                 display: flex;
                 flex-direction: column;
@@ -132,22 +129,8 @@
                   justify-content: space-between;
                 }
               }
-
             }
-            .longside{
-                display: flex;
-                flex-direction: column;
-                width: 100%;
-                gap: 10px;
-                .data{
-                  display: flex;
-                  align-items: center;
-                  justify-content: space-between;
-                  input{
-                    width: 75%;
-                  }
-                }
-              }
+            
             label {
               font-weight: 500;
             }
@@ -161,8 +144,9 @@
                 color: white;
             }
             button {
+              display: block;
               margin: 20px;
-              width: 100%;
+              width: 80%;
               height: 40px;
               font-weight: 700;
               color: #fafafa;
