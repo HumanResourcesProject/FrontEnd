@@ -6,7 +6,7 @@ import "./managerMainPage.scss";
 
 const ManagerMainPage = () => {
   return (
-    <div className="managerpage">
+    <div className="manager-page">
       <div className="manager-sidebar">
         <SidebarManager />
       </div>
