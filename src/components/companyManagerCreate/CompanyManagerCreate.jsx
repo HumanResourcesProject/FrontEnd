@@ -7,32 +7,32 @@ import CompanyManagerService from "../../service/CompanyManagerService";
 import CompanyService from '../../service/CompanyService';
 
 const CompanyManagerCreate = () => {
- 
+
   const [managerInfo, setManagerInfo] = useState({
-    identityNumber:"",
-   // avatar:"",
-    name:"",
-    middleName:"",
-    surname:"",
-    birthDate:"",
-    email:"",
-    address:"",
-    phone:"",
-    company:"",
-    job:"",
-    birthPlace:"",
+    identityNumber: "",
+    // avatar:"",
+    name: "",
+    middleName: "",
+    surname: "",
+    birthDate: "",
+    email: "",
+    address: "",
+    phone: "",
+    company: "",
+    job: "",
+    birthPlace: "",
     jobStart: "",
-    token : sessionStorage.getItem("token"),
+    token: sessionStorage.getItem("token"),
   })
 
   // For Image ********
   // const [image,setImage] = useState('');
-  
+
   // const onchangeImage = (e) => {
   //   const file = e.target.files[0];
   //   setImage(file);
   //     }
-  
+
 
   const [companies, setCompanies] = useState([]);
   useEffect(() => {
@@ -40,8 +40,8 @@ const CompanyManagerCreate = () => {
       setCompanies(response.data);
     });
   }, []);
-  
- 
+
+
   const [token, setToken] = useState({
     token: sessionStorage.getItem("token"),
   });
@@ -53,7 +53,7 @@ const CompanyManagerCreate = () => {
 
 
   // const handleFindAllCompany = async (event) => {
-    
+
   //   event.preventDefault();
   //     CompanyService.findAllCompany(token).then(
   //       () =>{          
@@ -64,7 +64,7 @@ const CompanyManagerCreate = () => {
   //         alert(error.response.data.message+"patladi token");
   //         setCompanies(response.data);
   //       });
-    
+
   // };
 
 
@@ -75,7 +75,7 @@ const CompanyManagerCreate = () => {
 
   const handleCreate = async (event) => {
 
- 
+
     event.preventDefault();
 
     // if(image === "https://cdn.pixabay.com/photo/2017/11/10/04/47/user-2935373_960_720.png"){
@@ -86,15 +86,15 @@ const CompanyManagerCreate = () => {
     //     })
     // }
 
-      CompanyManagerService.createCompanyManager(managerInfo).then(
-        () =>{
-          
-          alert("added successfully *****")
-        })       
-        .catch((error) => {
-          alert(error.response.data.message+"isterler: password 3'den asaği olmucak ... mail: gmail.com ile bitecek.... telefon sadece numara olmalı... hicbir alan bos gecilemez");
-        });
-    
+    CompanyManagerService.createCompanyManager(managerInfo).then(
+      () => {
+
+        alert("added successfully *****")
+      })
+      .catch((error) => {
+        alert(error.response.data.message + "isterler: password 3'den asaği olmucak ... mail: gmail.com ile bitecek.... telefon sadece numara olmalı... hicbir alan bos gecilemez");
+      });
+
   };
 
   return (
@@ -106,7 +106,7 @@ const CompanyManagerCreate = () => {
           </div>
         </div>
         <div className='register-buttons'>
-        {/* <label htmlFor="file" className='choosefilebutton' ><DriveFolderUploadIcon className='uploadicon'/>Choose a Image</label>
+          {/* <label htmlFor="file" className='choosefilebutton' ><DriveFolderUploadIcon className='uploadicon'/>Choose a Image</label>
         <input type="file" id='file' style={{display:'none' }}
         onChange={onchangeImage}/> */}
         </div>
@@ -114,13 +114,15 @@ const CompanyManagerCreate = () => {
       <div className='manager-register-profil-info'>
         <div className='manager-register-information'>
           <h2>Bilgi Alma Bölümü</h2>
-            <form onSubmit={handleCreate}>
+          <form onSubmit={handleCreate}>
             <div className="manager-company-section">
               <label for="company-select">Select Company:</label>
               <select id="company-select"
-              onChange={(event) => 
-                setManagerInfo({...managerInfo, 
-                  company: event.target.value})}
+                onChange={(event) =>
+                  setManagerInfo({
+                    ...managerInfo,
+                    company: event.target.value
+                  })}
               >
                 {/* Burada companyMs nin endpoint' inden gelen Companyler listelenecek */}
                 <option value="" >Please select a company</option>
@@ -135,47 +137,47 @@ const CompanyManagerCreate = () => {
             </div>
             <br />
             <div className='manager-name-section'>
-            <label for="id-number">Identify number:</label>
+              <label for="id-number">Identify number:</label>
               <input
-               type="text" onChange={(e) =>
-                setManagerInfo({
-                  ...managerInfo,
-                  identityNumber: e.target.value,
-                })
-              } 
-               />
-               <br />
+                type="text" onChange={(e) =>
+                  setManagerInfo({
+                    ...managerInfo,
+                    identityNumber: e.target.value,
+                  })
+                }
+              />
+              <br />
               <label for="first-name">Name:</label>
               <input
-               type="text" onChange={(e) =>
-                setManagerInfo({
-                  ...managerInfo,
-                  name: e.target.value,
-                })
-              }              
-               />
-
-
-               
-              <label for="last-name">Surname:</label>
-              <input 
-               type="text" onChange={(e) =>
-                setManagerInfo({
-                  ...managerInfo,
-                  surname: e.target.value,
-                })
-              }
+                type="text" onChange={(e) =>
+                  setManagerInfo({
+                    ...managerInfo,
+                    name: e.target.value,
+                  })
+                }
               />
 
 
-<label for="last-name">mid name:</label>
-              <input 
-               type="text" onChange={(e) =>
-                setManagerInfo({
-                  ...managerInfo,
-                  middleName: e.target.value,
-                })
-              }
+
+              <label for="last-name">Surname:</label>
+              <input
+                type="text" onChange={(e) =>
+                  setManagerInfo({
+                    ...managerInfo,
+                    surname: e.target.value,
+                  })
+                }
+              />
+
+
+              <label for="last-name">mid name:</label>
+              <input
+                type="text" onChange={(e) =>
+                  setManagerInfo({
+                    ...managerInfo,
+                    middleName: e.target.value,
+                  })
+                }
               />
             </div>
             <br />
@@ -188,9 +190,9 @@ const CompanyManagerCreate = () => {
                     birthDate: e.target.value,
                   })
                 }
-               /> <br />
+              /> <br />
               <label for="birth-place">Birth-place:</label>
-              <input 
+              <input
                 type="text" onChange={(e) =>
                   setManagerInfo({
                     ...managerInfo,
@@ -202,7 +204,7 @@ const CompanyManagerCreate = () => {
             <br />
             <div className="manager-job-section">
               <label for="job-start-date">Job-start-date:</label>
-              <input 
+              <input
                 type="text" onChange={(e) =>
                   setManagerInfo({
                     ...managerInfo,
@@ -211,7 +213,7 @@ const CompanyManagerCreate = () => {
                 }
               /><br />
               <label for="job-title">Occupation:</label>
-              <input 
+              <input
                 type="text" onChange={(e) =>
                   setManagerInfo({
                     ...managerInfo,
@@ -220,7 +222,7 @@ const CompanyManagerCreate = () => {
                 }
               /><br />
               <label for="department">Department:</label>
-              <input 
+              <input
                 type="text" onChange={(e) =>
                   setManagerInfo({
                     ...managerInfo,
@@ -232,7 +234,7 @@ const CompanyManagerCreate = () => {
             <br />
             <div className="manager-com-section">
               <label for="email">E-Mail</label>
-              <input 
+              <input
                 type="text" onChange={(e) =>
                   setManagerInfo({
                     ...managerInfo,
@@ -241,7 +243,7 @@ const CompanyManagerCreate = () => {
                 }
               />
               <label for="phone">Phone:</label>
-              <input 
+              <input
                 type="text" onChange={(e) =>
                   setManagerInfo({
                     ...managerInfo,
@@ -251,7 +253,7 @@ const CompanyManagerCreate = () => {
               />
               <br />
               <label for="address">Address:</label>
-              <input 
+              <input
                 type="text" onChange={(e) =>
                   setManagerInfo({
                     ...managerInfo,
