@@ -9,18 +9,11 @@ const ProfilPage = () => {
 
 const [adminInfo, setAdminInfo] = useState({
   name:"",
-  middleName:"",
   surname:"",
   email:"",
-  dateOfBirth:"",
-  placeOfBirth:"",
-  identityNumber:"",
-  job:"",
-  department:"",
   phone:"",
   address:"",
   avatar:"",
-  company:""
 })
   const [image,setImage] = useState('');
   

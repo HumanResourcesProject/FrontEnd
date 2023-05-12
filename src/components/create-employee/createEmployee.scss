@@ -1,0 +1,185 @@
+.employee-register {
+    display: flex;
+    justify-content: space-evenly;
+    height: 800px;
+    margin: 7% 10% 7% 10%;
+    border: 2px solid black;
+    border-radius: 20px;
+    background-color: #2c2e30;
+    align-items: center;
+    .employee-register-photo-section {
+        background-color: #ffffff;
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+        background-color: #2c2e30;
+        
+        .employee-register-profile-holder {
+          h3 {
+            color: #343a40;
+            text-align: center;
+            border-bottom: 2px solid #343a40;
+            border-radius: 50%;
+          }
+          .employee-register-profile-image {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            img {
+              width: 200px;
+              height: 200px;
+              border-radius: 50%;
+              object-fit: cover;
+            }
+          }
+        }
+        .employee-register-buttons {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: #4c83bb;
+          gap: 10px;
+          .choosefilebutton{
+            display: flex;
+            align-items: center;
+            gap: 10px;
+          }
+        }
+      }
+    .employee-register-profil-info {
+        width: 60%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        .employee-register-information{
+          display: flex;
+          flex-direction: column;
+          gap: 40px;
+        }
+        .employee-register-company-section{
+          display: flex;
+          width: 100%;
+          gap: 30px;
+          align-items: center;
+          .select-style{
+                background: none;
+                width: 100%;
+                font-size: 16px;
+                border: 2px solid #afafaf;
+                border-radius: 10px;
+                color: rgb(196, 194, 194);
+                padding: 2px;
+          }
+          .select-style select {
+            width: 100%;
+            height: 100%;
+            padding: 8px;
+            background-color: transparent;
+            border: none;
+            outline: none;
+            font-size: 16px;
+            color: #333;
+          }
+          
+          .select-style option {
+            font-size: 16px;
+            color: #bebebe;
+            background-color: #2c2e30;
+          }
+        }
+        h2{
+          color: rgb(202, 202, 202);
+        }
+        .employee-register-information-head {
+          text-align: center;
+        }
+        .employee-register-information {
+          
+          form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            color: rgb(167, 166, 166);
+            gap: 30px;
+            .form-data{
+              display: flex;
+              gap: 10px;
+              align-items: center;
+              .first-6{
+                display: flex;
+                flex-direction: column;
+                width: 50%;
+                gap: 10px;
+                .data{
+                  display: flex;
+                  align-items: center;
+                  justify-content: space-between;
+                }
+              }
+              .second-6{
+                display: flex;
+                flex-direction: column;
+                width: 50%;
+                gap: 10px;
+                .data{
+                  display: flex;
+                  align-items: center;
+                  justify-content: space-between;
+                }
+              }
+
+            }
+            .longside{
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                gap: 10px;
+                .data{
+                  display: flex;
+                  align-items: center;
+                  justify-content: space-between;
+                  input{
+                    width: 75%;
+                  }
+                }
+              }
+            label {
+              font-weight: 500;
+            }
+            input {
+                margin: 5px;
+                background: none;
+                width: 50%;
+                font-size: 16px;
+                border: 2px solid #afafaf;
+                border-radius: 10px;
+                color: white;
+            }
+            button {
+              margin: 20px;
+              width: 100%;
+              height: 40px;
+              font-weight: 700;
+              color: #fafafa;
+              background-color: #7a7a7a;
+              border: none;
+              border-radius: 10px;
+              font-size: 15px;
+              cursor: pointer;
+            }
+            button:hover,
+            button:focus {
+              box-shadow: 0 0.5em 0.5em -0.4em var(--color5);
+              transform: translateY(-0.25em);
+              transition: 0.4s;
+            }
+            
+          }
+        }
+      }
+}
