@@ -6,11 +6,11 @@ import TableEmployee from "../../components/table-employee/TableEmployee"
 
 const ManagerListEmployeePage = () => {
   return (
-    <div>
-      <div>
+    <div className="manager-page">
+      <div className="manager-sidebar">
       <SidebarManager />
       </div>
-      <div className="admin-right">
+      <div className="manager-right">
         <HeaderManager />
         <TableEmployee/>
       </div> 

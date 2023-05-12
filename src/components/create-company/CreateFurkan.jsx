@@ -48,7 +48,6 @@ const ProfilPage = () => {
             .catch((error) => {
                 alert(error.response.data.message + "bir seyler yanlis gitti front satir:50");
             });
-            alert("calisan sayisi: "+companyInfo.calisanSayisi);
 
     };
 
@@ -84,15 +83,15 @@ const ProfilPage = () => {
                                 })
                             } />
 
-                            <label htmlFor="">  Phone</label>
+                            <label>  Phone</label>
                             <input type="text" placeholder='Company Phone'  onChange={(e) =>
                   setCompanyInfo({
                     ...companyInfo,
-                    name: e.target.value,
+                    phone: e.target.value,
                   })
                 } />
 
-                            <label htmlFor="">  Address</label>
+                            <label>  Address</label>
                             <input type="text" placeholder='Company Address'  onChange={(e) =>
                   setCompanyInfo({
                     ...companyInfo,
@@ -100,7 +99,7 @@ const ProfilPage = () => {
                   })
                 } />
 
-                            <label htmlFor=""> calisan sayisi</label>
+                            <label> calisan sayisi</label>
                             <input type="text" placeholder='toplam calisan sayisi' onChange={(e) =>
                   setCompanyInfo({
                     ...companyInfo,
@@ -108,7 +107,7 @@ const ProfilPage = () => {
                   })
                 } />
 
-                            <label htmlFor=""  > Vergi dairesi </label>
+                            <label> Vergi dairesi </label>
                             <input type="text" placeholder='Vergi Dairesi Adı. ilçe/il'  onChange={(e) =>
                   setCompanyInfo({
                     ...companyInfo,
@@ -123,15 +122,11 @@ const ProfilPage = () => {
                     mersisNo: e.target.value,
                   })
                 } />
-
-
-
-
                         </div>
                         <div className='cartright'> {/* 2.2 */}
 
 
-                            <label htmlFor=""> Unvan</label>
+                            <label> Unvan</label>
                             <input type="text" placeholder='Lti.Şti Or Anonim vs.'  onChange={(e) =>
                   setCompanyInfo({
                     ...companyInfo,
@@ -139,7 +134,7 @@ const ProfilPage = () => {
                   })
                 } />
 
-                            <label htmlFor="">  E-Mail</label>
+                            <label>  E-Mail</label>
                             <input type="text" placeholder='xxx@companyname.com'  onChange={(e) =>
                   setCompanyInfo({
                     ...companyInfo,
@@ -148,7 +143,7 @@ const ProfilPage = () => {
                 } />
 
 
-                            <label htmlFor=""> kuruluş yılı</label>
+                            <label> kuruluş yılı</label>
                             <input type="text" placeholder='01.01.2023'  onChange={(e) =>
                   setCompanyInfo({
                     ...companyInfo,
@@ -156,18 +151,14 @@ const ProfilPage = () => {
                   })
                 } />
 
-                            <label htmlFor=""> Vergi No </label>
+                            <label> Vergi No </label>
                             <input type="text" placeholder='0000000000'  onChange={(e) =>
                   setCompanyInfo({
                     ...companyInfo,
                     vergiNo: e.target.value,
                   })
                 } />
-
-
                         </div>
-
-
                     </div>
 
                     <button type="submit" onClick={(e) =>

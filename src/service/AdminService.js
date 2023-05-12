@@ -1,13 +1,10 @@
 import axios from "axios";
 
 const FINDALL_ADMIN = "http://localhost:7070/admin/getalladmin";
-
-
 const CREATE_ADMIN = 'http://localhost:7070/admin/createadmin';
-const GET_ADMIN_INFO = "http://localhost:7070/admin/getadmin1";
-const UPDATE_PROFILEP = "http://localhost:7070/admin/imagescloud?id=1";
+const GET_ADMIN_INFO = "http://localhost:7070/admin/getadmin";
+const UPDATE_PROFILEP = "http://localhost:7070/admin/imagescloud";
 const UPDATE_ADMININFO = "http://localhost:7070/admin/updateadmin";;
-
 const SHORT_DETAIL = 'http://localhost:7070/admin/getshortdetail';
 
 class AdminService{
@@ -24,8 +21,12 @@ class AdminService{
         });
 
     }
-    getAdminInformations(){
-        return axios.get(GET_ADMIN_INFO);
+    getAdminInformations(token){
+        return axios.post(GET_ADMIN_INFO,token,{
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
     }
     getAdminProfilePhoto(formData){
         return axios.post(UPDATE_PROFILEP, formData)

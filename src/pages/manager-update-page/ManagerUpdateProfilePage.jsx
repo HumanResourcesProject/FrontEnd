@@ -1,18 +1,18 @@
 import React from 'react'
 import HeaderManager from "../../components/header-manager/HeaderManager";
 import SidebarManager from "../../components/sidebar-manager/SidebarManager";
-import MainPage from "../../components/mainpage/MainPage";
-import "./managerMainPage.scss";
+import ManagerUpdateProfile from "../../components/manager-update-profile/ManagerUpdateProfile";
+import "./managerUpdateProfilePage.scss";
 
 const ManagerMainPage = () => {
   return (
-    <div className="manager-page">
+    <div className="managerpage">
       <div className="manager-sidebar">
         <SidebarManager />
       </div>
       <div className="manager-right">
         <HeaderManager /> 
-        <MainPage/>
+        <ManagerUpdateProfile/>
       </div>
 
     </div>

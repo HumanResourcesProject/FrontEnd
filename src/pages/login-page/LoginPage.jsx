@@ -1,9 +1,11 @@
-import React, {useState} from "react";
+import React, {useState, useContext} from "react";
 import "./loginpage.scss";
 import loginpage from "../../images/19197061.jpg";
 import AuthService from "../../service/AuthService";
+import AuthContext from "../../context/AuthProvider";
 
 export const LoginPage = () => {
+    const {setAuth} = useContext(AuthContext);
     const[user,setUser] = useState({
         email: "",
         password: "",

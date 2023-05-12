@@ -1,17 +1,14 @@
 import React from "react";
 import { useState, useEffect } from "react";
-//import PhoneInput from 'react-phone-number-input'
-import "./style.css";
-import "./adminProfil.scss";
-import AdminService from '../../service/AdminService';
-
+import axios from "axios";
+import "./managerMyProfile.scss";
+import AdminService from "../../service/AdminService";
 
 const ProfilPage = () => {
   const [admin, setAdmin] = useState([]);
-  const token = sessionStorage.getItem("token");
+
   useEffect(() => {
-    AdminService.getAdminInformations(token)
-    .then((response) => {
+    axios.get("http://localhost:7070/admin/getadmin?id=1").then((response) => {
       setAdmin(response.data);
     });
   }, []);
@@ -25,6 +22,7 @@ const ProfilPage = () => {
   const refresh = () => {
     window.location.reload()
   }
+// Burası pp update http://localhost:7070/admin/imagescloud?id=1
 const [selectedFile, setSelectedFile] = useState(null);
 const [imageUrl, setImageUrl] = useState(null);
 const [loading, setLoading] = useState(false);
@@ -34,8 +32,8 @@ const handleImageUpload = (event) => {
   const formData = new FormData();
   formData.append('file', selectedFile);
   
-  AdminService.getAdminProfilePhoto(formData)
-  .then((response) => {
+
+  AdminService.getFirstAdminInfo(formData).then((response) => {
     console.log("Profil fotoğrafı başarıyla yüklendi ve database'e kaydedildi.");
     setTimeout(() => window.location.reload(), 1000);
     setLoading(false);
@@ -46,6 +44,7 @@ const handleImageUpload = (event) => {
     setLoading(false);
   });
 };
+// Burası pd update http://localhost:7070/admin/updateadmin'
 const [id, setId] = useState("");
   const [phone, setPhone] = useState("");
   const [address, setAddress] = useState("");
@@ -56,20 +55,28 @@ const [id, setId] = useState("");
       id: id,
       phone: phone,
       address: address,
-      token : sessionStorage.getItem("token"),
     };
 
-    AdminService.updateAdminInfo(data)
+    axios
+      .post("http://localhost:7070/admin/updateadmin", data,
+      {
+        headers: {
+          'Content-Type': 'application/json'
+      }
+      }
+      )
+      
       .then((response) => {
         console.log(response);
         alert("Admin updated successfully!");
-        setId(""); // Kaldırılacak
+        setId("");
         setPhone("");
         setAddress("");
+        
       })
       .catch((error) => {
         console.log(error);
-        alert(error.response.data.message);
+        alert("An error occurred while updating the admin.");
       });
   };
 
@@ -132,22 +139,27 @@ const [id, setId] = useState("");
         </div>
         <div id="gosterilecekDiv" className="informationsecret">
           <form onSubmit={handleSubmit}>
-
+            <div className="input-profile">
+              <label>
+                Id:
+              </label>
+                <input
+                  type="text"
+                  value={id}
+                  onChange={(e) => setId(e.target.value)}
+                />
+              
+            </div>
             <div className="input-profile">
               <label>
                 Phone:
                 </label>
-                {/* { <PhoneInput
-                  international
-                  defaultCountry="TR"
-                  value={phone}
-                  onChange={setPhone}
-                /> } */}
                 <input
-                  type="tel"
+                  type="text"
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
                 />
+              
             </div>
             <div className="input-profile">
               <label>
