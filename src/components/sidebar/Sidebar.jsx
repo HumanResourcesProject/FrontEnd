@@ -71,7 +71,7 @@ const Sidebar = () => {
             <li>
               <Link to="/managerlistpage" className="link d-flex">
                 <Groups3Icon />
-                <div>Project Manager List</div>
+                <div>Company Manager List</div>
               </Link>
             </li>
             

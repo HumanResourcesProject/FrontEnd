@@ -13,6 +13,9 @@ import CompanyManagerListTablePage from './pages/company-manager-list-table-page
 import ManagerListManagerPage from './pages/manager-list-manager-page/ManagerListManagerPage'
 import ManagerListPage from './pages/manager-list-page/ManagerListPage'
 import EmployeeRegister from './pages/employee-register-page/EmployeeRegister'
+import ManagerMyProfilePage from './pages/manager-my-profile-page/ManagerMyProfilePage'
+import ManagerUpdateProfilePage from './pages/manager-update-page/ManagerUpdateProfilePage'
+
 const App = () => {
   return (
     <Routes>
@@ -29,6 +32,10 @@ const App = () => {
       <Route path ="/manager" element={<ManagerMainPage/>}/>
       <Route path ="/managerlistmanagerpage" element={<ManagerListManagerPage/>}/>
       <Route path ="/employeeregister" element={<EmployeeRegister/>}/>
+      <Route path ="/managermyprofilepage" element={<ManagerMyProfilePage/>}/>
+      <Route path ="/managerupdatepage" element={<ManagerUpdateProfilePage/>}/>
+
+
       {/* routelar düzelmesi lazım  */}
       
       <Route path="*" element={<Navigate to="/"/>} />
