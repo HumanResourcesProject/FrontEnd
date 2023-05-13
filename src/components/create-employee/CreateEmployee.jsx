@@ -20,7 +20,7 @@ const CreateEmployee = () => {
     job: "",
     department: "",
     jobStart: "",
-    avatar: "",
+    //avatar: "",
   });
   const [image, setImage] = useState("");
 
@@ -85,7 +85,7 @@ const CreateEmployee = () => {
     <div className="employee-register">
       <div className="employee-register-photo-section">
         <div className="employee-register-profile-holder">
-          <div className="employee-register-profile-image">
+          {/* <div className="employee-register-profile-image">
             {image ? (
               <img src={URL.createObjectURL(image)} />
             ) : (
@@ -94,9 +94,9 @@ const CreateEmployee = () => {
                 alt="Rengoku"
               />
             )}
-          </div>
+          </div> */}
         </div>
-        <div className="employee-register-buttons">
+        {/* <div className="employee-register-buttons">
           <label htmlFor="file" className="choosefilebutton">
             <DriveFolderUploadIcon className="uploadicon" />
             Choose a File
@@ -107,31 +107,30 @@ const CreateEmployee = () => {
             style={{ display: "none" }}
             onChange={onchangeImage}
           />
-        </div>
+        </div> */}
       </div>
       <div className="employee-register-profil-info">
         <div className="employee-register-information">
           <h2>Employee Registration</h2>
+        
           <form onSubmit={handleCreate}>
-            <div className="employee-register-company-section">
-              <label htmlFor="employee-register-company-select">
-                Select Company:
-              </label>
+            <div className="manager-company-section">
+              <label htmlFor="company-select">Select Company:</label>
               <select
                 id="company-select"
                 className="select-style"
                 onChange={(event) =>
                   setEmployeeInfo({
                     ...employeeInfo,
-                    companyName: event.target.value,
+                    company: event.target.value,
                   })
                 }
               >
                 {/* Burada companyMs nin endpoint' inden gelen Companyler listelenecek */}
                 <option value="">Please select a company</option>
 
-                {companies.map((company) => (
-                  <option key={company.name} value={company.name}>
+                {companies.map((company,index) => (
+                  <option key={index} value={company.name}>
                     {company.name}
                   </option>
                 ))}
@@ -146,7 +145,7 @@ const CreateEmployee = () => {
                     onChange={(e) =>
                       setEmployeeInfo({
                         ...employeeInfo,
-                        identifynumber: e.target.value,
+                        identityNumber: e.target.value,
                       })
                     }
                   />
@@ -195,7 +194,7 @@ const CreateEmployee = () => {
                     onChange={(e) =>
                       setEmployeeInfo({
                         ...employeeInfo,
-                        dateOfBirth: e.target.value,
+                        birthDate: e.target.value,
                       })
                     }
                   />
@@ -233,7 +232,7 @@ const CreateEmployee = () => {
                     onChange={(e) =>
                       setEmployeeInfo({
                         ...employeeInfo,
-                        job: e.target.value,
+                        occupation: e.target.value,
                       })
                     }
                   />
@@ -245,7 +244,7 @@ const CreateEmployee = () => {
                     onChange={(e) =>
                       setEmployeeInfo({
                         ...employeeInfo,
-                        birthdate: e.target.value,
+                        department: e.target.value,
                       })
                     }
                   />
@@ -276,29 +275,21 @@ const CreateEmployee = () => {
                   />
                 </div>
                 <div className="data">
-                <label>Address:</label>
-                <input
-                  type="text"
-                  onChange={(e) =>
-                    setEmployeeInfo({
-                      ...employeeInfo,
-                      address: e.target.value,
-                    })
-                  }
-                />
-              </div>
+                  <label>Address:</label>
+                  <input
+                    type="text"
+                    onChange={(e) =>
+                      setEmployeeInfo({
+                        ...employeeInfo,
+                        address: e.target.value,
+                      })
+                    }
+                  />
+                </div>
               </div>
             </div>
 
-            <button
-              type="submit"
-              onClick={(e) =>
-                setEmployeeInfo({
-                  ...employeeInfo,
-                  avatar: image,
-                })
-              }
-            >
+            <button type="submit" className="save-button">
               Save
             </button>
           </form>

@@ -9,7 +9,6 @@ import CompanyService from "../../service/CompanyService";
 const CompanyManagerCreate = () => {
   const [managerInfo, setManagerInfo] = useState({
     identityNumber: "",
-    //avatar:"",
     name: "",
     middleName: "",
     surname: "",
@@ -18,9 +17,10 @@ const CompanyManagerCreate = () => {
     address: "",
     phone: "",
     company: "",
-    job: "",
+    occupation: "",
     birthPlace: "",
     jobStart: "",
+    department:"",
     token: sessionStorage.getItem("token"),
   });
 
@@ -128,7 +128,7 @@ const CompanyManagerCreate = () => {
                 onChange={(event) =>
                   setManagerInfo({
                     ...managerInfo,
-                    companyName: event.target.value,
+                    company: event.target.value,
                   })
                 }
               >
@@ -151,7 +151,7 @@ const CompanyManagerCreate = () => {
                     onChange={(e) =>
                       setManagerInfo({
                         ...managerInfo,
-                        identifynumber: e.target.value,
+                        identityNumber: e.target.value,
                       })
                     }
                   />
@@ -238,7 +238,7 @@ const CompanyManagerCreate = () => {
                     onChange={(e) =>
                       setManagerInfo({
                         ...managerInfo,
-                        job: e.target.value,
+                        occupation: e.target.value,
                       })
                     }
                   />
@@ -250,7 +250,7 @@ const CompanyManagerCreate = () => {
                     onChange={(e) =>
                       setManagerInfo({
                         ...managerInfo,
-                        birthdate: e.target.value,
+                        department: e.target.value,
                       })
                     }
                   />

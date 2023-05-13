@@ -131,20 +131,17 @@ const [id, setId] = useState("");
 
             <div className="input-profile">
               <label>Occupation:</label>
-              <p>{manager.job}</p>
+              <p>{manager.occupation}</p>
             </div>
             <div className="input-profile">
               <label>Department:</label>
-              <p>{manager.departmen}</p>
+              <p>{manager.department}</p>
             </div>
             <div className="input-profile">
               <label>Job Start:</label>
               <p>{manager.jobStart}</p>
             </div>
-            <div className="input-profile">
-              <label>Job End:</label>
-              <p>{manager.jobEnd}</p>
-            </div>
+   
             <div className="update-button">
               <button type="button" onClick={update}>
                 Update

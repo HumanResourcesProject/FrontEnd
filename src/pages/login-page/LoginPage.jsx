@@ -35,7 +35,7 @@ export const LoginPage = () => {
               sessionStorage.setItem("role",response.data.role)
               if(response.data.role === "ADMIN"){
                 window.location.replace("http://localhost:3000/")
-              }else if(response.data.role === "COMPANY_MANAGER")
+              }else if(response.data.role === "MANAGER")
               {
                 window.location.replace("http://localhost:3000/manager")
               }

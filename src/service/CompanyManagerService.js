@@ -1,12 +1,11 @@
 import axios from "axios";
 
-const FINDALL_MANAGER = "http://localhost:7072/companymanager/findall";
-const CREATE_MANAGER = "http://localhost:7070/admin/createcompanymanager";
-const CREATE_EMPLOYEE = "http://localhost:7072/companymanager/createemployee";
-const SHORT_DETAIL = 'http://localhost:7072/companymanager/getshortdetail';
-const GET_MANAGER_INFO = "http://localhost:7072/companymanager/getmanager";
-const UPDATE_MANAGER_INFO = "http://localhost:7072/companymanager/updatecompanymanager";
-const UPDATE_PROFILEP = "http://localhost:7072/companymanager/imagescloud";
+const FINDALL_MANAGER = "http://localhost:7072/manager/findall";
+const CREATE_EMPLOYEE = "http://localhost:7071/auth/registeremployee";
+const GET_MANAGER_INFO = "http://localhost:7072/manager/getfindme";
+const UPDATE_MANAGER_INFO = "http://localhost:7072/manager/updatemanager";
+const UPDATE_PROFILEP = "http://localhost:7072/manager/updateimage";
+const CREATE_Manager_AUTH = "http://localhost:7071/auth/registermanager";
 
 
 
@@ -17,7 +16,7 @@ class CompanyManagerService {
     }
 
     createCompanyManager(manager){
-        return axios.post(CREATE_MANAGER, manager,{
+        return axios.post(CREATE_Manager_AUTH, manager,{
             headers: {
                 'Content-Type': 'application/json'
             }
@@ -34,7 +33,7 @@ class CompanyManagerService {
     }
 
     postShortDetails(token){
-        return axios.post(SHORT_DETAIL,token);
+        return axios.post(GET_MANAGER_INFO,token);
     }
     getManagerInformations(token){
         return axios.post(GET_MANAGER_INFO,token,{

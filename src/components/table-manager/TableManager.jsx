@@ -11,6 +11,8 @@ const TableAdmin = () => {
   const [data2,setData] = useState([])
   useEffect(() => {
     CompanyManagerService.getAllManager().then((response) => {
+      console.log(response.data);
+
       setData(() => (response.data
       ));
       
@@ -89,14 +91,14 @@ const TableAdmin = () => {
             enableEditing:true 
           },
           {
-            accessorKey: 'dateOfBirth', //accessorKey used to define `data` column. `id` gets set to accessorKey automatically
+            accessorKey: 'birthDate', //accessorKey used to define `data` column. `id` gets set to accessorKey automatically
             header: 'Date Of Birth',
             size: 300,
             enableEditing:true 
 
           },
           {
-            accessorKey: 'job', //accessorKey used to define `data` column. `id` gets set to accessorKey automatically
+            accessorKey: 'occupation', //accessorKey used to define `data` column. `id` gets set to accessorKey automatically
             header: 'Job',
             size: 300,
             enableEditing:true 
