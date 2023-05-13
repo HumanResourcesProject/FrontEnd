@@ -2,17 +2,17 @@ import React from "react";
 import Header from "../../components/header/Header";
 import Sidebar from "../../components/sidebar/Sidebar";
 import "./managerListPage.scss";
-import TableAdmin from "../../components/table-admin/TableManager";
+import TableManager from "../../components/table-manager/TableManager";
 
 const ManagerListPage = () => {
   return (
-    <div>
-      <div>
+    <div  className="manager-page">
+      <div className="manager-sidebar">
         <Sidebar />
       </div>
-      <div className="admin-right">
+      <div className="manager-right">
         <Header />
-        
+        <TableManager/>
       </div> 
    
     </div>

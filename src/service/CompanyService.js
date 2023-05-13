@@ -1,13 +1,26 @@
 import axios from "axios";
 
-const LOGIN = "http://localhost:xxxx/auth/create";
+const CREATE_COMPANY = "http://localhost:7073/company/createcompany";
+const findAllCompany = "http://localhost:7073/company/findall";
 
-class AuthService{
+
+class CompanyService{
     register(company) { 
-        return axios.post(LOGIN,company);
+        return axios.post(CREATE_COMPANY,company,{
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            }
+        });
+    }
+
+    findAllCompany(token) { 
+        return axios.post(findAllCompany,token,{
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
     }
 
 }
 
-
-export default new AuthService();
+export default new CompanyService();

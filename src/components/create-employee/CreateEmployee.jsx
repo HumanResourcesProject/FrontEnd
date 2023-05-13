@@ -1,30 +1,27 @@
 import React from "react";
-import axios from "axios";
 import { useState, useEffect } from "react";
+import "./createEmployee.scss";
 import DriveFolderUploadIcon from "@mui/icons-material/DriveFolderUpload";
-import "./companyManagerCreate.scss";
 import CompanyManagerService from "../../service/CompanyManagerService";
 import CompanyService from "../../service/CompanyService";
 
-const CompanyManagerCreate = () => {
-  const [managerInfo, setManagerInfo] = useState({
+const CreateEmployee = () => {
+  const [employeeInfo, setEmployeeInfo] = useState({
     identityNumber: "",
     name: "",
     middleName: "",
     surname: "",
-    birthDate: "",
     email: "",
-    address: "",
     phone: "",
+    address: "",
+    dateOfBirth: "",
+    placeOfBirth:"",
     company: "",
-    occupation: "",
-    birthPlace: "",
+    job: "",
+    department: "",
     jobStart: "",
-    department:"",
-    token: sessionStorage.getItem("token"),
+    //avatar: "",
   });
-
-  // For Image ********
   const [image, setImage] = useState("");
 
   const onchangeImage = (e) => {
@@ -69,43 +66,40 @@ const CompanyManagerCreate = () => {
       "https://cdn.pixabay.com/photo/2017/11/10/04/47/user-2935373_960_720.png"
     ) {
       const newImage = URL.createObjectURL(image);
-      setManagerInfo({
-        ...managerInfo,
+      setEmployeeInfo({
+        ...employeeInfo,
         avatar: newImage,
       });
     }
-
-    CompanyManagerService.createCompanyManager(managerInfo)
+    console.log(employeeInfo);
+    CompanyManagerService.createEmployee(employeeInfo)
       .then(() => {
         alert("added successfully *****");
       })
       .catch((error) => {
-        alert(
-          error.response.data.message +
-            "isterler: password 3'den asaği olmucak ... mail: gmail.com ile bitecek.... telefon sadece numara olmalı... hicbir alan bos gecilemez"
-        );
+        alert(error.response.data.message);
       });
   };
 
   return (
-    <div className="manager-register">
-      <div className="register-photo-section">
-        <div className="register-profile-holder">
-          {/* <div className="register-profile-image">
+    <div className="employee-register">
+      <div className="employee-register-photo-section">
+        <div className="employee-register-profile-holder">
+          {/* <div className="employee-register-profile-image">
             {image ? (
               <img src={URL.createObjectURL(image)} />
             ) : (
               <img
                 src="https://cdn.pixabay.com/photo/2017/11/10/04/47/user-2935373_960_720.png"
-                alt="Tanjiro"
+                alt="Rengoku"
               />
             )}
           </div> */}
         </div>
-        {/* <div className="register-buttons">
+        {/* <div className="employee-register-buttons">
           <label htmlFor="file" className="choosefilebutton">
             <DriveFolderUploadIcon className="uploadicon" />
-            Change Avatar
+            Choose a File
           </label>
           <input
             type="file"
@@ -115,10 +109,10 @@ const CompanyManagerCreate = () => {
           />
         </div> */}
       </div>
-      <div className="manager-register-profil-info">
-        <div className="manager-register-information">
-          <h2>Company Manager</h2>
-
+      <div className="employee-register-profil-info">
+        <div className="employee-register-information">
+          <h2>Employee Registration</h2>
+        
           <form onSubmit={handleCreate}>
             <div className="manager-company-section">
               <label htmlFor="company-select">Select Company:</label>
@@ -126,8 +120,8 @@ const CompanyManagerCreate = () => {
                 id="company-select"
                 className="select-style"
                 onChange={(event) =>
-                  setManagerInfo({
-                    ...managerInfo,
+                  setEmployeeInfo({
+                    ...employeeInfo,
                     company: event.target.value,
                   })
                 }
@@ -149,8 +143,8 @@ const CompanyManagerCreate = () => {
                   <input
                     type="text"
                     onChange={(e) =>
-                      setManagerInfo({
-                        ...managerInfo,
+                      setEmployeeInfo({
+                        ...employeeInfo,
                         identityNumber: e.target.value,
                       })
                     }
@@ -161,8 +155,8 @@ const CompanyManagerCreate = () => {
                   <input
                     type="text"
                     onChange={(e) =>
-                      setManagerInfo({
-                        ...managerInfo,
+                      setEmployeeInfo({
+                        ...employeeInfo,
                         name: e.target.value,
                       })
                     }
@@ -173,8 +167,8 @@ const CompanyManagerCreate = () => {
                   <input
                     type="text"
                     onChange={(e) =>
-                      setManagerInfo({
-                        ...managerInfo,
+                      setEmployeeInfo({
+                        ...employeeInfo,
                         surname: e.target.value,
                       })
                     }
@@ -185,8 +179,8 @@ const CompanyManagerCreate = () => {
                   <input
                     type="text"
                     onChange={(e) =>
-                      setManagerInfo({
-                        ...managerInfo,
+                      setEmployeeInfo({
+                        ...employeeInfo,
                         middleName: e.target.value,
                       })
                     }
@@ -198,8 +192,8 @@ const CompanyManagerCreate = () => {
                   <input
                     type="text"
                     onChange={(e) =>
-                      setManagerInfo({
-                        ...managerInfo,
+                      setEmployeeInfo({
+                        ...employeeInfo,
                         birthDate: e.target.value,
                       })
                     }
@@ -210,8 +204,8 @@ const CompanyManagerCreate = () => {
                   <input
                     type="text"
                     onChange={(e) =>
-                      setManagerInfo({
-                        ...managerInfo,
+                      setEmployeeInfo({
+                        ...employeeInfo,
                         birthPlace: e.target.value,
                       })
                     }
@@ -224,8 +218,8 @@ const CompanyManagerCreate = () => {
                   <input
                     type="text"
                     onChange={(e) =>
-                      setManagerInfo({
-                        ...managerInfo,
+                      setEmployeeInfo({
+                        ...employeeInfo,
                         jobStart: e.target.value,
                       })
                     }
@@ -236,8 +230,8 @@ const CompanyManagerCreate = () => {
                   <input
                     type="text"
                     onChange={(e) =>
-                      setManagerInfo({
-                        ...managerInfo,
+                      setEmployeeInfo({
+                        ...employeeInfo,
                         occupation: e.target.value,
                       })
                     }
@@ -248,8 +242,8 @@ const CompanyManagerCreate = () => {
                   <input
                     type="text"
                     onChange={(e) =>
-                      setManagerInfo({
-                        ...managerInfo,
+                      setEmployeeInfo({
+                        ...employeeInfo,
                         department: e.target.value,
                       })
                     }
@@ -261,8 +255,8 @@ const CompanyManagerCreate = () => {
                   <input
                     type="text"
                     onChange={(e) =>
-                      setManagerInfo({
-                        ...managerInfo,
+                      setEmployeeInfo({
+                        ...employeeInfo,
                         email: e.target.value,
                       })
                     }
@@ -273,8 +267,8 @@ const CompanyManagerCreate = () => {
                   <input
                     type="text"
                     onChange={(e) =>
-                      setManagerInfo({
-                        ...managerInfo,
+                      setEmployeeInfo({
+                        ...employeeInfo,
                         phone: e.target.value,
                       })
                     }
@@ -285,8 +279,8 @@ const CompanyManagerCreate = () => {
                   <input
                     type="text"
                     onChange={(e) =>
-                      setManagerInfo({
-                        ...managerInfo,
+                      setEmployeeInfo({
+                        ...employeeInfo,
                         address: e.target.value,
                       })
                     }
@@ -304,5 +298,4 @@ const CompanyManagerCreate = () => {
     </div>
   );
 };
-
-export default CompanyManagerCreate;
+export default CreateEmployee;

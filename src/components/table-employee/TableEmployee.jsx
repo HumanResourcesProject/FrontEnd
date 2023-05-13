@@ -1,18 +1,16 @@
 import React, { useMemo,useState,useEffect } from "react";
 import MaterialReactTable from "material-react-table";
 import "./tableManager.scss";
-import CompanyManagerService from "../../service/CompanyManagerService";
+import EmployeeService from "../../service/CompanyManagerService";
 import {
   Box
 } from '@mui/material';
 
 
-const TableAdmin = () => {
+const TableEmployee = () => {
   const [data2,setData] = useState([])
   useEffect(() => {
-    CompanyManagerService.getAllManager().then((response) => {
-      console.log(response.data);
-
+    EmployeeService.getAllManager().then((response) => {
       setData(() => (response.data
       ));
       
@@ -52,12 +50,6 @@ const TableAdmin = () => {
             enableEditing:false 
           },
           {
-            accessorKey: 'middleName', //accessorKey used to define `data` column. `id` gets set to accessorKey automatically
-            header: 'Middle Name',
-            size: 300,
-            enableEditing:false 
-          },
-          {
             accessorKey: 'surname', //accessorKey used to define `data` column. `id` gets set to accessorKey automatically
             header: 'Surname',
             size: 300,
@@ -80,33 +72,6 @@ const TableAdmin = () => {
           {
             accessorKey: 'phone', //accessorKey used to define `data` column. `id` gets set to accessorKey automatically
             header: 'Phone',
-            size: 300,
-            enableEditing:true 
-
-          },
-          {
-            accessorKey: 'company', //accessorKey used to define `data` column. `id` gets set to accessorKey automatically
-            header: 'Company',
-            size: 300,
-            enableEditing:true 
-          },
-          {
-            accessorKey: 'birthDate', //accessorKey used to define `data` column. `id` gets set to accessorKey automatically
-            header: 'Date Of Birth',
-            size: 300,
-            enableEditing:true 
-
-          },
-          {
-            accessorKey: 'occupation', //accessorKey used to define `data` column. `id` gets set to accessorKey automatically
-            header: 'Job',
-            size: 300,
-            enableEditing:true 
-
-          },
-          {
-            accessorKey: 'department', //accessorKey used to define `data` column. `id` gets set to accessorKey automatically
-            header: 'Department',
             size: 300,
             enableEditing:true 
 
@@ -146,4 +111,4 @@ const TableAdmin = () => {
   );
 };
 
-export default TableAdmin;
+export default TableEmployee;

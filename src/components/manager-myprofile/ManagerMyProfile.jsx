@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import "./adminProfil.scss";
+import "./managerMyProfile.scss";
 import AdminService from "../../service/AdminService";
 
 const ProfilPage = () => {

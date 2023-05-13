@@ -11,11 +11,9 @@ const [adminInfo, setAdminInfo] = useState({
   name:"",
   surname:"",
   email:"",
-  password:"",
   phone:"",
   address:"",
   avatar:"",
-  
 })
   const [image,setImage] = useState('');
   
@@ -26,10 +24,7 @@ const [adminInfo, setAdminInfo] = useState({
 
 
   const handleCreate = async (event) => {
-
- 
     event.preventDefault();
-
     if(image === "https://cdn.pixabay.com/photo/2017/11/10/04/47/user-2935373_960_720.png"){
       const newImage = URL.createObjectURL(image)
         setAdminInfo({
@@ -102,14 +97,6 @@ const [adminInfo, setAdminInfo] = useState({
                     address: e.target.value,
                   })
                 }/>
-            <label htmlFor="sifre">Password:</label>
-            <input type="password" id="sifre" name="sifre"
-            onChange={(e) =>
-                  setAdminInfo({
-                    ...adminInfo,
-                    password: e.target.value,
-                  })
-                }></input>
             <button type="submit" onClick={(e) =>
                   setAdminInfo({
                     ...adminInfo,

@@ -1,9 +1,11 @@
-import React, {useState} from "react";
+import React, {useState, useContext} from "react";
 import "./loginpage.scss";
 import loginpage from "../../images/19197061.jpg";
 import AuthService from "../../service/AuthService";
+import AuthContext from "../../context/AuthProvider";
 
 export const LoginPage = () => {
+    const {setAuth} = useContext(AuthContext);
     const[user,setUser] = useState({
         email: "",
         password: "",
@@ -30,7 +32,14 @@ export const LoginPage = () => {
             alert("Wrong email or password")
           }else{
               sessionStorage.setItem("token",response.data.token)
-              window.location.replace("http://localhost:3000/") //navigate le sayfa değişir 
+              sessionStorage.setItem("role",response.data.role)
+              if(response.data.role === "ADMIN"){
+                window.location.replace("http://localhost:3000/")
+              }else if(response.data.role === "MANAGER")
+              {
+                window.location.replace("http://localhost:3000/manager")
+              }
+               //navigate le sayfa değişir 
               
               
           }

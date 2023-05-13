@@ -1,20 +1,19 @@
 import React from "react";
 import { useState, useEffect } from "react";
-//import PhoneInput from 'react-phone-number-input'
-import "./style.css";
-import "./adminProfil.scss";
-import AdminService from '../../service/AdminService';
+import axios from "axios";
+import "./managerUpdateProfile.scss";
+import CompanyManagerService from "../../service/CompanyManagerService";
 
-
-const ProfilPage = () => {
-  const [admin, setAdmin] = useState([]);
+const ManagerUpdateProfile = () => {
+  const [manager, setManager] = useState([]);
   const token = sessionStorage.getItem("token");
   useEffect(() => {
-    AdminService.getAdminInformations(token)
+    CompanyManagerService.getManagerInformations(token)
     .then((response) => {
-      setAdmin(response.data);
+      setManager(response.data);
     });
   }, []);
+
 
   const update = () => {
     const gizlenecekDiv = document.getElementById("gizlenecekDiv");
@@ -34,8 +33,8 @@ const handleImageUpload = (event) => {
   const formData = new FormData();
   formData.append('file', selectedFile);
   
-  AdminService.getAdminProfilePhoto(formData)
-  .then((response) => {
+
+  CompanyManagerService.getManagerProfilePhoto(formData).then((response) => {
     console.log("Profil fotoğrafı başarıyla yüklendi ve database'e kaydedildi.");
     setTimeout(() => window.location.reload(), 1000);
     setLoading(false);
@@ -56,30 +55,29 @@ const [id, setId] = useState("");
       id: id,
       phone: phone,
       address: address,
-      token : sessionStorage.getItem("token"),
     };
 
-    AdminService.updateAdminInfo(data)
+    CompanyManagerService.updateManagerInfo(data)
       .then((response) => {
         console.log(response);
-        alert("Admin updated successfully!");
-        setId(""); // Kaldırılacak
+        alert("Manager updated successfully!");
         setPhone("");
         setAddress("");
+        
       })
       .catch((error) => {
         console.log(error);
-        alert(error.response.data.message);
+        alert("An error occurred while updating the manager.");
       });
   };
 
   return (
-    <div className='profil'>
+    <div className='manager-profil'>
     <div className='photoSection'>
       <div className='profileHolder'>
         <h2>Profil Photo</h2>
         <div className='profileImage'>
-          {imageUrl  ? <img src={imageUrl} alt="Rengoku" /> : <img src={admin.avatar} alt="Rengoku" />}
+          {imageUrl  ? <img src={imageUrl} alt="Rengoku" /> : <img src={manager.avatar} alt="Rengoku" />}
         </div>
         <div className="buttons">
           <form onSubmit={handleImageUpload}>
@@ -101,28 +99,49 @@ const [id, setId] = useState("");
         <div id="gizlenecekDiv" className="information">
           <form action="">
             <div className="input-profile">
-              <label htmlFor="name">Name:</label>
-              <p>{admin.name}</p>
+              <label>Name:</label>
+              <p>{manager.name}</p>
+            </div>
+            <div className="input-profile">
+              <label>Mid Name:</label>
+              <p>{manager.middleName}</p>
+            </div>
+            <div className="input-profile">
+              <label>Surname:</label>
+              <p>{manager.surname}</p>
             </div>
 
             <div className="input-profile">
-              <label htmlFor="surname">Surname:</label>
-              <p>{admin.surname}</p>
+              <label>E-mail:</label>
+              <p>{manager.email}</p>
             </div>
 
             <div className="input-profile">
-              <label htmlFor="email">E-mail:</label>
-              <p>{admin.email}</p>
+              <label>Phone number:</label>
+              <p>{manager.phone}</p>
+            </div>
+            <div className="input-profile">
+              <label>Address:</label>
+              <p>{manager.address}</p>
+            </div>
+            <div className="input-profile">
+              <label>Company:</label>
+              <p>{manager.company}</p>
             </div>
 
             <div className="input-profile">
-              <label htmlFor="phone">Phone number:</label>
-              <p>{admin.phone}</p>
+              <label>Occupation:</label>
+              <p>{manager.occupation}</p>
             </div>
             <div className="input-profile">
-              <label htmlFor="address">Address:</label>
-              <p>{admin.address}</p>
+              <label>Department:</label>
+              <p>{manager.department}</p>
             </div>
+            <div className="input-profile">
+              <label>Job Start:</label>
+              <p>{manager.jobStart}</p>
+            </div>
+   
             <div className="update-button">
               <button type="button" onClick={update}>
                 Update
@@ -132,22 +151,27 @@ const [id, setId] = useState("");
         </div>
         <div id="gosterilecekDiv" className="informationsecret">
           <form onSubmit={handleSubmit}>
-
+            <div className="input-profile">
+              <label>
+                Id:
+              </label>
+                <input
+                  type="text"
+                  value={id}
+                  onChange={(e) => setId(e.target.value)}
+                />
+              
+            </div>
             <div className="input-profile">
               <label>
                 Phone:
                 </label>
-                {/* { <PhoneInput
-                  international
-                  defaultCountry="TR"
-                  value={phone}
-                  onChange={setPhone}
-                /> } */}
                 <input
-                  type="tel"
+                  type="text"
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
                 />
+              
             </div>
             <div className="input-profile">
               <label>
@@ -173,4 +197,4 @@ const [id, setId] = useState("");
     </div>
   );
 };
-export default ProfilPage
+export default ManagerUpdateProfile

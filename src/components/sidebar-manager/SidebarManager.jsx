@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./sidebar.scss";
+import "./sidebarManager.scss";
 import { Link } from "react-router-dom";
 import HowToRegOutlinedIcon from "@mui/icons-material/HowToRegOutlined";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
@@ -28,9 +28,9 @@ const Sidebar = () => {
     <aside className="full-sidebar">
       <div>
         <div className="sidebar-top">
-          <Link to="/" className="sidebar-title-link">
+          <Link to="/manager" className="sidebar-title-link">
             <img
-              src="https://img.icons8.com/?size=512&id=fsLxpvuZmjB4&format=png"
+              src="https://img.icons8.com/?size=512&id=so2NxZq25dzw&format=png"
               alt=""
             />
             <p className="sidebar-title">HR Manager Page</p>
@@ -39,46 +39,37 @@ const Sidebar = () => {
         <div className="sidebar-main">
           <ul className="sidebar-nav">
             <li>
-              <Link to="/adminprofilpage" className="link d-flex">
+              <Link to="/managermyprofilepage" className="link d-flex">
                 <AccountCircleOutlinedIcon />
-
                 <div>My Profile</div>
               </Link>
             </li>
             <li>
-              <Link to="/createadmin" className="link d-flex">
+              <Link to="/managerupdatepage" className="link d-flex">
                 <HowToRegOutlinedIcon />
 
-                <div>Register</div>
+                <div>Profile Update</div>
               </Link>
             </li>
 
             <li>
-              <Link to="/adminlistpage" className="link d-flex">
+              <Link to="/employeeregister" className="link d-flex">
                 <SupervisorAccountOutlinedIcon />
-
-                <div>Admin List</div>
-              </Link>
-            </li>
-
-            <li>
-              <Link to="/companymanagercreatepage" className="link d-flex">
-                <SupervisorAccountOutlinedIcon />
-                <div>Create Company Manager</div>
+                <div>Employee Register</div>
               </Link>
             </li>
             <li>
-              <Link to="/managerlistpage" className="link d-flex">
+              <Link to="/managerlistmanagerpage" className="link d-flex">
                 <Groups3Icon />
-                <div>Project Manager List</div>
+                <div>Company Manager List</div>
               </Link>
             </li>
-            <li>
-              <Link to="/workerlistpage" className="link d-flex">
+            {/* <li>
+              <Link to="managerlistemployeepage" className="link d-flex">
                 <EngineeringOutlinedIcon />
-                <div>Worker List</div>
+                <div>Employee List</div>
               </Link>
-            </li>
+            </li> */}
           </ul>
         </div>
       </div>
