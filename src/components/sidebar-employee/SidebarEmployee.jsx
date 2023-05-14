@@ -48,7 +48,12 @@ const SidebarEmployee = () => {
                 <div>Profile Update</div>
               </Link>
             </li>
-            
+            <li>
+              <Link to="/staffleavepage" className="link d-flex">
+                <HowToRegOutlinedIcon />
+                <div>Staff Leave Table</div>
+              </Link>
+            </li>
           </ul>
         </div>
       </div>
