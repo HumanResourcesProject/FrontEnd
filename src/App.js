@@ -16,6 +16,7 @@ import EmployeeRegister from './pages/employee-register-page/EmployeeRegister'
 import ManagerMyProfilePage from './pages/manager-my-profile-page/ManagerMyProfilePage'
 import ManagerUpdateProfilePage from './pages/manager-update-page/ManagerUpdateProfilePage'
 
+
 const App = () => {
   return (
     <Routes>
@@ -34,6 +35,8 @@ const App = () => {
       <Route path ="/employeeregister" element={<EmployeeRegister/>}/>
       <Route path ="/managermyprofilepage" element={<ManagerMyProfilePage/>}/>
       <Route path ="/managerupdatepage" element={<ManagerUpdateProfilePage/>}/>
+
+      
 
 
       {/* routelar düzelmesi lazım  */}
