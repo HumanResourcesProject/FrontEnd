@@ -7,9 +7,10 @@ import {
 } from '@mui/material';
 
 
-const TableAdmin = () => {
+const TableManager = () => {
   const [token, setToken] = useState({
     token: sessionStorage.getItem("token"),
+    role: sessionStorage.getItem("role"),
   });
   const [data2,setData] = useState([])
   useEffect(() => {
@@ -150,4 +151,4 @@ const TableAdmin = () => {
   );
 };
 
-export default TableAdmin;
+export default TableManager;
