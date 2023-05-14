@@ -15,6 +15,7 @@ import ManagerListPage from './pages/manager-list-page/ManagerListPage'
 import EmployeeRegister from './pages/employee-register-page/EmployeeRegister'
 import ManagerMyProfilePage from './pages/manager-my-profile-page/ManagerMyProfilePage'
 import ManagerUpdateProfilePage from './pages/manager-update-page/ManagerUpdateProfilePage'
+import EmployeeMainPage from './pages/employee/employee-main-page/EmployeeMainPage'
 
 const App = () => {
   return (
@@ -34,6 +35,7 @@ const App = () => {
       <Route path ="/employeeregister" element={<EmployeeRegister/>}/>
       <Route path ="/managermyprofilepage" element={<ManagerMyProfilePage/>}/>
       <Route path ="/managerupdatepage" element={<ManagerUpdateProfilePage/>}/>
+      <Route path ="/employeemain" element={<EmployeeMainPage/>}/>
 
 
       {/* routelar düzelmesi lazım  */}
