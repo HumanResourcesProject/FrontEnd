@@ -11,8 +11,12 @@ const CREATE_Manager_AUTH = "http://localhost:7071/auth/registermanager";
 
 
 class CompanyManagerService {
-    getAllManager(){
-        return axios.get(FINDALL_MANAGER);
+    getAllManager(token){
+        return axios.post(FINDALL_MANAGER,token,{
+            headers: {
+                "Content-Type": "application/json"
+              }
+        });
     }
 
     createCompanyManager(manager){
