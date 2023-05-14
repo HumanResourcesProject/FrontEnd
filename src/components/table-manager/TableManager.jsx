@@ -8,9 +8,13 @@ import {
 
 
 const TableAdmin = () => {
+  const [token, setToken] = useState({
+    token: sessionStorage.getItem("token"),
+  });
   const [data2,setData] = useState([])
   useEffect(() => {
-    CompanyManagerService.getAllManager().then((response) => {
+    console.log(token);
+    CompanyManagerService.getAllManager(token).then((response) => {
       console.log(response.data);
 
       setData(() => (response.data
