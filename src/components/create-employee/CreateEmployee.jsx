@@ -61,7 +61,7 @@ const CreateEmployee = () => {
     //   .catch((error) => {
     //     alert(error.response.data.message);
     //   });
-    AuthService.registerManager(employeeInfo)
+    AuthService.registerEmployee(employeeInfo)
       .then(() => {
         alert("added successfully *****");
       })
