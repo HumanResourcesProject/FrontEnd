@@ -5,24 +5,9 @@ import HowToRegOutlinedIcon from "@mui/icons-material/HowToRegOutlined";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import SupervisorAccountOutlinedIcon from "@mui/icons-material/SupervisorAccountOutlined";
 import LogoutOutlinedIcon from "@mui/icons-material/LogoutOutlined";
-import EngineeringOutlinedIcon from "@mui/icons-material/EngineeringOutlined";
 import Groups3Icon from "@mui/icons-material/Groups3";
-import AdminService from "../../service/AdminService";
 const Sidebar = () => {
-  const [profil, setProfil] = useState([]);
-  const [token] = useState({
-    token: sessionStorage.getItem("token"),
-  });
-
-  const profilpart = () => {
-    AdminService.postShortDetails(token).then((response) => {
-      setProfil(response.data);
-    });
-  };
-
-  useEffect(() => {
-    profilpart();
-  }, []);
+  
 
   return (
     <aside className="full-sidebar">

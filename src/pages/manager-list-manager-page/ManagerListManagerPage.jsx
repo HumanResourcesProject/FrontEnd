@@ -1,5 +1,5 @@
 import React from "react";
-import Header from "../../components/header/Header";
+import HeaderManager from "../../components/header-manager/HeaderManager";
 import SidebarManager from "../../components/sidebar-manager/SidebarManager";
 import "./managerListManagerPage.scss";
 import TableManager from "../../components/table-manager/TableManager"
@@ -11,7 +11,7 @@ const ManagerListManagerPage = () => {
       <SidebarManager />
       </div>
       <div className="manager-right">
-        <Header />
+        <HeaderManager />
         <TableManager/>
       </div> 
    

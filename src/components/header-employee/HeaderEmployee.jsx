@@ -14,7 +14,6 @@ const HeaderEmployee = () => {
   
   const profilpart = () => {
     EmployeeService.getEmployeeInformations(token).then((response) => {
-      console.log(response);
       setProfil(response.data);
     });
   };

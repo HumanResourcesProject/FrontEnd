@@ -14,13 +14,8 @@ const TableManager = () => {
   });
   const [data2,setData] = useState([])
   useEffect(() => {
-    console.log(token);
     CompanyManagerService.getAllManager(token).then((response) => {
-      console.log(response.data);
-
-      setData(() => (response.data
-      ));
-      
+      setData(() => (response.data));
     });
   }, []);
 

@@ -1,6 +1,6 @@
 import React from 'react'
 import "./employeeRegister.scss";
-import Header from "../../components/header/Header";
+import HeaderManager from "../../components/header-manager/HeaderManager";
 import SidebarManager from "../../components/sidebar-manager/SidebarManager";
 import CreateEmployee from "../../components/create-employee/CreateEmployee";
 
@@ -11,7 +11,7 @@ const EmployeeRegister = () => {
       <SidebarManager />
     </div>
     <div className="admin-right">
-      <Header />
+      <HeaderManager />
       <CreateEmployee/>
     </div> 
  
