@@ -6,7 +6,9 @@ import CompanyManagerService from "../../service/CompanyManagerService";
 
 const ManagerUpdateProfile = () => {
   const [manager, setManager] = useState([]);
-  const token = sessionStorage.getItem("token");
+  const [token] = useState({
+    token: sessionStorage.getItem("token"),
+  });
   useEffect(() => {
     CompanyManagerService.getManagerInformations(token)
     .then((response) => {

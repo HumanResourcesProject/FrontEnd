@@ -14,7 +14,6 @@ const HeaderManager = () => {
   
   const profilpart = () => {
     CompanyManagerService.postShortDetails(token).then((response) => {
-      console.log(response);
       setProfil(response.data);
     });
   };

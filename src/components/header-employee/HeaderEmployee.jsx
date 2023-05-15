@@ -12,16 +12,15 @@ const HeaderEmployee = () => {
     token: sessionStorage.getItem("token")
   });
   
-  const profilpart = () => {
-    EmployeeService.getEmployeeInformations(token).then((response) => {
-      console.log(response);
-      setProfil(response.data);
-    });
-  };
+  // const profilpart = () => {
+  //   EmployeeService.getEmployeeInformations(token).then((response) => {
+  //     setProfil(response.data);
+  //   });
+  // };
 
-  useEffect(() => {
-    profilpart();
-  }, []);
+  // useEffect(() => {
+  //   profilpart();
+  // }, []);
 
   return (
     <div className="navbar">
@@ -33,8 +32,8 @@ const HeaderEmployee = () => {
         <SearchOutlinedIcon className="searchicon" />
         <DarkModeOutlinedIcon className="darkmodeicon" />
         <div className="navbarprofile">
-          <img src={profil.avatar} alt="" />
-          <p>{profil.name+" "+profil.surname}</p>
+          {/* <img src={profil.avatar} alt="" /> */}
+          {/* <p>{profil.name+" "+profil.surname}</p> */}
         </div>
       </div>
     </div>

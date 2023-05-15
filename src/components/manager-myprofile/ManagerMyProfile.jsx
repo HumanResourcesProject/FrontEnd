@@ -3,13 +3,19 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import "./managerMyProfile.scss";
 import AdminService from "../../service/AdminService";
+import CompanyManagerService from "../../service/CompanyManagerService";
 
 const ProfilPage = () => {
-  const [admin, setAdmin] = useState([]);
+  const [manager, setManager] = useState([]);
+  const [token] = useState({
+    token: sessionStorage.getItem("token"),
+  });
+ 
 
   useEffect(() => {
-    axios.get("http://localhost:7070/admin/getadmin?id=1").then((response) => {
-      setAdmin(response.data);
+    CompanyManagerService.getManagerInformations(token)
+    .then((response) => {
+      setManager(response.data);
     });
   }, []);
 
@@ -86,7 +92,7 @@ const [id, setId] = useState("");
       <div className='profileHolder'>
         <h2>Profil Photo</h2>
         <div className='profileImage'>
-          {imageUrl  ? <img src={imageUrl} alt="Rengoku" /> : <img src={admin.avatar} alt="Rengoku" />}
+          {imageUrl  ? <img src={imageUrl} alt="Rengoku" /> : <img src={manager.avatar} alt="Rengoku" />}
         </div>
         <div className="buttons">
           <form onSubmit={handleImageUpload}>
@@ -109,26 +115,26 @@ const [id, setId] = useState("");
           <form action="">
             <div className="input-profile">
               <label htmlFor="name">Name:</label>
-              <p>{admin.name}</p>
+              <p>{manager.name}</p>
             </div>
 
             <div className="input-profile">
               <label htmlFor="surname">Surname:</label>
-              <p>{admin.surname}</p>
+              <p>{manager.surname}</p>
             </div>
 
             <div className="input-profile">
               <label htmlFor="email">E-mail:</label>
-              <p>{admin.email}</p>
+              <p>{manager.email}</p>
             </div>
 
             <div className="input-profile">
               <label htmlFor="phone">Phone number:</label>
-              <p>{admin.phone}</p>
+              <p>{manager.phone}</p>
             </div>
             <div className="input-profile">
               <label htmlFor="address">Address:</label>
-              <p>{admin.address}</p>
+              <p>{manager.address}</p>
             </div>
             <div className="update-button">
               <button type="button" onClick={update}>
