@@ -1,17 +1,17 @@
 import React from "react";
-import Sidebar from "../../../components/sidebar/Sidebar";
-import "./managerListPage.scss";
+import "./managerListManagerPage.scss";
 import TableManager from "../../../components/table-manager/TableManager";
-import Header from "../../../components/header/Header";
+import HeaderManager from "../../../components/header-manager/HeaderManager";
+import SidebarManager from "../../../components/sidebar-manager/SidebarManager";
 
 const ManagerListPage = () => {
   return (
     <div  className="manager-page">
       <div className="manager-sidebar">
-        <Sidebar />
+        <SidebarManager />
       </div>
       <div className="manager-right">
-        <Header />
+        <HeaderManager />
         <TableManager/>
       </div> 
    

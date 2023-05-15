@@ -44,7 +44,7 @@ const Sidebar = () => {
               </Link>
             </li>
             <li>
-              <Link to="/managerlistmanagerpage" className="link d-flex">
+              <Link to="/listmanagers" className="link d-flex">
                 <Groups3Icon />
                 <div>Company Manager List</div>
               </Link>

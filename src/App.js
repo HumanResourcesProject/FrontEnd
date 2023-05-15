@@ -13,6 +13,7 @@ import ManagerMainPage from "./pages/manager/manager-main-page/ManagerMainPage";
 import EmployeeRegister from "./pages/manager/employee-register-page/EmployeeRegister";
 import ManagerMyProfilePage from "./pages/manager/manager-my-profile-page/ManagerMyProfilePage";
 import ManagerUpdateProfilePage from "./pages/manager/manager-update-page/ManagerUpdateProfilePage";
+import ManagerListManagerPage from "./pages/manager/manager-list-manager-page/ManagerListManagerPage";
 import { LoginPage } from "./pages/login-page/LoginPage";
 
 import EmployeeMainPage from "./pages/employee/employee-main-page/EmployeeMainPage";
@@ -135,6 +136,14 @@ const App = () => {
         element={
           <ManagerElement>
             <ManagerUpdateProfilePage />
+          </ManagerElement>
+        }
+      />
+      <Route
+        path="/listmanagers"
+        element={
+          <ManagerElement>
+            <ManagerListManagerPage />
           </ManagerElement>
         }
       />
