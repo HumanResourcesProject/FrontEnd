@@ -13,6 +13,8 @@ const ProfilPage = () => {
     AdminService.getAdminInformations(token)
     .then((response) => {
       setAdmin(response.data);
+    }).catch((error)=>{
+      console.log(error);
     });
   }, []);
 

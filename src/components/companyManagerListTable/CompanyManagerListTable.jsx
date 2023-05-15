@@ -15,6 +15,8 @@ const CompanyManagerListTable = () => {
       setData(() => (response.data
       ));
       
+    }).catch((error)=>{
+      console.log(error)
     });
   }, []);
   
