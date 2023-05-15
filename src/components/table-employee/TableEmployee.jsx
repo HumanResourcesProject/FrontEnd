@@ -1,6 +1,6 @@
 import React, { useMemo,useState,useEffect } from "react";
 import MaterialReactTable from "material-react-table";
-import "./tableManager.scss";
+import "./tableEmployee.scss";
 import EmployeeService from "../../service/CompanyManagerService";
 import {
   Box
@@ -99,7 +99,7 @@ const TableEmployee = () => {
   // };
 
   return (
-    <div className="table-admin">
+    <div className="table-employee">
       <MaterialReactTable  
         columns={columns} 
         data={data2} 
