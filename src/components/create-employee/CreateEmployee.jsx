@@ -39,15 +39,6 @@ const CreateEmployee = () => {
     );
   }, []);
   
-  AuthService.registerManager(employeeInfo)
-      .then(() => {
-        alert("added successfully *****");
-      })
-      .catch((error) => {
-        alert(
-          "unexpected error"
-        );
-      });
 
   const handleCreate = async (event) => {
     event.preventDefault();
@@ -70,6 +61,15 @@ const CreateEmployee = () => {
     //   .catch((error) => {
     //     alert(error.response.data.message);
     //   });
+    AuthService.registerManager(employeeInfo)
+      .then(() => {
+        alert("added successfully *****");
+      })
+      .catch((error) => {
+        alert(
+          "unexpected error"
+        );
+      });
   };
 
   return (
