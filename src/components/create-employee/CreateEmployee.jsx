@@ -14,10 +14,10 @@ const CreateEmployee = () => {
     email: "",
     phone: "",
     address: "",
-    dateOfBirth: "",
-    placeOfBirth:"",
+    birthDate: "",
+    birthPlace:"",
     company: "",
-    job: "",
+    occupation: "",
     department: "",
     jobStart: "",
     //avatar: "",
@@ -193,7 +193,7 @@ const CreateEmployee = () => {
                     onChange={(e) =>
                       setEmployeeInfo({
                         ...employeeInfo,
-                        dateOfBirth: e.target.value,
+                        birthDate: e.target.value,
                       })
                     }
                   />
@@ -206,7 +206,7 @@ const CreateEmployee = () => {
                     onChange={(e) =>
                       setEmployeeInfo({
                         ...employeeInfo,
-                        placeOfBirth: e.target.value,
+                        birthPlace: e.target.value,
                       })
                     }
                   />
@@ -234,7 +234,7 @@ const CreateEmployee = () => {
                     onChange={(e) =>
                       setEmployeeInfo({
                         ...employeeInfo,
-                        job: e.target.value,
+                        occupation: e.target.value,
                       })
                     }
                   />
