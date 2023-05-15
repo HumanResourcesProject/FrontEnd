@@ -3,7 +3,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import DriveFolderUploadIcon from "@mui/icons-material/DriveFolderUpload";
 import "./companyManagerCreate.scss";
-import CompanyManagerService from "../../service/CompanyManagerService";
+import AuthService from "../../service/AuthService";
 import CompanyService from "../../service/CompanyService";
 
 const CompanyManagerCreate = () => {
@@ -75,7 +75,7 @@ const CompanyManagerCreate = () => {
       });
     }
 
-    CompanyManagerService.createCompanyManager(managerInfo)
+    AuthService.registerManager(managerInfo)
       .then(() => {
         alert("added successfully *****");
       })

@@ -2,6 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import "./createEmployee.scss";
 import CompanyService from "../../service/CompanyService";
+import AuthService from '../../service/AuthService';
 import EmailInput from "../email-input/EmailInput";
 
 const CreateEmployee = () => {
@@ -33,19 +34,20 @@ const CreateEmployee = () => {
     CompanyService.findAllCompany(sessionStorage.getItem("token")).then(
       (response) => {
         setCompanies(response.data);
+        console.log(response);
       }
     );
   }, []);
-
-  const [token, setToken] = useState({
-    token: sessionStorage.getItem("token"),
-  });
-
-  const [company, setCompany] = useState({
-    name: "",
-  });
-
   
+  AuthService.registerManager(employeeInfo)
+      .then(() => {
+        alert("added successfully *****");
+      })
+      .catch((error) => {
+        alert(
+          "unexpected error"
+        );
+      });
 
   const handleCreate = async (event) => {
     event.preventDefault();

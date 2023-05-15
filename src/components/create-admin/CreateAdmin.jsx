@@ -2,7 +2,7 @@ import React from 'react'
 import { useState } from 'react';
 import './createAdmin.scss'
 import DriveFolderUploadIcon from '@mui/icons-material/DriveFolderUpload';
-import AdminService from '../../service/AdminService';
+import AuthService from '../../service/AuthService';
 
 
 const ProfilPage = () => {
@@ -33,13 +33,13 @@ const [adminInfo, setAdminInfo] = useState({
         })
     }
       console.log(adminInfo);
-      AdminService.postCreateAdmin(adminInfo).then(
+      AuthService.registerAdmin(adminInfo).then(
         () =>{
           
           alert("added successfully *****")
         })       
         .catch((error) => {
-          alert(error.response.data.message+"isterler: password 3'den asaği olmucak ... mail: gmail.com ile bitecek.... telefon sadece numara olmalı... hicbir alan bos gecilemez");
+          alert("unexpected error");
         });
     
   };
