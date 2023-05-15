@@ -204,7 +204,7 @@ const CreateEmployee = () => {
                     onChange={(e) =>
                       setEmployeeInfo({
                         ...employeeInfo,
-                        birthPlace: e.target.value,
+                        placeOfBirth: e.target.value,
                       })
                     }
                   />
