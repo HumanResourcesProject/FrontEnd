@@ -191,7 +191,7 @@ const CreateEmployee = () => {
                     onChange={(e) =>
                       setEmployeeInfo({
                         ...employeeInfo,
-                        birthDate: e.target.value,
+                        dateOfBirth: e.target.value,
                       })
                     }
                   />
@@ -232,7 +232,7 @@ const CreateEmployee = () => {
                     onChange={(e) =>
                       setEmployeeInfo({
                         ...employeeInfo,
-                        occupation: e.target.value,
+                        job: e.target.value,
                       })
                     }
                   />
@@ -253,7 +253,8 @@ const CreateEmployee = () => {
 
                 <div className="data">
                   <label>E-Mail</label>
-                 <EmailInput/>
+                 <EmailInput onEmailChange={(email)=>
+                setEmployeeInfo({...employeeInfo,email})}/>
                 </div>
                 <div className="data">
                   <label>Phone:</label>

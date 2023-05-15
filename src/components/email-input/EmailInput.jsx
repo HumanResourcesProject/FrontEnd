@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import "./emailInput.scss";
-const EmailInput = () => {
+const EmailInput = (props) => {
   const [email, setEmail] = useState('');
   const regex = new RegExp(
     '^(([^<>()[\\]\\\\.,;:\\s@\\"]+(\\.[^<>()[\\]\\\\.,;:\\s@\\"]+)*)|' +
@@ -11,6 +11,10 @@ const EmailInput = () => {
   const handleInputChange = (event) => {
     const inputValue = event.target.value;
     setEmail(inputValue);
+    
+    if(props.onEmailChange){
+      props.onEmailChange(inputValue);
+    }
   };
 
   return (

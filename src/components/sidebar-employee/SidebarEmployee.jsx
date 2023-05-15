@@ -4,22 +4,13 @@ import { Link } from "react-router-dom";
 import HowToRegOutlinedIcon from "@mui/icons-material/HowToRegOutlined";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import LogoutOutlinedIcon from "@mui/icons-material/LogoutOutlined";
-import AdminService from "../../service/AdminService";
 const SidebarEmployee = () => {
   const [profil, setProfil] = useState([]);
   const [token] = useState({
     token: sessionStorage.getItem("token"),
   });
 
-  const profilpart = () => {
-    AdminService.postShortDetails(token).then((response) => {
-      setProfil(response.data);
-    });
-  };
 
-  useEffect(() => {
-    profilpart();
-  }, []);
 
   return (
     <aside className="full-sidebar">
