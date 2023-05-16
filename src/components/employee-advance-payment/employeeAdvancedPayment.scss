@@ -1,0 +1,63 @@
+.payment-body {
+  .payment-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 500px;
+    gap: 40px;
+
+    .date-part {
+      width: 15%;
+      display: flex;
+      flex-direction: column;
+      .text {
+        font-size: small;
+        font-weight: 500;
+      }
+      .date {
+      }
+    }
+    .amount-part {
+      width: 15%;
+
+      .text {
+        font-size: small;
+        font-weight: 500;
+      }
+      .amount {
+        display: flex;
+        gap: 5px;
+        .amount-input {
+          width: 80%;
+        }
+      }
+    }
+    .comment-part {
+      .text {
+        font-size: small;
+        font-weight: 500;
+      }
+      width: 35%;
+      .comment-textarea {
+        width: 95%;
+        height: 150px;
+        min-height: 150px;
+        resize: none;
+        line-height: 1.5;
+        font-size: 16px;
+        padding: 10px;
+      }
+    }
+    .button-part {
+      .button-apply {
+        padding: 5px 10px 5px 10px;
+        background-color: gray;
+        font-weight: 600;
+        font-size: medium;
+        color: white;
+      }
+    }
+  }
+}

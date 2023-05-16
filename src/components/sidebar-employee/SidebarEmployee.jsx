@@ -45,6 +45,12 @@ const SidebarEmployee = () => {
                 <div>Staff Leave Table</div>
               </Link>
             </li>
+            <li>
+              <Link to="/employeeadvancepayment" className="link d-flex">
+                <HowToRegOutlinedIcon />
+                <div>Advance Payment</div>
+              </Link>
+            </li>
           </ul>
         </div>
       </div>

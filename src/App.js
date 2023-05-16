@@ -20,7 +20,9 @@ import EmployeeMainPage from "./pages/employee/employee-main-page/EmployeeMainPa
 import EmployeeAddLeave from "./pages/employee/employee-add-leave-page/EmployeeAddLeave";
 import EmployeeLeavePage from "./pages/employee/employee-leave-page/EmployeeLeavePage";
 import WorkerListPage from "./pages/employee/employee-list-page/WorkerListPage";
+import EmployeeAdvancePayment from "./pages/employee/employee-advance-payment-page/EmployeeAdvancePayment";
 import NotFound from "./components/404NotFound/NotFound";
+
 
 const USER_TYPES = {
   ADMIN: "ADMIN",
@@ -178,6 +180,14 @@ const App = () => {
         element={
           <EmployeeElement>
             <WorkerListPage />
+          </EmployeeElement>
+        }
+      />
+      <Route
+        path="/employeeadvancepayment"
+        element={
+          <EmployeeElement>
+            <EmployeeAdvancePayment />
           </EmployeeElement>
         }
       />
