@@ -247,12 +247,10 @@ function ManagerElement({ children }) {
   }
 }
 function EmployeeElement({ children }) {
-  return <>{children}</>;
-
-  // if (CURRENT_USER_TYPE === USER_TYPES.EMPLOYEE) {
-  //   return <>{children}</>;
-  // } else {
-  //   window.location.replace("http://localhost:3000/notfound");
-  // }
+  if (CURRENT_USER_TYPE === USER_TYPES.EMPLOYEE) {
+    return <>{children}</>;
+  } else {
+    window.location.replace("http://localhost:3000/notfound");
+  }
 }
 export default App;

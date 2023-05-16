@@ -39,7 +39,7 @@ export const LoginPage = () => {
               {
                 window.location.replace("http://localhost:3000/manager")
               }else if(response.data.role === "EMPLOYEE"){
-                window.location.replace("http://localhost:3000/employeemain")
+                window.location.replace("http://localhost:3000/employee")
               }
                //navigate le sayfa değişir 
               
