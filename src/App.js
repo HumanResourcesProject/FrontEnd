@@ -24,6 +24,7 @@ import EmployeeMyProfilePage from "./pages/employee/employee-my-profile-page/Emp
 import EmployeeUpdatePage from "./pages/employee/employee-update-profile-page/EmployeeUpdatePage";
 
 import { LoginPage } from "./pages/login-page/LoginPage";
+import EmployeeAdvancePayment from "./pages/employee/employee-advance-payment-page/EmployeeAdvancePayment";
 import NotFound from "./components/404NotFound/NotFound";
 
 const USER_TYPES = {
@@ -206,6 +207,14 @@ const App = () => {
         element={
           <EmployeeElement>
             <EmployeeAddLeave />
+          </EmployeeElement>
+        }
+      />
+      <Route
+        path="/employeeadvancepayment"
+        element={
+          <EmployeeElement>
+            <EmployeeAdvancePayment />
           </EmployeeElement>
         }
       />
