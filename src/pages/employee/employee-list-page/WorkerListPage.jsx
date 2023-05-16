@@ -1,17 +1,17 @@
 import React from "react";
-import Header from "../../../components/header/Header";
-import Sidebar from "../../../components/sidebar/Sidebar";
 import "./workerListPage.scss";
 import TableEmployee from "../../../components/table-employee/TableEmployee";
+import SidebarEmployee from "../../../components/sidebar-employee/SidebarEmployee";
+import HeaderEmployee from "../../../components/header-employee/HeaderEmployee";
 
 const WorkerListPage = () => {
   return (
     <div >
       <div >
-        <Sidebar />
+        <SidebarEmployee />
       </div>
       <div className="worker-list-right">
-        <Header />
+        <HeaderEmployee />
         <TableEmployee/>
       </div> 
    

@@ -4,7 +4,7 @@ import SidebarEmployee from "../../../components/sidebar-employee/SidebarEmploye
 import "./employeeMainPage.scss";
 import MainEmployee from "../../../components/main-employee/MainEmployee";
 
-const MainPage = () => {
+const EmployeeMainPage = () => {
   return (
     <div className="mainpage">
       <div className="mainpage_sidebar">
@@ -19,4 +19,4 @@ const MainPage = () => {
   );
 };
 
-export default MainPage;
+export default EmployeeMainPage;

@@ -217,7 +217,9 @@ const CreateEmployee = () => {
                   <label>Job-start-date:</label>
                   <input
                   className="inputs"
-                    type="text"
+                    type="date"
+                    min="1900-01-01"
+                    max="2005-01-01"
                     onChange={(e) =>
                       setEmployeeInfo({
                         ...employeeInfo,

@@ -2,7 +2,7 @@ import React from 'react'
 import "./createCompanyPage.scss";
 import Header from "../../../components/header/Header";
 import Sidebar from "../../../components/sidebar/Sidebar";
-import CreateCompany from "../../../components/create-company/CreateFurkan";
+import CreateCompany from "../../../components/create-company/CreateCompany";
 
 
 const CreateCompanyPage = () => {

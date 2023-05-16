@@ -1,22 +1,22 @@
 import React from "react";
 import HeaderEmployee from "../../../components/header-employee/HeaderEmployee";
 import SidebarEmployee from "../../../components/sidebar-employee/SidebarEmployee";
-import "./employeeAddLeave.scss";
-import EmployeeAddLeave from "../../../components/employee-add-leave/EmployeeAddLeave";
+import "./employeeUpdatePage.scss";
+import EmployeeUpdateProfile from "../../../components/employee-update-profile/EmployeeUpdateProfile";
 
-const EmployeeAddLeavePage = () => {
+const EmployeeUpdatePage = () => {
   return (
     <div>
       <div>
         <SidebarEmployee />
       </div>
-      <div className="employee-add-leave-right">
+      <div className="employeeupdatepage-right">
         <HeaderEmployee /> 
-        <EmployeeAddLeave />
+        <EmployeeUpdateProfile />
       </div>
 
     </div>
   );
 };
 
-export default EmployeeAddLeavePage;
+export default EmployeeUpdatePage;

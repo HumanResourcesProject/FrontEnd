@@ -6,9 +6,9 @@ import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined
 import SupervisorAccountOutlinedIcon from "@mui/icons-material/SupervisorAccountOutlined";
 import LogoutOutlinedIcon from "@mui/icons-material/LogoutOutlined";
 import Groups3Icon from "@mui/icons-material/Groups3";
-const Sidebar = () => {
-  
 
+const SidebarManager = () => {
+  
   return (
     <aside className="full-sidebar">
       <div>
@@ -69,4 +69,4 @@ const Sidebar = () => {
     </aside>
   );
 };
-export default Sidebar;
+export default SidebarManager;

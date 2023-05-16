@@ -16,7 +16,7 @@ const SidebarEmployee = () => {
     <aside className="full-sidebar">
       <div>
         <div className="sidebar-top">
-          <Link to="/manager" className="sidebar-title-link">
+          <Link to="/employee" className="sidebar-title-link">
             <img
               src="https://img.icons8.com/?size=512&id=vWvnvMErmrYg&format=png"
               alt=""
@@ -27,22 +27,27 @@ const SidebarEmployee = () => {
         <div className="sidebar-main">
           <ul className="sidebar-nav">
             <li>
-              <Link to="" className="link d-flex">
+              <Link to="/employeemyprofile" className="link d-flex">
                 <AccountCircleOutlinedIcon />
                 <div>My Profile</div>
               </Link>
             </li>
             <li>
-              <Link to="" className="link d-flex">
+              <Link to="/employeeupdateprofile" className="link d-flex">
                 <HowToRegOutlinedIcon />
-
                 <div>Profile Update</div>
               </Link>
             </li>
             <li>
-              <Link to="/staffleavepage" className="link d-flex">
+              <Link to="/employeelistleave" className="link d-flex">
                 <HowToRegOutlinedIcon />
                 <div>Staff Leave Table</div>
+              </Link>
+            </li>
+            <li>
+              <Link to="/listallemployees" className="link d-flex">
+                <HowToRegOutlinedIcon />
+                <div>Employee List</div>
               </Link>
             </li>
           </ul>

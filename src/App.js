@@ -14,12 +14,16 @@ import EmployeeRegister from "./pages/manager/employee-register-page/EmployeeReg
 import ManagerMyProfilePage from "./pages/manager/manager-my-profile-page/ManagerMyProfilePage";
 import ManagerUpdateProfilePage from "./pages/manager/manager-update-page/ManagerUpdateProfilePage";
 import ManagerListManagerPage from "./pages/manager/manager-list-manager-page/ManagerListManagerPage";
-import { LoginPage } from "./pages/login-page/LoginPage";
+
 
 import EmployeeMainPage from "./pages/employee/employee-main-page/EmployeeMainPage";
 import EmployeeAddLeave from "./pages/employee/employee-add-leave-page/EmployeeAddLeave";
-import EmployeeLeavePage from "./pages/employee/employee-leave-page/EmployeeLeavePage";
+import EmployeeListLeavePage from "./pages/employee/employee-list-leave-page/EmployeeListLeavePage";
 import WorkerListPage from "./pages/employee/employee-list-page/WorkerListPage";
+import EmployeeMyProfilePage from "./pages/employee/employee-my-profile-page/EmployeeMyProfilePage";
+import EmployeeUpdatePage from "./pages/employee/employee-update-profile-page/EmployeeUpdatePage";
+
+import { LoginPage } from "./pages/login-page/LoginPage";
 import NotFound from "./components/404NotFound/NotFound";
 
 const USER_TYPES = {
@@ -150,10 +154,26 @@ const App = () => {
 
       {/* Employee Part */}
       <Route
-        path="/employeemain"
+        path="/employee"
         element={
           <EmployeeElement>
             <EmployeeMainPage />
+          </EmployeeElement>
+        }
+      />
+      <Route
+        path="/employeemyprofile"
+        element={
+          <EmployeeElement>
+            <EmployeeMyProfilePage />
+          </EmployeeElement>
+        }
+      />
+      <Route
+        path="/employeeupdateprofile"
+        element={
+          <EmployeeElement>
+            <EmployeeUpdatePage />
           </EmployeeElement>
         }
       />
@@ -166,18 +186,26 @@ const App = () => {
         }
       />
       <Route
-        path="/employeeleavepage"
+        path="/employeelistleave"
         element={
           <EmployeeElement>
-            <EmployeeLeavePage />
+            <EmployeeListLeavePage />
           </EmployeeElement>
         }
       />
       <Route
-        path="/employeeworkerlist"
+        path="/listallemployees"
         element={
           <EmployeeElement>
             <WorkerListPage />
+          </EmployeeElement>
+        }
+      />
+      <Route
+        path="/employeeaddleave"
+        element={
+          <EmployeeElement>
+            <EmployeeAddLeave />
           </EmployeeElement>
         }
       />
@@ -210,10 +238,12 @@ function ManagerElement({ children }) {
   }
 }
 function EmployeeElement({ children }) {
-  if (CURRENT_USER_TYPE === USER_TYPES.EMPLOYEE) {
-    return <>{children}</>;
-  } else {
-    window.location.replace("http://localhost:3000/notfound");
-  }
+  return <>{children}</>;
+
+  // if (CURRENT_USER_TYPE === USER_TYPES.EMPLOYEE) {
+  //   return <>{children}</>;
+  // } else {
+  //   window.location.replace("http://localhost:3000/notfound");
+  // }
 }
 export default App;
