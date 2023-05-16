@@ -23,7 +23,6 @@ import WorkerListPage from "./pages/employee/employee-list-page/WorkerListPage";
 import EmployeeAdvancePayment from "./pages/employee/employee-advance-payment-page/EmployeeAdvancePayment";
 import NotFound from "./components/404NotFound/NotFound";
 
-
 const USER_TYPES = {
   ADMIN: "ADMIN",
   MANAGER: "MANAGER",

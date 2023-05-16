@@ -1,6 +1,6 @@
 import React from "react";
 import { useState,useEffect} from "react";
-import "./employeeAdvancedPayment.scss";
+import "./employeeAdvancePayment.scss";
 import EmployeeService from "../../service/EmployeeService"
 
 const EmployeeAdvancePayment = () => {
@@ -9,7 +9,7 @@ const EmployeeAdvancePayment = () => {
     amount: "",
     currency: "tl",
     comment: "",
-    advancedPaymentDate:"",
+    advancedPaymentDate:""
   });
   const [profile, setProfile] = useState([]);
   const [token] = useState({
@@ -22,9 +22,14 @@ const EmployeeAdvancePayment = () => {
       (response) => {
         setProfile(response.data);
         console.log(profile);
+        setProfile({
+          ...profile,
+          salary: profile.salary *3,
+        }) 
       }
     );
   }, []);
+  console.log(profile);
   const handleSubmit = async (event) => {
     var dateObj = new Date();
     var month = dateObj.getUTCMonth() + 1; //months from 1-12
