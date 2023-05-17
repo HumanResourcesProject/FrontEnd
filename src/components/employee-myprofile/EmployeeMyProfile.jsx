@@ -2,33 +2,54 @@ import React from "react";
 import "./employeeMyProfile.scss";
 import DriveFolderUploadIcon from "@mui/icons-material/DriveFolderUpload";
 import { useState, useEffect } from "react";
+import EmployeeService from "../../service/EmployeeService"
 
 const EmployeeMyProfile = () => {
-  const [profile, setProfile] = useState({
+  const [profile, setProfile] = useState({ data: {} });
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await EmployeeService.getEmployeeInformations(token);
+        setProfile(response);
+        console.log(response); // Güncellenmiş değeri kullanabilirsiniz
+      } catch (error) {
+        console.error(error);
+      }
+    };
+  
+    fetchData();
+  }, []);
+  const [update, setUpdate] = useState({
     token: sessionStorage.getItem("token"),
     avatar: "",
     phone: "TL",
     address: "",
   });
+  const [token,setToken] = useState({
+    token: sessionStorage.getItem("token"),
+    role: sessionStorage.getItem("role")
+
+  });
+  
   const [image, setImage] = useState("");
   const onchangeImage = (e) => {
     const file = e.target.files[0];
-    setProfile({ ...profile, invoiceUrl: file });
+    setUpdate({ ...update, invoiceUrl: file });
     setImage(file);
   };
 
   return (
     <div className="employee-profile-body">
       <div className="avatar-part">
-        {image ? (
-          <img className="avatar" src={URL.createObjectURL(image)} />
-        ) : (
-          <img
-            className="avatar"
-            src="https://cdn.pixabay.com/photo/2017/11/10/04/47/user-2935373_960_720.png"
-            alt="Rengoku"
-          />
-        )}
+      {image ? (
+  <img className="avatar" src={URL.createObjectURL(image)} alt="Rengoku" />
+) : (
+  <img
+    className="avatar"
+    src={profile.data.avatar || "https://cdn.pixabay.com/photo/2017/11/10/04/47/user-2935373_960_720.png"}
+    alt="Rengoku"
+  />
+)}
 
         <label htmlFor="file" className="choosefilebutton">
           <DriveFolderUploadIcon className="uploadicon" />
@@ -45,64 +66,67 @@ const EmployeeMyProfile = () => {
         <div className="left-part">
           <div className="input">
             <label className="text">IdentityNumber</label>
-            <input readOnly className="detail-input" type="text" defaultValue="1234" />
+            <input readOnly className="detail-input" type="text" defaultValue={profile.data.identityNumber || ""} />
           </div>
           <div className="input">
             <label className="text">Name</label>
-            <input readOnly className="detail-input" type="text" defaultValue="Mert" />
+            <input readOnly className="detail-input" type="text" defaultValue={profile.data.name || ""} />
           </div>
 
           <div className="input">
             <label className="text">Middle Name</label>
-            <input readOnly className="detail-input" type="text" defaultValue="middleName" />
+            <input readOnly className="detail-input" type="text" defaultValue={profile.data.middleName || ""} />
           </div>
           <div className="input">
             <label readOnly className="text">Surname</label>
-            <input className="detail-input" type="text" defaultValue="Namsal" />
+            <input className="detail-input" type="text" defaultValue={profile.data.surname || ""} />
           </div>
           <div className="input">
             <label readOnly className="text">Date of Birth</label>
-            <input className="detail-input" type="text" defaultValue="26-01-1999" />
+            <input className="detail-input" type="text" defaultValue={profile.data.birthDate || ""} />
           </div>
           <div className="input">
             <label readOnly className="text">Date of Place</label>
-            <input className="detail-input" type="text" defaultValue="Izmir" />
+            <input className="detail-input" type="text" defaultValue={profile.data.birthPlace || ""} />
           </div>
           <div className="input">
             <label readOnly className="text">Job Start</label>
-            <input className="detail-input" type="text" defaultValue="21-06-2023" />
+            <input className="detail-input" type="text" defaultValue="değişcek" />
           </div>
         </div>
         <div className="right-part">
           <div className="input">
             <label  className="text">Occupation</label>
-            <input readOnly className="detail-input" type="text" defaultValue="Developer" />
+            <input readOnly className="detail-input" type="text" defaultValue={profile.data.occupation || ""} />
           </div>
           <div className="input">
             <label  className="text">Department</label>
-            <input readOnly className="detail-input" type="text" defaultValue="IT" />
+            <input readOnly className="detail-input" type="text" defaultValue={profile.data.department || ""} />
           </div>
           <div className="input">
             <label  className="text">Email</label>
-            <input readOnly className="detail-input" type="text" defaultValue="namsalmert@gmail.com" />
+            <input readOnly className="detail-input" type="text" defaultValue={profile.data.email || ""} />
           </div>
           <div className="input">
             <label className="text">Phone *</label>
-            <input  className="editable" type="text" defaultValue="053616546456" />
+            <input  className="editable" type="text" defaultValue={profile.data.phone || ""} />
           </div>
           <div className="input">
             <label className="text">Address *</label>
-            <input className="editable" type="text" defaultValue="Izmir" />
+            <input className="editable" type="text" defaultValue={profile.data.address || ""} />
           </div>
           <div className="input">
             <label  className="text">Company</label>
-            <input readOnly className="detail-input" type="text" defaultValue="Garanti BBVA" />
+            <input readOnly className="detail-input" type="text" defaultValue={profile.data.company || ""} />
           </div>
           <div className="input">
             <label  className="text">Salary</label>
-            <input readOnly className="detail-input" type="text" defaultValue="5000" />
+            <input readOnly className="detail-input" type="text" defaultValue={profile.data.salary || ""} />
           </div>
         </div>
+      </div>
+      <div className="button-part">
+        <button className="button-change">Change</button>
       </div>
     </div>
   );
