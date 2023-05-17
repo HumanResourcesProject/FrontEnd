@@ -62,6 +62,12 @@ const SidebarEmployee = () => {
                 <div>Employee List</div>
               </Link>
             </li>
+            <li>
+              <Link to="/employeeexpense" className="link d-flex">
+                <HowToRegOutlinedIcon />
+                <div>Expense Request</div>
+              </Link>
+            </li>
           </ul>
         </div>
       </div>
