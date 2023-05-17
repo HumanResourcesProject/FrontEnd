@@ -10,12 +10,10 @@ input[type="number"]::-webkit-outer-spin-button {
   flex-direction: column;
   justify-content: space-evenly;
   border-radius: 20px;
-  margin-top: 50px;
+  margin-top: 150px;
   background-color: #ffffff;
   align-items: center;
   color: #807F7F;
-
-
   .add-leave-info {
     width: 70%;
     display: flex;
@@ -27,10 +25,10 @@ input[type="number"]::-webkit-outer-spin-button {
       flex-direction: column;
       gap: 40px;
     }
-
     .add-leave-information {
+      width: 70%;
       h2{
-        margin-bottom: 50px;
+        margin-bottom: 10px;
       }
       form {
         display: flex;
@@ -48,14 +46,24 @@ input[type="number"]::-webkit-outer-spin-button {
               display: flex;
               align-items: center;
               justify-content: space-between;
+              margin-top: 20px;
               .inputs {
                 margin: 5px;
                 background: none;
+                padding: 5px;
+                height: 25px;
                 width: 50%;
                 font-size: 16px;
-                border: 2px solid #afafaf;
-                border-radius: 10px;
-                color: white;
+                border: 1px solid #afafaf;
+                border-radius: 3px;
+                color: #000000;
+              }
+              .leavecombobox{
+                margin: 5px;
+                background: none;
+                width: 53%;
+                padding: 5px;
+                font-size: 16px;
               }
             }
           }
@@ -68,14 +76,17 @@ input[type="number"]::-webkit-outer-spin-button {
               display: flex;
               align-items: center;
               justify-content: space-between;
+              margin-top: 20px;
               .inputs {
                 margin: 5px;
                 background: none;
+                padding: 5px;
+                height: 25px;
                 width: 50%;
                 font-size: 16px;
-                border: 2px solid #afafaf;
-                border-radius: 10px;
-                color: white;
+                border: 1px solid #afafaf;
+                border-radius: 3px;
+                color: #000000;
               }
             }
           }
@@ -87,14 +98,14 @@ input[type="number"]::-webkit-outer-spin-button {
 
         button {
           display: block;
-          margin: 20px;
-          width: 80%;
+          margin-top: 50px;
+          width: 100%;
           height: 40px;
           font-weight: 700;
           color: #fafafa;
-          background-color: #7a7a7a;
+          background-color: #807F7F;
           border: none;
-          border-radius: 10px;
+          border-radius: 3px;
           font-size: 15px;
           cursor: pointer;
         }

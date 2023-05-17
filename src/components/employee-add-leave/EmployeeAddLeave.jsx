@@ -2,29 +2,56 @@ import React from "react";
 import { useState, useEffect } from "react";
 import "./employeeAddLeave.scss";
 import EmployeeService from "../../service/EmployeeService";
-
+import Select from "react-select";
 
 const EmployeeAddLeave = () => {
   const [addLeaveInfo, setAddLeaveInfo] = useState({
+    token: sessionStorage.getItem("token"),
     type: "",
     startDate: "",
     finishDate: "",
-    amountOfDay: "",
+    amountOfDay: 0,
   });
 
+  useEffect(() => {
+    dateConverter();
+  }, [addLeaveInfo.startDate, addLeaveInfo.finishDate]);
+
+  const dateConverter = () => {
+    const newStartDate = new Date(addLeaveInfo.startDate);
+    const newEndDate = new Date(addLeaveInfo.finishDate);
+    const one_day = 1000 * 60 * 60 * 24;
+    let result;
+    result = Math.ceil(
+      (newEndDate.getTime() - newStartDate.getTime()) / one_day
+    );
+    if (result < 0) {
+      setAddLeaveInfo((prevState) => ({ ...prevState, amountOfDay: 0 }));
+    } else {
+      setAddLeaveInfo((prevState) => ({ ...prevState, amountOfDay: result+1 }));
+    }
+  };
+  const [optionInfo, setOptionInfo] = useState("");
+ 
+  const options = [
+    { value: "annual", label: "Annual Leave" },
+    { value: "sick", label: "Sick Leave" },
+    { value: "maternity", label: "Maternity Leave" },
+    { value: "paternity", label: "Paternity Leave" },
+    { value: "parental", label: "Parental Leave" },
+    { value: "bereavement", label: "Bereavement Leave" },
+  ];
 
   const handleCreate = async (event) => {
     event.preventDefault();
     console.log(addLeaveInfo);
 
-    EmployeeService.registerEmployee(addLeaveInfo)
+    EmployeeService.createleave(addLeaveInfo)
       .then(() => {
         alert("added successfully *****");
       })
       .catch((error) => {
-        alert(
-          "unexpected error"
-        );
+        alert("unexpected error");
       });
   };
 
@@ -33,174 +60,63 @@ const EmployeeAddLeave = () => {
       <div className="add-leave-info">
         <div className="add-leave-information">
           <h2>Leave Request Page</h2>
-        
+
           <form onSubmit={handleCreate}>
             <div className="form-data">
-              <div className="leave-types">
-              <select
-            name=""
-            id=""
-            onChange={(event) =>
-              setAddLeaveInfo({
-                ...addLeaveInfo,
-                type: event.target.value,
-              })
-            }>
-            <option value="annual">Annual Leave</option>
-            <option value="sick">Sick Leave</option>
-            <option value="maternity">Maternity Leave</option>
-            <option value="paternity">Paternity Leave</option>
-            <option value="parental">Parental Leave</option>
-            <option value="bereavement">Bereavement Leave</option>
-          </select>
-              </div>
               <div className="first-part">
                 <div className="data">
-                  <label>Identify number:</label>
+                  <label>Leave Start Date:</label>
                   <input
                     className="inputs"
-                    type="number"
+                    type="date"
+                    min={new Date().toISOString().substring(0, 10)}
+                    max="2100-01-01"
                     onChange={(e) =>
                       setAddLeaveInfo({
                         ...addLeaveInfo,
-                        identityNumber: e.target.value,
+                        startDate: e.target.value,
                       })
                     }
                   />
                 </div>
                 <div className="data">
-                  <label>Name:</label>
-                  <input
-                  className="inputs"
-                    type="text"
+                  <label>Leave Type:</label>
+                  <Select className="leavecombobox"
+                  defaultValue={optionInfo}
                     onChange={(e) =>
                       setAddLeaveInfo({
                         ...addLeaveInfo,
-                        name: e.target.value,
+                        type: e.value,
                       })
-                    }
+                    }             
+                    options={options}
                   />
                 </div>
+              </div>
+              <div className="second-part">
                 <div className="data">
-                  <label>Surname:</label>
+                  <label>Leave End Date:</label>
                   <input
-                  className="inputs"
-                    type="text"
+                    className="inputs"
+                    type="date"
+                    min={new Date().toISOString().substring(0, 10)}
+                    max="2100-01-01"
                     onChange={(e) =>
                       setAddLeaveInfo({
                         ...addLeaveInfo,
-                        surname: e.target.value,
-                      })
-                    }
-                  />
-                </div>
-                <div className="data">
-                  <label>Mid Name:</label>
-                  <input
-                  className="inputs"
-                    type="text"
-                    onChange={(e) =>
-                      setAddLeaveInfo({
-                        ...addLeaveInfo,
-                        middleName: e.target.value,
+                        finishDate: e.target.value,
                       })
                     }
                   />
                 </div>
 
                 <div className="data">
-                  <label>Date of Birth:</label>
+                  <label>Leave Date:</label>
                   <input
-                  className="inputs"
-                    type="date"
-                    min="1900-01-01"
-                    max="2005-01-01"
-                    onChange={(e) =>
-                      setAddLeaveInfo({
-                        ...addLeaveInfo,
-                        birthDate: e.target.value,
-                      })
-                    }
-                  />
-                </div>
-                <div className="data">
-                  <label>Birth-place:</label>
-                  <input
-                  className="inputs"
-                    type="text"
-                    onChange={(e) =>
-                      setAddLeaveInfo({
-                        ...addLeaveInfo,
-                        birthPlace: e.target.value,
-                      })
-                    }
-                  />
-                </div>
-              </div>
-              <div className="second-part">
-                <div className="data">
-                  <label>Job-start-date:</label>
-                  <input
-                  className="inputs"
-                    type="text"
-                    onChange={(e) =>
-                      setAddLeaveInfo({
-                        ...addLeaveInfo,
-                        jobStart: e.target.value,
-                      })
-                    }
-                  />
-                </div>
-                <div className="data">
-                  <label>Occupation:</label>
-                  <input
-                  className="inputs"
-                    type="text"
-                    onChange={(e) =>
-                      setAddLeaveInfo({
-                        ...addLeaveInfo,
-                        occupation: e.target.value,
-                      })
-                    }
-                  />
-                </div>
-                <div className="data">
-                  <label>Department:</label>
-                  <input
-                  className="inputs"
-                    type="text"
-                    onChange={(e) =>
-                      setAddLeaveInfo({
-                        ...addLeaveInfo,
-                        department: e.target.value,
-                      })
-                    }
-                  />
-                </div>
-                <div className="data">
-                  <label>Phone:</label>
-                  <input
-                    type="number"
                     className="inputs"
-                    onChange={(e) =>
-                      setAddLeaveInfo({
-                        ...addLeaveInfo,
-                        phone: e.target.value,
-                      })
-                    }
-                  />
-                </div>
-                <div className="data">
-                  <label>Address:</label>
-                  <input
-                  className="inputs"
-                    type="text"
-                    onChange={(e) =>
-                      setAddLeaveInfo({
-                        ...addLeaveInfo,
-                        address: e.target.value,
-                      })
-                    }
+                    type="number"
+                    readOnly
+                    value={addLeaveInfo.amountOfDay}
                   />
                 </div>
               </div>

@@ -1,126 +1,86 @@
 import React, { useMemo, useState, useEffect } from "react";
 import MaterialReactTable from "material-react-table";
 import "./tableStaffLeave.scss";
-import { Box } from "@mui/material";
 import QueueIcon from "@mui/icons-material/Queue";
 import EmployeeService from "../../service/EmployeeService";
+import { Link } from "react-router-dom";
 
 const TableStaffLeave = () => {
-  const [data2, setData] = useState([]);
+  const [data, setData] = useState([]);
+  
   useEffect(() => {
-    EmployeeService.getAllEmployee().then((response) => {
-      setData(() => response.data);
-    });
+    const token = {
+      token: sessionStorage.getItem('token'),
+      role: sessionStorage.getItem('role'),
+    };
+
+    EmployeeService.findallleave(token)
+      .then((response) => {
+        setData(response.data);
+      })
+      .catch((error) => {
+        console.error('Error fetching data: ', error);
+      });
   }, []);
 
   const columns = useMemo(
     () => [
       {
-        accessorFn: (row) => `${row.name} `, //accessorFn used to join multiple data into a single cell
-        id: "name", //id is still required when using accessorFn instead of accessorKey
-        header: "Name",
-        size: 250,
-        Cell: ({ renderedCellValue, row }) => (
-          <Box
-            sx={{
-              display: "flex",
-              alignItems: "center",
-              gap: "1rem",
-            }}
-          >
-            <img
-              alt="avatar"
-              width={40}
-              height={40}
-              src={row.original.avatar}
-              loading="lazy"
-              style={{ borderRadius: "50%", objectFit: "cover" }}
-            />
-            {/* using renderedCellValue instead of cell.getValue() preserves filter match highlighting */}
-            <span>{renderedCellValue}</span>
-          </Box>
-        ),
-        enableEditing: false,
-      },
-      {
-        accessorKey: "surname", //accessorKey used to define `data` column. `id` gets set to accessorKey automatically
-        header: "Surname",
-        size: 300,
-        enableEditing: false,
-      },
-      {
-        accessorKey: "address", //accessorKey used to define `data` column. `id` gets set to accessorKey automatically
+        accessorFn: (row) => `${row.type} `,
+        id: "type",
         header: "Leave Type",
-        size: 300,
+        size: 150,
         enableEditing: false,
       },
       {
-        accessorKey: "email", //accessorKey used to define `data` column. `id` gets set to accessorKey automatically
+        accessorKey: "requestDate",
+        header: "Request Date",
+        size: 200,
+        enableEditing: false,
+      },
+      {
+        accessorKey: "startDate",
         header: "Leave Start Date",
-        size: 300,
+        size: 200,
         enableEditing: false,
       },
       {
-        accessorKey: "phone", //accessorKey used to define `data` column. `id` gets set to accessorKey automatically
+        accessorKey: "finishDate",
         header: "Leave End Date",
-        size: 300,
+        size: 200,
         enableEditing: false,
       },
       {
-        accessorKey: "phone", //accessorKey used to define `data` column. `id` gets set to accessorKey automatically
+        accessorKey: "amountOfDay",
         header: "Number of Days of Leave",
-        size: 300,
+        size: 250,
         enableEditing: false,
       },
       {
-        accessorKey: "phone", //accessorKey used to define `data` column. `id` gets set to accessorKey automatically
+        accessorKey: "status",
         header: "Status",
-        size: 300,
+        size: 150,
+        enableEditing: false,
+      },
+      {
+        accessorKey: "approvalDate",
+        header: "Approval Date",
+        size: 200,
         enableEditing: false,
       },
     ],
-
     []
   );
 
-  const [tableData, setTableData] = useState(() => data2);
-
-  const handleSaveRow = async ({ exitEditingMode, row, values }) => {
-    //if using flat data and simple accessorKeys/ids, you can just do a simple assignment here.
-    tableData[row._valuesCache] = values;
-    const rowData = {
-      email: row._valuesCache.email,
-      phone: row._valuesCache.phone,
-      address: row._valuesCache.address,
-    };
-    //send/receive api updates here
-    //AdminService.updateMethod(rowData);
-    //setTableData([...tableData]);
-    exitEditingMode();
-    window.location.reload();
-  };
-
-  
-  const handleAddLeave = (event) => {
-    event.preventDefault();
-    window.location.replace("http://localhost:3000/employeeaddleave")
-  }
-
-
-
   return (
     <div className="staff-leave-list-container">
-      <div className="addleave" onClick={handleAddLeave}>
-        <QueueIcon />
-      </div>
+      <Link to="/employeeaddleave" className="addleave">
+        <div>
+          <QueueIcon />
+        </div>
+      </Link>
       <div className="table-staff-leave">
-        <MaterialReactTable
-          columns={columns}
-          data={data2}
-          editingMode="modal"
-          enableEditing={true}
-          onEditingRowSave={handleSaveRow}
-        />
+        <MaterialReactTable columns={columns} data={data} />
       </div>
     </div>
   );
