@@ -6,7 +6,7 @@ const EMPLOYEE_UPDATE_INFO = "http://localhost:7074/employee/updateemployee";
 const CREATE_ADVANCE_PAYMENT= "http://localhost:7074/employee/createadvancepayment"
 const CREATE_LEAVE  = "http://localhost:7074/employee/createleave";
 const CREATE_EXPENSE = "http://localhost:7074/employee/createexpense";
-const FINDALL_LEAVE  = "http://localhost:7074/employee/myleavefindall";
+const FINDALL_LEAVE  = "http://localhost:7075/requirements/employee/findallmyleaves";
 
 class EmployeeService {
     getAllEmployee(data){

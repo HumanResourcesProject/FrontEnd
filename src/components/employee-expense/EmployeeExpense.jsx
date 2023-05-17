@@ -8,7 +8,7 @@ const EmployeeExpense = () => {
   const [expense, setExpense] = useState({
     token: sessionStorage.getItem("token"),
     amount: "",
-    currency: "tl",
+    currency: "TL",
     spendingDate: "",
     type: "TRANSPORTATION",
     comment: "",
@@ -84,9 +84,9 @@ const EmployeeExpense = () => {
               })
             }
           >
-            <option value="tl">₺</option>
-            <option value="dolar">$</option>
-            <option value="euro">€</option>
+            <option value="TL">₺</option>
+            <option value="DOLAR">$</option>
+            <option value="EURO">€</option>
           </select>
 
           <input

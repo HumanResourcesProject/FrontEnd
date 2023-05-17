@@ -34,12 +34,12 @@ const EmployeeAddLeave = () => {
   const [optionInfo, setOptionInfo] = useState("");
  
   const options = [
-    { value: "annual", label: "Annual Leave" },
-    { value: "sick", label: "Sick Leave" },
-    { value: "maternity", label: "Maternity Leave" },
-    { value: "paternity", label: "Paternity Leave" },
-    { value: "parental", label: "Parental Leave" },
-    { value: "bereavement", label: "Bereavement Leave" },
+    { value: "ANNUAL", label: "Annual Leave" },
+    { value: "SICK", label: "Sick Leave" },
+    { value: "MATERNITY", label: "Maternity Leave" },
+    { value: "PATERNITY", label: "Paternity Leave" },
+    { value: "PARENTAL", label: "Parental Leave" },
+    { value: "BEREAVEMENT", label: "Bereavement Leave" },
   ];
 
   const handleCreate = async (event) => {
