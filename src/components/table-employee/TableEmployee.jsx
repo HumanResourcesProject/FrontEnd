@@ -18,6 +18,7 @@ const TableEmployee = () => {
     EmployeeService.getAllEmployee(token).then((response) => {
       setData(() => (response.data
       ));
+      console.log(response);
       
     });
   }, []);

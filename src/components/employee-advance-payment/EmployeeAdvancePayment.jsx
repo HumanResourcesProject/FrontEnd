@@ -11,7 +11,10 @@ const EmployeeAdvancePayment = () => {
     comment: "",
     advancedPaymentDate:""
   });
-  const [profile, setProfile] = useState([]);
+  const [profile, setProfile] = useState({
+    salary:"1000",
+
+  });
   const [token] = useState({
     token: sessionStorage.getItem("token"),
     role: sessionStorage.getItem("role")
@@ -20,16 +23,16 @@ const EmployeeAdvancePayment = () => {
   useEffect(() => {
     EmployeeService.getEmployeeInformations(token).then(
       (response) => {
-        setProfile(response.data);
-        console.log(profile);
         setProfile({
           ...profile,
-          salary: profile.salary *3,
+          salary: response.data.salary *3,
         }) 
+        
+        
       }
     );
   }, []);
-  console.log(profile);
+  
   const handleSubmit = async (event) => {
     var dateObj = new Date();
     var month = dateObj.getUTCMonth() + 1; //months from 1-12
