@@ -2,6 +2,7 @@ import React, { useMemo, useState, useEffect } from "react";
 import MaterialReactTable from "material-react-table";
 import "./tableManagerAdvancePayments.scss";
 import EmployeeService from "../../service/EmployeeService";
+import { Link } from "react-router-dom"
 
 const TableManagerAdvancePayments = () => {
   const [data, setData] = useState([]);
@@ -71,11 +72,26 @@ const TableManagerAdvancePayments = () => {
   );
 
   return (
-    <div>
+    
       <div className="table-manager-advance-payments">
         <MaterialReactTable columns={columns} data={data} />
+        <div className="linktobuttons-advance-payments">
+
+      <Link to="/listemployeeadvancepayments"  
+      className="advance-payments-button-left advance-payments-button">
+        <div>
+          <p>Expenses Requests</p>
+        </div>
+      </Link>
+      <Link to="/listemployeeleaves" 
+      className="advance-payments-button-right advance-payments-button">
+        <div >
+          <p>Leave Requests</p>
+        </div>
+      </Link>
       </div>
-    </div>
+      </div>
+    
   );
 };
 

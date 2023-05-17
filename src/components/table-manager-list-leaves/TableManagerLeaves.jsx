@@ -2,6 +2,7 @@ import React, { useMemo, useState, useEffect } from "react";
 import MaterialReactTable from "material-react-table";
 import "./tableManagerLeaves.scss";
 import EmployeeService from "../../service/EmployeeService";
+import { Link } from "react-router-dom"
 
 const TableManagerLeaves = () => {
   const [data, setData] = useState([]);
@@ -71,11 +72,22 @@ const TableManagerLeaves = () => {
   );
 
   return (
-    <div>
+
       <div className="table-manager-leaves">
         <MaterialReactTable columns={columns} data={data} />
+      <div className="linktobuttons-leaves">
+      <Link to="/listemployeeadvancepayments"  className="leaves-button-right leaves-button">
+        <div>
+          <p>Advance Payments Requests</p>
+        </div>
+      </Link>
+      <Link to="/listemployeeexpenses"  className="leaves-button-left leaves-button">
+        <div>
+          <p>Expenses Requests</p>
+        </div>
+      </Link>
       </div>
-    </div>
+      </div>
   );
 };
 

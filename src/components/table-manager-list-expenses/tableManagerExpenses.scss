@@ -1,3 +1,31 @@
 .table-manager-expenses {
   padding: 50px;
+  display: flex;
+  flex-direction: column;
+
+  .linktobuttons-expenses{
+    margin-top: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    .expenses-button{
+      text-decoration: none;
+      border: 2px solid #807f7f;
+      color: #807f7f;
+      padding: 5px;
+      border-radius: 5px;
+      transition: transform 1s;
+    }
+    .expenses-button-left:hover{
+      cursor: pointer;
+      border: 2px solid #00ac56;
+      transform: scale(1.1);
+    }
+    .expenses-button-right:hover{
+      cursor: pointer;
+      border: 2px solid #192b94;
+      transform: scale(1.1);
+    }
+
+  }
 }

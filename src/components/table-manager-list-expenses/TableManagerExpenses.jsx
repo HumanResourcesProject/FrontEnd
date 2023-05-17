@@ -1,80 +1,106 @@
 import React, { useMemo, useState, useEffect } from "react";
 import MaterialReactTable from "material-react-table";
 import "./tableManagerExpenses.scss";
-import EmployeeService from "../../service/EmployeeService";
+import CompanyManagerService from "../../service/CompanyManagerService";
+import {
+  Box
+} from '@mui/material';
+import { Link } from "react-router-dom"
 
 const TableManagerExpenses = () => {
-  const [data, setData] = useState([]);
-  
+  const [data2,setData] = useState([])
   useEffect(() => {
-    const token = {
-      token: sessionStorage.getItem('token'),
-      role: sessionStorage.getItem('role'),
-    };
-
-    EmployeeService.findallleave(token)
-      .then((response) => {
-        setData(response.data);
-      })
-      .catch((error) => {
-        console.error('Error fetching data: ', error);
-      });
+    CompanyManagerService.getAllManager(sessionStorage.getItem("token")).then((response) => {
+      setData(() => (response.data
+      ));
+      
+    });
   }, []);
 
+
+  
   const columns = useMemo(
     () => [
-      {
-        accessorFn: (row) => `${row.type} `,
-        id: "type",
-        header: "Leave Type",
-        size: 150,
-        enableEditing: false,
-      },
-      {
-        accessorKey: "requestDate",
-        header: "Request Date",
-        size: 200,
-        enableEditing: false,
-      },
-      {
-        accessorKey: "startDate",
-        header: "Leave Start Date",
-        size: 200,
-        enableEditing: false,
-      },
-      {
-        accessorKey: "finishDate",
-        header: "Leave End Date",
-        size: 200,
-        enableEditing: false,
-      },
-      {
-        accessorKey: "amountOfDay",
-        header: "Number of Days of Leave",
-        size: 250,
-        enableEditing: false,
-      },
-      {
-        accessorKey: "status",
-        header: "Status",
-        size: 150,
-        enableEditing: false,
-      },
-      {
-        accessorKey: "approvalDate",
-        header: "Approval Date",
-        size: 200,
-        enableEditing: false,
-      },
-    ],
+          {
+            accessorFn: (row) => `${row.name} `, //accessorFn used to join multiple data into a single cell
+            id: 'name', //id is still required when using accessorFn instead of accessorKey
+            header: 'Name',
+            size: 250,
+            Cell: ({ renderedCellValue, row }) => (
+              <Box
+                sx={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '1rem',
+                }}
+              >
+                <img
+                  alt="avatar"
+                  
+                  width={40}
+                  height={40}
+                  src={row.original.avatar}
+                  loading="lazy"
+                  style={{ borderRadius: '50%', objectFit: 'cover'}}
+                />
+                {/* using renderedCellValue instead of cell.getValue() preserves filter match highlighting */}
+                <span>{renderedCellValue}</span>
+              </Box>
+            ),
+            enableEditing:false 
+          },
+          {
+            accessorKey: 'surname', //accessorKey used to define `data` column. `id` gets set to accessorKey automatically
+            header: 'Surname',
+            size: 300,
+            enableEditing:false 
+          },
+          {
+            accessorKey: 'address', //accessorKey used to define `data` column. `id` gets set to accessorKey automatically
+            header: 'Address',
+            size: 300,
+            enableEditing:true 
+
+          },
+          {
+            accessorKey: 'email', //accessorKey used to define `data` column. `id` gets set to accessorKey automatically
+            header: 'E-Mail',
+            size: 300,
+            enableEditing:false 
+
+          },
+          {
+            accessorKey: 'phone', //accessorKey used to define `data` column. `id` gets set to accessorKey automatically
+            header: 'Phone',
+            size: 300,
+            enableEditing:true 
+
+          },
+        ],
+      
     []
   );
 
+
   return (
-    <div>
-      <div className="table-manager-expenses">
-        <MaterialReactTable columns={columns} data={data} />
+    <div className="table-manager-expenses">
+      <MaterialReactTable  
+        columns={columns} 
+        data={data2} 
+        />
+      <div className="linktobuttons-expenses">
+      <Link to="/listemployeeleaves" className="expenses-button-left expenses-button">
+        <div >
+          <p>Leave Requests</p>
+        </div>
+      </Link>
+      <Link to="/listemployeeadvancepayments"  className="expenses-button-right expenses-button">
+        <div>
+          <p>Advance Payments Requests</p>
+        </div>
+      </Link>
       </div>
+
     </div>
   );
 };
