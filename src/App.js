@@ -14,6 +14,10 @@ import EmployeeRegister from "./pages/manager/employee-register-page/EmployeeReg
 import ManagerMyProfilePage from "./pages/manager/manager-my-profile-page/ManagerMyProfilePage";
 import ManagerUpdateProfilePage from "./pages/manager/manager-update-page/ManagerUpdateProfilePage";
 import ManagerListManagerPage from "./pages/manager/manager-list-manager-page/ManagerListManagerPage";
+import ListEmployeeLeavesPage from "./pages/manager/list-employee-leaves-page/ListEmployeeLeavesPage";
+import ListEmployeeAdvancePaymentsPage from "./pages/manager/list-employee-advence-payments-page/ListEmployeeAdvancePaymentsPage";
+import ListEmployeeExpensesPage from "./pages/manager/list-employee-expenses-page/ListEmployeeExpensesPage";
+import ManagerRequestsPage from "./pages/manager/manager-requests-page/ManagerRequestsPage";
 
 
 import EmployeeMainPage from "./pages/employee/employee-main-page/EmployeeMainPage";
@@ -27,6 +31,7 @@ import EmployeeAdvancePayment from "./pages/employee/employee-advance-payment-pa
 
 import { LoginPage } from "./pages/login-page/LoginPage";
 import NotFound from "./components/404NotFound/NotFound";
+import ManagerListEmployeePage from "./pages/manager/manager-list-employee-page/ManagerListEmployeePage";
 
 
 const USER_TYPES = {
@@ -106,14 +111,6 @@ const App = () => {
       />
       {/* Manager Part */}
       <Route
-        path="/employeelistpage"
-        element={
-          <ManagerElement>
-            <AdminListPage />
-          </ManagerElement>
-        }
-      />
-      <Route
         path="/manager"
         element={
           <ManagerElement>
@@ -121,7 +118,14 @@ const App = () => {
           </ManagerElement>
         }
       />
-
+      <Route
+        path="/employeelistpage"
+        element={
+          <ManagerElement>
+            <ManagerListEmployeePage />
+          </ManagerElement>
+        }
+      />
       <Route
         path="/employeeregister"
         element={
@@ -154,6 +158,39 @@ const App = () => {
           </ManagerElement>
         }
       />
+            <Route
+        path="/listemployeeexpenses"
+        element={
+          <ManagerElement>
+            <ListEmployeeExpensesPage />
+          </ManagerElement>
+        }
+      />
+            <Route
+        path="/listemployeeleaves"
+        element={
+          <ManagerElement>
+            <ListEmployeeLeavesPage />
+          </ManagerElement>
+        }
+      />
+            <Route
+        path="/listemployeeadvancepayments"
+        element={
+          <ManagerElement>
+            <ListEmployeeAdvancePaymentsPage />
+          </ManagerElement>
+        }
+      />
+            <Route
+        path="/managerequests"
+        element={
+          <ManagerElement>
+            <ManagerRequestsPage />
+          </ManagerElement>
+        }
+      />
+
 
       {/* Employee Part */}
       <Route

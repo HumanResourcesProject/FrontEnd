@@ -49,12 +49,18 @@ const SidebarManager = () => {
                 <div>Company Manager List</div>
               </Link>
             </li>
-            {/* <li>
-              <Link to="managerlistemployeepage" className="link d-flex">
-                <EngineeringOutlinedIcon />
+            <li>
+              <Link to="/employeelistpage" className="link d-flex">
+                <SupervisorAccountOutlinedIcon />
                 <div>Employee List</div>
               </Link>
-            </li> */}
+            </li> 
+            <li>
+              <Link to="/managerequests" className="link d-flex">
+                <Groups3Icon />
+                <div>Manage Requests</div>
+              </Link>
+            </li>
           </ul>
         </div>
       </div>
