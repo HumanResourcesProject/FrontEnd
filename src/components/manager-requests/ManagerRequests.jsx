@@ -8,7 +8,7 @@ const ManagerRequests = () => {
       <Link to="/listemployeeleaves" className="requests-left request-block">
         <div >
           <h4>Leave Requests</h4>
-          <p>1 request waiting for your approval decision</p>
+          <p>1 request waiting for your approval decision.</p>
         </div>
       </Link>
       <Link to="/listemployeeadvancepayments"  className="requests-middle request-block">
