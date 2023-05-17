@@ -2,7 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import "./employeeExpense.scss";
 import DriveFolderUploadIcon from "@mui/icons-material/DriveFolderUpload";
-import EmployeeService from "../../service/EmployeeService"
+import EmployeeService from "../../service/EmployeeService";
 
 const EmployeeExpense = () => {
   const [expense, setExpense] = useState({
@@ -19,44 +19,39 @@ const EmployeeExpense = () => {
   const [image, setImage] = useState("");
   const onchangeImage = (e) => {
     const file = e.target.files[0];
-    setExpense({...expense,invoiceUrl: file});
+    setExpense({ ...expense, invoiceUrl: file });
     setImage(file);
   };
   const handleSubmit = async (event) => {
     event.preventDefault();
-    if(expense.amount === "" || expense.comment === ""|| expense.spendingDate === "" || expense.type === ""){
-        alert("Fill the neccessary fields")
-        return
+    if (
+      expense.amount === "" ||
+      expense.comment === "" ||
+      expense.spendingDate === "" ||
+      expense.type === ""
+    ) {
+      alert("Fill the neccessary fields");
+      return;
     }
     console.log(expense);
-    EmployeeService.createexpense(expense).then(
-        () =>{
-            alert("added successfully")
-        })
-        .catch((error) =>{
-            alert("unexpected error");
-        });
-    
-
-    
-    
-      
-        
-      
-      
-    
+    EmployeeService.createexpense(expense)
+      .then(() => {
+        alert("added successfully");
+      })
+      .catch((error) => {
+        alert("unexpected error");
+      });
   };
 
   return (
     <div className="expense-body">
-       
       <div className="expense-part">
         <div className="register-profile-image">
           {image ? (
             <img className="invoice" src={URL.createObjectURL(image)} />
           ) : (
             <img
-                className="invoice"
+              className="invoice"
               src="https://cdn.pixabay.com/photo/2017/11/10/04/47/user-2935373_960_720.png"
               alt="Rengoku"
             />
@@ -78,49 +73,51 @@ const EmployeeExpense = () => {
       <div className="amount-part">
         <label className="text">Amount</label>
         <div className="amount-value">
-        <select
-          name=""
-          id=""
-          onChange={(event) =>
-            setExpense({
-              ...expense,
-              currency: event.target.value,
-            })
-          }
-        >
-          <option value="tl">₺</option>
-          <option value="dolar">$</option>
-          <option value="euro">€</option>
-        </select>
-        
-        <input 
-        className="amount-input" 
-        type="number"
-        onChange={(event) =>
-            setExpense({
-              ...expense,
-              amount: event.target.value,
-            })
-          }
-         />
+          <select
+            name=""
+            id=""
+            className="amount-select"
+            onChange={(event) =>
+              setExpense({
+                ...expense,
+                currency: event.target.value,
+              })
+            }
+          >
+            <option value="tl">₺</option>
+            <option value="dolar">$</option>
+            <option value="euro">€</option>
+          </select>
+
+          <input
+            className="amount-input"
+            type="number"
+            onChange={(event) =>
+              setExpense({
+                ...expense,
+                amount: event.target.value,
+              })
+            }
+          />
         </div>
       </div>
       <div className="spending-date-part">
-        <label className="text">Spending Date</label>
-        <input 
-        type="date"
-        max={new Date().toISOString().substring(0, 10)}
-        onChange={(event) =>
+        <label className="text">Date of Spending</label>
+        <input
+          type="date"
+          className="date-input"
+          max={new Date().toISOString().substring(0, 10)}
+          onChange={(event) =>
             setExpense({
               ...expense,
               spendingDate: event.target.value,
             })
           }
-         />
+        />
       </div>
       <div className="expense-type-part">
-      <label className="text">Expense Type</label>
-      <select
+        <label className="text">Expense Type</label>
+        <select
           name=""
           className="expense-select"
           onChange={(event) =>
@@ -130,7 +127,7 @@ const EmployeeExpense = () => {
             })
           }
         >
-          <option value="TRANSPORTATION">TRAVEL</option>
+          <option value="TRANSPORTATION">Travel</option>
           <option value="HEALTH">Hospital</option>
           <option value="ACCOMODATION">Accomodation</option>
           <option value="FOOD">Food</option>
@@ -140,8 +137,8 @@ const EmployeeExpense = () => {
         </select>
       </div>
       <div className="comment-area">
-      <label className="text">Comment</label>
-      <textarea
+        <label className="text">Comment</label>
+        <textarea
           className="comment-textarea"
           type="text"
           maxLength={200}
@@ -154,7 +151,9 @@ const EmployeeExpense = () => {
         />
       </div>
       <div className="button-part">
-        <button className="expense-button" type="submit" onClick={handleSubmit}  >Apply</button>
+        <button className="expense-button" type="submit" onClick={handleSubmit}>
+          Apply
+        </button>
       </div>
     </div>
   );
