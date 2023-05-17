@@ -18,28 +18,33 @@ const EmployeeAddLeave = () => {
   }, [addLeaveInfo.startDate, addLeaveInfo.finishDate]);
 
   const dateConverter = () => {
-    const newStartDate = new Date(addLeaveInfo.startDate);
-    const newEndDate = new Date(addLeaveInfo.finishDate);
-    const one_day = 1000 * 60 * 60 * 24;
-    let result;
-    result = Math.ceil(
-      (newEndDate.getTime() - newStartDate.getTime()) / one_day
-    );
-    if (result < 0) {
+    if(addLeaveInfo.startDate !== "" && addLeaveInfo.finishDate !==""){
+      const newStartDate = new Date(addLeaveInfo.startDate);
+      const newEndDate = new Date(addLeaveInfo.finishDate);
+      const one_day = 1000 * 60 * 60 * 24;
+      let result;
+      result = Math.ceil(
+        (newEndDate.getTime() - newStartDate.getTime()) / one_day
+      );
+      if (result < 0) {
+        setAddLeaveInfo((prevState) => ({ ...prevState, amountOfDay: 0 }));
+      } else {
+        setAddLeaveInfo((prevState) => ({ ...prevState, amountOfDay: result+1 }));
+      }
+    }else{
       setAddLeaveInfo((prevState) => ({ ...prevState, amountOfDay: 0 }));
-    } else {
-      setAddLeaveInfo((prevState) => ({ ...prevState, amountOfDay: result+1 }));
     }
+
   };
   const [optionInfo, setOptionInfo] = useState("");
  
   const options = [
-    { value: "annual", label: "Annual Leave" },
-    { value: "sick", label: "Sick Leave" },
-    { value: "maternity", label: "Maternity Leave" },
-    { value: "paternity", label: "Paternity Leave" },
-    { value: "parental", label: "Parental Leave" },
-    { value: "bereavement", label: "Bereavement Leave" },
+    { value: "ANNUAL", label: "Annual Leave" },
+    { value: "SICK", label: "Sick Leave" },
+    { value: "MATERNITY", label: "Maternity Leave" },
+    { value: "PATERNITY", label: "Paternity Leave" },
+    { value: "PARENTAL", label: "Parental Leave" },
+    { value: "BEREAVEMENT", label: "Bereavement Leave" },
   ];
 
   const handleCreate = async (event) => {

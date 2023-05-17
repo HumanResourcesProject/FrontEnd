@@ -1,0 +1,37 @@
+.requests-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 200px;
+  .request-block {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid #807f7f;
+    width: 25%;
+    padding: 10px;
+    transition: transform 1s;
+    text-decoration: none;
+    color: #807f7f;
+    h4{
+        color: #555555;
+    }
+    p {
+      padding: 30px;
+    }
+  }
+  .requests-left:hover {
+    cursor: pointer;
+    border: 2px solid #00ac56;
+    transform: scale(1.1);
+  }
+  .requests-middle:hover {
+    cursor: pointer;
+    border: 2px solid #192b94;
+    transform: scale(1.1);
+  }
+  .requests-right:hover {
+    cursor: pointer;
+    border: 2px solid #b22f00;
+    transform: scale(1.1);
+  }
+}

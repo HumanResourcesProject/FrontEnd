@@ -1,16 +1,16 @@
 import React from "react";
-import HeaderManager from "../../../components/header/HeaderManager";
+import HeaderManager from "../../../components/header-manager/HeaderManager";
 import SidebarManager from "../../../components/sidebar-manager/SidebarManager";
 import "./managerListEmployeePage.scss";
 import TableEmployee from "../../../components/table-employee/TableEmployee"
 
 const ManagerListEmployeePage = () => {
   return (
-    <div className="manager-page">
-      <div className="manager-sidebar">
+    <div>
+      <div>
       <SidebarManager />
       </div>
-      <div className="manager-right">
+      <div className="manager-list-employee-right">
         <HeaderManager />
         <TableEmployee/>
       </div> 
@@ -18,4 +18,4 @@ const ManagerListEmployeePage = () => {
     </div>
   )
 }
-export default ManagerListManagerPage;
+export default ManagerListEmployeePage;

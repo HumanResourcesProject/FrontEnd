@@ -7,7 +7,7 @@ const EmployeeAdvancePayment = () => {
   const [advancePayment, setAdvancePayment] = useState({
     token: sessionStorage.getItem("token"),
     amount: "",
-    currency: "tl",
+    currency: "TL",
     comment: "",
     advancedPaymentDate:""
   });
@@ -48,12 +48,14 @@ const EmployeeAdvancePayment = () => {
 
     event.preventDefault();
       if(advancePayment.advancedPaymentDate < newDate){
+      
         alert("Advances cannot be taken in the past.")
         return;
       }
       if(advancePayment.amount ==="" || advancePayment.comment==="" || advancePayment.advancedPaymentDate===""){
         alert("Fill the neccessary fields")
       }else{
+        console.log(advancePayment);
         EmployeeService.createadvancepayment(advancePayment).then(
           () =>{
             
@@ -96,9 +98,9 @@ const EmployeeAdvancePayment = () => {
               })
             }
           >
-            <option value="tl">₺</option>
-            <option value="dolar">$</option>
-            <option value="euro">€</option>
+            <option value="TL">₺</option>
+            <option value="DOLAR">$</option>
+            <option value="EURO">€</option>
           </select>
           <input
             className="amount-input"
