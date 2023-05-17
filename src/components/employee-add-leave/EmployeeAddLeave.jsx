@@ -18,18 +18,23 @@ const EmployeeAddLeave = () => {
   }, [addLeaveInfo.startDate, addLeaveInfo.finishDate]);
 
   const dateConverter = () => {
-    const newStartDate = new Date(addLeaveInfo.startDate);
-    const newEndDate = new Date(addLeaveInfo.finishDate);
-    const one_day = 1000 * 60 * 60 * 24;
-    let result;
-    result = Math.ceil(
-      (newEndDate.getTime() - newStartDate.getTime()) / one_day
-    );
-    if (result < 0) {
+    if(addLeaveInfo.startDate !== "" && addLeaveInfo.finishDate !==""){
+      const newStartDate = new Date(addLeaveInfo.startDate);
+      const newEndDate = new Date(addLeaveInfo.finishDate);
+      const one_day = 1000 * 60 * 60 * 24;
+      let result;
+      result = Math.ceil(
+        (newEndDate.getTime() - newStartDate.getTime()) / one_day
+      );
+      if (result < 0) {
+        setAddLeaveInfo((prevState) => ({ ...prevState, amountOfDay: 0 }));
+      } else {
+        setAddLeaveInfo((prevState) => ({ ...prevState, amountOfDay: result+1 }));
+      }
+    }else{
       setAddLeaveInfo((prevState) => ({ ...prevState, amountOfDay: 0 }));
-    } else {
-      setAddLeaveInfo((prevState) => ({ ...prevState, amountOfDay: result+1 }));
     }
+
   };
   const [optionInfo, setOptionInfo] = useState("");
  
