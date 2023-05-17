@@ -7,6 +7,7 @@ import EmailInput from "../email-input/EmailInput";
 
 const CreateEmployee = () => {
   const [employeeInfo, setEmployeeInfo] = useState({
+    token: sessionStorage.getItem("token"),
     identityNumber: "",
     name: "",
     middleName: "",
