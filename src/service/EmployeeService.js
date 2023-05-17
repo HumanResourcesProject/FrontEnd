@@ -5,6 +5,7 @@ const GET_EMPLOYEE_INFO = "http://localhost:7074/employee/findme";
 const EMPLOYEE_UPDATE_INFO = "http://localhost:7074/employee/updateemployee";
 const CREATE_ADVANCE_PAYMENT= "http://localhost:7074/employee/createadvancepayment"
 const CREATE_LEAVE  = "http://localhost:7074/employee/createleave";
+const CREATE_EXPENSE = "http://localhost:7074/employee/createexpense";
 const FINDALL_LEAVE  = "http://localhost:7074/employee/myleavefindall";
 
 class EmployeeService {
@@ -40,6 +41,13 @@ class EmployeeService {
         return axios.post(CREATE_LEAVE,data,{
             headers: {
                 'Content-Type': 'application/json'
+            }
+        });
+    }
+    createexpense(data){
+        return axios.post(CREATE_EXPENSE,data,{
+            headers: {
+                'Content-Type': 'multipart/form-data'
             }
         });
     }

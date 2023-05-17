@@ -47,8 +47,6 @@ const EmployeeAdvancePayment = () => {
     
 
     event.preventDefault();
-    console.log(advancePayment.advancedPaymentDate);
-    console.log(newDate);
       if(advancePayment.advancedPaymentDate < newDate){
         alert("Advances cannot be taken in the past.")
         return;
