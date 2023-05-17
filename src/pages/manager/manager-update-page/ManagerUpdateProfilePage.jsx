@@ -4,7 +4,7 @@ import SidebarManager from "../../../components/sidebar-manager/SidebarManager";
 import ManagerUpdateProfile from "../../../components/manager-update-profile/ManagerUpdateProfile";
 import "./managerUpdateProfilePage.scss";
 
-const ManagerMainPage = () => {
+const ManagerUpdateProfilePage = () => {
   return (
     <div className="managerpage">
       <div className="manager-sidebar">
@@ -18,4 +18,4 @@ const ManagerMainPage = () => {
     </div>
   )
 }
-export default ManagerMainPage;
+export default ManagerUpdateProfilePage;

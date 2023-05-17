@@ -4,7 +4,7 @@ import TableManager from "../../../components/table-manager/TableManager";
 import HeaderManager from "../../../components/header-manager/HeaderManager";
 import SidebarManager from "../../../components/sidebar-manager/SidebarManager";
 
-const ManagerListPage = () => {
+const ManagerListManagerPage = () => {
   return (
     <div  className="manager-page">
       <div className="manager-sidebar">
@@ -18,4 +18,4 @@ const ManagerListPage = () => {
     </div>
   )
 }
-export default ManagerListPage
+export default ManagerListManagerPage;

@@ -5,7 +5,7 @@ import DriveFolderUploadIcon from '@mui/icons-material/DriveFolderUpload';
 import AuthService from '../../service/AuthService';
 
 
-const ProfilPage = () => {
+const CreateAdmin = () => {
 
 const [adminInfo, setAdminInfo] = useState({
   name:"",
@@ -56,7 +56,6 @@ const [adminInfo, setAdminInfo] = useState({
       <div className='register-buttons'>
        <label htmlFor="file" className='choosefilebutton' ><DriveFolderUploadIcon className='uploadicon'/>Choose a File</label>
        <input type="file" id='file' style={{display:'none' }} onChange={onchangeImage}/>
-
       </div>
     </div>
       <div className='register-profil-info'>
@@ -110,4 +109,4 @@ const [adminInfo, setAdminInfo] = useState({
 
   )
 }
-export default ProfilPage
+export default CreateAdmin;

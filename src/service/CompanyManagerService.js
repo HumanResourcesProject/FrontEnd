@@ -3,7 +3,6 @@ import axios from "axios";
 const FINDALL_MANAGER = "http://localhost:7072/manager/findall";
 const GET_MANAGER_INFO = "http://localhost:7072/manager/getfindme";
 const UPDATE_MANAGER_INFO = "http://localhost:7072/manager/updatemanager";
-const UPDATE_PROFILEP = "http://localhost:7072/manager/updateimage";
 
 
 
@@ -32,14 +31,12 @@ class CompanyManagerService {
         return axios
         .put(UPDATE_MANAGER_INFO, data, {
           headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'multipart/form-data'
         }
         });
 
     }
-    getManagerProfilePhoto(formData){
-        return axios.post(UPDATE_PROFILEP, formData)
-    }
+
 }
 export default new CompanyManagerService();
 

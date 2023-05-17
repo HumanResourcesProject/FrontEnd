@@ -1,10 +1,10 @@
 import React from "react";
 import HeaderEmployee from "../../../components/header-employee/HeaderEmployee";
 import SidebarEmployee from "../../../components/sidebar-employee/SidebarEmployee";
-import "./employeeAddLeave.scss";
-import EmployeeAddLeave from "../../../components/employee-add-leave/EmployeeAddLeave";
+import "./employeeAdvancePayment.scss";
+import AdvancePayment from "../../../components/employee-advance-payment/EmployeeAdvancePayment"
 
-const EmployeeAddLeavePage = () => {
+const EmployeeAdvancePayment = () => {
   return (
     <div>
       <div>
@@ -12,11 +12,11 @@ const EmployeeAddLeavePage = () => {
       </div>
       <div className="employee-add-leave-right">
         <HeaderEmployee /> 
-        <EmployeeAddLeave />
+        <AdvancePayment />
       </div>
 
     </div>
   );
 };
 
-export default EmployeeAddLeavePage;
+export default EmployeeAdvancePayment;

@@ -1,23 +1,23 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import "./managerUpdateProfile.scss";
+import "./employeeUpdateProfile.scss";
 import DriveFolderUploadIcon from '@mui/icons-material/DriveFolderUpload';
-import CompanyManagerService from "../../service/CompanyManagerService";
+import EmployeeService from "../../service/EmployeeService";
 
-const ManagerUpdateProfile = () => {
-  const [manager, setManager] = useState([]);
+const EmployeeUpdateProfile = () => {
+  const [employee, setEmployee] = useState([]);
   const [token] = useState({
     token: sessionStorage.getItem("token"),
   });
   useEffect(() => {
-    CompanyManagerService.getManagerInformations(token)
+    EmployeeService.getEmployeeInformations(token)
     .then((response) => {
-      setManager(response.data);
+      setEmployee(response.data);
     });
   }, []);
 
 
-  const [managerInfo, setManagerInfo] = useState({
+  const [employeeInfo, setEmployeeInfo] = useState({
     phone:"",
     address:"",
   })
@@ -31,15 +31,15 @@ const ManagerUpdateProfile = () => {
   
     const handleCreate = async (event) => {
       event.preventDefault();
-      if(image !== manager.avatar){
+      if(image !== employee.avatar){
         const newImage = URL.createObjectURL(image)
-          setManagerInfo({
-            ...managerInfo,
+          setEmployeeInfo({
+            ...employeeInfo,
             avatar: newImage
           })
       }
-        console.log(managerInfo);
-        CompanyManagerService.updateManagerInfo(managerInfo).then(
+        console.log(employeeInfo);
+        EmployeeService.updateEmployeeInformations(employeeInfo).then(
           () =>{
             
             alert("added successfully *****")
@@ -52,7 +52,7 @@ const ManagerUpdateProfile = () => {
   
 
   return (
-    <div className='manager-profil'>
+    <div className='employee-profil'>
     <div className='photoSection'>
       <div className='profileHolder'>
         <h2>Profil Photo</h2>
@@ -71,39 +71,39 @@ const ManagerUpdateProfile = () => {
         <form onSubmit={handleCreate}>
             <div className="input-profile">
               <label>Name:</label>
-              <p>{manager.name}</p>
+              <p>{employee.name}</p>
             </div>
             <div className="input-profile">
               <label>Mid Name:</label>
-              <p>{manager.middleName}</p>
+              <p>{employee.middleName}</p>
             </div>
             <div className="input-profile">
               <label>Surname:</label>
-              <p>{manager.surname}</p>
+              <p>{employee.surname}</p>
             </div>
 
             <div className="input-profile">
               <label>E-mail:</label>
-              <p>{manager.email}</p>
+              <p>{employee.email}</p>
             </div>
 
             <div className="input-profile">
               <label>Phone number:</label>
-              <p>{manager.phone}</p>
+              <p>{employee.phone}</p>
             </div>
             <div className="input-profile">
               <label>Address:</label>
               <input type="text" onChange={(e) =>
-                  setManagerInfo({
-                    ...managerInfo,
+                  setEmployeeInfo({
+                    ...employeeInfo,
                     address: e.target.value,
                   })
                 }/>            </div>
             <div className="input-profile">
               <label>Company:</label>
               <input type="tel" onChange={(e) =>
-                  setManagerInfo({
-                    ...managerInfo,
+                  setEmployeeInfo({
+                    ...employeeInfo,
                     phone: e.target.value,
                   })
                 }/>
@@ -111,21 +111,21 @@ const ManagerUpdateProfile = () => {
 
             <div className="input-profile">
               <label>Occupation:</label>
-              <p>{manager.occupation}</p>
+              <p>{employee.occupation}</p>
             </div>
             <div className="input-profile">
               <label>Department:</label>
-              <p>{manager.department}</p>
+              <p>{employee.department}</p>
             </div>
             <div className="input-profile">
               <label>Job Start:</label>
-              <p>{manager.jobStart}</p>
+              <p>{employee.jobStart}</p>
             </div>
    
             <div className="update-button">
             <button type="submit" onClick={(e) =>
-                  setManagerInfo({
-                    ...managerInfo,
+                  setEmployeeInfo({
+                    ...employeeInfo,
                     avatar: image
                   })
                 }>Update</button>
@@ -137,4 +137,4 @@ const ManagerUpdateProfile = () => {
     </div>
   );
 };
-export default ManagerUpdateProfile
+export default EmployeeUpdateProfile

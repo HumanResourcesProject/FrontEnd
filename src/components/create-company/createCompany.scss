@@ -1,113 +1,116 @@
-.registercompany {
-  display: flex;
-  font-weight: 700;
-  justify-content: space-evenly;
-  height: 600px;
-  margin: 7% 10% 7% 10%;
-  border: 2px solid rgb(0, 0, 0);
-  border-radius: 20px;
-  background-color: rgba(151, 157, 192, 0.9); //b2cbff
-  align-items: center;
-  box-shadow: 10px 10px;
-
-  .registercompany-photo-section {
+.companyregistermain {
     display: flex;
-    flex-direction: column;
-    gap: 50x;
-    align-items: center;
-    justify-content: space-between;
-    height: 45%;
-    .registercompany-profile-holder {
-      h3 {
-        color: #343a40;
-        text-align: center;
-        border-bottom: 2px solid #000000;
-        border-radius: 50%;
-      }
-      .registercompany-profile-image {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        border-radius: 50%;
-        img {
-          width: 200px;
-          height: 200px;
-          border-radius: 50%;
-          object-fit: cover;
-        }
-      }
-    }
-    .registercompany-buttons {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #000000;
-      gap: 10px;
-      .choosefilebutton{
-        display: flex;
-        align-items: center;
-        gap: 10px;
-      }
-    }
-  }
-  .registercompany-profil-info {
-    width: 50%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
     justify-content: center;
+    align-items: center;
+}
+.company-choose-logo:hover{
+    cursor: pointer;
+    animation-name: example;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
 
-    .registercompany-information-head {
-      text-align: center;
+
+    label:hover{
+        cursor: pointer;
+
     }
-    .registercompany-information {
-      
-      form {
+}
+
+
+.companyregistercart {
+    animation-name: example;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    padding-top: 3%;
+    padding-left: 4%;
+    padding-right: 4%;
+    padding-bottom: 1%;
+    color: rgb(0, 0, 0);
+    margin: 2%;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    background-color: #fefefe;
+    border: double rgb(0, 0, 0) 2px;
+    
+    
+
+    .logo {
         display: flex;
         flex-direction: column;
-        align-items: center;
         justify-content: center;
-        gap: 6px;
-        color: rgb(0, 0, 0);
+        align-items: center;
+
+        img {
+            
+            width: 120px;
+            height: 120px;
+            border: dashed 1.5px;
+        }
+    }
+
+    .inputs {
+        display: flex;
+        justify-content: center;
+        align-items: start;
+        gap: 100px;
+        padding: 2%;
         
-        label {
-          text-align: center;
-        }
+
         input {
-          border: none;
-          outline: none;
-          background: none;
-          display: block;
-          width: 80%;
-          margin-top: 5px;
-          font-size: 16px;
-          border-bottom: 2px solid #000000;
-          text-align: center;
-          color: rgb(0, 0, 0);
+            border: solid;
+            outline: none;
+            background: none;
+            width: 90%;
+            margin-top: 5px;
+            font-size: 14px;
+            text-align: center;
+            color: rgb(0, 0, 0);
+            box-shadow: 1px 1px;
         }
-        button {
-          display: block;
-          margin: 20px;
-          width: 80%;
-          height: 40px;
-          color: #f7f7f7;
-          background-color: #000000cc;
-          border: none;
-          border-radius: 10px;
-          font-size: 15px;
-          cursor: pointer;
+
+    
+
+        .cartleft {
+            display: flex;
+            flex-direction: column;
+            width: 200px;
+
+            .mersisno {
+                margin-left: 30px;
+                width: 400px;
+            }
         }
-        button:hover,
-        button:focus {
-          box-shadow: 0 0.5em 0.5em -0.4em var(--color5);
-          background-color: adjust-hue($color: #a41515, $degrees: 211.2);
-          transform: translateY(-0.25em);
-          transition: 0.4s;
-          
+
+        .cartright {
+            display: flex;
+            width: 200px;
+            flex-direction: column;
         }
+    }
+
+
+
+
+    button {
+        height: 30px;
+        width: 90px;
+        color: #f7f7f7;
+        background-color: #000000cc;
+        border: none;
+        border-radius: 10px;
+        margin-top: 10px;
+        margin-left: 70%;
+        font-size: 15px;
+        cursor: alias;
+      }
+      button:hover,
+      button:focus {
+        box-shadow: 0 0.5em 0.5em -0.4em var(--color5);
+        background-color: adjust-hue($color: #a41515, $degrees: 111.2);
+        transform: translateY(-0.25em);
+        transition: 0.9s;
         
       }
-    }
-  }
+
 }
