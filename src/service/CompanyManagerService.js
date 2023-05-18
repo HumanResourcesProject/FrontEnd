@@ -13,6 +13,7 @@ const FINDALL_PENDING_LEAVES_COUNT = "http://localhost:7075/requirements/manager
 const FINDALL_EMPLOYEE_ADVANCEPAYMENT = "http://localhost:7075/requirements/manager/findallmyadvances";
 const FINDALL_PENDING_ADVANCEPAYMENT = "http://localhost:7075/requirements/manager/findallmyadvancespending";
 const FINDALL_PENDING_ADVANCEPAYMENT_COUNT = "http://localhost:7075/requirements/manager/findallmyadvancescount";
+const MANAGER_COUNT = "http://localhost:7072/manager/findallmyemployee";
 
 
 

@@ -35,7 +35,7 @@ const MainEmployee = () => {
             </div>
             <div className="fragment-media  module-member">
               <div className="media-body-wrap">
-                <div className="media-title"></div>
+                <div className="media-title">3</div>
               </div>
             </div>
           </div>
