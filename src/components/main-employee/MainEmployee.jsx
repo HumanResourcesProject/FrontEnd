@@ -1,6 +1,27 @@
 import React from "react";
 import "./mainEmployee.scss";
+import EmployeeService from "../../service/EmployeeService";
+import { useState, useEffect } from "react";
+
+
 const MainEmployee = () => {
+  const [token, setToken] = useState({
+    token: sessionStorage.getItem("token"),
+    role: sessionStorage.getItem("role"),
+  });
+  const [profile, setProfile] = useState({ data: {} });
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await EmployeeService.employeecount(token);
+        setProfile(response);
+        console.log(response);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    fetchData();
+  }, []);
   return (
     <div className="mainemployee-body">
       
