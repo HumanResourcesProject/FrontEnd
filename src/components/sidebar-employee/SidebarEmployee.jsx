@@ -32,12 +32,7 @@ const SidebarEmployee = () => {
                 <div>My Profile</div>
               </Link>
             </li>
-            <li>
-              <Link to="/employeeupdateprofile" className="link d-flex">
-                <HowToRegOutlinedIcon />
-                <div>Profile Update</div>
-              </Link>
-            </li>
+            
             <li>
               <Link to="/employeelistleave" className="link d-flex">
                 <HowToRegOutlinedIcon />

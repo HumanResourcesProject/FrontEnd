@@ -9,10 +9,17 @@ const MainEmployee = () => {
     token: sessionStorage.getItem("token"),
     role: sessionStorage.getItem("role"),
   });
-  const [profile, setProfile] = useState([]);
+  const [employee, setEmployee] = useState([]);
   useEffect(() => {
-    EmployeeService.employeecount(mahmut).then((response)=>{
-      setProfile(response.data)
+    EmployeeService.employeeCount(mahmut).then((response)=>{
+      setEmployee(response.data)
+      
+    })
+  }, []);
+  const [manager, setManager] = useState([]);
+  useEffect(() => {
+    EmployeeService.managerCount(mahmut).then((response)=>{
+      setManager(response.data)
     })
   }, []);
   return (
@@ -35,7 +42,7 @@ const MainEmployee = () => {
             </div>
             <div className="fragment-media  module-member">
               <div className="media-body-wrap">
-                <div className="media-title"></div>
+                <div className="media-title">{manager}</div>
               </div>
             </div>
           </div>
@@ -60,7 +67,7 @@ const MainEmployee = () => {
             </div>
             <div className="fragment-media  module-member">
               <div className="media-body-wrap">
-                <div className="media-title">{profile}</div>
+                <div className="media-title">{employee}</div>
               </div>
             </div>
           </div>

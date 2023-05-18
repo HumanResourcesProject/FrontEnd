@@ -9,6 +9,7 @@ const CREATE_LEAVE  = "http://localhost:7074/employee/createleave";
 const CREATE_EXPENSE = "http://localhost:7074/employee/createexpense";
 
 const EMPLOYEE_COUNT = "http://localhost:7074/employee/findallmyemployeecount";
+const MANAGER_COUNT =   "http://localhost:7074/employee/findallmymanagercount";
 
 class EmployeeService {
     getAllEmployee(data){
@@ -61,8 +62,16 @@ class EmployeeService {
         });
     }
 
-    employeecount(data){
+    employeeCount(data){
         return axios.post(EMPLOYEE_COUNT,data,{
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+    }
+    managerCount(data)
+    {
+        return axios.post(MANAGER_COUNT,data,{
             headers: {
                 'Content-Type': 'application/json'
             }
