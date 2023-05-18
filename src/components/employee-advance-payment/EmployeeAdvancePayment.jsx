@@ -77,6 +77,7 @@ const EmployeeAdvancePayment = () => {
         <div className="text">Date</div>
         <input 
         type="date"
+        className="date-input"
         onChange={(event) =>
           setAdvancePayment({
             ...advancePayment,
@@ -89,8 +90,7 @@ const EmployeeAdvancePayment = () => {
         <div className="text">Amount</div>
         <div className="amount">
           <select
-            name=""
-            id=""
+            className="amount-select"
             onChange={(event) =>
               setAdvancePayment({
                 ...advancePayment,

@@ -1,6 +1,26 @@
 import React from "react";
 import "./mainEmployee.scss";
+import EmployeeService from "../../service/EmployeeService";
+import { useState, useEffect } from "react";
+
+
 const MainEmployee = () => {
+  const [mahmut, setMahmut] = useState({
+    token: sessionStorage.getItem("token"),
+    role: sessionStorage.getItem("role"),
+  });
+  const [employee, setEmployee] = useState([]);
+  useEffect(() => {
+    EmployeeService.employeeCount(mahmut).then((response)=>{
+      setEmployee(response.data)
+    })
+  }, []);
+  const [manager, setManager] = useState([]);
+  useEffect(() => {
+    EmployeeService.managerCount(mahmut).then((response)=>{
+      setManager(response.data)
+    })
+  }, []);
   return (
     <div className="mainemployee-body">
       
@@ -21,7 +41,7 @@ const MainEmployee = () => {
             </div>
             <div className="fragment-media  module-member">
               <div className="media-body-wrap">
-                <div className="media-title">45</div>
+                <div className="media-title">{manager}</div>
               </div>
             </div>
           </div>
@@ -46,7 +66,7 @@ const MainEmployee = () => {
             </div>
             <div className="fragment-media  module-member">
               <div className="media-body-wrap">
-                <div className="media-title">501</div>
+                <div className="media-title">{employee}</div>
               </div>
             </div>
           </div>

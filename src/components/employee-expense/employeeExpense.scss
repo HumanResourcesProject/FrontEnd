@@ -103,7 +103,7 @@
             border: none;
             border-radius: 3px;
             font-weight: 500;
-            width: 100%;
+            width: 94%;
             height: 150px;
             resize: none;
             line-height: 1.5;
@@ -115,14 +115,18 @@
         }
     }
     .button-part{
-        margin-top: 45px;
+        margin-top: 55px;
         width: 25%;
         display: flex;
         justify-content: center;
         .expense-button{
-            width: 20%;
-            font-weight: 600;
+            width: 100%;
+            color: white;
             padding: 5px;
+            background-color: rgb(59, 59, 59);
+            border: none;
+            border-radius: 3px;
+            font-weight: 500;
                 
         }
     }

@@ -3,10 +3,13 @@ import axios from "axios";
 const FINDALL_EMPLOYEE = "http://localhost:7074/employee/findallemployee";
 const GET_EMPLOYEE_INFO = "http://localhost:7074/employee/findme";
 const EMPLOYEE_UPDATE_INFO = "http://localhost:7074/employee/updateemployee";
+const EMPLOYEE_UPDATE_INFO_STRING = "http://localhost:7074/employee/updateemployeenophoto";
 const CREATE_ADVANCE_PAYMENT= "http://localhost:7074/employee/createadvancepayment"
 const CREATE_LEAVE  = "http://localhost:7074/employee/createleave";
 const CREATE_EXPENSE = "http://localhost:7074/employee/createexpense";
-const FINDALL_LEAVE  = "http://localhost:7075/requirements/employee/findallmyleaves";
+
+const EMPLOYEE_COUNT = "http://localhost:7074/employee/findallmyemployeecount";
+const MANAGER_COUNT =   "http://localhost:7074/employee/findallmymanagercount";
 
 class EmployeeService {
     getAllEmployee(data){
@@ -23,10 +26,17 @@ class EmployeeService {
             }
         });
     }
-    updateEmployeeInformations(token){
-        return axios.put(EMPLOYEE_UPDATE_INFO,token,{
+    updateEmployeeInformations(data){
+        return axios.put(EMPLOYEE_UPDATE_INFO,data,{
             headers: {
                 'Content-Type': 'multipart/form-data'
+            }
+        });
+    }
+    updateEmployeeInformationsString(data){
+        return axios.put(EMPLOYEE_UPDATE_INFO_STRING,data,{
+            headers: {
+                'Content-Type': 'application/json'
             }
         });
     }
@@ -51,12 +61,21 @@ class EmployeeService {
             }
         });
     }
-    findallleave(data){
-        return axios.post(FINDALL_LEAVE,data,{
+
+    employeeCount(data){
+        return axios.post(EMPLOYEE_COUNT,data,{
             headers: {
                 'Content-Type': 'application/json'
             }
-        });
+        })
+    }
+    managerCount(data)
+    {
+        return axios.post(MANAGER_COUNT,data,{
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
     }
 }
 export default new EmployeeService();

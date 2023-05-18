@@ -2,8 +2,7 @@ import React from "react";
 import HeaderManager from "../../../components/header-manager/HeaderManager";
 import SidebarManager from "../../../components/sidebar-manager/SidebarManager";
 import "./managerListEmployeePage.scss";
-import TableEmployee from "../../../components/table-employee/TableEmployee"
-import TableEmployeeFurkan from "../../../components/table-employee-furkan/TableEmployeeFurkan"
+import TableManagerListEmployee from "../../../components/table-manager-list-employee/TableManagerListEmployee"
 
 
 const ManagerListEmployeePage = () => {
@@ -14,7 +13,7 @@ const ManagerListEmployeePage = () => {
       </div>
       <div className="manager-list-employee-right">
         <HeaderManager />
-        <TableEmployeeFurkan/>
+        <TableManagerListEmployee/>
       </div> 
    
     </div>

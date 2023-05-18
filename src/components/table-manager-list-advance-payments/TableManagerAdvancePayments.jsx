@@ -1,7 +1,7 @@
 import React, { useMemo, useState, useEffect } from "react";
 import MaterialReactTable from "material-react-table";
 import "./tableManagerAdvancePayments.scss";
-import EmployeeService from "../../service/EmployeeService";
+import RequirementsService from "../../service/RequirementsService";
 import { Link } from "react-router-dom"
 
 const TableManagerAdvancePayments = () => {
@@ -13,7 +13,7 @@ const TableManagerAdvancePayments = () => {
       role: sessionStorage.getItem('role'),
     };
 
-    EmployeeService.findallleave(token)
+    RequirementsService.findallpendingadvancepayment(sessionStorage.getItem("token"))
       .then((response) => {
         setData(response.data);
       })
@@ -25,46 +25,40 @@ const TableManagerAdvancePayments = () => {
   const columns = useMemo(
     () => [
       {
-        accessorFn: (row) => `${row.type} `,
-        id: "type",
-        header: "Leave Type",
+        accessorFn: (row) => `${row.requestDate} `,
+        id: "requestDate",
+        header: "Request Date",
         size: 150,
         enableEditing: false,
       },
       {
-        accessorKey: "requestDate",
-        header: "Request Date",
-        size: 200,
+        accessorKey: "amount",
+        header: "Amount",
+        size: 150,
         enableEditing: false,
       },
       {
-        accessorKey: "startDate",
-        header: "Leave Start Date",
-        size: 200,
+        accessorKey: "currency",
+        header: "Currency",
+        size: 150,
         enableEditing: false,
       },
       {
-        accessorKey: "finishDate",
-        header: "Leave End Date",
-        size: 200,
+        accessorKey: "advancedPaymentDate",
+        header: "Advanced Payment Date",
+        size: 150,
         enableEditing: false,
       },
       {
-        accessorKey: "amountOfDay",
-        header: "Number of Days of Leave",
-        size: 250,
+        accessorKey: "comment",
+        header: "Comment",
+        size: 200,
         enableEditing: false,
       },
       {
         accessorKey: "status",
         header: "Status",
         size: 150,
-        enableEditing: false,
-      },
-      {
-        accessorKey: "approvalDate",
-        header: "Approval Date",
-        size: 200,
         enableEditing: false,
       },
     ],
@@ -77,7 +71,7 @@ const TableManagerAdvancePayments = () => {
         <MaterialReactTable columns={columns} data={data} />
         <div className="linktobuttons-advance-payments">
 
-      <Link to="/listemployeeadvancepayments"  
+      <Link to="/listemployeeexpenses"  
       className="advance-payments-button-left advance-payments-button">
         <div>
           <p>Expenses Requests</p>
