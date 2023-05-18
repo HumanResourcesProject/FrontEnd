@@ -2,7 +2,7 @@ import React, { useMemo, useState, useEffect } from "react";
 import MaterialReactTable from "material-react-table";
 import "./tableStaffLeave.scss";
 import QueueIcon from "@mui/icons-material/Queue";
-import EmployeeService from "../../service/EmployeeService";
+import RequirementsService from "../../service/RequirementsService";
 import { Link } from "react-router-dom";
 
 const TableStaffLeave = () => {
@@ -14,7 +14,7 @@ const TableStaffLeave = () => {
       role: sessionStorage.getItem('role'),
     };
 
-    EmployeeService.findallleave(token)
+    RequirementsService.findallleave(token)
       .then((response) => {
         setData(response.data);
       })
