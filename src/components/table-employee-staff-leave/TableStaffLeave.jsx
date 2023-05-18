@@ -14,7 +14,7 @@ const TableStaffLeave = () => {
       role: sessionStorage.getItem('role'),
     };
 
-    RequirementsService.findallleave(token)
+    RequirementsService.findAllLeave(token)
       .then((response) => {
         setData(response.data);
       })
@@ -31,42 +31,85 @@ const TableStaffLeave = () => {
         header: "Leave Type",
         size: 150,
         enableEditing: false,
+        muiTableHeadCellProps: {
+          align: 'center',
+          
+        },
+        muiTableBodyCellProps: {
+          align: 'center',
+        },
       },
       {
         accessorKey: "requestDate",
         header: "Request Date",
         size: 200,
         enableEditing: false,
+        muiTableHeadCellProps: {
+          align: 'center',
+        },
+        muiTableBodyCellProps: {
+          align: 'center',
+        },
       },
       {
         accessorKey: "startDate",
         header: "Leave Start Date",
         size: 200,
         enableEditing: false,
+        muiTableHeadCellProps: {
+          align: 'center',
+        },
+        muiTableBodyCellProps: {
+          align: 'center',
+        },
       },
       {
         accessorKey: "finishDate",
         header: "Leave End Date",
         size: 200,
         enableEditing: false,
+        muiTableHeadCellProps: {
+          align: 'center',
+        },
+        muiTableBodyCellProps: {
+          align: 'center',
+        },
       },
       {
         accessorKey: "amountOfDay",
         header: "Number of Days of Leave",
         size: 250,
         enableEditing: false,
+        muiTableHeadCellProps: {
+          align: 'center',
+        },
+        muiTableBodyCellProps: {
+          align: 'center',
+        },
       },
       {
         accessorKey: "status",
         header: "Status",
         size: 150,
         enableEditing: false,
+        muiTableHeadCellProps: {
+          align: 'center',
+        },
+        muiTableBodyCellProps: {
+          align: 'center',
+        },
       },
       {
         accessorKey: "approvalDate",
         header: "Approval Date",
         size: 200,
         enableEditing: false,
+        muiTableHeadCellProps: {
+          align: 'center',
+        },
+        muiTableBodyCellProps: {
+          align: 'center',
+        },
       },
     ],
     []
@@ -75,9 +118,10 @@ const TableStaffLeave = () => {
   return (
     <div className="staff-leave-list-container">
       <Link to="/employeeaddleave" className="addleave">
-        <div>
+        <div className="icon-div">
           <QueueIcon />
         </div>
+        <div>Apply staff leave</div>
       </Link>
       <div className="table-staff-leave">
         <MaterialReactTable columns={columns} data={data} />

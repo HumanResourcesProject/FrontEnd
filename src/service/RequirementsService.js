@@ -1,6 +1,8 @@
 import axios from "axios";
 
 const FINDALL_LEAVE  = "http://localhost:7075/requirements/employee/findallmyleaves";
+const FINDALL_ADVANCE_PAYMENT  = "http://localhost:7075/requirements/employee/findallmyadvances";
+const FINDALL_EXPENSE = "http://localhost:7075/requirements/employee/findallmyexpenses";
 const FINDALL_EMPLOYEE_EXPENSES = "http://localhost:7075/requirements/manager/findallmyexpenses";
 const FINDALL_PENDING_EXPENSES = "http://localhost:7075/requirements/manager/findallmyexpensespending";
 const FINDALL_PENDING_EXPENSES_COUNT = "http://localhost:7075/requirements/manager/findallmyexpensescount";
@@ -12,8 +14,22 @@ const FINDALL_PENDING_ADVANCEPAYMENT = "http://localhost:7075/requirements/manag
 const FINDALL_PENDING_ADVANCEPAYMENT_COUNT = "http://localhost:7075/requirements/manager/findallmyadvancescount";
 
 class EmployeeService {
-    findallleave(data){
+    findAllLeave(data){
         return axios.post(FINDALL_LEAVE,data,{
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+    }
+    findAllAdvancePayment(data){
+        return axios.post(FINDALL_ADVANCE_PAYMENT,data,{
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+    }
+    findAllExpense(data){
+        return axios.post(FINDALL_EXPENSE,data,{
             headers: {
                 'Content-Type': 'application/json'
             }
