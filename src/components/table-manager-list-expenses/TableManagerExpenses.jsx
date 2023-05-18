@@ -21,9 +21,9 @@ const TableManagerExpenses = () => {
   const columns = useMemo(
     () => [
           {
-            accessorFn: (row) => `${row.type} `, //accessorFn used to join multiple data into a single cell
-            id: 'type', //id is still required when using accessorFn instead of accessorKey
-            header: 'Type',
+            accessorFn: (row) => `${row.employeeId} `, //accessorFn used to join multiple data into a single cell
+            id: 'employeeId', //id is still required when using accessorFn instead of accessorKey
+            header: 'Employee Id',
             size: 200,
             Cell: ({ renderedCellValue, row }) => (
               <Box
@@ -46,6 +46,19 @@ const TableManagerExpenses = () => {
               </Box>
             ),
             enableEditing:false 
+          },
+          {
+            accessorKey: 'employeeName', //accessorKey used to define `data` column. `id` gets set to accessorKey automatically
+            header: 'Employee Name',
+            size: 200,
+            enableEditing:false 
+          },
+          {
+            accessorKey: 'employeeSurname', //accessorKey used to define `data` column. `id` gets set to accessorKey automatically
+            header: 'Employee Surname',
+            size: 150,
+            enableEditing:true 
+
           },
           {
             accessorKey: 'amount', //accessorKey used to define `data` column. `id` gets set to accessorKey automatically
