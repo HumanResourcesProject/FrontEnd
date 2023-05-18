@@ -25,10 +25,29 @@ const TableManagerLeaves = () => {
   const columns = useMemo(
     () => [
       {
-        accessorFn: (row) => `${row.type} `,
-        id: "type",
-        header: "Leave Type",
+        accessorFn: (row) => `${row.employeeId} `,
+        id: "employeeId",
+        header: "Employee Id",
         size: 150,
+        enableEditing: false,
+      },
+      {
+        accessorKey: 'employeeName', 
+        header: 'Employee Name',
+        size: 200,
+        enableEditing:false 
+      },
+      {
+        accessorKey: 'employeeSurname',
+        header: 'Employee Surname',
+        size: 150,
+        enableEditing:true 
+
+      },
+      {
+        accessorKey: "type",
+        header: "Type",
+        size: 200,
         enableEditing: false,
       },
       {

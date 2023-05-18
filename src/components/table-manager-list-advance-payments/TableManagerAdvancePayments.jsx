@@ -25,8 +25,27 @@ const TableManagerAdvancePayments = () => {
   const columns = useMemo(
     () => [
       {
-        accessorFn: (row) => `${row.requestDate} `,
-        id: "requestDate",
+        accessorFn: (row) => `${row.employeeId} `,
+        id: "employeeId",
+        header: "Employee Id",
+        size: 150,
+        enableEditing: false,
+      },
+      {
+        accessorKey: 'employeeName', 
+        header: 'Employee Name',
+        size: 200,
+        enableEditing:false 
+      },
+      {
+        accessorKey: 'employeeSurname',
+        header: 'Employee Surname',
+        size: 150,
+        enableEditing:true 
+
+      },
+      {
+        accessorKey: "requestDate",
         header: "Request Date",
         size: 150,
         enableEditing: false,
