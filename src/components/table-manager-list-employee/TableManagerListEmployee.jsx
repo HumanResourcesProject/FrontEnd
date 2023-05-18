@@ -1,7 +1,6 @@
 import React, { useMemo,useState,useEffect } from "react";
 import MaterialReactTable from "material-react-table";
-import "./tableEmployee.scss";
-import EmployeeService from "../../service/EmployeeService";
+import "./tableManagerListEmployee.scss";
 import ManagerService from "../../service/CompanyManagerService";
 
 import {
