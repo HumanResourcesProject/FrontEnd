@@ -5,22 +5,15 @@ import { useState, useEffect } from "react";
 
 
 const MainEmployee = () => {
-  const [token, setToken] = useState({
+  const [mahmut, setMahmut] = useState({
     token: sessionStorage.getItem("token"),
     role: sessionStorage.getItem("role"),
   });
-  const [profile, setProfile] = useState({ data: {} });
+  const [profile, setProfile] = useState([]);
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await EmployeeService.employeecount(token);
-        setProfile(response);
-        console.log(response);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-    fetchData();
+    EmployeeService.employeecount(mahmut).then((response)=>{
+      setProfile(response.data)
+    })
   }, []);
   return (
     <div className="mainemployee-body">
@@ -42,7 +35,7 @@ const MainEmployee = () => {
             </div>
             <div className="fragment-media  module-member">
               <div className="media-body-wrap">
-                <div className="media-title">45</div>
+                <div className="media-title"></div>
               </div>
             </div>
           </div>
@@ -67,7 +60,7 @@ const MainEmployee = () => {
             </div>
             <div className="fragment-media  module-member">
               <div className="media-body-wrap">
-                <div className="media-title">501</div>
+                <div className="media-title">{profile}</div>
               </div>
             </div>
           </div>

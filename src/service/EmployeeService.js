@@ -8,7 +8,7 @@ const CREATE_ADVANCE_PAYMENT= "http://localhost:7074/employee/createadvancepayme
 const CREATE_LEAVE  = "http://localhost:7074/employee/createleave";
 const CREATE_EXPENSE = "http://localhost:7074/employee/createexpense";
 const FINDALL_LEAVE  = "http://localhost:7075/requirements/employee/findallmyleaves";
-const EMPLOYEE_COUNT = "http://localhost:7074/employee/employee/findallmyemployeecount";
+const EMPLOYEE_COUNT = "http://localhost:7074/employee/findallmyemployeecount";
 
 class EmployeeService {
     getAllEmployee(data){
