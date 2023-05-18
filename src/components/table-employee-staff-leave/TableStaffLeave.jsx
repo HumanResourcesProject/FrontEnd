@@ -16,6 +16,7 @@ const TableStaffLeave = () => {
 
     EmployeeService.findallleave(token)
       .then((response) => {
+        console.log(response);
         setData(response.data);
       })
       .catch((error) => {
