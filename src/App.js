@@ -25,7 +25,6 @@ import EmployeeAddLeave from "./pages/employee/employee-add-leave-page/EmployeeA
 import EmployeeListLeavePage from "./pages/employee/employee-list-leave-page/EmployeeListLeavePage";
 import WorkerListPage from "./pages/employee/employee-list-page/WorkerListPage";
 import EmployeeMyProfilePage from "./pages/employee/employee-my-profile-page/EmployeeMyProfilePage";
-import EmployeeUpdatePage from "./pages/employee/employee-update-profile-page/EmployeeUpdatePage";
 import EmployeeExpensePage from "./pages/employee/employee-expense-page/EmployeeExpensePage";
 import EmployeeAdvancePayment from "./pages/employee/employee-advance-payment-page/EmployeeAdvancePayment";
 
@@ -209,14 +208,7 @@ const App = () => {
           </EmployeeElement>
         }
       />
-      <Route
-        path="/employeeupdateprofile"
-        element={
-          <EmployeeElement>
-            <EmployeeUpdatePage />
-          </EmployeeElement>
-        }
-      />
+      
       <Route
         path="/employeeaddleave"
         element={

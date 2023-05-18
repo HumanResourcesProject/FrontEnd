@@ -8,6 +8,7 @@ const FINDALL_EMPLOYEE = "http://localhost:7072/manager/findallmyemployee";
 
 
 
+
 class CompanyManagerService {
     getAllManager(token){
         return axios.post(FINDALL_MANAGER,token,{
@@ -43,6 +44,8 @@ class CompanyManagerService {
         }
         });
     }
+    
+    
 
   
 
