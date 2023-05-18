@@ -10,7 +10,7 @@ import { Link } from "react-router-dom"
 const TableManagerExpenses = () => {
   const [data2,setData] = useState([])
   useEffect(() => {
-    CompanyManagerService.getAllManager(sessionStorage.getItem("token")).then((response) => {
+    CompanyManagerService.findallpendingexpenses(sessionStorage.getItem("token")).then((response) => {
       setData(() => (response.data
       ));
       
@@ -18,14 +18,13 @@ const TableManagerExpenses = () => {
   }, []);
 
 
-  
   const columns = useMemo(
     () => [
           {
-            accessorFn: (row) => `${row.name} `, //accessorFn used to join multiple data into a single cell
-            id: 'name', //id is still required when using accessorFn instead of accessorKey
-            header: 'Name',
-            size: 250,
+            accessorFn: (row) => `${row.type} `, //accessorFn used to join multiple data into a single cell
+            id: 'type', //id is still required when using accessorFn instead of accessorKey
+            header: 'Type',
+            size: 200,
             Cell: ({ renderedCellValue, row }) => (
               <Box
                 sx={{
@@ -35,11 +34,10 @@ const TableManagerExpenses = () => {
                 }}
               >
                 <img
-                  alt="avatar"
-                  
+                  alt="invoiceUrl"
                   width={40}
                   height={40}
-                  src={row.original.avatar}
+                  src={row.original.invoiceUrl}
                   loading="lazy"
                   style={{ borderRadius: '50%', objectFit: 'cover'}}
                 />
@@ -50,29 +48,36 @@ const TableManagerExpenses = () => {
             enableEditing:false 
           },
           {
-            accessorKey: 'surname', //accessorKey used to define `data` column. `id` gets set to accessorKey automatically
-            header: 'Surname',
-            size: 300,
+            accessorKey: 'amount', //accessorKey used to define `data` column. `id` gets set to accessorKey automatically
+            header: 'Amount',
+            size: 200,
             enableEditing:false 
           },
           {
-            accessorKey: 'address', //accessorKey used to define `data` column. `id` gets set to accessorKey automatically
-            header: 'Address',
-            size: 300,
+            accessorKey: 'currency', //accessorKey used to define `data` column. `id` gets set to accessorKey automatically
+            header: 'currency',
+            size: 150,
             enableEditing:true 
 
           },
           {
-            accessorKey: 'email', //accessorKey used to define `data` column. `id` gets set to accessorKey automatically
-            header: 'E-Mail',
-            size: 300,
+            accessorKey: 'spendingDate', //accessorKey used to define `data` column. `id` gets set to accessorKey automatically
+            header: 'Spending Date',
+            size: 200,
             enableEditing:false 
 
           },
           {
-            accessorKey: 'phone', //accessorKey used to define `data` column. `id` gets set to accessorKey automatically
-            header: 'Phone',
-            size: 300,
+            accessorKey: 'requestDate', //accessorKey used to define `data` column. `id` gets set to accessorKey automatically
+            header: 'Request Date',
+            size: 200,
+            enableEditing:true 
+
+          },
+          {
+            accessorKey: 'status', //accessorKey used to define `data` column. `id` gets set to accessorKey automatically
+            header: 'Status',
+            size: 200,
             enableEditing:true 
 
           },

@@ -1,7 +1,7 @@
 import React, { useMemo, useState, useEffect } from "react";
 import MaterialReactTable from "material-react-table";
 import "./tableManagerLeaves.scss";
-import EmployeeService from "../../service/EmployeeService";
+import CompanyManagerService from "../../service/CompanyManagerService";
 import { Link } from "react-router-dom"
 
 const TableManagerLeaves = () => {
@@ -13,7 +13,7 @@ const TableManagerLeaves = () => {
       role: sessionStorage.getItem('role'),
     };
 
-    EmployeeService.findallleave(token)
+    CompanyManagerService.findallpendingleaves(token)
       .then((response) => {
         setData(response.data);
       })
