@@ -132,7 +132,7 @@ const TableExpense = () => {
                     backgroundColor:
                       cell.getValue() == "Pending"
                         ? theme.palette.error.dark
-                        : cell.getValue() == "Active" 
+                        : cell.getValue() == "Approved" 
                         ? theme.palette.warning.dark
                         : theme.palette.success.dark,
                     borderRadius: '0.25rem',
