@@ -1,7 +1,7 @@
 import React, { useMemo, useState, useEffect } from "react";
 import MaterialReactTable from "material-react-table";
 import "./tableManagerExpenses.scss";
-import CompanyManagerService from "../../service/CompanyManagerService";
+import RequirementsService from "../../service/RequirementsService";
 import {
   Box
 } from '@mui/material';
@@ -10,7 +10,7 @@ import { Link } from "react-router-dom"
 const TableManagerExpenses = () => {
   const [data2,setData] = useState([])
   useEffect(() => {
-    CompanyManagerService.findallpendingexpenses(sessionStorage.getItem("token")).then((response) => {
+    RequirementsService.findallpendingexpenses(sessionStorage.getItem("token")).then((response) => {
       setData(() => (response.data
       ));
       

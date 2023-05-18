@@ -1,7 +1,7 @@
 import React, { useMemo, useState, useEffect } from "react";
 import MaterialReactTable from "material-react-table";
 import "./tableManagerAdvancePayments.scss";
-import CompanyManagerService from "../../service/CompanyManagerService";
+import RequirementsService from "../../service/RequirementsService";
 import { Link } from "react-router-dom"
 
 const TableManagerAdvancePayments = () => {
@@ -13,7 +13,7 @@ const TableManagerAdvancePayments = () => {
       role: sessionStorage.getItem('role'),
     };
 
-    CompanyManagerService.findallpendingadvancepayment(sessionStorage.getItem("token"))
+    RequirementsService.findallpendingadvancepayment(sessionStorage.getItem("token"))
       .then((response) => {
         setData(response.data);
       })

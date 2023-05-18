@@ -7,7 +7,7 @@ const EMPLOYEE_UPDATE_INFO_STRING = "http://localhost:7074/employee/updateemploy
 const CREATE_ADVANCE_PAYMENT= "http://localhost:7074/employee/createadvancepayment"
 const CREATE_LEAVE  = "http://localhost:7074/employee/createleave";
 const CREATE_EXPENSE = "http://localhost:7074/employee/createexpense";
-const FINDALL_LEAVE  = "http://localhost:7075/requirements/employee/findallmyleaves";
+
 const EMPLOYEE_COUNT = "http://localhost:7074/employee/findallmyemployeecount";
 
 class EmployeeService {
@@ -60,13 +60,7 @@ class EmployeeService {
             }
         });
     }
-    findallleave(data){
-        return axios.post(FINDALL_LEAVE,data,{
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        });
-    }
+
     employeecount(data){
         return axios.post(EMPLOYEE_COUNT,data,{
             headers: {

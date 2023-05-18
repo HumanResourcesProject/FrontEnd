@@ -2,7 +2,7 @@ import React from "react";
 import "./managerRequests.scss";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import CompanyManagerService from "../../service/CompanyManagerService";
+import RequirementsService from "../../service/RequirementsService";
 
 const ManagerRequests = () => {
   const token = sessionStorage.getItem("token");
@@ -11,19 +11,19 @@ const ManagerRequests = () => {
   const [expenses, setExpenses] = useState([]);
 
   useEffect(() => {
-    CompanyManagerService.findallpendingadvancepaymentcount(token)
+    RequirementsService.findallpendingadvancepaymentcount(token)
     .then((response) => {
       setAdvancePayment(response.data);
     });
   }, []);
   useEffect(() => {
-    CompanyManagerService.findallpendingexpensescount(token)
+    RequirementsService.findallpendingexpensescount(token)
     .then((response) => {
       setExpenses(response.data);
     });
   }, []);
   useEffect(() => {
-    CompanyManagerService.findallpendingleavescount(token)
+    RequirementsService.findallpendingleavescount(token)
     .then((response) => {
       setLeaves(response.data);
     });
