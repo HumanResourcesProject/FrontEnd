@@ -4,10 +4,7 @@ import "./tableExpense.scss";
 import QueueIcon from "@mui/icons-material/Queue";
 import RequirementsService from "../../service/RequirementsService";
 import { Link } from "react-router-dom";
-import {
-    Box
-  } from '@mui/material';
-  import { darken } from '@mui/material';
+import { Box } from '@mui/material';
   
 
 const TableExpense = () => {
@@ -33,6 +30,18 @@ const TableExpense = () => {
     const columns = useMemo(
       () => [
         {
+            accessorKey: "requestDate",
+            header: "Request Date",
+            size: 200,
+            enableEditing: false,
+            muiTableHeadCellProps: {
+              align: 'center',
+            },
+            muiTableBodyCellProps: {
+              align: 'center',
+            },
+          },
+        {
           accessorFn: (row) => `${row.spendingDate} `,
           id: "spendingDate",
           header: "Expense Date",
@@ -46,18 +55,7 @@ const TableExpense = () => {
             align: 'center',
           },
         },
-        {
-          accessorKey: "requestDate",
-          header: "Request Date",
-          size: 200,
-          enableEditing: false,
-          muiTableHeadCellProps: {
-            align: 'center',
-          },
-          muiTableBodyCellProps: {
-            align: 'center',
-          },
-        },
+        
         {
             accessorFn: (row) => ` `, //accessorFn used to join multiple data into a single cell
             id: 'invoice', //id is still required when using accessorFn instead of accessorKey
@@ -82,7 +80,6 @@ const TableExpense = () => {
                   loading="lazy"
                   style={{ objectFit: 'cover'}}
                 />
-                {/* using renderedCellValue instead of cell.getValue() preserves filter match highlighting */}
                 <span>{renderedCellValue}</span>
               </Box>
             ),
@@ -125,28 +122,24 @@ const TableExpense = () => {
               muiTableBodyCellProps: {
                 align: 'center',
               },
-              Cell: ({ cell }) => (
+              Cell: ({ row }) => (
+                
                 <Box
                   component="span"
                   sx={(theme) => ({
                     backgroundColor:
-                      cell.getValue() == "Pending"
+                        row.original.status === 'Rejected'
                         ? theme.palette.error.dark
-                        : cell.getValue() == "Approved" 
-                        ? theme.palette.warning.dark
+                        : row.original.status === "Pending" 
+                        ? 'rgb(243, 180, 12)'
                         : theme.palette.success.dark,
                     borderRadius: '0.25rem',
                     color: '#fff',
                     maxWidth: '9ch',
-                    p: '0.25rem',
+                    padding: '5px',
                   })}
                 >
-                  {cell.getValue()?.toLocaleString?.('en-US', {
-                    style: 'currency',
-                    currency: 'USD',
-                    minimumFractionDigits: 0,
-                    maximumFractionDigits: 0,
-                  })}
+                  {row.original.status}
                 </Box>
               ),
         },
