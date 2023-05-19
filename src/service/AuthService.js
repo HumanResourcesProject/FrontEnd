@@ -1,13 +1,17 @@
 import axios from "axios";
 
-const LOGIN = "http://localhost:7071/auth/login";
-const REGISTER_ADMIN ="http://localhost:7071/auth/registeradmin";
-const REGISTER_MANAGER ="http://localhost:7071/auth/registermanager";
-const REGISTER_EMPLOYEE ="http://localhost:7071/auth/registeremployee";
+const LOGIN = "http://localhost:7070/auth/login";
+const REGISTER_ADMIN ="http://localhost:7070/auth/registeradmin";
+const REGISTER_MANAGER ="http://localhost:7070/auth/registermanager";
+const REGISTER_EMPLOYEE ="http://localhost:7070/auth/registeremployee";
 
 class AuthService{
     login(user) { 
-        return axios.post(LOGIN,user);
+        return axios.post(LOGIN,user,{
+            headers: {
+                "Content-Type": "application/json"
+            }
+        });
     }
     registerAdmin(info){
         return axios.post(REGISTER_ADMIN,info,{

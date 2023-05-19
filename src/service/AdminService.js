@@ -1,10 +1,10 @@
 import axios from "axios";
 
-const CREATE_ADMIN_AUTH = "http://localhost:7071/auth/registeradmin";
-const FINDALL_ADMIN = "http://localhost:7070/admin/getalladmin";
-const GET_ADMIN_INFO = "http://localhost:7070/admin/getfindme";
-const UPDATE_PROFILEP = "http://localhost:7070/admin/updateimage";
-const UPDATE_ADMININFO = "http://localhost:7070/admin/updateadmin";;
+const CREATE_ADMIN_AUTH = "http://localhost:7070/auth/registeradmin";
+const FINDALL_ADMIN = "http://localhost:7071/admin/getalladmin";
+const GET_ADMIN_INFO = "http://localhost:7071/admin/getfindme";
+const UPDATE_PROFILEP = "http://localhost:7071/admin/updateimage";
+const UPDATE_ADMININFO = "http://localhost:7071/admin/updateadmin";;
 
 class AdminService{
     getAllAdmins() {
