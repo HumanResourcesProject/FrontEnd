@@ -4,6 +4,7 @@ import "./tableStaffLeave.scss";
 import QueueIcon from "@mui/icons-material/Queue";
 import RequirementsService from "../../service/RequirementsService";
 import { Link } from "react-router-dom";
+import { Box } from '@mui/material';
 
 const TableStaffLeave = () => {
   const [data, setData] = useState([]);
@@ -26,10 +27,22 @@ const TableStaffLeave = () => {
   const columns = useMemo(
     () => [
       {
+        accessorKey: "requestDate",
+        header: "Request Date",
+        size: 100,
+        enableEditing: false,
+        muiTableHeadCellProps: {
+          align: 'center',
+        },
+        muiTableBodyCellProps: {
+          align: 'center',
+        },
+      },
+      {
         accessorFn: (row) => `${row.type} `,
         id: "type",
         header: "Leave Type",
-        size: 150,
+        size: 50,
         enableEditing: false,
         muiTableHeadCellProps: {
           align: 'center',
@@ -39,22 +52,11 @@ const TableStaffLeave = () => {
           align: 'center',
         },
       },
-      {
-        accessorKey: "requestDate",
-        header: "Request Date",
-        size: 200,
-        enableEditing: false,
-        muiTableHeadCellProps: {
-          align: 'center',
-        },
-        muiTableBodyCellProps: {
-          align: 'center',
-        },
-      },
+      
       {
         accessorKey: "startDate",
         header: "Leave Start Date",
-        size: 200,
+        size: 100,
         enableEditing: false,
         muiTableHeadCellProps: {
           align: 'center',
@@ -77,8 +79,8 @@ const TableStaffLeave = () => {
       },
       {
         accessorKey: "amountOfDay",
-        header: "Number of Days of Leave",
-        size: 250,
+        header: "Days of Leave",
+        size: 100,
         enableEditing: false,
         muiTableHeadCellProps: {
           align: 'center',
@@ -88,16 +90,36 @@ const TableStaffLeave = () => {
         },
       },
       {
-        accessorKey: "status",
-        header: "Status",
-        size: 150,
-        enableEditing: false,
-        muiTableHeadCellProps: {
-          align: 'center',
-        },
-        muiTableBodyCellProps: {
-          align: 'center',
-        },
+        accessorFn: (row) => ` ${row.status}  `,
+            id: "Status",
+            header: "Status",
+            size: 100,
+            muiTableHeadCellProps: {
+                align: 'center',
+              },
+              muiTableBodyCellProps: {
+                align: 'center',
+              },
+              Cell: ({ row }) => (
+                
+                <Box
+                  component="span"
+                  sx={(theme) => ({
+                    backgroundColor:
+                        row.original.status === 'Rejected'
+                        ? theme.palette.error.dark
+                        : row.original.status === "Pending" 
+                        ? 'rgb(243, 180, 12)'
+                        : theme.palette.success.dark,
+                    borderRadius: '0.25rem',
+                    color: '#fff',
+                    maxWidth: '9ch',
+                    padding: '5px',
+                  })}
+                >
+                  {row.original.status}
+                </Box>
+              ),
       },
       {
         accessorKey: "approvalDate",

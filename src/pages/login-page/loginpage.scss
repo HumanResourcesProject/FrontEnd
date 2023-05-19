@@ -7,6 +7,9 @@ $colors: (
   slide: #8fc866, 
   offset: #19bc8b
 );
+.link{
+  text-decoration: none;
+}
 @each $button, $color in $colors {
     .#{$button} {
       --color: #{$color};
@@ -75,6 +78,7 @@ $colors: (
                             font-size: small;
                             padding-top: 10px;
                             color: #757575;
+                            
                         } 
                       }
                       input 				{

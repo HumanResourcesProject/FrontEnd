@@ -4,6 +4,7 @@ import "./tableAdvancePayment.scss";
 import QueueIcon from "@mui/icons-material/Queue";
 import RequirementsService from "../../service/RequirementsService";
 import { Link } from "react-router-dom";
+import { Box } from '@mui/material';
 
 
 const TableAdvancePayment = () => {
@@ -28,19 +29,6 @@ const TableAdvancePayment = () => {
   const columns = useMemo(
     () => [
       {
-        accessorFn: (row) => `${row.advancedPaymentDate} `,
-        id: "type",
-        header: "Advance Payment Date",
-        size: 200,
-        enableEditing: false,
-        muiTableHeadCellProps: {
-            align: 'center',
-          },
-          muiTableBodyCellProps: {
-            align: 'center',
-          },
-      },
-      {
         accessorKey: "requestDate",
         header: "Request Date",
         size: 150,
@@ -53,6 +41,20 @@ const TableAdvancePayment = () => {
           },
         
       },
+      {
+        accessorFn: (row) => `${row.advancedPaymentDate} `,
+        id: "type",
+        header: "Advance Payment Date",
+        size: 200,
+        enableEditing: false,
+        muiTableHeadCellProps: {
+            align: 'center',
+          },
+          muiTableBodyCellProps: {
+            align: 'center',
+          },
+      },
+      
       {
         accessorFn: (row) => ` ${row.amount} ${row.currency} `,
         id: "Amount",
@@ -80,16 +82,35 @@ const TableAdvancePayment = () => {
       },
       
       {
-        accessorKey: "status",
-        header: "Status",
-        size: 100,
-        enableEditing: false,
-        muiTableHeadCellProps: {
-            align: 'center',
-          },
-          muiTableBodyCellProps: {
-            align: 'center',
-          },
+        accessorFn: (row) => ` ${row.status}  `,
+            id: "Status",
+            header: "Status",
+            muiTableHeadCellProps: {
+                align: 'center',
+              },
+              muiTableBodyCellProps: {
+                align: 'center',
+              },
+              Cell: ({ row }) => (
+                
+                <Box
+                  component="span"
+                  sx={(theme) => ({
+                    backgroundColor:
+                        row.original.status === 'Rejected'
+                        ? theme.palette.error.dark
+                        : row.original.status === "Pending" 
+                        ? 'rgb(243, 180, 12)'
+                        : theme.palette.success.dark,
+                    borderRadius: '0.25rem',
+                    color: '#fff',
+                    maxWidth: '9ch',
+                    padding: '5px',
+                  })}
+                >
+                  {row.original.status}
+                </Box>
+              ),
       },
       {
         accessorKey: "approvalDate",

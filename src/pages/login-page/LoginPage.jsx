@@ -1,10 +1,11 @@
 import React, {useState, useContext} from "react";
 import "./loginpage.scss";
-import loginpage from "../../images/19197061.jpg";
+import loginpage from "../../assets/images/19197061.jpg";
 import AuthService from "../../service/AuthService";
 import AuthContext from "../../context/AuthProvider";
+import { Link } from "react-router-dom";
 
-export const LoginPage = () => {
+const LoginPage = () => {
     const {setAuth} = useContext(AuthContext);
     const[user,setUser] = useState({
         email: "",
@@ -87,7 +88,9 @@ export const LoginPage = () => {
                 <span className="bar"></span>
                 <label>Password</label>
                 <div className="error-password">{error.passwordError}</div>
+                <Link to="/forgotpassword" className="link">
                 <div className="forgot-password">Forgot Password?</div>
+                </Link>
               </div>
 
             </form>
@@ -102,3 +105,4 @@ export const LoginPage = () => {
     </div>
   );
 };
+export default LoginPage

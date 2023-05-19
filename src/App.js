@@ -28,9 +28,10 @@ import EmployeeMyProfilePage from "./pages/employee/employee-my-profile-page/Emp
 import EmployeeExpensePage from "./pages/employee/employee-expense-page/EmployeeExpensePage";
 import EmployeeAdvancePayment from "./pages/employee/employee-advance-payment-page/EmployeeAdvancePayment";
 
-import { LoginPage } from "./pages/login-page/LoginPage";
+import  LoginPage  from "./pages/login-page/LoginPage";
 import NotFound from "./components/404NotFound/NotFound";
 import ManagerListEmployeePage from "./pages/manager/manager-list-employee-page/ManagerListEmployeePage";
+import ForgotPasswordPage from "./pages/forgot-password/ForgotPasswordPage";
 
 
 const USER_TYPES = {
@@ -49,6 +50,14 @@ const App = () => {
         element={
           <PublicElement>
             <LoginPage />
+          </PublicElement>
+        }
+      />
+      <Route
+        path="/forgotpassword"
+        element={
+          <PublicElement>
+            <ForgotPasswordPage />
           </PublicElement>
         }
       />
