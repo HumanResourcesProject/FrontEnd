@@ -2,6 +2,7 @@ import React from "react";
 import Background from "../../assets/images/forgot-password.svg";
 import "./forgotPasswordPage.scss";
 import backarrow from "../../assets/images/backarrow.png";
+import { Link } from "react-router-dom";
 
 const ForgotPasswordPage = () => {
   return (
@@ -9,8 +10,10 @@ const ForgotPasswordPage = () => {
       <div className="background-part"></div>
       <div className="right-part">
         <div className="backarrow">
-          <img src={backarrow} alt="backarrow" className="image" />
-          <span className="login-text">Login</span>
+          <Link to="/" className="link">
+            <img src={backarrow} alt="backarrow" className="image" />
+            <span className="login-text">Login</span>
+          </Link>
         </div>
         <div className="reset-part">
           <div className="text-part">
