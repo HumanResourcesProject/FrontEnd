@@ -1,15 +1,12 @@
 import React, { useState, useContext } from "react";
 import "./loginpage.scss";
-import loginpage from "../../assets/images/19197061.jpg";
 import AuthService from "../../service/AuthService";
 import AuthContext from "../../context/AuthProvider";
 import { Link } from "react-router-dom";
 
 const LoginPage = () => {
   const { setAuth } = useContext(AuthContext);
-  const [mailError, setMailError] = useState(false);
   const [error, setError] = useState(false);
-  const [passwordError, setPasswordErrorr] = useState(false);
   const [errorTextMail, setErrorTextMail] = useState("");
   const [errorTextPassword, setErrorTextPassword] = useState("");
   const [user, setUser] = useState({
@@ -32,7 +29,6 @@ const LoginPage = () => {
       setError(true);
       return;
     }
-
     AuthService.login(user)
       .then((response) => {
         console.log(response);
