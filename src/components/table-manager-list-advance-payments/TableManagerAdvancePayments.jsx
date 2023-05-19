@@ -17,9 +17,7 @@ const TableManagerAdvancePayments = () => {
       role: sessionStorage.getItem("role"),
     };
 
-    RequirementsService.findallpendingadvancepayment(
-      sessionStorage.getItem("token")
-    )
+    RequirementsService.findallpendingadvancepayment(token)
       .then((response) => {
         setData(response.data);
       })
@@ -49,10 +47,12 @@ const TableManagerAdvancePayments = () => {
             console.log("Request accepted.");
           } else {
             console.log("Request rejected.");
-          }        }
+          }
+        }
       );
       handleClose();
       setAccept([]);
+      window.location.reload(false);
     } else {
       RequirementsService.rejectadvencepayment(rejectanswer).then(
         (response) => {
@@ -65,6 +65,8 @@ const TableManagerAdvancePayments = () => {
       );
       handleClose();
       setReject([]);
+      window.location.reload(false);
+
     }
   };
 
@@ -159,103 +161,149 @@ const TableManagerAdvancePayments = () => {
         renderRowActions={({ row }) => (
           <div>
             <Button onClick={handleOpen}>Review</Button>
-            <Modal
-              open={open}
-              onClose={handleClose}
-              aria-labelledby="modal-modal-title"
-              aria-describedby="modal-modal-description"
-            >
+            <Modal open={open} onClose={handleClose}>
               <form onSubmit={handleRequest}>
                 <Box sx={style}>
-                  <Typography
-                    id="modal-modal-description"
-                    sx={{ mt: 2, ml: 13, color: "#575757" }}
+                <Typography
+                    component={"span"}
+                    sx={{
+                      fontWeight: "bold",
+                      fontSize: 14,
+                      mt: 10,
+                      ml: 13,
+                      color: "#575757",
+                    }}
                   >
-                    <Typography
-                      component={"div"}
-                      sx={{ fontWeight: "bold", fontSize: 14 }}
-                    >
-                      Employee:
-                    </Typography>{" "}
-                    <Typography component={"div"} sx={{ fontSize: 13 }}>
-                      {row.original.employeeName} {row.original.employeeSurname}
-                    </Typography>
-                  </Typography>
+                    Employee Id:
+                  </Typography>{" "}
+                  <br />
                   <Typography
-                    component={"div"}
-                    id="modal-modal-description"
-                    sx={{ mt: 2, ml: 13, color: "#575757" }}
+                    component={"span"}
+                    sx={{ fontSize: 13, ml: 13, color: "#575757" }}
                   >
-                    <Typography
-                      component={"div"}
-                      sx={{ fontWeight: "bold", fontSize: 14 }}
-                    >
-                      Request Date:
-                    </Typography>{" "}
-                    <Typography component={"div"} sx={{ fontSize: 13 }}>
-                      {row.original.requestDate}
-                    </Typography>
+                    {row.original.employeeId}
                   </Typography>
+                  <br />
                   <Typography
-                    component={"div"}
-                    id="modal-modal-description"
-                    sx={{ mt: 2, ml: 13, color: "#575757" }}
+                    component={"span"}
+                    sx={{
+                      fontWeight: "bold",
+                      fontSize: 14,
+                      mt: 10,
+                      ml: 13,
+                      color: "#575757",
+                    }}
                   >
-                    <Typography
-                      component={"div"}
-                      sx={{ fontWeight: "bold", fontSize: 14 }}
-                    >
-                      Amount:
-                    </Typography>{" "}
-                    <Typography component={"div"} sx={{ fontSize: 13 }}>
-                      {row.original.amount} {row.original.currency}
-                    </Typography>
-                  </Typography>
+                    Employee:
+                  </Typography>{" "}
+                  <br />
                   <Typography
-                    component={"div"}
-                    id="modal-modal-description"
-                    sx={{ mt: 2, ml: 13, color: "#575757" }}
+                    component={"span"}
+                    sx={{ fontSize: 13, ml: 13, color: "#575757" }}
                   >
-                    <Typography
-                      component={"div"}
-                      sx={{ fontWeight: "bold", fontSize: 14 }}
-                    >
-                      Advance Payment Date:
-                    </Typography>{" "}
-                    <Typography component={"div"} sx={{ fontSize: 13 }}>
-                      {row.original.advancedPaymentDate}
-                    </Typography>
+                    {row.original.employeeName} {row.original.employeeSurname}
                   </Typography>
+                  <br />
                   <Typography
-                    component={"div"}
-                    id="modal-modal-description"
-                    sx={{ mt: 2, ml: 13, color: "#575757" }}
+                    component={"span"}
+                    sx={{
+                      fontWeight: "bold",
+                      fontSize: 14,
+                      mt: 10,
+                      ml: 13,
+                      color: "#575757",
+                    }}
                   >
-                    <Typography
-                      component={"div"}
-                      sx={{ fontWeight: "bold", fontSize: 14 }}
-                    >
-                      Comment:
-                    </Typography>{" "}
-                    <Typography component={"div"} sx={{ fontSize: 13 }}>
-                      {row.original.comment}
-                    </Typography>
-                  </Typography>
+                    Request Date:
+                  </Typography>{" "}
+                  <br />
                   <Typography
-                    component={"div"}
-                    id="modal-modal-description"
-                    sx={{ mt: 2, ml: 13, color: "#575757" }}
+                    component={"span"}
+                    sx={{ fontSize: 13, ml: 13, color: "#575757" }}
                   >
-                    <Typography
-                      component={"div"}
-                      sx={{ fontWeight: "bold", fontSize: 14 }}
-                    >
-                      Status:
-                    </Typography>{" "}
-                    <Typography component={"div"} sx={{ fontSize: 13 }}>
-                      {row.original.status}
-                    </Typography>
+                    {row.original.requestDate}
                   </Typography>
+                  <br />
+                  <Typography
+                    component={"span"}
+                    sx={{
+                      fontWeight: "bold",
+                      fontSize: 14,
+                      mt: 10,
+                      ml: 13,
+                      color: "#575757",
+                    }}
+                  >
+                    Amount:
+                  </Typography>{" "}
+                  <br />
+                  <Typography
+                    component={"span"}
+                    sx={{ fontSize: 13, ml: 13, color: "#575757" }}
+                  >
+                    {row.original.amount} {row.original.currency}
+                  </Typography>
+                  <br />
+                  <Typography
+                    component={"span"}
+                    sx={{
+                      fontWeight: "bold",
+                      fontSize: 14,
+                      ml: 13,
+                      color: "#575757",
+                      mt: 5,
+                    }}
+                  >
+                    Advance Payment Date:
+                  </Typography>{" "}
+                  <br />
+                  <Typography
+                    component={"span"}
+                    sx={{ fontSize: 13, ml: 13, color: "#575757" }}
+                  >
+                    {row.original.advancedPaymentDate}
+                  </Typography>
+                  <br />
+                  <Typography
+                    component={"span"}
+                    sx={{
+                      fontWeight: "bold",
+                      fontSize: 14,
+                      ml: 13,
+                      color: "#575757",
+                      mt: 5,
+                    }}
+                  >
+                    Comment:
+                  </Typography>{" "}
+                  <br />
+                  <Typography
+                    component={"span"}
+                    sx={{ fontSize: 13, ml: 13, color: "#575757" }}
+                  >
+                    {row.original.comment}
+                  </Typography>
+                  <br />
+                  <Typography
+                    component={"span"}
+                    sx={{
+                      fontWeight: "bold",
+                      fontSize: 14,
+                      ml: 13,
+                      color: "#575757",
+                      mt: 2,
+                    }}
+                  >
+                    Status:
+                  </Typography>{" "}
+                  <br />
+                  <Typography
+                    component={"span"}
+                    sx={{ fontSize: 13, ml: 13, color: "#575757" }}
+                  >
+                    {row.original.status}
+                  </Typography>
+                  <br />
                   <Button
                     type="submit"
                     onClick={(e) => {
@@ -279,8 +327,7 @@ const TableManagerAdvancePayments = () => {
                   <Button
                     type="submit"
                     onClick={(e) => {
-                      setReject( row.original.advancePaymentId,
-                      );
+                      setReject(row.original.advancePaymentId);
                     }}
                     sx={{
                       flexDirection: "column",
