@@ -100,7 +100,7 @@ const EmployeeMyProfile = () => {
           <div className="input">
             <label className="text">IdentityNumber</label>
             <input
-              readOnly
+              disabled
               className="detail-input"
               type="text"
               defaultValue={profile.data.identityNumber || ""}
@@ -109,7 +109,7 @@ const EmployeeMyProfile = () => {
           <div className="input">
             <label className="text">Name</label>
             <input
-              readOnly
+              disabled
               className="detail-input"
               type="text"
               defaultValue={profile.data.name || ""}
@@ -119,7 +119,7 @@ const EmployeeMyProfile = () => {
           <div className="input">
             <label className="text">Middle Name</label>
             <input
-              readOnly
+              disabled
               className="detail-input"
               type="text"
               defaultValue={profile.data.middleName || ""}
@@ -128,7 +128,7 @@ const EmployeeMyProfile = () => {
           <div className="input">
             <label className="text">Surname</label>
             <input
-              readOnly
+              disabled
               className="detail-input"
               type="text"
               defaultValue={profile.data.surname || ""}
@@ -137,7 +137,7 @@ const EmployeeMyProfile = () => {
           <div className="input">
             <label className="text">Date of Birth</label>
             <input
-              readOnly
+              disabled
               className="detail-input"
               type="text"
               defaultValue={profile.data.birthDate || ""}
@@ -146,7 +146,7 @@ const EmployeeMyProfile = () => {
           <div className="input">
             <label className="text">Date of Place</label>
             <input
-              readOnly
+              disabled
               className="detail-input"
               type="text"
               defaultValue={profile.data.birthPlace || ""}
@@ -155,7 +155,7 @@ const EmployeeMyProfile = () => {
           <div className="input">
             <label className="text">Job Start</label>
             <input
-              readOnly
+              disabled
               className="detail-input"
               type="text"
               defaultValue="değişcek"
@@ -166,7 +166,7 @@ const EmployeeMyProfile = () => {
           <div className="input">
             <label className="text">Occupation</label>
             <input
-              readOnly
+              disabled
               className="detail-input"
               type="text"
               defaultValue={profile.data.occupation || ""}
@@ -175,7 +175,7 @@ const EmployeeMyProfile = () => {
           <div className="input">
             <label className="text">Department</label>
             <input
-              readOnly
+              disabled
               className="detail-input"
               type="text"
               defaultValue={profile.data.department || ""}
@@ -184,7 +184,7 @@ const EmployeeMyProfile = () => {
           <div className="input">
             <label className="text">Email</label>
             <input
-              readOnly
+              disabled
               className="detail-input"
               type="text"
               defaultValue={profile.data.email || ""}
@@ -221,7 +221,7 @@ const EmployeeMyProfile = () => {
           <div className="input">
             <label className="text">Company</label>
             <input
-              readOnly
+              disabled
               className="detail-input"
               type="text"
               defaultValue={profile.data.company || ""}
@@ -230,7 +230,7 @@ const EmployeeMyProfile = () => {
           <div className="input">
             <label className="text">Salary</label>
             <input
-              readOnly
+              disabled
               className="detail-input"
               type="text"
               defaultValue={profile.data.salary || ""}
