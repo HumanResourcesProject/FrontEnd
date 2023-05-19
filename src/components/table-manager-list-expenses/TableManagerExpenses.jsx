@@ -33,37 +33,33 @@ const TableManagerExpenses = () => {
     event.preventDefault();
     console.log(acceptanswer);
     if (reject === 0) {
-      RequirementsService.approveexpense(acceptanswer).then(
-        (response) => {
-          if (response.status === 200) {
-            console.log("Request accepted.");
-          } else {
-            console.log("Request rejected.");
-          }
+      RequirementsService.approveexpense(acceptanswer).then((response) => {
+        if (response.status === 200) {
+          console.log("Request accepted.");
+        } else {
+          console.log("Request rejected.");
         }
-      );
+      });
       handleClose();
       setAccept([]);
     } else {
-      RequirementsService.rejectexpense(rejectanswer).then(
-        (response) => {
-          if (response.status === 200) {
-            console.log("Request accepted.");
-          } else {
-            console.log("Request rejected.");
-          }
+      RequirementsService.rejectexpense(rejectanswer).then((response) => {
+        if (response.status === 200) {
+          console.log("Request accepted.");
+        } else {
+          console.log("Request rejected.");
         }
-      );
+      });
       handleClose();
       setReject([]);
     }
   };
   const [image, setImage] = useState();
 
-  const handleImage = (event)=>{
+  const handleImage = (event) => {
     event.preventDefault();
     //window.open(url, '_blank', 'noreferrer')
-  }
+  };
   const columns = useMemo(
     () => [
       {
@@ -168,33 +164,48 @@ const TableManagerExpenses = () => {
                 <Box sx={style}>
                   <Typography
                     id="modal-modal-description"
-                    sx={{ mt: 2, ml: 13, color: "#575757" }}
+                    sx={{
+                      mt: 2,
+                      ml: 13,
+                      color: "#575757",
+                      flexDirection: "column",
+                    }}
                   >
                     <Typography
                       component={"span"}
-                      sx={{ fontWeight: "bold", fontSize: 14 }}
+                      sx={{
+                        fontWeight: "bold",
+                        fontSize: 14,
+                      }}
                     >
                       Employee:
                     </Typography>{" "}
+                    <br />
                     <Typography component={"span"} sx={{ fontSize: 13 }}>
                       {row.original.employeeName} {row.original.employeeSurname}
                     </Typography>
                   </Typography>
+                  <br />
+
                   <Typography
                     component={"span"}
                     id="modal-modal-description"
-                    sx={{ mt: 2, ml: 13, color: "#575757" }}
+                    sx={{ mt: 5, ml: 13, color: "#575757" }}
                   >
+                    <br />
                     <Typography
                       component={"span"}
                       sx={{ fontWeight: "bold", fontSize: 14 }}
                     >
                       Request Date:
                     </Typography>{" "}
+                    <br />
                     <Typography component={"span"} sx={{ fontSize: 13 }}>
                       {row.original.requestDate}
                     </Typography>
                   </Typography>
+                  <br />
+
                   <Typography
                     component={"span"}
                     id="modal-modal-description"
@@ -207,7 +218,7 @@ const TableManagerExpenses = () => {
                       Expenses Image:
                     </Typography>{" "}
                     <Typography component={"span"} sx={{ fontSize: 13 }}>
-                      <Box 
+                      <Box
                         sx={{
                           display: "flex",
                           alignItems: "center",
@@ -215,19 +226,19 @@ const TableManagerExpenses = () => {
                         }}
                       >
                         <a
-                      href={row.original.invoiceUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      onClick={(event) => event.stopPropagation()}
-                    >
-                        <img 
-                          alt="invoiceUrl"
-                          width={40}
-                          height={40}
-                          src={row.original.invoiceUrl}
-                          loading="lazy"
-                          style={{ borderRadius: "50%", objectFit: "cover" }}
-                        />
+                          href={row.original.invoiceUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onClick={(event) => event.stopPropagation()}
+                        >
+                          <img
+                            alt="invoiceUrl"
+                            width={40}
+                            height={40}
+                            src={row.original.invoiceUrl}
+                            loading="lazy"
+                            style={{ borderRadius: "50%", objectFit: "cover" }}
+                          />
                         </a>
                       </Box>
                     </Typography>
