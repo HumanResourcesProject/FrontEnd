@@ -12,6 +12,13 @@ const FINDALL_PENDING_LEAVES_COUNT = "http://localhost:7075/requirements/manager
 const FINDALL_EMPLOYEE_ADVANCEPAYMENT = "http://localhost:7075/requirements/manager/findallmyadvances";
 const FINDALL_PENDING_ADVANCEPAYMENT = "http://localhost:7075/requirements/manager/findallmyadvancespending";
 const FINDALL_PENDING_ADVANCEPAYMENT_COUNT = "http://localhost:7075/requirements/manager/findallmyadvancescount";
+const APPROVE_ADVANCEPAYMENT= "http://localhost:7075/requirements/manager/approveadvancepayment";
+const REJECT_ADVANCEPAYMENT= "http://localhost:7075/requirements/manager/rejectadvancepayment";
+const APPROVE_EXPENSE= "http://localhost:7075/requirements/manager/approveexpense";
+const REJECT_EXPENSE= "http://localhost:7075/requirements/manager/rejectexpense";
+const APPROVE_LEAVE= "http://localhost:7075/requirements/manager/approveleave";
+const REJECT_LEAVE= "http://localhost:7075/requirements/manager/rejectleave";
+
 
 class EmployeeService {
     findAllLeave(data){
@@ -99,7 +106,47 @@ class EmployeeService {
           }
           });
       }
-    
-    
+      approveadvencepayment(data){
+        return axios.put(APPROVE_ADVANCEPAYMENT,data, {
+            headers: {
+                'Content-Type': 'application/json'
+          }
+          });
+      }
+      rejectadvencepayment(data){
+        return axios.put(REJECT_ADVANCEPAYMENT,data, {
+            headers: {
+                'Content-Type': 'application/json'
+          }
+          });
+      }
+      approveexpense(data){
+        return axios.put(APPROVE_EXPENSE,data, {
+            headers: {
+                'Content-Type': 'application/json'
+          }
+          });
+      }
+      rejectexpense(data){
+        return axios.put(REJECT_EXPENSE,data, {
+            headers: {
+                'Content-Type': 'application/json'
+          }
+          });
+      }
+      approveleave(data){
+        return axios.put(APPROVE_LEAVE,data, {
+            headers: {
+                'Content-Type': 'application/json'
+          }
+          });
+      }
+      rejectleave(data){
+        return axios.put(REJECT_LEAVE,data, {
+            headers: {
+                'Content-Type': 'application/json'
+          }
+          });
+      }
 }
 export default new EmployeeService();
