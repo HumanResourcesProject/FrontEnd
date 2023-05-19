@@ -14,6 +14,7 @@ const [adminInfo, setAdminInfo] = useState({
   phone:"",
   address:"",
   avatar:"",
+  token:sessionStorage.getItem("token"),
 })
   const [image,setImage] = useState('');
   
@@ -39,7 +40,8 @@ const [adminInfo, setAdminInfo] = useState({
           alert("added successfully *****")
         })       
         .catch((error) => {
-          alert("unexpected error");
+          console.log(error)
+          alert(error.response.data.message);
         });
     
   };

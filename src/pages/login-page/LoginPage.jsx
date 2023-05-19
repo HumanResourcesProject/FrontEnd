@@ -17,14 +17,14 @@ export const LoginPage = () => {
     const handleSubmit = (e)=>{
         e.preventDefault();
         console.log(user);
-        if(user.email === ""){
-          setError({...error, emailError: "E-mail can't be empty"})
-          return;
-        }
-        if(user.password === ""){
-          setError({...error, passwordError: "Password can't be empty"})
-          return;
-        }
+        // if(user.email === ""){
+        //   setError({...error, emailError: "E-mail can't be empty"})
+        //   return;
+        // }
+        // if(user.password === ""){
+        //   setError({...error, passwordError: "Password can't be empty"})
+        //   return;
+        // }
         
         AuthService.login(user).then((response)=>{
           console.log(response);
@@ -46,7 +46,8 @@ export const LoginPage = () => {
               
           }
         }).catch((error)=> {
-          alert("Unexpected Error");
+          console.log(error)
+          alert(error.response.data.message);
           
         });
         
