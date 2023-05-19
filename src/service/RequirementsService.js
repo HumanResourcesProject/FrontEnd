@@ -1,6 +1,8 @@
 import axios from "axios";
 
 const FINDALL_LEAVE  = "http://localhost:7075/requirements/employee/findallmyleaves";
+const FINDALL_ADVANCE_PAYMENT  = "http://localhost:7075/requirements/employee/findallmyadvances";
+const FINDALL_EXPENSE = "http://localhost:7075/requirements/employee/findallmyexpenses";
 const FINDALL_EMPLOYEE_EXPENSES = "http://localhost:7075/requirements/manager/findallmyexpenses";
 const FINDALL_PENDING_EXPENSES = "http://localhost:7075/requirements/manager/findallmyexpensespending";
 const FINDALL_PENDING_EXPENSES_COUNT = "http://localhost:7075/requirements/manager/findallmyexpensescount";
@@ -10,10 +12,31 @@ const FINDALL_PENDING_LEAVES_COUNT = "http://localhost:7075/requirements/manager
 const FINDALL_EMPLOYEE_ADVANCEPAYMENT = "http://localhost:7075/requirements/manager/findallmyadvances";
 const FINDALL_PENDING_ADVANCEPAYMENT = "http://localhost:7075/requirements/manager/findallmyadvancespending";
 const FINDALL_PENDING_ADVANCEPAYMENT_COUNT = "http://localhost:7075/requirements/manager/findallmyadvancescount";
+const APPROVE_ADVANCEPAYMENT= "http://localhost:7075/requirements/manager/approveadvancepayment";
+const REJECT_ADVANCEPAYMENT= "http://localhost:7075/requirements/manager/rejectadvancepayment";
+const APPROVE_EXPENSE= "http://localhost:7075/requirements/manager/approveexpense";
+const REJECT_EXPENSE= "http://localhost:7075/requirements/manager/rejectexpense";
+const APPROVE_LEAVE= "http://localhost:7075/requirements/manager/approveleave";
+const REJECT_LEAVE= "http://localhost:7075/requirements/manager/rejectleave";
+
 
 class EmployeeService {
-    findallleave(data){
+    findAllLeave(data){
         return axios.post(FINDALL_LEAVE,data,{
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+    }
+    findAllAdvancePayment(data){
+        return axios.post(FINDALL_ADVANCE_PAYMENT,data,{
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+    }
+    findAllExpense(data){
+        return axios.post(FINDALL_EXPENSE,data,{
             headers: {
                 'Content-Type': 'application/json'
             }
@@ -83,7 +106,47 @@ class EmployeeService {
           }
           });
       }
-    
-    
+      approveadvencepayment(data){
+        return axios.put(APPROVE_ADVANCEPAYMENT,data, {
+            headers: {
+                'Content-Type': 'application/json'
+          }
+          });
+      }
+      rejectadvencepayment(data){
+        return axios.put(REJECT_ADVANCEPAYMENT,data, {
+            headers: {
+                'Content-Type': 'application/json'
+          }
+          });
+      }
+      approveexpense(data){
+        return axios.put(APPROVE_EXPENSE,data, {
+            headers: {
+                'Content-Type': 'application/json'
+          }
+          });
+      }
+      rejectexpense(data){
+        return axios.put(REJECT_EXPENSE,data, {
+            headers: {
+                'Content-Type': 'application/json'
+          }
+          });
+      }
+      approveleave(data){
+        return axios.put(APPROVE_LEAVE,data, {
+            headers: {
+                'Content-Type': 'application/json'
+          }
+          });
+      }
+      rejectleave(data){
+        return axios.put(REJECT_LEAVE,data, {
+            headers: {
+                'Content-Type': 'application/json'
+          }
+          });
+      }
 }
 export default new EmployeeService();

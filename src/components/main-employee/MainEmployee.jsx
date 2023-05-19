@@ -13,6 +13,7 @@ const MainEmployee = () => {
   useEffect(() => {
     EmployeeService.employeeCount(mahmut).then((response)=>{
       setEmployee(response.data)
+      
     })
   }, []);
   const [manager, setManager] = useState([]);

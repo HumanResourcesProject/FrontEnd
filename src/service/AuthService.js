@@ -7,7 +7,11 @@ const REGISTER_EMPLOYEE ="http://localhost:7070/auth/registeremployee";
 
 class AuthService{
     login(user) { 
-        return axios.post(LOGIN,user);
+        return axios.post(LOGIN,user,{
+            headers: {
+                "Content-Type": "application/json"
+            }
+        });
     }
     registerAdmin(info){
         return axios.post(REGISTER_ADMIN,info,{

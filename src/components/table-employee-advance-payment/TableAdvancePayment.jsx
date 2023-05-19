@@ -1,13 +1,14 @@
 import React, { useMemo, useState, useEffect } from "react";
 import MaterialReactTable from "material-react-table";
-import "./tableStaffLeave.scss";
+import "./tableAdvancePayment.scss";
 import QueueIcon from "@mui/icons-material/Queue";
 import RequirementsService from "../../service/RequirementsService";
 import { Link } from "react-router-dom";
 import { Box } from '@mui/material';
 
-const TableStaffLeave = () => {
-  const [data, setData] = useState([]);
+
+const TableAdvancePayment = () => {
+    const [data, setData] = useState([]);
   
   useEffect(() => {
     const token = {
@@ -15,10 +16,10 @@ const TableStaffLeave = () => {
       role: sessionStorage.getItem('role'),
     };
 
-    RequirementsService.findAllLeave(token)
+    RequirementsService.findAllAdvancePayment(token)
       .then((response) => {
-        console.log(response);
         setData(response.data);
+
       })
       .catch((error) => {
         console.error('Error fetching data: ', error);
@@ -30,71 +31,60 @@ const TableStaffLeave = () => {
       {
         accessorKey: "requestDate",
         header: "Request Date",
-        size: 100,
+        size: 150,
         enableEditing: false,
         muiTableHeadCellProps: {
-          align: 'center',
-        },
-        muiTableBodyCellProps: {
-          align: 'center',
-        },
+            align: 'center',
+          },
+          muiTableBodyCellProps: {
+            align: 'center',
+          },
+        
       },
       {
-        accessorFn: (row) => `${row.type} `,
+        accessorFn: (row) => `${row.advancedPaymentDate} `,
         id: "type",
-        header: "Leave Type",
-        size: 50,
-        enableEditing: false,
-        muiTableHeadCellProps: {
-          align: 'center',
-          
-        },
-        muiTableBodyCellProps: {
-          align: 'center',
-        },
-      },
-      
-      {
-        accessorKey: "startDate",
-        header: "Leave Start Date",
-        size: 100,
-        enableEditing: false,
-        muiTableHeadCellProps: {
-          align: 'center',
-        },
-        muiTableBodyCellProps: {
-          align: 'center',
-        },
-      },
-      {
-        accessorKey: "finishDate",
-        header: "Leave End Date",
+        header: "Advance Payment Date",
         size: 200,
         enableEditing: false,
         muiTableHeadCellProps: {
-          align: 'center',
-        },
-        muiTableBodyCellProps: {
-          align: 'center',
-        },
+            align: 'center',
+          },
+          muiTableBodyCellProps: {
+            align: 'center',
+          },
       },
+      
       {
-        accessorKey: "amountOfDay",
-        header: "Days of Leave",
-        size: 100,
+        accessorFn: (row) => ` ${row.amount} ${row.currency} `,
+        id: "Amount",
+        header: "Amount",
+        muiTableHeadCellProps: {
+            align: 'center',
+          },
+          muiTableBodyCellProps: {
+            align: 'center',
+          },
+        
+      },
+      
+      {
+        accessorKey: "comment",
+        header: "Comment",
+        size: 50,
         enableEditing: false,
         muiTableHeadCellProps: {
-          align: 'center',
-        },
-        muiTableBodyCellProps: {
-          align: 'center',
-        },
+            align: 'center',
+          },
+          muiTableBodyCellProps: {
+            align: 'center',
+          },
       },
+      
       {
         accessorFn: (row) => ` ${row.status}  `,
             id: "Status",
             header: "Status",
-            size: 100,
             muiTableHeadCellProps: {
                 align: 'center',
               },
@@ -125,32 +115,30 @@ const TableStaffLeave = () => {
       {
         accessorKey: "approvalDate",
         header: "Approval Date",
-        size: 200,
+        size: 100,
         enableEditing: false,
         muiTableHeadCellProps: {
-          align: 'center',
-        },
-        muiTableBodyCellProps: {
-          align: 'center',
-        },
+            align: 'center',
+          },
+          muiTableBodyCellProps: {
+            align: 'center',
+          },
       },
     ],
     []
   );
-
   return (
-    <div className="staff-leave-list-container">
-      <Link to="/employeeaddleave" className="addleave">
+    <div className="advance-payment-list-container">
+      <Link to="/employeeadvancepayment" className="addadvpayment">
         <div className="icon-div">
           <QueueIcon />
         </div>
-        <div>Apply staff leave</div>
+        <div>Request an advance</div>
       </Link>
-      <div className="table-staff-leave">
+      <div className="table-advance-payment">
         <MaterialReactTable columns={columns} data={data} />
       </div>
     </div>
-  );
-};
-
-export default TableStaffLeave;
+  )
+}
+export default TableAdvancePayment
