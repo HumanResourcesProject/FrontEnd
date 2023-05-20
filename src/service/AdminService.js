@@ -1,11 +1,10 @@
 import axios from "axios";
 
-const FINDALL_ADMIN = "http://localhost:7070/admin/getalladmin";
-const CREATE_ADMIN = 'http://localhost:7070/admin/createadmin';
-const GET_ADMIN_INFO = "http://localhost:7070/admin/getadmin";
-const UPDATE_PROFILEP = "http://localhost:7070/admin/imagescloud";
-const UPDATE_ADMININFO = "http://localhost:7070/admin/updateadmin";;
-const SHORT_DETAIL = 'http://localhost:7070/admin/getshortdetail';
+const CREATE_ADMIN_AUTH = "http://localhost:7070/auth/registeradmin";
+const FINDALL_ADMIN = "http://localhost:7071/admin/getalladmin";
+const GET_ADMIN_INFO = "http://localhost:7071/admin/getfindme";
+const UPDATE_PROFILEP = "http://localhost:7071/admin/updateimage";
+const UPDATE_ADMININFO = "http://localhost:7071/admin/updateadmin";;
 
 class AdminService{
     getAllAdmins() {
@@ -14,7 +13,7 @@ class AdminService{
 
 
     postCreateAdmin(admin){
-        return axios.post(CREATE_ADMIN, admin,{
+        return axios.post(CREATE_ADMIN_AUTH, admin,{
             headers: {
                 'Content-Type': 'multipart/form-data'
             }
@@ -41,7 +40,7 @@ class AdminService{
 
     }
     postShortDetails(token){
-        return axios.post(SHORT_DETAIL,token);
+        return axios.post(GET_ADMIN_INFO,token);
     }
 
     

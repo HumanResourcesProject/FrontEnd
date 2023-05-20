@@ -7,13 +7,15 @@ import {
 } from '@mui/material';
 
 
-const TableAdmin = () => {
+const TableManager = () => {
+  const [token, setToken] = useState({
+    token: sessionStorage.getItem("token"),
+    role: sessionStorage.getItem("role"),
+  });
   const [data2,setData] = useState([])
   useEffect(() => {
-    CompanyManagerService.getAllManager().then((response) => {
-      setData(() => (response.data
-      ));
-      
+    CompanyManagerService.getAllManager(token).then((response) => {
+      setData(() => (response.data));
     });
   }, []);
 
@@ -89,14 +91,14 @@ const TableAdmin = () => {
             enableEditing:true 
           },
           {
-            accessorKey: 'dateOfBirth', //accessorKey used to define `data` column. `id` gets set to accessorKey automatically
+            accessorKey: 'birthDate', //accessorKey used to define `data` column. `id` gets set to accessorKey automatically
             header: 'Date Of Birth',
             size: 300,
             enableEditing:true 
 
           },
           {
-            accessorKey: 'job', //accessorKey used to define `data` column. `id` gets set to accessorKey automatically
+            accessorKey: 'occupation', //accessorKey used to define `data` column. `id` gets set to accessorKey automatically
             header: 'Job',
             size: 300,
             enableEditing:true 
@@ -144,4 +146,4 @@ const TableAdmin = () => {
   );
 };
 
-export default TableAdmin;
+export default TableManager;

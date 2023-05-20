@@ -1,0 +1,91 @@
+.payment-body {
+  .payment-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 500px;
+    gap: 40px;
+
+    .date-part {
+      width: 25%;
+      display: flex;
+      flex-direction: column;
+      .text {
+        font-size: small;
+        font-weight: 500;
+      }
+      .date-input {
+        background-color: rgb(233, 231, 231);
+                border: none;
+                border-radius: 3px;
+                line-height: 25px;
+                padding-right: 5px;
+                font-size: small;
+                font-weight: 500;
+                padding-left: 10px;
+      }
+    }
+    .amount-part {
+      width: 25%;
+
+      .text {
+        font-size: small;
+        font-weight: 500;
+      }
+      
+      .amount {
+        display: flex;
+        gap: 5px;
+        .amount-input {
+          width: 90%;
+          background-color: rgb(233, 231, 231);
+          border: none;
+          border-radius: 3px;
+          line-height: 25px;
+        }
+        .amount-select{
+          background-color: rgb(233, 231, 231);
+          border: none;
+          border-radius: 3px;
+          
+        }
+      }
+    }
+    .comment-part {
+      .text {
+        font-size: small;
+        font-weight: 500;
+      }
+      width: 25%;
+      .comment-textarea {
+        background-color: rgb(233, 231, 231);
+        border: none;
+        border-radius: 3px;
+        font-weight: 500;
+        width: 94%;
+        height: 150px;
+        resize: none;
+        line-height: 1.5;
+        
+        padding: 10px;
+      }
+    }
+    .button-part {
+      
+        width: 25%;
+        display: flex;
+        justify-content: center;
+      .button-apply {
+        width: 100%;
+        color: white;
+        padding: 5px;
+        background-color: rgb(59, 59, 59);
+        border: none;
+        border-radius: 3px;
+        font-weight: 500;
+      }
+    }
+  }
+}

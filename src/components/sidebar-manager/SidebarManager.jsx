@@ -5,25 +5,10 @@ import HowToRegOutlinedIcon from "@mui/icons-material/HowToRegOutlined";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import SupervisorAccountOutlinedIcon from "@mui/icons-material/SupervisorAccountOutlined";
 import LogoutOutlinedIcon from "@mui/icons-material/LogoutOutlined";
-import EngineeringOutlinedIcon from "@mui/icons-material/EngineeringOutlined";
 import Groups3Icon from "@mui/icons-material/Groups3";
-import AdminService from "../../service/AdminService";
-const Sidebar = () => {
-  const [profil, setProfil] = useState([]);
-  const [token] = useState({
-    token: sessionStorage.getItem("token"),
-  });
 
-  const profilpart = () => {
-    AdminService.postShortDetails(token).then((response) => {
-      setProfil(response.data);
-    });
-  };
-
-  useEffect(() => {
-    profilpart();
-  }, []);
-
+const SidebarManager = () => {
+  
   return (
     <aside className="full-sidebar">
       <div>
@@ -59,17 +44,23 @@ const Sidebar = () => {
               </Link>
             </li>
             <li>
-              <Link to="/managerlistmanagerpage" className="link d-flex">
+              <Link to="/listmanagers" className="link d-flex">
                 <Groups3Icon />
                 <div>Company Manager List</div>
               </Link>
             </li>
-            {/* <li>
-              <Link to="managerlistemployeepage" className="link d-flex">
-                <EngineeringOutlinedIcon />
+            <li>
+              <Link to="/employeelistpage" className="link d-flex">
+                <SupervisorAccountOutlinedIcon />
                 <div>Employee List</div>
               </Link>
-            </li> */}
+            </li> 
+            <li>
+              <Link to="/managerequests" className="link d-flex">
+                <Groups3Icon />
+                <div>Manage Requests</div>
+              </Link>
+            </li>
           </ul>
         </div>
       </div>
@@ -84,4 +75,4 @@ const Sidebar = () => {
     </aside>
   );
 };
-export default Sidebar;
+export default SidebarManager;

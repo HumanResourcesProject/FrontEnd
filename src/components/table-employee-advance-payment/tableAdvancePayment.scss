@@ -1,0 +1,32 @@
+.advance-payment-list-container{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    .addadvpayment{
+        margin-left: 100px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: small;
+        text-decoration: none;
+        color: black;
+        font-weight: 500;
+        width: 11%;
+        .icon-div{
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgb(100, 188, 223);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+    }
+    .table-advance-payment{
+        margin-left: 100px;
+        margin-right: 100px;
+        background-color: rgb(219, 218, 218);
+        
+    }
+}

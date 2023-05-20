@@ -1,190 +1,115 @@
-.profil{
-    height: 60vh;
-    margin: 7% 10% 7% 10%;
-    background-color: #2c2e30;
+.manager-profile-body{
     display: flex;
-    border-radius: 20px;
-    
+    flex-direction: column;
     align-items: center;
-    *:after {
-        -webkit-box-sizing: border-box;
-        -moz-box-sizing: border-box;
-        box-sizing: border-box;
-      }
-    .photoSection{
-        
-        border-radius: 5%;
-        width: 100%;
-        height: 90%;
+    margin: 20px;
+    gap: 40px;
+    height: 1100px;
+    .company-part{
+        display: flex;
+        flex-direction: column;
+        align-items: end;
+        justify-content: end;
+        width: 80%;
+        .company-text{
+            padding: 10px;
+            font-size: xx-large;
+            font-weight: 700;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    }
+    .avatar-part{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        .avatar{
+            height: 250px;
+            border-radius: 10px;
+        }
+        .choosefilebutton{
+            display: flex;
+            gap: 10px;
+        }
+    }
+    .detail-part{
         display: flex;
         
-        gap: 50px;
-        justify-content: center;
+        width: 70%;
         align-items: center;
-        .profileHolder{
+        justify-content: space-around;
+        .left-part{
+            width: 35%;
             display: flex;
             flex-direction: column;
-            gap: 10px;
-            h2{
-                color: rgb(214, 214, 214);
-                text-align: center;
-            }
-            .profileImage{
-            
-                img{
-                    width: 200px;
-                    height: 200px;
-                    border-radius: 50%;
-                    object-fit: cover;
-                }
-            }
-        }
-        .buttons{
-            
-            form{
+            gap: 20px;
+            .input{
                 display: flex;
-                justify-content: center;
-                gap: 20px;
-                align-items: center;
-                width: 200px;
-                input{
-                    color: transparent;
-                }
-                input::-webkit-file-upload-button {
-                    visibility: hidden;
-                  }
-                input::before{
-                    content: 'Choose Image';
-                    color: rgb(255, 255, 255);
-                    display: inline-block;
-                    background: ( #555454);
-                   
-                    border-radius: 5px;
-                    padding: 5px 10px 5px 10px;
-                    outline: none;
-                    white-space: nowrap;
-                    -webkit-user-select: none;
-                    cursor: pointer;
-                    
-                   
+                flex-direction: column;
+                gap: 5px;
+                .text{
+                    font-size: small;
+                    font-family: 'Roboto', sans-serif;
                 }
                 
-                input:active {
-                    outline: 0;
-                }
-                input:active::before {
-                    background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9); 
-                }
-
-                button{
-                    color: white;
-                    border-radius: 5px;
+                .detail-input{
+                    background-color: rgb(207, 206, 206);
                     border: none;
-                    padding: 5px 10px 5px 10px;
-                    background-color: #555454;
+                    border-radius: 3px;
+                    line-height: 25px;
+                    padding: 8px;
+                    font-weight: 500;
+                }
+                
+            }
+        }
+        .right-part{
+            width: 35%;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            .input{
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+                .text{
+                    font-size: small;
+                    font-family: 'Roboto', sans-serif;
+                }
+                .detail-input{
+                    background-color: rgb(207, 206, 206);
+                    border: none;
+                    border-radius: 3px;
+                    line-height: 25px;
+                    padding: 8px;
+                    font-weight: 500;
                     
                 }
+                .editable{
+                    background-color: rgb(233, 231, 231);
+                    border: none;
+                    border-radius: 3px;
+                    line-height: 25px;
+                    padding: 8px;
+                    font-weight: 500;
+                }
             }
-            
         }
     }
-    .profilInfo{
-        
+    .button-part {
+      
+        width: 60%;
         display: flex;
-        flex-direction: column;        
-        width: 40%;
-        padding: 30px 0px 50px 0px;
-          #gosterilecekDiv {
-            display: none;
-          }
-        
-        .informationHead{
-            color: rgb(214, 214, 214);
-            text-align: center;
-        }
-        .information{
-            form{
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                gap: 22px;
-                .input-profile{
-                    width: 100%;
-                    display: flex;
-                    align-items: center;
-                    justify-content: space-between;
-                   
-                    label{
-                        padding-left: 20px;
-                        font-weight: 500;
-                        font-size: large;
-                        color: rgb(214, 214, 214);
-                    }
-                    p{
-                        background-color: white;
-                        width: 50%;
-                        border-radius: 5px;
-                        padding: 3px;
-                        text-align: center;
-                        margin: 0;
-                        
-
-                    }
-                }
-                .update-button{
-                    display: flex;
-                    gap: 30px;
-                    button{
-                        color: white;
-                        border-radius: 5px;
-                        border: none;
-                        padding: 5px 10px 5px 10px;
-                        background-color: #555454;
-                    }
-                } 
-               
-
-            }
-            
-            
-        }
-        .informationsecret{
-            form{
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                gap: 22px;
-                .input-profile{
-                    width: 100%;
-                    display: flex;
-                    align-items: center;
-                    justify-content: space-between;
-                    
-                   
-                    label{
-                        padding-left: 20px;
-                        font-weight: 500;
-                        font-size: large;
-                        color: rgb(214, 214, 214);
-                    }
-                    
-                }
-                .update-button{
-                    display: flex;
-                    gap: 30px;
-                    button{
-                        color: white;
-                        border-radius: 5px;
-                        border: none;
-                        padding: 5px 10px 5px 10px;
-                        background-color: #555454;
-                    }
-                } 
-               
-
-            }
-        }
-
+        justify-content: center;
+        height: 40px;
+      .button-change {
+        width: 100%;
+        color: white;
+        padding: 5px;
+        background-color: rgb(59, 59, 59);
+        border: none;
+        border-radius: 5px;
+        font-weight: 500;
+      }
     }
 }
-

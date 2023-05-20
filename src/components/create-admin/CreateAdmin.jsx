@@ -2,10 +2,10 @@ import React from 'react'
 import { useState } from 'react';
 import './createAdmin.scss'
 import DriveFolderUploadIcon from '@mui/icons-material/DriveFolderUpload';
-import AdminService from '../../service/AdminService';
+import AuthService from '../../service/AuthService';
 
 
-const ProfilPage = () => {
+const CreateAdmin = () => {
 
 const [adminInfo, setAdminInfo] = useState({
   name:"",
@@ -33,13 +33,13 @@ const [adminInfo, setAdminInfo] = useState({
         })
     }
       console.log(adminInfo);
-      AdminService.postCreateAdmin(adminInfo).then(
+      AuthService.registerAdmin(adminInfo).then(
         () =>{
           
           alert("added successfully *****")
         })       
         .catch((error) => {
-          alert(error.response.data.message+"isterler: password 3'den asaği olmucak ... mail: gmail.com ile bitecek.... telefon sadece numara olmalı... hicbir alan bos gecilemez");
+          alert("unexpected error");
         });
     
   };
@@ -56,7 +56,6 @@ const [adminInfo, setAdminInfo] = useState({
       <div className='register-buttons'>
        <label htmlFor="file" className='choosefilebutton' ><DriveFolderUploadIcon className='uploadicon'/>Choose a File</label>
        <input type="file" id='file' style={{display:'none' }} onChange={onchangeImage}/>
-
       </div>
     </div>
       <div className='register-profil-info'>
@@ -110,4 +109,4 @@ const [adminInfo, setAdminInfo] = useState({
 
   )
 }
-export default ProfilPage
+export default CreateAdmin;

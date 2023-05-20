@@ -1,188 +1,244 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import axios from "axios";
+import DriveFolderUploadIcon from "@mui/icons-material/DriveFolderUpload";
 import "./managerMyProfile.scss";
-import AdminService from "../../service/AdminService";
+import ManagerService from "../../service/CompanyManagerService";
 
-const ProfilPage = () => {
-  const [admin, setAdmin] = useState([]);
-
+const ManagerMyProfile = () => {
+  const [profile, setProfile] = useState({ data: {} });
   useEffect(() => {
-    axios.get("http://localhost:7070/admin/getadmin?id=1").then((response) => {
-      setAdmin(response.data);
-    });
+    const fetchData = async () => {
+      try {
+        const response = await ManagerService.getManagerInformations(token);
+        setProfile(response);
+        setUpdate({ ...update,phone: response.data.phone,address: response.data.address,token: sessionStorage.getItem("token") });
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    fetchData();
   }, []);
 
-  const update = () => {
-    const gizlenecekDiv = document.getElementById("gizlenecekDiv");
-    const gosterilecekDiv = document.getElementById("gosterilecekDiv");
-    gizlenecekDiv.style.display = "none";
-    gosterilecekDiv.style.display = "block";
-  };
-  const refresh = () => {
-    window.location.reload()
-  }
-// Burası pp update http://localhost:7070/admin/imagescloud?id=1
-const [selectedFile, setSelectedFile] = useState(null);
-const [imageUrl, setImageUrl] = useState(null);
-const [loading, setLoading] = useState(false);
-const handleImageUpload = (event) => {
-  event.preventDefault();
-  setLoading(true);
-  const formData = new FormData();
-  formData.append('file', selectedFile);
-  
-
-  AdminService.getFirstAdminInfo(formData).then((response) => {
-    console.log("Profil fotoğrafı başarıyla yüklendi ve database'e kaydedildi.");
-    setTimeout(() => window.location.reload(), 1000);
-    setLoading(false);
-    setImageUrl(response.data.imageUrl);
-  })
-  .catch((error) => {
-    console.log(error);
-    setLoading(false);
+  const [update, setUpdate] = useState({
+    token: "",
+    avatar: "",
+    phone: "",
+    address: "",
   });
-};
-// Burası pd update http://localhost:7070/admin/updateadmin'
-const [id, setId] = useState("");
-  const [phone, setPhone] = useState("");
-  const [address, setAddress] = useState("");
+  const [token, setToken] = useState({
+    token: sessionStorage.getItem("token"),
+    role: sessionStorage.getItem("role"),
+  });
+
+  const [image, setImage] = useState("");
+  const onchangeImage = (e) => {
+    const file = e.target.files[0];
+    setUpdate({ ...update, avatar: file });
+    setImage(file);
+  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const data = {
-      id: id,
-      phone: phone,
-      address: address,
-    };
-
-    axios
-      .post("http://localhost:7070/admin/updateadmin", data,
-      {
-        headers: {
-          'Content-Type': 'application/json'
-      }
-      }
-      )
-      
+    setUpdate({...update,avatar:null})
+    console.log(typeof update.avatar);
+    if(update.avatar === null ){
+      console.log(update);
+      alert("stringdeyiz")
+      ManagerService.updateEmployeeInformationsString(update).then((response) => {
+        alert("Updated successfully!");
+      })
+      .catch((error) => {
+        alert("unexpected error");
+      });
+    }else{
+      ManagerService.updateEmployeeInformations(update)
       .then((response) => {
-        console.log(response);
-        alert("Admin updated successfully!");
-        setId("");
-        setPhone("");
-        setAddress("");
-        
+        alert("Updated successfully!");
       })
       .catch((error) => {
         console.log(error);
-        alert("An error occurred while updating the admin.");
+        alert("unexpected error");
       });
+    } 
+    
   };
-
   return (
-    <div className='profil'>
-    <div className='photoSection'>
-      <div className='profileHolder'>
-        <h2>Profil Photo</h2>
-        <div className='profileImage'>
-          {imageUrl  ? <img src={imageUrl} alt="Rengoku" /> : <img src={admin.avatar} alt="Rengoku" />}
+    <div className="manager-profile-body">
+      <div className="company-part">
+        <div className="company-text">
+          Starbucks
         </div>
-        <div className="buttons">
-          <form onSubmit={handleImageUpload}>
+      </div>
+      <div className="avatar-part">
+        {image ? (
+          <img
+            className="avatar"
+            src={URL.createObjectURL(image)}
+            alt="Rengoku"
+          />
+        ) : (
+          <img
+            className="avatar"
+            src={
+              profile.data.avatar ||
+              "https://cdn.pixabay.com/photo/2017/11/10/04/47/user-2935373_960_720.png"
+            }
+            alt="Rengoku"
+          />
+        )}
+
+        <label htmlFor="file" className="choosefilebutton">
+          <DriveFolderUploadIcon className="uploadicon" />
+          Change Avatar
+        </label>
+        <input
+          type="file"
+          id="file"
+          style={{ display: "none" }}
+          onChange={onchangeImage}
+        />
+      </div>
+      <div className="detail-part">
+        <div className="left-part">
+          <div className="input">
+            <label className="text">IdentityNumber</label>
             <input
-              type="file"
-              onChange={(event) => setSelectedFile(event.target.files[0])}
+              disabled
+              className="detail-input"
+              type="text"
+              defaultValue={profile.data.identityNumber || ""}
             />
-            <button type="button" onClick={handleImageUpload}>
-              Upload
-            </button>
-            {loading && <span>Yükleniyor...</span>}
-        </form>
+          </div>
+          <div className="input">
+            <label className="text">Name</label>
+            <input
+              disabled
+              className="detail-input"
+              type="text"
+              defaultValue={profile.data.name || ""}
+            />
+          </div>
+
+          <div className="input">
+            <label className="text">Middle Name</label>
+            <input
+              disabled
+              className="detail-input"
+              type="text"
+              defaultValue={profile.data.middleName || ""}
+            />
+          </div>
+          <div className="input">
+            <label className="text">Surname</label>
+            <input
+              disabled
+              className="detail-input"
+              type="text"
+              defaultValue={profile.data.surname || ""}
+            />
+          </div>
+          <div className="input">
+            <label className="text">Date of Birth</label>
+            <input
+              disabled
+              className="detail-input"
+              type="text"
+              defaultValue={profile.data.birthDate || ""}
+            />
+          </div>
+          <div className="input">
+            <label className="text">Date of Place</label>
+            <input
+              disabled
+              className="detail-input"
+              type="text"
+              defaultValue={profile.data.birthPlace || ""}
+            />
+          </div>
+        </div>
+        <div className="right-part">
+        <div className="input">
+            <label className="text">Email</label>
+            <input
+              disabled
+              className="detail-input"
+              type="text"
+              defaultValue={profile.data.email || ""}
+            />
+          </div>
+          <div className="input">
+            <label className="text">Occupation</label>
+            <input
+              disabled
+              className="detail-input"
+              type="text"
+              defaultValue={profile.data.occupation || ""}
+            />
+          </div>
+          <div className="input">
+            <label className="text">Department</label>
+            <input
+              disabled
+              className="detail-input"
+              type="text"
+              defaultValue={profile.data.department || ""}
+            />
+          </div>
+         
+          <div className="input">
+            <label className="text">Phone *</label>
+            <input
+              className="editable"
+              type="text"
+              defaultValue={profile.data.phone || ""}
+              onChange={(event) => {
+                setUpdate({
+                  ...update,
+                  phone: event.target.value,
+                });
+              }}
+            />
+          </div>
+          <div className="input">
+            <label className="text">Address *</label>
+            <input
+              className="editable"
+              type="text"
+              defaultValue={profile.data.address || ""}
+              onChange={(event) => {
+                setUpdate({
+                  ...update,
+                  address: event.target.value,
+                });
+              }}
+            />
+          </div>
+          {/* <div className="input">
+            <label className="text">Company</label>
+            <input
+              disabled
+              className="detail-input"
+              type="text"
+              defaultValue={profile.data.company || ""}
+            />
+          </div> */}
+          <div className="input">
+            <label className="text">Job Start Date</label>
+            <input
+              disabled
+              className="detail-input"
+              type="text"
+              defaultValue={profile.data.jobStart || ""}
+            />
+          </div>
         </div>
       </div>
-      <div className="profilInfo">
-        <div className="informationHead">
-          <h2>Profil Information</h2>
-        </div>
-        <div id="gizlenecekDiv" className="information">
-          <form action="">
-            <div className="input-profile">
-              <label htmlFor="name">Name:</label>
-              <p>{admin.name}</p>
-            </div>
-
-            <div className="input-profile">
-              <label htmlFor="surname">Surname:</label>
-              <p>{admin.surname}</p>
-            </div>
-
-            <div className="input-profile">
-              <label htmlFor="email">E-mail:</label>
-              <p>{admin.email}</p>
-            </div>
-
-            <div className="input-profile">
-              <label htmlFor="phone">Phone number:</label>
-              <p>{admin.phone}</p>
-            </div>
-            <div className="input-profile">
-              <label htmlFor="address">Address:</label>
-              <p>{admin.address}</p>
-            </div>
-            <div className="update-button">
-              <button type="button" onClick={update}>
-                Update
-              </button>
-            </div>
-          </form>
-        </div>
-        <div id="gosterilecekDiv" className="informationsecret">
-          <form onSubmit={handleSubmit}>
-            <div className="input-profile">
-              <label>
-                Id:
-              </label>
-                <input
-                  type="text"
-                  value={id}
-                  onChange={(e) => setId(e.target.value)}
-                />
-              
-            </div>
-            <div className="input-profile">
-              <label>
-                Phone:
-                </label>
-                <input
-                  type="text"
-                  value={phone}
-                  onChange={(e) => setPhone(e.target.value)}
-                />
-              
-            </div>
-            <div className="input-profile">
-              <label>
-                Address:
-                </label>
-                <input
-                  type="text"
-                  value={address}
-                  onChange={(e) => setAddress(e.target.value)}
-                />
-             
-            </div>
-            <div className="update-button">
-              <button type="submit">Update Admin</button>
-              <button type="button" onClick={refresh}>
-                Cancel
-              </button>
-            </div>
-          </form>
-        </div>
+      <div className="button-part">
+        <button onClick={handleSubmit} className="button-change">Change</button>
       </div>
-    </div>
     </div>
   );
 };
-export default ProfilPage
+
+export default ManagerMyProfile;

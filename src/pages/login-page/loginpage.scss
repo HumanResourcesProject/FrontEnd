@@ -1,213 +1,163 @@
 $colors: (
   fill: #a972cb,
-  pulse: #ef6eae, 
-  close: #ff7f82, 
-  raise: #ffa260, 
-  up: #e4cb58, 
-  slide: #8fc866, 
-  offset: #19bc8b
+  pulse: #ef6eae,
+  close: #ff7f82,
+  raise: #ffa260,
+  up: #e4cb58,
+  slide: #8fc866,
+  offset: #19bc8b,
 );
+.link {
+  text-decoration: none;
+}
 @each $button, $color in $colors {
-    .#{$button} {
-      --color: #{$color};
-      --hover: #{adjust-hue($color, 45deg)};
+  .#{$button} {
+    --color: #{$color};
+    --hover: #{adjust-hue($color, 45deg)};
+  }
+}
+.login-container {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  align-items: center;
+  gap: 100px;
+  .background-part {
+    height: 100vh;
+    width: 50vw;
+    background-image: url("../../assets/images/Team.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  .login-part{
+    width: 40vw;
+    .login-right {
+      width: 48%;
+      height: 400px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 30px;
+      padding: 50px;
+      background-color:rgb(122,163,255) ;
+      box-shadow: 10px 10px rgb(64,123,255);
+      .top-text {
+        color: white;
+      }
+      .login-inputs {
+        height: 200px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: end;
+        gap: 10px;
+        form{
+          width: 100%;
+        }
+        .linkforgot{
+          display: block;
+          text-decoration: none;
+          color: rgb(235, 217, 217);
+          font-size: small;
+          .forgot-password{
+            font-weight: 500;
+          }
+        }
+
+      }
+      .button-part{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        .button{
+            color: rgb(52, 77, 131);
+            background-color: rgb(236, 236, 236);
+            border: none;
+            padding: 5px 15px 5px 15px;
+            width: 40%;
+            cursor: pointer;
+            font-size: small;
+            font-weight: 700;
+            transition: 0.2s;
+            letter-spacing: 0.5px;
+            
+            
+            &:hover{
+                box-shadow: 0.5em 0.5em 1em 4px rgb(64,123,255);
+                transform: translateY(-0.2em) translateX(-0.2em) 
+            }
+        }
+        
+    }
+      
     }
   }
-.login-container{
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    width: 100vw;
-    margin: auto;
-    justify-content: center;
-    align-items: center;
-    background-color: rgb(165, 161, 161);
-    .login-inner-container{
-        border-radius: 30px;
-        
-        width: 60vw;
-        height: 600px;
-        display: flex;
-        background-color: white;
-        border-top-left-radius: 30px;
-                border-bottom-left-radius: 30px;
-        
-        .login-left{
-            width: 50%;
-            display: flex;
-            position: relative;
-            
-            img{
-               
-                width: 100%;
-                border-top-left-radius: 30px;
-                border-bottom-left-radius: 30px;
-            }
-        }
-        .login-left::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.2); /* Opak siyah renk */
-            border-top-left-radius: 30px;
-                border-bottom-left-radius: 30px;
-          }
-        .login-right{
-            width: 50%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 30px;
-            .top-text{
-                
-            }
-            .login-inputs{
-                form{
-                    .group 			  { 
-                        position:relative; 
-                        margin-bottom:45px;
-                        .forgot-password{
-                            text-align: end;
-                            font-size: small;
-                            padding-top: 10px;
-                            color: #757575;
-                        } 
-                      }
-                      input 				{
-                        font-size:18px;
-                        padding:10px 10px 10px 5px;
-                        display:block;
-                        width:300px;
-                        border:none;
-                        border-bottom:1px solid #757575;
-                      }
-                      input:focus 		{ outline:none; }
-                      
-                      /* LABEL ======================================= */
-                      label 				 {
-                        color:#999; 
-                        font-size:18px;
-                        font-weight:normal;
-                        position:absolute;
-                        pointer-events:none;
-                        left:5px;
-                        top:10px;
-                        transition:0.2s ease all; 
-                        -moz-transition:0.2s ease all; 
-                        -webkit-transition:0.2s ease all;
-                      }
-                      
-                      /* active state */
-                      input:focus ~ label, input:valid ~ label 		{
-                        top:-20px;
-                        font-size:14px;
-                        color:#5264AE;
-                      }
-                      
-                      /* BOTTOM BARS ================================= */
-                      .bar 	{ position:relative; display:block; width:300px; }
-                      .bar:before, .bar:after 	{
-                        content:'';
-                        height:2px; 
-                        width:0;
-                        bottom:1px; 
-                        position:absolute;
-                        background:#5264AE; 
-                        transition:0.2s ease all; 
-                        -moz-transition:0.2s ease all; 
-                        -webkit-transition:0.2s ease all;
-                      }
-                      .bar:before {
-                        left:50%;
-                      }
-                      .bar:after {
-                        right:50%; 
-                      }
-                      
-                      /* active state */
-                      input:focus ~ .bar:before, input:focus ~ .bar:after {
-                        width:50%;
-                      }
-                      
-                      /* HIGHLIGHTER ================================== */
-                      .highlight {
-                        position:absolute;
-                        height:60%; 
-                        width:100px; 
-                        top:25%; 
-                        left:0;
-                        pointer-events:none;
-                        opacity:0.5;
-                      }
-                      
-                      /* active state */
-                      input:focus ~ .highlight {
-                        -webkit-animation:inputHighlighter 0.3s ease;
-                        -moz-animation:inputHighlighter 0.3s ease;
-                        animation:inputHighlighter 0.3s ease;
-                      }
-                      
-                      /* ANIMATIONS ================ */
-                      @-webkit-keyframes inputHighlighter {
-                          from { background:#5264AE; }
-                        to 	{ width:0; background:transparent; }
-                      }
-                      @-moz-keyframes inputHighlighter {
-                          from { background:#5264AE; }
-                        to 	{ width:0; background:transparent; }
-                      }
-                      @keyframes inputHighlighter {
-                          from { background:#5264AE; }
-                        to 	{ width:0; background:transparent; }
-                      }
-                      .error-email{
-                        padding: 5px;
-                        color: red;
-                        font-size: small;
-                      }
-                      .error-password{
-                        padding: 5px;
-                        color: red;
-                        font-size: small;
-                      }
-                }
-            }
-            .login-bottom{
-                .raise{
-                    font-weight: 500;
-                    &:hover,
-                    &:focus { 
-                        border-color: rgb(0, 0, 0);
-                        background-color: black;
-                        color: #ffffff;
-                        font-weight: 500;
-                        
-                    }
-                    color: rgb(255, 255, 255);
-                    border-radius: 8px;
-                    transition: 0.25s;
-                    background-color: gray;
-                    border: 2px solid;
-                    
-                    line-height: 1;
-                    
-                    padding: 1em 2.5em;
-                }
-                .raise:hover,
-                .raise:focus {
-                    color: rgb(255, 255, 255);
-                box-shadow: 0 0.5em 0.5em -0.4em rgb(10, 10, 10);
-                transform: translateY(-0.25em);
-                
-                }
-                
-            }
-        }
-    }
     
+  
+}
+.form__group2 {
+  position: relative;
+  padding: 15px 5px 0 0;
+  width: 100%;
+  margin-bottom: 20px;
 }
 
+.form__field2 {
+  font-family: inherit;
+  width: 100%;
+  border: 0;
+  border-bottom: 2px solid rgb(248, 248, 248);
+  outline: 0;
+  font-size: 1.2rem;
+  color: rgb(248, 248, 248);//tıklanıp yazı yazıldıktan sonra alttaki textin rengi
+  padding: 7px 0;
+  background: transparent;
+  transition: border-color 0.2s;
+
+  &::placeholder {
+    color: transparent;
+  }
+
+  &:placeholder-shown ~ .form__label2 {
+    cursor: text;
+    top: 25px;
+    font-size: large;
+    font-weight: 700;
+    
+  }
+}
+
+.form__label2 {
+  position: absolute;
+  top: 0;
+  display: block;
+  transition: 0.2s;
+  font-size: 1rem;
+  font-weight: 700;
+  color: rgb(38,74,153);
+}
+
+.form__field2:focus {
+  ~ .form__label2 {
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.2s;
+    font-size: 1rem;
+    color: rgb(248, 248, 248); //inputa tıklanınca üstteki yazı
+    font-weight:700;    
+  }
+  padding-bottom: 6px;
+  color: rgb(248, 248, 248);  //focus halindeyken yazılan yazı
+  border-width: 2px;
+  border-image: linear-gradient(to right, rgb(248, 248, 248),rgb(248, 248, 248));
+  border-image-slice: 1;
+}
+/* reset input */
+.form__field2{
+  &:required,&:invalid { box-shadow:none; }
+}

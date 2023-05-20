@@ -1,0 +1,32 @@
+.staff-leave-list-container{
+   display: flex;
+   flex-direction: column;
+   gap: 15px;
+   .addleave{
+      margin-left: 100px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: small;
+        text-decoration: none;
+        color: black;
+        font-weight: 500;
+        width: 11%;
+      .icon-div{
+         width: 40px;
+         height: 40px;
+         border-radius: 50%;
+         background-color: aquamarine;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         
+      }
+   }
+   .table-staff-leave{
+      margin-left: 100px;
+      margin-right: 100px;
+        
+}
+}
+

@@ -1,7 +1,7 @@
 import React, { useMemo,useState,useEffect } from "react";
 import MaterialReactTable from "material-react-table";
-import "./tableManager.scss";
-import EmployeeService from "../../service/CompanyManagerService";
+import "./tableEmployee.scss";
+import EmployeeService from "../../service/EmployeeService";
 import {
   Box
 } from '@mui/material';
@@ -9,10 +9,16 @@ import {
 
 const TableEmployee = () => {
   const [data2,setData] = useState([])
+  const [token] = useState({
+    token: sessionStorage.getItem("token"),
+    role: sessionStorage.getItem("role")
+
+  });
   useEffect(() => {
-    EmployeeService.getAllManager().then((response) => {
+    EmployeeService.getAllEmployee(token).then((response) => {
       setData(() => (response.data
       ));
+      console.log(response);
       
     });
   }, []);
@@ -99,7 +105,7 @@ const TableEmployee = () => {
   // };
 
   return (
-    <div className="table-admin">
+    <div className="table-employee">
       <MaterialReactTable  
         columns={columns} 
         data={data2} 

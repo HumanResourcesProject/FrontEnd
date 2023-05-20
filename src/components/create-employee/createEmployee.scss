@@ -1,3 +1,11 @@
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+
+
 .employee-register {
     display: flex;
     justify-content: space-evenly;
@@ -49,7 +57,7 @@
         }
       }
     .employee-register-profil-info {
-        width: 60%;
+        width: 70%;
         height: 100%;
         display: flex;
         flex-direction: column;
@@ -60,29 +68,19 @@
           flex-direction: column;
           gap: 40px;
         }
-        .employee-register-company-section{
+        .employee-company-section{
           display: flex;
-          width: 100%;
           gap: 30px;
           align-items: center;
-          .select-style{
+          select{
+              
                 background: none;
-                width: 100%;
+                width: 50%;
                 font-size: 16px;
                 border: 2px solid #afafaf;
                 border-radius: 10px;
                 color: rgb(196, 194, 194);
                 padding: 2px;
-          }
-          .select-style select {
-            width: 100%;
-            height: 100%;
-            padding: 8px;
-            background-color: transparent;
-            border: none;
-            outline: none;
-            font-size: 16px;
-            color: #333;
           }
           
           .select-style option {
@@ -102,14 +100,11 @@
           form {
             display: flex;
             flex-direction: column;
-            align-items: center;
-
             color: rgb(167, 166, 166);
             gap: 30px;
             .form-data{
               display: flex;
               gap: 10px;
-              align-items: center;
               .first-6{
                 display: flex;
                 flex-direction: column;
@@ -119,6 +114,15 @@
                   display: flex;
                   align-items: center;
                   justify-content: space-between;
+                  .inputs {
+                    margin: 5px;
+                    background: none;
+                    width: 50%;
+                    font-size: 16px;
+                    border: 2px solid #afafaf;
+                    border-radius: 10px;
+                    color: white;
+                }
                 }
               }
               .second-6{
@@ -130,39 +134,27 @@
                   display: flex;
                   align-items: center;
                   justify-content: space-between;
+                  .inputs {
+                    margin: 5px;
+                    background: none;
+                    width: 50%;
+                    font-size: 16px;
+                    border: 2px solid #afafaf;
+                    border-radius: 10px;
+                    color: white;
+                }
                 }
               }
-
             }
-            .longside{
-                display: flex;
-                flex-direction: column;
-                width: 100%;
-                gap: 10px;
-                .data{
-                  display: flex;
-                  align-items: center;
-                  justify-content: space-between;
-                  input{
-                    width: 75%;
-                  }
-                }
-              }
+            
             label {
               font-weight: 500;
             }
-            input {
-                margin: 5px;
-                background: none;
-                width: 50%;
-                font-size: 16px;
-                border: 2px solid #afafaf;
-                border-radius: 10px;
-                color: white;
-            }
+            
             button {
+              display: block;
               margin: 20px;
-              width: 100%;
+              width: 80%;
               height: 40px;
               font-weight: 700;
               color: #fafafa;
