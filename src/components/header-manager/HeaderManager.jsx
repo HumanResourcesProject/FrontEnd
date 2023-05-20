@@ -5,7 +5,7 @@ import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
 import CompanyManagerService from '../../service/CompanyManagerService';
 
-const HeaderManager = () => {
+const HeaderManager = ({ onToggleSidebar }) => {
 
   const [profil, setProfil] = useState([]);
   const [token] = useState({
@@ -25,7 +25,7 @@ const HeaderManager = () => {
   return (
     <div className="navbar">
       <div className="navbarleftside">
-        <MenuIcon className="menuicon" />
+        <MenuIcon onClick={onToggleSidebar} className="menuicon" />
         <p>Home</p>
       </div>
       <div className="navbarrightside">

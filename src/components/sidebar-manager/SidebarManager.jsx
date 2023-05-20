@@ -29,13 +29,7 @@ const SidebarManager = () => {
                 <div>My Profile</div>
               </Link>
             </li>
-            <li>
-              <Link to="/managerupdatepage" className="link d-flex">
-                <HowToRegOutlinedIcon />
-
-                <div>Profile Update</div>
-              </Link>
-            </li>
+            
 
             <li>
               <Link to="/employeeregister" className="link d-flex">

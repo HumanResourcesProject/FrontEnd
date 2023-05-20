@@ -12,7 +12,6 @@ import ManagerListPage from "./pages/admin/manager-list-page/ManagerListPage";
 import ManagerMainPage from "./pages/manager/manager-main-page/ManagerMainPage";
 import EmployeeRegister from "./pages/manager/employee-register-page/EmployeeRegister";
 import ManagerMyProfilePage from "./pages/manager/manager-my-profile-page/ManagerMyProfilePage";
-import ManagerUpdateProfilePage from "./pages/manager/manager-update-page/ManagerUpdateProfilePage";
 import ManagerListManagerPage from "./pages/manager/manager-list-manager-page/ManagerListManagerPage";
 import ListEmployeeLeavesPage from "./pages/manager/list-employee-leaves-page/ListEmployeeLeavesPage";
 import ListEmployeeAdvancePaymentsPage from "./pages/manager/list-employee-advence-payments-page/ListEmployeeAdvancePaymentsPage";
@@ -150,14 +149,7 @@ const App = () => {
           </ManagerElement>
         }
       />
-      <Route
-        path="/managerupdatepage"
-        element={
-          <ManagerElement>
-            <ManagerUpdateProfilePage />
-          </ManagerElement>
-        }
-      />
+      
       <Route
         path="/listmanagers"
         element={
