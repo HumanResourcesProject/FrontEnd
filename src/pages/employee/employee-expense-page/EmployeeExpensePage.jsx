@@ -3,16 +3,21 @@ import HeaderEmployee from "../../../components/header-employee/HeaderEmployee";
 import SidebarEmployee from "../../../components/sidebar-employee/SidebarEmployee";
 import "./employeeExpensePage.scss";
 import EmployeeExpense from '../../../components/employee-expense/EmployeeExpense';
-
+import { useState} from "react";
 
 const EmployeeExpensePage = () => {
+  const [sidebarOpen, setSidebarOpen] = useState(true);
+
+  const handleToggleSidebar = () => {
+    setSidebarOpen(!sidebarOpen);
+  };
   return (
     <div>
       <div>
-        <SidebarEmployee />
+      {sidebarOpen && <SidebarEmployee />}
       </div>
-      <div className="tablestaffleave-right">
-        <HeaderEmployee /> 
+      <div className="tablestaffleave-right" style={{marginLeft: sidebarOpen ? '250px' : '0px'}}>
+        <HeaderEmployee onToggleSidebar={handleToggleSidebar}/> 
         <EmployeeExpense />
       </div>
 
