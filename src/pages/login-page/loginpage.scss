@@ -34,13 +34,13 @@ $colors: (
     width: 40vw;
     .login-right {
       width: 48%;
-      height: 400px;
+
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 30px;
-      padding: 50px;
+      gap: 20px;
+      padding: 30px 50px 50px 50px;
       background-color:rgb(122,163,255) ;
       box-shadow: 10px 10px rgb(64,123,255);
       .top-text {
@@ -56,15 +56,24 @@ $colors: (
         form{
           width: 100%;
         }
-        .linkforgot{
-          display: block;
-          text-decoration: none;
-          color: rgb(235, 217, 217);
-          font-size: small;
-          .forgot-password{
-            font-weight: 500;
+        .forgot-div{
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: end;
+          margin-bottom: 15px;
+          .linkforgot{
+            display: block;
+            text-decoration: none;
+            color: rgb(235, 217, 217);
+            
+            .forgot-password{
+              font-weight: 500;
+              font-size: 12px;
+            }
           }
         }
+        
 
       }
       .button-part{

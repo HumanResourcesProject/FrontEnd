@@ -3,6 +3,7 @@ import Header from "../../../components/header/Header";
 import Sidebar from "../../../components/sidebar/Sidebar";
 import "./adminpage.scss";
 import { useState} from "react";
+import AdminMain from "../../../components/admin-main/AdminMain";
 
 const AdminPage = () => {
   const [sidebarOpen, setSidebarOpen] = useState(true);
@@ -17,7 +18,7 @@ const AdminPage = () => {
       </div>
       <div className="admin-right" style={{marginLeft: sidebarOpen ? '250px' : '0px'}}>
         <Header onToggleSidebar={handleToggleSidebar}/> 
-
+        <AdminMain/>
       </div>
 
     </div>
