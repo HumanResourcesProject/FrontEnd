@@ -11,7 +11,12 @@ const ManagerMyProfile = () => {
       try {
         const response = await ManagerService.getManagerInformations(token);
         setProfile(response);
-        setUpdate({ ...update,phone: response.data.phone,address: response.data.address,token: sessionStorage.getItem("token") });
+        setUpdate({
+          ...update,
+          phone: response.data.phone,
+          address: response.data.address,
+          token: sessionStorage.getItem("token"),
+        });
       } catch (error) {
         console.error(error);
       }
@@ -40,35 +45,33 @@ const ManagerMyProfile = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    setUpdate({...update,avatar:null})
+    setUpdate({ ...update, avatar: null });
     console.log(typeof update.avatar);
-    if(update.avatar === null ){
+    if (update.avatar === null) {
       console.log(update);
-      alert("stringdeyiz")
-      ManagerService.updateEmployeeInformationsString(update).then((response) => {
-        alert("Updated successfully!");
-      })
-      .catch((error) => {
-        alert("unexpected error");
-      });
-    }else{
+      alert("stringdeyiz");
+      ManagerService.updateEmployeeInformationsString(update)
+        .then((response) => {
+          alert("Updated successfully!");
+        })
+        .catch((error) => {
+          alert("unexpected error");
+        });
+    } else {
       ManagerService.updateEmployeeInformations(update)
-      .then((response) => {
-        alert("Updated successfully!");
-      })
-      .catch((error) => {
-        console.log(error);
-        alert("unexpected error");
-      });
-    } 
-    
+        .then((response) => {
+          alert("Updated successfully!");
+        })
+        .catch((error) => {
+          console.log(error);
+          alert("unexpected error");
+        });
+    }
   };
   return (
     <div className="manager-profile-body">
       <div className="company-part">
-        <div className="company-text">
-          Starbucks
-        </div>
+        <div className="company-text">Starbucks</div>
       </div>
       <div className="avatar-part">
         {image ? (
@@ -158,7 +161,7 @@ const ManagerMyProfile = () => {
           </div>
         </div>
         <div className="right-part">
-        <div className="input">
+          <div className="input">
             <label className="text">Email</label>
             <input
               disabled
@@ -185,7 +188,7 @@ const ManagerMyProfile = () => {
               defaultValue={profile.data.department || ""}
             />
           </div>
-         
+
           <div className="input">
             <label className="text">Phone *</label>
             <input
@@ -235,7 +238,9 @@ const ManagerMyProfile = () => {
         </div>
       </div>
       <div className="button-part">
-        <button onClick={handleSubmit} className="button-change">Change</button>
+        <button onClick={handleSubmit} className="button-change">
+          Change
+        </button>
       </div>
     </div>
   );

@@ -2,8 +2,9 @@ import React from "react";
 import { useState, useEffect } from "react";
 import "./createEmployee.scss";
 import CompanyService from "../../service/CompanyService";
-import AuthService from '../../service/AuthService';
+import AuthService from "../../service/AuthService";
 import EmailInput from "../email-input/EmailInput";
+import DriveFolderUploadIcon from "@mui/icons-material/DriveFolderUpload";
 
 const CreateEmployee = () => {
   const [employeeInfo, setEmployeeInfo] = useState({
@@ -16,12 +17,12 @@ const CreateEmployee = () => {
     phone: "",
     address: "",
     birthDate: "",
-    birthPlace:"",
+    birthPlace: "",
     company: "",
     occupation: "",
     department: "",
     jobStart: "",
-    //avatar: "",
+    avatar: "",
   });
   const [image, setImage] = useState("");
 
@@ -39,7 +40,6 @@ const CreateEmployee = () => {
       }
     );
   }, []);
-  
 
   const handleCreate = async (event) => {
     event.preventDefault();
@@ -67,28 +67,26 @@ const CreateEmployee = () => {
         alert("added successfully *****");
       })
       .catch((error) => {
-        alert(
-          "unexpected error"
-        );
+        alert("unexpected error");
       });
   };
 
   return (
     <div className="employee-register">
+      <div className="employee-register-company-part">
+        <div className="employee-register-company-text">Starbucks</div>
+      </div>
       <div className="employee-register-photo-section">
-        <div className="employee-register-profile-holder">
-          {/* <div className="employee-register-profile-image">
-            {image ? (
-              <img src={URL.createObjectURL(image)} />
-            ) : (
-              <img
-                src="https://cdn.pixabay.com/photo/2017/11/10/04/47/user-2935373_960_720.png"
-                alt="Rengoku"
-              />
-            )}
-          </div> */}
+          {image ? (
+            <img className="employee-register-avatar" src={URL.createObjectURL(image)} />
+          ) : (
+            <img className="employee-register-avatar"
+              src="https://cdn.pixabay.com/photo/2017/11/10/04/47/user-2935373_960_720.png"
+              alt="Rengoku"
+            />
+          )}
         </div>
-        {/* <div className="employee-register-buttons">
+        <div className="employee-register-buttons">
           <label htmlFor="file" className="choosefilebutton">
             <DriveFolderUploadIcon className="uploadicon" />
             Choose a File
@@ -99,39 +97,12 @@ const CreateEmployee = () => {
             style={{ display: "none" }}
             onChange={onchangeImage}
           />
-        </div> */}
       </div>
       <div className="employee-register-profil-info">
-        <div className="employee-register-information">
-          <h2>Employee Registration</h2>
-        
           <form onSubmit={handleCreate}>
-            <div className="employee-company-section">
-              <label htmlFor="employee-select">Select Company:</label>
-              <select
-                id="company-select"
-                className="select-style"
-                defaultValue=""
-                onChange={(event) =>
-                  setEmployeeInfo({
-                    ...employeeInfo,
-                    company: event.target.value,
-                  })
-                }
-              >
-                {/* Burada companyMs nin endpoint' inden gelen Companyler listelenecek */}
-                <option value="" disabled >Please select a company</option>
-
-                {companies.map((company,index) => (
-                  <option key={index} value={company.name}>
-                    {company.name}
-                  </option>
-                ))}
-              </select>
-            </div>
-            <div className="form-data">
-              <div className="first-6">
-                <div className="data">
+            <div className="input-area">
+            <div className="first-6">
+                <div className="input-data">
                   <label>Identify number:</label>
                   <input
                     className="inputs"
@@ -144,10 +115,10 @@ const CreateEmployee = () => {
                     }
                   />
                 </div>
-                <div className="data">
+                <div className="input-data">
                   <label>Name:</label>
                   <input
-                  className="inputs"
+                    className="inputs"
                     type="text"
                     onChange={(e) =>
                       setEmployeeInfo({
@@ -157,10 +128,10 @@ const CreateEmployee = () => {
                     }
                   />
                 </div>
-                <div className="data">
+                <div className="input-data">
                   <label>Surname:</label>
                   <input
-                  className="inputs"
+                    className="inputs"
                     type="text"
                     onChange={(e) =>
                       setEmployeeInfo({
@@ -170,10 +141,10 @@ const CreateEmployee = () => {
                     }
                   />
                 </div>
-                <div className="data">
+                <div className="input-data">
                   <label>Mid Name:</label>
                   <input
-                  className="inputs"
+                    className="inputs"
                     type="text"
                     onChange={(e) =>
                       setEmployeeInfo({
@@ -184,10 +155,10 @@ const CreateEmployee = () => {
                   />
                 </div>
 
-                <div className="data">
+                <div className="input-data">
                   <label>Date of Birth:</label>
                   <input
-                  className="inputs"
+                    className="inputs"
                     type="date"
                     min="1900-01-01"
                     max="2005-01-01"
@@ -199,10 +170,10 @@ const CreateEmployee = () => {
                     }
                   />
                 </div>
-                <div className="data">
+                <div className="input-data">
                   <label>Birth-place:</label>
                   <input
-                  className="inputs"
+                    className="inputs"
                     type="text"
                     onChange={(e) =>
                       setEmployeeInfo({
@@ -214,10 +185,10 @@ const CreateEmployee = () => {
                 </div>
               </div>
               <div className="second-6">
-                <div className="data">
+                <div className="input-data">
                   <label>Job-start-date:</label>
                   <input
-                  className="inputs"
+                    className="inputs"
                     type="date"
                     min={new Date().toISOString().substring(0, 10)}
                     max="2005-01-01"
@@ -229,10 +200,10 @@ const CreateEmployee = () => {
                     }
                   />
                 </div>
-                <div className="data">
+                <div className="input-data">
                   <label>Occupation:</label>
                   <input
-                  className="inputs"
+                    className="inputs"
                     type="text"
                     onChange={(e) =>
                       setEmployeeInfo({
@@ -242,10 +213,10 @@ const CreateEmployee = () => {
                     }
                   />
                 </div>
-                <div className="data">
+                <div className="input-data">
                   <label>Department:</label>
                   <input
-                  className="inputs"
+                    className="inputs"
                     type="text"
                     onChange={(e) =>
                       setEmployeeInfo({
@@ -256,12 +227,15 @@ const CreateEmployee = () => {
                   />
                 </div>
 
-                <div className="data">
+                <div className="input-data">
                   <label>E-Mail</label>
-                 <EmailInput onEmailChange={(email)=>
-                setEmployeeInfo({...employeeInfo,email})}/>
+                  <EmailInput className="email-input-data"
+                    onEmailChange={(email) =>
+                      setEmployeeInfo({ ...employeeInfo, email })
+                    }
+                  />
                 </div>
-                <div className="data">
+                <div className="input-data">
                   <label>Phone:</label>
                   <input
                     type="number"
@@ -274,10 +248,10 @@ const CreateEmployee = () => {
                     }
                   />
                 </div>
-                <div className="data">
+                <div className="input-data">
                   <label>Address:</label>
                   <input
-                  className="inputs"
+                    className="inputs"
                     type="text"
                     onChange={(e) =>
                       setEmployeeInfo({
@@ -290,13 +264,15 @@ const CreateEmployee = () => {
               </div>
             </div>
 
-            <button type="submit" className="save-button">
+            <div className="employee-register-button-part">
+              <button type="submit" className="save-button">
               Save
             </button>
+            </div>
           </form>
         </div>
+        
       </div>
-    </div>
   );
 };
 export default CreateEmployee;
