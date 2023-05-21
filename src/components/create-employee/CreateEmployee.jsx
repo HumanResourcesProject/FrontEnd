@@ -229,7 +229,7 @@ const CreateEmployee = () => {
 
                 <div className="input-data">
                   <label>E-Mail</label>
-                  <EmailInput className="email-input-data"
+                  <EmailInput className="email-input"
                     onEmailChange={(email) =>
                       setEmployeeInfo({ ...employeeInfo, email })
                     }
