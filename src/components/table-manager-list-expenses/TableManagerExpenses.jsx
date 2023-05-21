@@ -150,6 +150,7 @@ const TableManagerExpenses = () => {
   };
   return (
     <div className="table-manager-expenses">
+      <h2>Expenses Table</h2>
       <MaterialReactTable
         columns={columns}
         data={data2}
@@ -328,17 +329,17 @@ const TableManagerExpenses = () => {
           to="/listemployeeleaves"
           className="expenses-button-left expenses-button"
         >
-          <div>
-            <p>Leave Requests</p>
-          </div>
+
+            <p className="text-leave">Leave Requests</p>
+
         </Link>
         <Link
           to="/listemployeeadvancepayments"
           className="expenses-button-right expenses-button"
         >
-          <div>
-            <p>Advance Payments Requests</p>
-          </div>
+
+            <p className="text-adv">Advance Payments Requests</p>
+
         </Link>
       </div>
     </div>

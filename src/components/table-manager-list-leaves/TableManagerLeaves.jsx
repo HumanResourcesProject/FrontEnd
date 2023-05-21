@@ -2,15 +2,15 @@ import React, { useMemo, useState, useEffect } from "react";
 import MaterialReactTable from "material-react-table";
 import "./tableManagerLeaves.scss";
 import RequirementsService from "../../service/RequirementsService";
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 
 const TableManagerLeaves = () => {
   const [data, setData] = useState([]);
-  
+
   useEffect(() => {
     const token = {
-      token: sessionStorage.getItem('token'),
-      role: sessionStorage.getItem('role'),
+      token: sessionStorage.getItem("token"),
+      role: sessionStorage.getItem("role"),
     };
 
     RequirementsService.findallpendingleaves(token)
@@ -18,38 +18,27 @@ const TableManagerLeaves = () => {
         setData(response.data);
       })
       .catch((error) => {
-        console.error('Error fetching data: ', error);
+        console.error("Error fetching data: ", error);
       });
   }, []);
 
   const columns = useMemo(
     () => [
       {
-        accessorFn: (row) => `${row.employeeId} `,
-        id: "employeeId",
-        header: "Employee Id",
-        size: 150,
-        enableEditing: false,
-      },
-      {
-        accessorKey: 'employeeName', 
-        header: 'Employee Name',
-        size: 200,
-        enableEditing:false 
-      },
-      {
-        accessorKey: 'employeeSurname',
-        header: 'Employee Surname',
-        size: 150,
-        enableEditing:true 
-
-      },
-      {
         accessorKey: "type",
         header: "Type",
-        size: 200,
+        size: 100,
         enableEditing: false,
       },
+      {
+        accessorFn: (row) => `${row.employeeName} ${row.employeeSurname} `,
+        id: "employeeName",
+        header: "Name & Surname",
+        size: 150,
+        enableEditing: false,
+      },
+      
+      
       {
         accessorKey: "requestDate",
         header: "Request Date",
@@ -91,22 +80,28 @@ const TableManagerLeaves = () => {
   );
 
   return (
-
-      <div className="table-manager-leaves">
-        <MaterialReactTable columns={columns} data={data} />
+    <div className="table-manager-leaves">
+      <h2>Leave Requests Table</h2>
+      <MaterialReactTable columns={columns} data={data} />
       <div className="linktobuttons-leaves">
-      <Link to="/listemployeeadvancepayments"  className="leaves-button-right leaves-button">
-        <div>
-          <p>Advance Payments Requests</p>
-        </div>
-      </Link>
-      <Link to="/listemployeeexpenses"  className="leaves-button-left leaves-button">
-        <div>
-          <p>Expenses Requests</p>
-        </div>
-      </Link>
+        <Link
+          to="/listemployeeadvancepayments"
+          className="leaves-button-right leaves-button"
+        >
+          
+            <p className="text-adv">Advance Payments Requests</p>
+          
+        </Link>
+        <Link
+          to="/listemployeeexpenses"
+          className="leaves-button-left leaves-button"
+        >
+          
+            <p className="text-expense">Expenses Requests</p>
+          
+        </Link>
       </div>
-      </div>
+    </div>
   );
 };
 

@@ -68,7 +68,8 @@ const MainPage = () => {
           <div className="employees">
             <div className="employee-chart">
               <div className="employee-detail">
-                <img className="employee-avatar"
+                <img
+                  className="employee-avatar"
                   src="https://images.ctfassets.net/lh3zuq09vnm2/yBDals8aU8RWtb0xLnPkI/19b391bda8f43e16e64d40b55561e5cd/How_tracking_user_behavior_on_your_website_can_improve_customer_experience.png"
                   alt=""
                 />
@@ -79,11 +80,12 @@ const MainPage = () => {
               </div>
               <div className="grade">
                 <div className="number">157</div>
-                </div>
+              </div>
             </div>
             <div className="employee-chart">
               <div className="employee-detail">
-                <img className="employee-avatar"
+                <img
+                  className="employee-avatar"
                   src="https://images.ctfassets.net/lh3zuq09vnm2/yBDals8aU8RWtb0xLnPkI/19b391bda8f43e16e64d40b55561e5cd/How_tracking_user_behavior_on_your_website_can_improve_customer_experience.png"
                   alt=""
                 />
@@ -94,11 +96,12 @@ const MainPage = () => {
               </div>
               <div className="grade">
                 <div className="number">157</div>
-                </div>
+              </div>
             </div>
             <div className="employee-chart">
               <div className="employee-detail">
-                <img className="employee-avatar"
+                <img
+                  className="employee-avatar"
                   src="https://images.ctfassets.net/lh3zuq09vnm2/yBDals8aU8RWtb0xLnPkI/19b391bda8f43e16e64d40b55561e5cd/How_tracking_user_behavior_on_your_website_can_improve_customer_experience.png"
                   alt=""
                 />
@@ -109,11 +112,12 @@ const MainPage = () => {
               </div>
               <div className="grade">
                 <div className="number">157</div>
-                </div>
+              </div>
             </div>
             <div className="employee-chart">
               <div className="employee-detail">
-                <img className="employee-avatar"
+                <img
+                  className="employee-avatar"
                   src="https://images.ctfassets.net/lh3zuq09vnm2/yBDals8aU8RWtb0xLnPkI/19b391bda8f43e16e64d40b55561e5cd/How_tracking_user_behavior_on_your_website_can_improve_customer_experience.png"
                   alt=""
                 />
@@ -124,11 +128,126 @@ const MainPage = () => {
               </div>
               <div className="grade">
                 <div className="number">157</div>
-                </div>
+              </div>
             </div>
           </div>
         </div>
-        <div className="right-part"></div>
+        <div className="right-part">
+          <div className="annual-box">
+            <div className="expenses-title">Monthly Expenses</div>
+            <div className="expenses-data">
+              <div className="left-side">
+                <img className="money-img"
+                  src="https://img.icons8.com/?size=512&id=63986&format=png"
+                  alt=""
+                />
+                <div className="text">
+                  <div className="text-top">Camelun ios</div>
+                  <div className="text-bottom">
+                    <div className="colored-text">17/23</div>
+                    <div className="normal-text">months paid</div>
+                  </div>
+                </div>
+                
+              </div>
+              <div className="right-side">
+                <div className="text-top">
+                  <img
+                  className="dolar-img"
+                    src="https://img.freepik.com/free-vector/illustration-financial-concept_53876-5917.jpg?w=826&t=st=1684685717~exp=1684686317~hmac=56e31a295c3f133a085f5574eea18c60d6a5513587a2958ee77fe68d01eddd1e"
+                    alt=""
+                  />
+                  <div className="amount">16,634.00</div>
+                </div>
+                <div className="text-bottom">per month</div>
+              </div>
+            </div>
+            <div className="expenses-data">
+              <div className="left-side">
+                <img className="money-img"
+                  src="https://img.icons8.com/?size=512&id=63986&format=png"
+                  alt=""
+                />
+                <div className="text">
+                  <div className="text-top">Camelun ios</div>
+                  <div className="text-bottom">
+                    <div className="colored-text">17/23</div>
+                    <div className="normal-text">months paid</div>
+                  </div>
+                </div>
+                
+              </div>
+              <div className="right-side">
+                <div className="text-top">
+                  <img
+                  className="dolar-img"
+                    src="https://img.freepik.com/free-vector/illustration-financial-concept_53876-5917.jpg?w=826&t=st=1684685717~exp=1684686317~hmac=56e31a295c3f133a085f5574eea18c60d6a5513587a2958ee77fe68d01eddd1e"
+                    alt=""
+                  />
+                  <div className="amount">16,634.00</div>
+                </div>
+                <div className="text-bottom">per month</div>
+              </div>
+            </div>
+          </div>
+          <div className="annual-box">
+            <div className="expenses-title">Monthly Expenses</div>
+            <div className="expenses-data">
+              <div className="left-side">
+                <img className="money-img"
+                  src="https://img.icons8.com/?size=512&id=63986&format=png"
+                  alt=""
+                />
+                <div className="text">
+                  <div className="text-top">Camelun ios</div>
+                  <div className="text-bottom">
+                    <div className="colored-text">17/23</div>
+                    <div className="normal-text">months paid</div>
+                  </div>
+                </div>
+                
+              </div>
+              <div className="right-side">
+                <div className="text-top">
+                  <img
+                  className="dolar-img"
+                    src="https://img.freepik.com/free-vector/illustration-financial-concept_53876-5917.jpg?w=826&t=st=1684685717~exp=1684686317~hmac=56e31a295c3f133a085f5574eea18c60d6a5513587a2958ee77fe68d01eddd1e"
+                    alt=""
+                  />
+                  <div className="amount">16,634.00</div>
+                </div>
+                <div className="text-bottom">per month</div>
+              </div>
+            </div>
+            <div className="expenses-data">
+              <div className="left-side">
+                <img className="money-img"
+                  src="https://img.icons8.com/?size=512&id=63986&format=png"
+                  alt=""
+                />
+                <div className="text">
+                  <div className="text-top">Camelun ios</div>
+                  <div className="text-bottom">
+                    <div className="colored-text">17/23</div>
+                    <div className="normal-text">months paid</div>
+                  </div>
+                </div>
+                
+              </div>
+              <div className="right-side">
+                <div className="text-top">
+                  <img
+                  className="dolar-img"
+                    src="https://img.freepik.com/free-vector/illustration-financial-concept_53876-5917.jpg?w=826&t=st=1684685717~exp=1684686317~hmac=56e31a295c3f133a085f5574eea18c60d6a5513587a2958ee77fe68d01eddd1e"
+                    alt=""
+                  />
+                  <div className="amount">16,634.00</div>
+                </div>
+                <div className="text-bottom">per month</div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

@@ -5,9 +5,8 @@
   .small-boxes{
     display: flex;
     justify-content: space-between;
-    width: 90%;
-    background-color: rgb(251, 244, 254);
-    padding: 15px;
+    width: 93%;
+    
     flex-wrap: wrap;
     .box{
       box-shadow: 0px 0px 10px 3px rgba(0,0,0,0.1);
@@ -45,10 +44,15 @@
     }
   }
   .middle-part{
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    width: 93%;
+    margin-bottom: 50px;
     .left-part{
       display: flex;
       flex-direction: column;
-      width: 35%;
+      width: 45%;
       .title-part{
         display: flex;
         justify-content: space-between;
@@ -113,6 +117,80 @@
               color: white;
               font-size: small;
               font-weight: 600;
+            }
+          }
+        }
+      }
+    }
+    .right-part{
+      display: flex;
+      flex-direction: column;
+      width: 45%;
+      gap: 30px;
+      .annual-box{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 20px;
+        padding: 0px 30px 0px 30px;
+        height: 240px;
+
+        box-shadow: 0px 0px 10px 3px rgba(0,0,0,0.1);
+        border-radius: 10px;
+        .expenses-title{
+          font-size: 30px;
+        }
+        .expenses-data{ 
+          display: flex;
+          justify-content: space-between;
+          .left-side{
+            display: flex;
+            flex-direction: row; 
+            align-items: center;
+            gap: 15px;
+              .money-img{
+                width: 50px;
+                height: 50px;
+              }  
+              .text{
+                display: flex;
+                flex-direction: column;
+                .text-top{
+                  font-weight: 600;
+                }
+                .text-bottom{
+                  display: flex;
+                  gap: 5px;
+                  align-items: center;
+                  .colored-text{
+                    color: green;
+                    font-weight: 500;
+                  }
+                  .normal-text{
+                    font-size: 13px;
+                  }
+                }
+              }
+          }
+          .right-side{
+            display: flex;
+            flex-direction: column;
+            align-items: end;
+            .text-top{
+              display: flex;
+              .dolar-img{
+                width: 30px;
+                mix-blend-mode: color;
+              }
+              .amount{
+                font-weight: 600;
+                font-size: 18px;
+              }
+            }
+            .text-bottom{
+              font-weight: 500;
+              color: rgb(98, 98, 98);
+              font-size: 15px;
             }
           }
         }

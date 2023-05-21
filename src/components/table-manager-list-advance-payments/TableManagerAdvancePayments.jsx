@@ -151,6 +151,7 @@ const TableManagerAdvancePayments = () => {
 
   return (
     <div className="table-manager-advance-payments">
+      <h2>Advance Payment Table</h2>
       <MaterialReactTable
         columns={columns}
         data={data}
@@ -308,17 +309,17 @@ const TableManagerAdvancePayments = () => {
           to="/listemployeeexpenses"
           className="advance-payments-button-left advance-payments-button"
         >
-          <div>
-            <p>Expenses Requests</p>
-          </div>
+
+            <p className="text-expense">Expenses Requests</p>
+
         </Link>
         <Link
           to="/listemployeeleaves"
           className="advance-payments-button-right advance-payments-button"
         >
-          <div>
-            <p>Leave Requests</p>
-          </div>
+
+            <p className="text-leave">Leave Requests</p>
+
         </Link>
       </div>
     </div>
