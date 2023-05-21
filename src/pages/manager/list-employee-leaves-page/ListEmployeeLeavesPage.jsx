@@ -16,7 +16,7 @@ const ListEmployeeLeavesPage = () => {
     <div>
     {sidebarOpen && <SidebarManager />}
     </div>
-    <div className="employee-list-leaves-right" style={{marginLeft: sidebarOpen ? '250px' : '0px'}}>
+    <div className="employee-list-leaves-right" style={{marginLeft: sidebarOpen ? '220px' : '0px'}}>
       <HeaderManager onToggleSidebar={handleToggleSidebar}/>
       <TableManagerLeaves/>
     </div> 

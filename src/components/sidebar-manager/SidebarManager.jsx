@@ -1,24 +1,28 @@
 import React, { useState, useEffect } from "react";
 import "./sidebarManager.scss";
 import { Link } from "react-router-dom";
-import HowToRegOutlinedIcon from "@mui/icons-material/HowToRegOutlined";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import SupervisorAccountOutlinedIcon from "@mui/icons-material/SupervisorAccountOutlined";
 import LogoutOutlinedIcon from "@mui/icons-material/LogoutOutlined";
 import Groups3Icon from "@mui/icons-material/Groups3";
+import managericon from "../../assets/images/manager-icon.png"
+import PersonAddIcon from '@mui/icons-material/PersonAdd';
+import GroupsIcon from '@mui/icons-material/Groups';
+import WorkOutlineIcon from '@mui/icons-material/WorkOutline';
+import DescriptionIcon from '@mui/icons-material/Description';
 
 const SidebarManager = () => {
   
   return (
-    <aside className="full-sidebar">
+    <aside className="full-sidebar-manager">
       <div>
-        <div className="sidebar-top">
+        <div className="sidebar-upper">
           <Link to="/manager" className="sidebar-title-link">
             <img
-              src="https://img.icons8.com/?size=512&id=so2NxZq25dzw&format=png"
+              src={managericon}
               alt=""
             />
-            <p className="sidebar-title">HR Manager Page</p>
+            <p className="sidebar-title">HRP Manager</p>
           </Link>
         </div>
         <div className="sidebar-main">
@@ -33,25 +37,25 @@ const SidebarManager = () => {
 
             <li>
               <Link to="/employeeregister" className="link d-flex">
-                <SupervisorAccountOutlinedIcon />
-                <div>Employee Register</div>
+                <PersonAddIcon />
+                Employee Register
               </Link>
             </li>
             <li>
               <Link to="/listmanagers" className="link d-flex">
-                <Groups3Icon />
-                <div>Company Manager List</div>
+                <GroupsIcon />
+                <div>Manager List</div>
               </Link>
             </li>
             <li>
               <Link to="/employeelistpage" className="link d-flex">
-                <SupervisorAccountOutlinedIcon />
+                <GroupsIcon />
                 <div>Employee List</div>
               </Link>
             </li> 
             <li>
               <Link to="/managerequests" className="link d-flex">
-                <Groups3Icon />
+                <DescriptionIcon />
                 <div>Manage Requests</div>
               </Link>
             </li>
@@ -61,12 +65,13 @@ const SidebarManager = () => {
       <div className="lg">
         <Link to="/loginpage" className="linklogout">
           <div className="logout d-flex">
-            <LogoutOutlinedIcon style={{ color: "white" }} />
+            <LogoutOutlinedIcon  sx={{ fontSize: 20 }} className="icon" />
             <div className="fw-large lout">Logout </div>
           </div>
         </Link>
       </div>
     </aside>
+
   );
 };
 export default SidebarManager;

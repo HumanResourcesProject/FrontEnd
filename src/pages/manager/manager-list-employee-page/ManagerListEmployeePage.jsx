@@ -16,7 +16,7 @@ const ManagerListEmployeePage = () => {
       <div>
       {sidebarOpen && <SidebarManager />}
       </div>
-      <div className="manager-list-employee-right" style={{marginLeft: sidebarOpen ? '250px' : '0px'}}>
+      <div className="manager-list-employee-right" style={{marginLeft: sidebarOpen ? '220px' : '0px'}}>
         <HeaderManager onToggleSidebar={handleToggleSidebar}/>
         <TableManagerListEmployee/>
       </div> 

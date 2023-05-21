@@ -16,7 +16,7 @@ const ListEmployeeAdvancePaymentsPage = () => {
     <div>
     {sidebarOpen && <SidebarManager />}
     </div>
-    <div className="employee-list-advance-payments-right" style={{marginLeft: sidebarOpen ? '250px' : '0px'}}>
+    <div className="employee-list-advance-payments-right" style={{marginLeft: sidebarOpen ? '220px' : '0px'}}>
       <HeaderManager onToggleSidebar={handleToggleSidebar}/>
       <TableManagerAdvancePayments/>
     </div> 

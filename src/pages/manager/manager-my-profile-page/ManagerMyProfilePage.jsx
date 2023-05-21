@@ -16,7 +16,7 @@ const ManagerMyProfilePage = () => {
       <div className="manager-sidebar">
       {sidebarOpen && <SidebarManager />}
       </div>
-      <div className="manager-right" style={{marginLeft: sidebarOpen ? '250px' : '0px'}}>
+      <div style={{marginLeft: sidebarOpen ? '220px' : '0px'}}>
         <HeaderManager onToggleSidebar={handleToggleSidebar}/> 
         <ManagerMyProfile/>
       </div>

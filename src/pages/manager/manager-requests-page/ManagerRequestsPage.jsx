@@ -16,7 +16,7 @@ const ManagerRequestsPage = () => {
     <div>
     {sidebarOpen && <SidebarManager />}
     </div>
-    <div className="manager-requests-right" style={{marginLeft: sidebarOpen ? '250px' : '0px'}}>
+    <div className="manager-requests-right" style={{marginLeft: sidebarOpen ? '220px' : '0px'}}>
       <HeaderManager onToggleSidebar={handleToggleSidebar}/>
       <ManagerRequests/>
     </div> 

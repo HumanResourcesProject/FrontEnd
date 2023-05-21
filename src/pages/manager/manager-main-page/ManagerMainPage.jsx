@@ -1,7 +1,7 @@
 import React from 'react'
 import HeaderManager from "../../../components/header-manager/HeaderManager";
 import SidebarManager from "../../../components/sidebar-manager/SidebarManager";
-import MainPage from "../../../components/mainpage/MainPage";
+import MainPage from "../../../components/manager-mainpage/ManagerMain";
 import "./managerMainPage.scss";
 import { useState} from "react";
 
@@ -12,11 +12,11 @@ const ManagerMainPage = () => {
     setSidebarOpen(!sidebarOpen);
   };
   return (
-    <div className="manager-page">
-      <div className="manager-sidebar">
+    <div >
+      <div >
       {sidebarOpen && <SidebarManager />}
       </div>
-      <div className="manager-right" style={{marginLeft: sidebarOpen ? '250px' : '0px'}}>
+      <div style={{marginLeft: sidebarOpen ? '220px' : '0px'}}>
         <HeaderManager onToggleSidebar={handleToggleSidebar}/> 
         <MainPage/>
       </div>

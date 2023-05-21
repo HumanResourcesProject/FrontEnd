@@ -16,7 +16,7 @@ const EmployeeRegister = () => {
     <div>
     {sidebarOpen && <SidebarManager />}
     </div>
-    <div className="employee-register-right" style={{marginLeft: sidebarOpen ? '250px' : '0px'}}>
+    <div style={{marginLeft: sidebarOpen ? '220px' : '0px'}}>
       <HeaderManager onToggleSidebar={handleToggleSidebar}/>
       <CreateEmployee/>
     </div> 
