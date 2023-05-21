@@ -106,95 +106,45 @@ const ManagerMyProfile = () => {
         <div className="left-part">
           <div className="input">
             <label className="text">IdentityNumber</label>
-            <input
-              disabled
-              className="detail-input"
-              type="text"
-              defaultValue={profile.data.identityNumber || ""}
-            />
+            <p
+              className="detail-p"
+            >{profile.data.identityNumber || "-"}</p>
           </div>
           <div className="input">
             <label className="text">Name</label>
-            <input
-              disabled
-              className="detail-input"
-              type="text"
-              defaultValue={profile.data.name || ""}
-            />
+            <p
+              className="detail-p">  
+              {profile.data.name || "-"}
+            </p>
           </div>
 
           <div className="input">
             <label className="text">Middle Name</label>
-            <input
-              disabled
-              className="detail-input"
-              type="text"
-              defaultValue={profile.data.middleName || ""}
-            />
+            <p
+              className="detail-p">  
+              {profile.data.middleName || "-"}
+            </p>
           </div>
           <div className="input">
             <label className="text">Surname</label>
-            <input
-              disabled
-              className="detail-input"
-              type="text"
-              defaultValue={profile.data.surname || ""}
-            />
+            <p
+              className="detail-p">  
+              {profile.data.surname || "-"}
+            </p>
           </div>
           <div className="input">
             <label className="text">Date of Birth</label>
-            <input
-              disabled
-              className="detail-input"
-              type="text"
-              defaultValue={profile.data.birthDate || ""}
-            />
+            <p
+              className="detail-p">  
+              {profile.data.birthDate || "-"}
+            </p>
           </div>
-          <div className="input">
-            <label className="text">Date of Place</label>
-            <input
-              disabled
-              className="detail-input"
-              type="text"
-              defaultValue={profile.data.birthPlace || ""}
-            />
-          </div>
-        </div>
-        <div className="right-part">
-          <div className="input">
-            <label className="text">Email</label>
-            <input
-              disabled
-              className="detail-input"
-              type="text"
-              defaultValue={profile.data.email || ""}
-            />
-          </div>
-          <div className="input">
-            <label className="text">Occupation</label>
-            <input
-              disabled
-              className="detail-input"
-              type="text"
-              defaultValue={profile.data.occupation || ""}
-            />
-          </div>
-          <div className="input">
-            <label className="text">Department</label>
-            <input
-              disabled
-              className="detail-input"
-              type="text"
-              defaultValue={profile.data.department || ""}
-            />
-          </div>
-
           <div className="input">
             <label className="text">Phone *</label>
             <input
               className="editable"
               type="text"
-              defaultValue={profile.data.phone || ""}
+              defaultValue={profile.data.phone || "-"}
               onChange={(event) => {
                 setUpdate({
                   ...update,
@@ -203,12 +153,51 @@ const ManagerMyProfile = () => {
               }}
             />
           </div>
+
+        </div>
+        <div className="right-part">
+          <div className="input">
+            <label className="text">Email</label>
+            <p
+              className="detail-p">  
+              {profile.data.email || "-"}
+            </p>
+          </div>
+          <div className="input">
+            <label className="text">Job Start Date</label>
+            <p
+              className="detail-p">  
+              {profile.data.jobStart || "-"}
+            </p>
+          </div>
+          <div className="input">
+            <label className="text">Occupation</label>
+            <p
+              className="detail-p">  
+              {profile.data.occupation || "-"}
+            </p>
+          </div>
+          <div className="input">
+            <label className="text">Department</label>
+            <p
+              className="detail-p">  
+              {profile.data.department || "-"}
+            </p>
+          </div>
+
+          <div className="input">
+            <label className="text">Date of Place</label>
+            <p
+              className="detail-p">  
+              {profile.data.birthPlace || "-"}
+            </p>
+          </div>
           <div className="input">
             <label className="text">Address *</label>
             <input
               className="editable"
               type="text"
-              defaultValue={profile.data.address || ""}
+              defaultValue={profile.data.address || "-"}
               onChange={(event) => {
                 setUpdate({
                   ...update,
@@ -226,15 +215,7 @@ const ManagerMyProfile = () => {
               defaultValue={profile.data.company || ""}
             />
           </div> */}
-          <div className="input">
-            <label className="text">Job Start Date</label>
-            <input
-              disabled
-              className="detail-input"
-              type="text"
-              defaultValue={profile.data.jobStart || ""}
-            />
-          </div>
+
         </div>
       </div>
       <div className="button-part">

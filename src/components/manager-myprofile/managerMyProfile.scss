@@ -15,7 +15,7 @@
     width: 80%;
     .company-text {
       padding: 10px;
-      font-size: xx-large;
+      font-size: x-large;
       font-weight: 700;
       font-family: Arial, Helvetica, sans-serif;
     }
@@ -36,9 +36,9 @@
   }
   .detail-part {
     display: flex;
-    width: 70%;
+    width: 60%;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-evenly;
     .left-part {
       width: 35%;
       display: flex;
@@ -50,17 +50,23 @@
         gap: 5px;
         .text {
           font-size: small;
+          font-weight: 700;
           font-family: "Roboto", sans-serif;
         }
-
-        .detail-input {
-          background-color: rgb(207, 206, 206);
-          border: none;
-          border-radius: 3px;
-          line-height: 25px;
-          padding: 8px;
-          font-weight: 500;
-        }
+        .detail-p {
+            font-size: medium;
+            font-weight: 300;
+            line-height: 10px;
+            margin: 10px;
+          }
+          .editable {
+            background-color: rgb(233, 231, 231);
+            border: none;
+            border-radius: 3px;
+            line-height: 25px;
+            padding: 4px;
+            font-weight: 500;
+          }
       }
     }
     .right-part {
@@ -73,23 +79,22 @@
         flex-direction: column;
         gap: 5px;
         .text {
-          font-size: small;
-          font-family: "Roboto", sans-serif;
+            font-size: small;
+            font-weight: 700;
+            font-family: "Roboto", sans-serif;
         }
-        .detail-input {
-          background-color: rgb(207, 206, 206);
-          border: none;
-          border-radius: 3px;
-          line-height: 25px;
-          padding: 8px;
-          font-weight: 500;
-        }
+        .detail-p {
+            font-size: medium;
+            font-weight: 300;
+            line-height: 10px;
+            margin: 10px;
+          }
         .editable {
           background-color: rgb(233, 231, 231);
           border: none;
           border-radius: 3px;
           line-height: 25px;
-          padding: 8px;
+          padding: 4px;
           font-weight: 500;
         }
       }
@@ -101,7 +106,7 @@
     justify-content: center;
     height: 40px;
     .button-change {
-      width: 100%;
+      width: 30%;
       color: white;
       padding: 5px;
       background-color: rgb(59, 59, 59);
