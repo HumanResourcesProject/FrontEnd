@@ -136,17 +136,17 @@ const App = () => {
       <Route
         path="/employeeregister"
         element={
-          <PublicElement>
+          <ManagerElement>
             <EmployeeRegister />
-          </PublicElement>
+          </ManagerElement>
         }
       />
       <Route
         path="/managermyprofilepage"
         element={
-          <PublicElement>
+          <ManagerElement>
             <ManagerMyProfilePage />
-          </PublicElement>
+          </ManagerElement>
         }
       />
       <Route
