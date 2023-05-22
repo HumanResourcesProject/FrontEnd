@@ -255,7 +255,7 @@ const CreateEmployee = () => {
                   <input
                     pattern="^[0-9]{9,11}$"
                     title="Please enter a valid phone"
-                    type="number"
+                    type="number" required
                     className="inputs"
                     onChange={(e) =>
                       setEmployeeInfo({
