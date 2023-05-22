@@ -3,16 +3,21 @@ import "./createCompanyPage.scss";
 import Header from "../../../components/header/Header";
 import Sidebar from "../../../components/sidebar/Sidebar";
 import CreateCompany from "../../../components/create-company/CreateCompany";
-
+import { useState} from "react";
 
 const CreateCompanyPage = () => {
+  const [sidebarOpen, setSidebarOpen] = useState(true);
+
+  const handleToggleSidebar = () => {
+    setSidebarOpen(!sidebarOpen);
+  };
   return (
     <div className="admin-page">
     <div className="admin_sidebar">
-      <Sidebar />
+    {sidebarOpen && <Sidebar />}
     </div>
-    <div className="admin-right">
-      <Header />
+    <div className="admin-right" style={{marginLeft: sidebarOpen ? '250px' : '0px'}}>
+      <Header onToggleSidebar={handleToggleSidebar} />
       <CreateCompany/>
     </div> 
  

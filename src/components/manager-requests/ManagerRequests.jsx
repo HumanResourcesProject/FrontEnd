@@ -34,19 +34,19 @@ const ManagerRequests = () => {
     <div className="requests-container">
       <Link to="/listemployeeleaves" className="requests-left request-block">
         <div >
-          <h4>Leave Requests</h4>
+          <h4 className="text-leave">Leave Requests</h4>
           <p>{leaves} request waiting for your approval decision.</p>
         </div>
       </Link>
       <Link to="/listemployeeadvancepayments"  className="requests-middle request-block">
         <div>
-          <h4>Advance Payments Requests</h4>
+          <h4 className="text-adv">Advance Payments Requests</h4>
           <p>{advancePayment} request waiting for your approval decision</p>
         </div>
       </Link>
       <Link to="/listemployeeexpenses"  className="requests-right request-block">
         <div>
-          <h4>Expenses Requests</h4>
+          <h4 className="text-expense">Expenses Requests</h4>
           <p>{expenses} request waiting for your approval decision</p>
         </div>
       </Link>

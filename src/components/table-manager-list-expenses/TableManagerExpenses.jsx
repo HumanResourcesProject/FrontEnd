@@ -136,6 +136,7 @@ const TableManagerExpenses = () => {
   };
   return (
     <div className="table-manager-expenses">
+      <h2>Expenses Table</h2>
       <MaterialReactTable
         columns={columns}
         data={data2}
@@ -314,26 +315,6 @@ const TableManagerExpenses = () => {
                   <Button
                     type="submit"
                     onClick={(e) => {
-                      setAccept(row.original.expenseId);
-                    }}
-                    sx={{
-                      flexDirection: "column",
-                      backgroundColor: "green",
-                      color: "white",
-                      ml: 13,
-                      mt: 5,
-                      fontSize: 12,
-                      "&:hover": {
-                        color: "white",
-                        backgroundColor: "#0066ff",
-                      },
-                    }}
-                  >
-                    Accept
-                  </Button>
-                  <Button
-                    type="submit"
-                    onClick={(e) => {
                       setReject(row.original.expenseId);
                     }}
                     sx={{
@@ -351,6 +332,27 @@ const TableManagerExpenses = () => {
                   >
                     Reject
                   </Button>
+                  <Button
+                    type="submit"
+                    onClick={(e) => {
+                      setAccept(row.original.expenseId);
+                    }}
+                    sx={{
+                      flexDirection: "column",
+                      backgroundColor: "green",
+                      color: "white",
+                      ml: 13,
+                      mt: 5,
+                      fontSize: 12,
+                      "&:hover": {
+                        color: "white",
+                        backgroundColor: "#0066ff",
+                      },
+                    }}
+                  >
+                    Accept
+                  </Button>
+
                 </Box>
               </form>
             </Modal>
@@ -362,17 +364,17 @@ const TableManagerExpenses = () => {
           to="/listemployeeleaves"
           className="expenses-button-left expenses-button"
         >
-          <div>
-            <p>Leave Requests</p>
-          </div>
+
+            <p className="text-leave">Leave Requests</p>
+
         </Link>
         <Link
           to="/listemployeeadvancepayments"
           className="expenses-button-right expenses-button"
         >
-          <div>
-            <p>Advance Payments Requests</p>
-          </div>
+
+            <p className="text-adv">Advance Payments Requests</p>
+
         </Link>
       </div>
     </div>

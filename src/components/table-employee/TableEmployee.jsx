@@ -31,6 +31,12 @@ const TableEmployee = () => {
             accessorFn: (row) => `${row.name} `, //accessorFn used to join multiple data into a single cell
             id: 'name', //id is still required when using accessorFn instead of accessorKey
             header: 'Name',
+            muiTableHeadCellProps: {
+              align: 'center',
+            },
+            muiTableBodyCellProps: {
+              align: 'center',
+            },
             size: 250,
             Cell: ({ renderedCellValue, row }) => (
               <Box
@@ -59,13 +65,13 @@ const TableEmployee = () => {
             accessorKey: 'surname', //accessorKey used to define `data` column. `id` gets set to accessorKey automatically
             header: 'Surname',
             size: 300,
-            enableEditing:false 
+
           },
           {
             accessorKey: 'address', //accessorKey used to define `data` column. `id` gets set to accessorKey automatically
             header: 'Address',
             size: 300,
-            enableEditing:true 
+
 
           },
           {
@@ -87,31 +93,15 @@ const TableEmployee = () => {
     []
   );
 
-  // const [tableData, setTableData] = useState(() => data2);
 
-  // const handleSaveRow = async ({ exitEditingMode, row, values }) => {
-  //   //if using flat data and simple accessorKeys/ids, you can just do a simple assignment here.
-  //   tableData[row._valuesCache] = values;
-  //   const rowData = {
-  //     "email" : row._valuesCache.email,
-  //     "phone" : row._valuesCache.phone,
-  //     "address" : row._valuesCache.address
-  // }
-  //   //send/receive api updates here
-  //   AdminService.updateMethod(rowData);
-  //   //setTableData([...tableData]);
-  //   exitEditingMode(); 
-  //   window.location.reload();
-  // };
 
   return (
-    <div className="table-employee">
+    <div className="employee-table">
+      <h2>Employee Table</h2>
       <MaterialReactTable  
         columns={columns} 
         data={data2} 
-        editingMode="modal"
-        enableEditing={true} 
-        // onEditingRowSave={handleSaveRow}
+
         />
     </div>
   );

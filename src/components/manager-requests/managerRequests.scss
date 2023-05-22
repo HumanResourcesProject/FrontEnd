@@ -3,35 +3,44 @@
   justify-content: space-around;
   align-items: center;
   margin-top: 200px;
+  padding: 20px;
   .request-block {
     display: flex;
     flex-direction: column;
-    border: 2px solid #807f7f;
     width: 25%;
-    padding: 10px;
+    padding: 10px 30px 10px 30px;
+    border-radius: 10px;
     transition: transform 1s;
     text-decoration: none;
     color: #807f7f;
-    h4{
-        color: #555555;
+    box-shadow: 0px 0px 10px 3px rgba(0,0,0,0.2);
+    .text-leave{
+        color: #505858;
+    }
+    .text-adv{
+     color:#505858 ; 
+    }
+    .text-expense{
+      color: #505858;
     }
     p {
       padding: 30px;
+      font-weight: 500;
     }
   }
   .requests-left:hover {
     cursor: pointer;
-    border: 2px solid #00ac56;
+    border: 2px solid #505858;
     transform: scale(1.1);
   }
   .requests-middle:hover {
     cursor: pointer;
-    border: 2px solid #192b94;
+    border: 2px solid #505858;
     transform: scale(1.1);
   }
   .requests-right:hover {
     cursor: pointer;
-    border: 2px solid #b22f00;
+    border: 2px solid #505858;
     transform: scale(1.1);
   }
 }

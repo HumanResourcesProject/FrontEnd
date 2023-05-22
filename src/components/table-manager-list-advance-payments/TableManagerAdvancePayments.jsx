@@ -153,6 +153,7 @@ const TableManagerAdvancePayments = () => {
 
   return (
     <div className="table-manager-advance-payments">
+      <h2>Advance Payment Table</h2>
       <MaterialReactTable
         columns={columns}
         data={data}
@@ -307,26 +308,6 @@ const TableManagerAdvancePayments = () => {
                   <Button
                     type="submit"
                     onClick={(e) => {
-                      setAccept(row.original.advancePaymentId);
-                    }}
-                    sx={{
-                      flexDirection: "column",
-                      backgroundColor: "green",
-                      color: "white",
-                      ml: 13,
-                      mt: 5,
-                      fontSize: 12,
-                      "&:hover": {
-                        color: "white",
-                        backgroundColor: "#0066ff",
-                      },
-                    }}
-                  >
-                    Accept
-                  </Button>
-                  <Button
-                    type="submit"
-                    onClick={(e) => {
                       setReject(row.original.advancePaymentId);
                     }}
                     sx={{
@@ -344,6 +325,27 @@ const TableManagerAdvancePayments = () => {
                   >
                     Reject
                   </Button>
+                  <Button
+                    type="submit"
+                    onClick={(e) => {
+                      setAccept(row.original.advancePaymentId);
+                    }}
+                    sx={{
+                      flexDirection: "column",
+                      backgroundColor: "z",
+                      color: "white",
+                      ml: 13,
+                      mt: 5,
+                      fontSize: 12,
+                      "&:hover": {
+                        color: "white",
+                        backgroundColor: "#0066ff",
+                      },
+                    }}
+                  >
+                    Accept
+                  </Button>
+
                 </Box>
               </form>
             </Modal>
@@ -355,17 +357,17 @@ const TableManagerAdvancePayments = () => {
           to="/listemployeeexpenses"
           className="advance-payments-button-left advance-payments-button"
         >
-          <div>
-            <p>Expenses Requests</p>
-          </div>
+
+            <p className="text-expense">Expenses Requests</p>
+
         </Link>
         <Link
           to="/listemployeeleaves"
           className="advance-payments-button-right advance-payments-button"
         >
-          <div>
-            <p>Leave Requests</p>
-          </div>
+
+            <p className="text-leave">Leave Requests</p>
+
         </Link>
       </div>
     </div>

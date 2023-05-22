@@ -1,177 +1,131 @@
-input[type=number]::-webkit-inner-spin-button,
-input[type=number]::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  appearance: none;
-  margin: 0;
-}
-
-
 .employee-register {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
+  gap: 40px;
+  height: 1100px;
+  .employee-register-company-part {
     display: flex;
-    justify-content: space-evenly;
-    height: 800px;
-    margin: 7% 10% 7% 10%;
-    border: 2px solid black;
-    border-radius: 20px;
-    background-color: #2c2e30;
+    flex-direction: column;
+    align-items: end;
+    justify-content: end;
+    width: 80%;
+    .employee-register-company-text {
+      padding: 10px;
+      font-size: xx-large;
+      font-weight: 700;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+  }
+  .employee-register-photo-section {
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    .employee-register-photo-section {
-        background-color: #ffffff;
+    gap: 20px;
+    .employee-register-avatar {
+      height: 150px;
+      border-radius: 10px;
+    }
+    .employee-register-buttons {
+      display: flex;
+      gap: 10px;
+    }
+  }
+  .employee-register-profil-info {
+    width: 70%;
+    align-items: center;
+    form {
+      width: 100%;
+      align-items: center;
+
+      .input-area {
         display: flex;
-        flex-direction: column;
-        gap: 40px;
-        background-color: #2c2e30;
-        
-        .employee-register-profile-holder {
-          h3 {
-            color: #343a40;
-            text-align: center;
-            border-bottom: 2px solid #343a40;
-            border-radius: 50%;
-          }
-          .employee-register-profile-image {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            border-radius: 50%;
-            img {
-              width: 200px;
-              height: 200px;
-              border-radius: 50%;
-              object-fit: cover;
-            }
-          }
-        }
-        .employee-register-buttons {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          color: #4c83bb;
-          gap: 10px;
-          .choosefilebutton{
-            display: flex;
-            align-items: center;
-            gap: 10px;
-          }
-        }
-      }
-    .employee-register-profil-info {
-        width: 70%;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
+        width: 100%;
         align-items: center;
-        justify-content: center;
-        .employee-register-information{
+        justify-content: space-around;
+        .first-6 {
+          width: 35%;
           display: flex;
           flex-direction: column;
-          gap: 40px;
-        }
-        .employee-company-section{
-          display: flex;
-          gap: 30px;
-          align-items: center;
-          select{
-              
-                background: none;
-                width: 50%;
-                font-size: 16px;
-                border: 2px solid #afafaf;
-                border-radius: 10px;
-                color: rgb(196, 194, 194);
-                padding: 2px;
-          }
-          
-          .select-style option {
-            font-size: 16px;
-            color: #bebebe;
-            background-color: #2c2e30;
-          }
-        }
-        h2{
-          color: rgb(202, 202, 202);
-        }
-        .employee-register-information-head {
-          text-align: center;
-        }
-        .employee-register-information {
-          
-          form {
+          gap: 20px;
+          .input-data {
             display: flex;
             flex-direction: column;
-            color: rgb(167, 166, 166);
-            gap: 30px;
-            .form-data{
-              display: flex;
-              gap: 10px;
-              .first-6{
-                display: flex;
-                flex-direction: column;
-                width: 50%;
-                gap: 10px;
-                .data{
-                  display: flex;
-                  align-items: center;
-                  justify-content: space-between;
-                  .inputs {
-                    margin: 5px;
-                    background: none;
-                    width: 50%;
-                    font-size: 16px;
-                    border: 2px solid #afafaf;
-                    border-radius: 10px;
-                    color: white;
-                }
-                }
-              }
-              .second-6{
-                display: flex;
-                flex-direction: column;
-                width: 50%;
-                gap: 10px;
-                .data{
-                  display: flex;
-                  align-items: center;
-                  justify-content: space-between;
-                  .inputs {
-                    margin: 5px;
-                    background: none;
-                    width: 50%;
-                    font-size: 16px;
-                    border: 2px solid #afafaf;
-                    border-radius: 10px;
-                    color: white;
-                }
-                }
-              }
-            }
-            
+            gap: 5px;
+            box-shadow: 0px 15px 10px -15px #111;    
+
             label {
+              font-size: small;
+              font-family: "Roboto", sans-serif;
+            }
+            input {
+              background-color: rgb(233, 231, 231);
+              border: none;
+              border-radius: 3px;
+              line-height: 25px;
+              padding: 8px;
               font-weight: 500;
             }
-            
-            button {
-              display: block;
-              margin: 20px;
-              width: 80%;
-              height: 40px;
-              font-weight: 700;
-              color: #fafafa;
-              background-color: #7a7a7a;
+          }
+        }
+
+        .second-6 {
+          width: 35%;
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+          .input-data {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            box-shadow: 0px 15px 10px -15px #111;    
+
+            label {
+              font-size: small;
+              font-family: "Roboto", sans-serif;
+            }
+            input {
+              background-color: rgb(233, 231, 231);
               border: none;
-              border-radius: 10px;
-              font-size: 15px;
-              cursor: pointer;
+              border-radius: 3px;
+              line-height: 25px;
+              padding: 8px;
+              font-weight: 500;
+
             }
-            button:hover,
-            button:focus {
-              box-shadow: 0 0.5em 0.5em -0.4em var(--color5);
-              transform: translateY(-0.25em);
-              transition: 0.4s;
+            .email{
+              .input-email{
+                width: 100%;
+              }
             }
-            
           }
         }
       }
+      .employee-register-button-part {
+        display: flex;
+        justify-content: center;
+        .save-button {
+          margin-top: 50px;
+          height: 40px;
+          width: 25%;
+          color: white;
+          padding: 5px;
+          background-color: rgb(59, 59, 59);
+          border: none;
+          border-radius: 5px;
+          font-weight: 500;
+          cursor: pointer;
+          box-shadow: 0px 15px 10px -15px rgb(0, 0, 0);    
+
+        }
+        button:hover,
+        button:focus {
+          box-shadow: 0 0.5em 0.5em -0.4em var(--color5);
+          transform: translateY(-0.25em);
+          transition: 0.4s;
+        }
+      }
+    }
+  }
 }

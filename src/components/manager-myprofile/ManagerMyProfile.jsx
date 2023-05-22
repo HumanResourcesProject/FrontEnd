@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import DriveFolderUploadIcon from "@mui/icons-material/DriveFolderUpload";
 import "./managerMyProfile.scss";
 import ManagerService from "../../service/CompanyManagerService";
+import { Button } from "@mui/material";
 
 const ManagerMyProfile = () => {
   const [profile, setProfile] = useState({ data: {} });
@@ -11,7 +12,12 @@ const ManagerMyProfile = () => {
       try {
         const response = await ManagerService.getManagerInformations(token);
         setProfile(response);
-        setUpdate({ ...update,phone: response.data.phone,address: response.data.address,token: sessionStorage.getItem("token") });
+        setUpdate({
+          ...update,
+          phone: response.data.phone,
+          address: response.data.address,
+          token: sessionStorage.getItem("token"),
+        });
       } catch (error) {
         console.error(error);
       }
@@ -40,36 +46,42 @@ const ManagerMyProfile = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    setUpdate({...update,avatar:null})
+    setUpdate({ ...update, avatar: null });
     console.log(typeof update.avatar);
-    if(update.avatar === null ){
+    if (update.avatar === null) {
       console.log(update);
-      alert("stringdeyiz")
-      ManagerService.updateEmployeeInformationsString(update).then((response) => {
-        alert("Updated successfully!");
-      })
-      .catch((error) => {
-        alert("unexpected error");
-      });
-    }else{
+      alert("stringdeyiz");
+      ManagerService.updateEmployeeInformationsString(update)
+        .then((response) => {
+          alert("Updated successfully!");
+        })
+        .catch((error) => {
+          alert("unexpected error");
+        });
+    } else {
       ManagerService.updateEmployeeInformations(update)
-      .then((response) => {
-        alert("Updated successfully!");
-      })
-      .catch((error) => {
-        console.log(error);
-        alert("unexpected error");
-      });
-    } 
-    
+        .then((response) => {
+          alert("Updated successfully!");
+        })
+        .catch((error) => {
+          console.log(error);
+          alert("unexpected error");
+        });
+    }
   };
+
+  const [isActive, setIsActive] = useState(false);
+
+  const handleClick = (event) => {
+    event.preventDefault();
+    setIsActive(true);
+  }
+
   return (
     <div className="manager-profile-body">
-      <div className="company-part">
-        <div className="company-text">
-          Starbucks
-        </div>
-      </div>
+      {/* <div className="company-part">
+        <div className="company-text">Starbucks</div>
+      </div> */}
       <div className="avatar-part">
         {image ? (
           <img
@@ -88,13 +100,14 @@ const ManagerMyProfile = () => {
           />
         )}
 
-        <label htmlFor="file" className="choosefilebutton">
+        <label htmlFor="file" className="choosefilebutton" onClick={handleClick}>
           <DriveFolderUploadIcon className="uploadicon" />
           Change Avatar
         </label>
         <input
           type="file"
           id="file"
+          onClick={handleClick}
           style={{ display: "none" }}
           onChange={onchangeImage}
         />
@@ -103,95 +116,47 @@ const ManagerMyProfile = () => {
         <div className="left-part">
           <div className="input">
             <label className="text">IdentityNumber</label>
-            <input
-              disabled
-              className="detail-input"
-              type="text"
-              defaultValue={profile.data.identityNumber || ""}
-            />
+            <p
+              className="detail-p"
+            >{profile.data.identityNumber || "-"}</p>
           </div>
           <div className="input">
             <label className="text">Name</label>
-            <input
-              disabled
-              className="detail-input"
-              type="text"
-              defaultValue={profile.data.name || ""}
-            />
+            <p
+              className="detail-p">  
+              {profile.data.name || "-"}
+            </p>
           </div>
 
           <div className="input">
             <label className="text">Middle Name</label>
-            <input
-              disabled
-              className="detail-input"
-              type="text"
-              defaultValue={profile.data.middleName || ""}
-            />
+            <p
+              className="detail-p">  
+              {profile.data.middleName || "-"}
+            </p>
           </div>
           <div className="input">
             <label className="text">Surname</label>
-            <input
-              disabled
-              className="detail-input"
-              type="text"
-              defaultValue={profile.data.surname || ""}
-            />
+            <p
+              className="detail-p">  
+              {profile.data.surname || "-"}
+            </p>
           </div>
           <div className="input">
             <label className="text">Date of Birth</label>
-            <input
-              disabled
-              className="detail-input"
-              type="text"
-              defaultValue={profile.data.birthDate || ""}
-            />
+            <p
+              className="detail-p">  
+              {profile.data.birthDate || "-"}
+            </p>
           </div>
-          <div className="input">
-            <label className="text">Date of Place</label>
-            <input
-              disabled
-              className="detail-input"
-              type="text"
-              defaultValue={profile.data.birthPlace || ""}
-            />
-          </div>
-        </div>
-        <div className="right-part">
-        <div className="input">
-            <label className="text">Email</label>
-            <input
-              disabled
-              className="detail-input"
-              type="text"
-              defaultValue={profile.data.email || ""}
-            />
-          </div>
-          <div className="input">
-            <label className="text">Occupation</label>
-            <input
-              disabled
-              className="detail-input"
-              type="text"
-              defaultValue={profile.data.occupation || ""}
-            />
-          </div>
-          <div className="input">
-            <label className="text">Department</label>
-            <input
-              disabled
-              className="detail-input"
-              type="text"
-              defaultValue={profile.data.department || ""}
-            />
-          </div>
-         
           <div className="input">
             <label className="text">Phone *</label>
             <input
               className="editable"
+              onClick={handleClick}
+
               type="text"
-              defaultValue={profile.data.phone || ""}
+              defaultValue={profile.data.phone || "-"}
               onChange={(event) => {
                 setUpdate({
                   ...update,
@@ -200,12 +165,52 @@ const ManagerMyProfile = () => {
               }}
             />
           </div>
+
+        </div>
+        <div className="right-part">
+          <div className="input">
+            <label className="text">Email</label>
+            <p
+              className="detail-p">  
+              {profile.data.email || "-"}
+            </p>
+          </div>
+          <div className="input">
+            <label className="text">Job Start Date</label>
+            <p
+              className="detail-p">  
+              {profile.data.jobStart || "-"}
+            </p>
+          </div>
+          <div className="input">
+            <label className="text">Occupation</label>
+            <p
+              className="detail-p">  
+              {profile.data.occupation || "-"}
+            </p>
+          </div>
+          <div className="input">
+            <label className="text">Department</label>
+            <p
+              className="detail-p">  
+              {profile.data.department || "-"}
+            </p>
+          </div>
+
+          <div className="input">
+            <label className="text">Date of Place</label>
+            <p
+              className="detail-p">  
+              {profile.data.birthPlace || "-"}
+            </p>
+          </div>
           <div className="input">
             <label className="text">Address *</label>
             <input
               className="editable"
+              onClick={handleClick}
               type="text"
-              defaultValue={profile.data.address || ""}
+              defaultValue={profile.data.address || "-"}
               onChange={(event) => {
                 setUpdate({
                   ...update,
@@ -223,20 +228,15 @@ const ManagerMyProfile = () => {
               defaultValue={profile.data.company || ""}
             />
           </div> */}
-          <div className="input">
-            <label className="text">Job Start Date</label>
-            <input
-              disabled
-              className="detail-input"
-              type="text"
-              defaultValue={profile.data.jobStart || ""}
-            />
-          </div>
+
         </div>
       </div>
-      <div className="button-part">
-        <button onClick={handleSubmit} className="button-change">Change</button>
-      </div>
+      {isActive === true ? ( <div className="button-part">
+        <button  onClick={handleSubmit} className="button-change">
+          Save The Changes
+        </button>
+      </div>) : null}
+     
     </div>
   );
 };

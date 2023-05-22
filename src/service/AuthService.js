@@ -4,6 +4,7 @@ const LOGIN = "http://localhost:7070/auth/login";
 const REGISTER_ADMIN ="http://localhost:7070/auth/registeradmin";
 const REGISTER_MANAGER ="http://localhost:7070/auth/registermanager";
 const REGISTER_EMPLOYEE ="http://localhost:7070/auth/registeremployee";
+const FORGOT_PASSWORD = "http://localhost:7070/auth/forgotpassword";
 
 class AuthService{
     login(user) { 
@@ -12,6 +13,13 @@ class AuthService{
                 "Content-Type": "application/json"
             }
         });
+    }
+    forgotPassword(data){
+        return axios.post(FORGOT_PASSWORD,data,{
+            headers: {
+                "Content-Type": "application/json"
+            }
+        })
     }
     registerAdmin(info){
         return axios.post(REGISTER_ADMIN,info,{

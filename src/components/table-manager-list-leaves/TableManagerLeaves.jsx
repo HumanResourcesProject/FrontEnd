@@ -10,11 +10,11 @@ import Box from "@mui/material/Box";
 
 const TableManagerLeaves = () => {
   const [data, setData] = useState([]);
-  
+
   useEffect(() => {
     const token = {
-      token: sessionStorage.getItem('token'),
-      role: sessionStorage.getItem('role'),
+      token: sessionStorage.getItem("token"),
+      role: sessionStorage.getItem("role"),
     };
 
     RequirementsService.findallpendingleaves(token)
@@ -22,7 +22,7 @@ const TableManagerLeaves = () => {
         setData(response.data);
       })
       .catch((error) => {
-        console.error('Error fetching data: ', error);
+        console.error("Error fetching data: ", error);
       });
   }, []);
 
@@ -85,6 +85,8 @@ const TableManagerLeaves = () => {
         size: 150,
         enableEditing: false,
       },
+      
+      
       {
         accessorKey: "type",
         header: "Leave Type",
@@ -307,26 +309,6 @@ const TableManagerLeaves = () => {
                   <Button
                     type="submit"
                     onClick={(e) => {
-                      setAccept(row.original.leaveId);
-                    }}
-                    sx={{
-                      flexDirection: "column",
-                      backgroundColor: "green",
-                      color: "white",
-                      ml: 13,
-                      mt: 5,
-                      fontSize: 12,
-                      "&:hover": {
-                        color: "white",
-                        backgroundColor: "#0066ff",
-                      },
-                    }}
-                  >
-                    Accept
-                  </Button>
-                  <Button
-                    type="submit"
-                    onClick={(e) => {
                       setReject(row.original.leaveId);
                     }}
                     sx={{
@@ -344,6 +326,27 @@ const TableManagerLeaves = () => {
                   >
                     Reject
                   </Button>
+                  <Button
+                    type="submit"
+                    onClick={(e) => {
+                      setAccept(row.original.leaveId);
+                    }}
+                    sx={{
+                      flexDirection: "column",
+                      backgroundColor: "green",
+                      color: "white",
+                      ml: 13,
+                      mt: 5,
+                      fontSize: 12,
+                      "&:hover": {
+                        color: "white",
+                        backgroundColor: "#0066ff",
+                      },
+                    }}
+                  >
+                    Accept
+                  </Button>
+
                 </Box>
               </form>
             </Modal>
@@ -351,18 +354,24 @@ const TableManagerLeaves = () => {
         )}
       />{" "}
       <div className="linktobuttons-leaves">
-      <Link to="/listemployeeadvancepayments"  className="leaves-button-right leaves-button">
-        <div>
-          <p>Advance Payments Requests</p>
-        </div>
-      </Link>
-      <Link to="/listemployeeexpenses"  className="leaves-button-left leaves-button">
-        <div>
-          <p>Expenses Requests</p>
-        </div>
-      </Link>
+        <Link
+          to="/listemployeeadvancepayments"
+          className="leaves-button-right leaves-button"
+        >
+          
+            <p className="text-adv">Advance Payments Requests</p>
+          
+        </Link>
+        <Link
+          to="/listemployeeexpenses"
+          className="leaves-button-left leaves-button"
+        >
+          
+            <p className="text-expense">Expenses Requests</p>
+          
+        </Link>
       </div>
-      </div>
+    </div>
   );
 };
 

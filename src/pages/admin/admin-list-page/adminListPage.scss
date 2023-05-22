@@ -1,7 +1,11 @@
 .admin-page{
+    position: relative;
+    z-index: 2;
     .admin-right{
         display: flex;
         flex-direction: column;
         margin-left: 250px;
+
+        flex: 10;
     }
 }
