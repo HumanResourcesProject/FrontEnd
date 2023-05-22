@@ -315,7 +315,7 @@ const TableManagerLeaves = () => {
                       flexDirection: "column",
                       backgroundColor: "red",
                       color: "white",
-                      ml: 5,
+                      ml: 13,
                       mt: 5,
                       fontSize: 12,
                       "&:hover": {
@@ -335,7 +335,7 @@ const TableManagerLeaves = () => {
                       flexDirection: "column",
                       backgroundColor: "green",
                       color: "white",
-                      ml: 13,
+                      ml: 5,
                       mt: 5,
                       fontSize: 12,
                       "&:hover": {
