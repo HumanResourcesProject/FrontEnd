@@ -1,64 +1,78 @@
 import React, { useState, useEffect } from "react";
 import "./sidebarEmployee.scss";
-import { Link } from "react-router-dom";
+import { Link, useLocation  } from "react-router-dom";
 import HowToRegOutlinedIcon from "@mui/icons-material/HowToRegOutlined";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import LogoutOutlinedIcon from "@mui/icons-material/LogoutOutlined";
 const SidebarEmployee = () => {
-  const [profil, setProfil] = useState([]);
-  const [token] = useState({
-    token: sessionStorage.getItem("token"),
-  });
+  const location = useLocation();
+  const [activeItem, setActiveItem] = useState("");
+
+  useEffect(() => {
+    setActiveItem(location.pathname);
+  }, [location]);
 
 
 
   return (
-    <aside className="full-sidebar">
+    <aside className="full-sidebar-employee">
       <div>
-        <div className="sidebar-top">
-          <Link to="/employee" className="sidebar-title-link">
+        <div className="sidebar-top-employee">
+          <Link to="/employee" className="sidebar-title-link-employee">
             <img
               src="https://img.icons8.com/?size=512&id=vWvnvMErmrYg&format=png"
               alt=""
             />
-            <p className="sidebar-title">HR Employee Page</p>
+            <p className="sidebar-title-employee">HR Employee Page</p>
           </Link>
         </div>
-        <div className="sidebar-main">
-          <ul className="sidebar-nav">
+        <div className="sidebar-main-employee">
+          <ul className="sidebar-nav-employee">
             <li>
-              <Link to="/employeemyprofile" className="link d-flex">
+              <Link to="/employeemyprofile" className={`link d-flex ${
+                  activeItem === "/employeemyprofile" ? "active" : ""
+                }`}>
                 <AccountCircleOutlinedIcon />
                 <div>My Profile</div>
               </Link>
             </li>
             
             <li>
-              <Link to="/employeelistleave" className="link d-flex">
+              <Link to="/employeelistleave" className={`link d-flex ${
+                  activeItem === "/employeelistleave" ? "active" : ""
+                }`}>
                 <HowToRegOutlinedIcon />
                 <div>Staff Leave Table</div>
               </Link>
             </li>
             <li>
-              <Link to="/employeeaddleave" className="link d-flex">
+              <Link to="/employeeaddleave" className={`link d-flex ${
+                  activeItem === "/employeeaddleave" ? "active" : ""
+                }`}>
                 <HowToRegOutlinedIcon />
                 <div>Employee Add Leave</div>
               </Link>
             </li>
             <li>
-              <Link to="/employeeadvancepayment" className="link d-flex">
+              <Link to="/employeeadvancepayment" className={`link d-flex ${
+                  activeItem === "/employeeadvancepayment" ? "active" : ""
+                }`}>
                 <HowToRegOutlinedIcon />
                 <div>Advance Payment</div>
               </Link>
             </li>
             <li>
-              <Link to="/listallemployees" className="link d-flex">
+              <Link to="/listallemployees" className={`link d-flex ${
+                  activeItem === "/listallemployees" ? "active" : ""
+                }`}>
                 <HowToRegOutlinedIcon />
                 <div>Employee List</div>
               </Link>
             </li>
             <li>
-              <Link to="/employeeexpense" className="link d-flex">
+              <Link to="/employeeexpense" className={`link d-flex ${
+                  activeItem === "/employeeexpense" ? "active" : ""
+                }`}>
                 <HowToRegOutlinedIcon />
                 <div>Expense Request</div>
               </Link>
@@ -69,7 +83,7 @@ const SidebarEmployee = () => {
       <div className="lg">
         <Link to="/loginpage" className="linklogout">
           <div className="logout d-flex">
-            <LogoutOutlinedIcon style={{ color: "white" }} />
+            <LogoutOutlinedIcon style={{ fontSize: 20  }} />
             <div className="fw-large lout">Logout </div>
           </div>
         </Link>

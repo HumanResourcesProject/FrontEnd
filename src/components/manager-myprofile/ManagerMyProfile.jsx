@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import DriveFolderUploadIcon from "@mui/icons-material/DriveFolderUpload";
 import "./managerMyProfile.scss";
 import ManagerService from "../../service/CompanyManagerService";
+import { Button } from "@mui/material";
 
 const ManagerMyProfile = () => {
   const [profile, setProfile] = useState({ data: {} });
@@ -68,11 +69,19 @@ const ManagerMyProfile = () => {
         });
     }
   };
+
+  const [isActive, setIsActive] = useState(false);
+
+  const handleClick = (event) => {
+    event.preventDefault();
+    setIsActive(true);
+  }
+
   return (
     <div className="manager-profile-body">
-      <div className="company-part">
+      {/* <div className="company-part">
         <div className="company-text">Starbucks</div>
-      </div>
+      </div> */}
       <div className="avatar-part">
         {image ? (
           <img
@@ -91,13 +100,14 @@ const ManagerMyProfile = () => {
           />
         )}
 
-        <label htmlFor="file" className="choosefilebutton">
+        <label htmlFor="file" className="choosefilebutton" onClick={handleClick}>
           <DriveFolderUploadIcon className="uploadicon" />
           Change Avatar
         </label>
         <input
           type="file"
           id="file"
+          onClick={handleClick}
           style={{ display: "none" }}
           onChange={onchangeImage}
         />
@@ -143,6 +153,8 @@ const ManagerMyProfile = () => {
             <label className="text">Phone *</label>
             <input
               className="editable"
+              onClick={handleClick}
+
               type="text"
               defaultValue={profile.data.phone || "-"}
               onChange={(event) => {
@@ -196,6 +208,7 @@ const ManagerMyProfile = () => {
             <label className="text">Address *</label>
             <input
               className="editable"
+              onClick={handleClick}
               type="text"
               defaultValue={profile.data.address || "-"}
               onChange={(event) => {
@@ -218,11 +231,12 @@ const ManagerMyProfile = () => {
 
         </div>
       </div>
-      <div className="button-part">
-        <button onClick={handleSubmit} className="button-change">
-          Change
+      {isActive === true ? ( <div className="button-part">
+        <button  onClick={handleSubmit} className="button-change">
+          Save The Changes
         </button>
-      </div>
+      </div>) : null}
+     
     </div>
   );
 };

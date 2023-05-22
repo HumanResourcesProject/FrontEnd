@@ -21,7 +21,7 @@ const SidebarManager = () => {
       <div>
         <div className="sidebar-upper">
           <Link to="/manager" className="sidebar-title-link">
-            <img src={managericon} alt="" />
+            <img className="managericon" src={managericon} alt="" />
             <p className="sidebar-title">HRP Manager</p>
           </Link>
         </div>
