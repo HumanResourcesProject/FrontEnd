@@ -18,7 +18,7 @@ const EmployeListLeavePage = () => {
       <div>
       {sidebarOpen && <SidebarEmployee />}
       </div>
-      <div className="tablestaffleave-right" style={{marginLeft: sidebarOpen ? '250px' : '0px'}}>
+      <div className="tablestaffleave-right" style={{marginLeft: sidebarOpen ? '220px' : '0px'}}>
         <HeaderEmployee onToggleSidebar={handleToggleSidebar}/>
         <TableStaffLeave />
         <TableAdvancePayment />

@@ -73,9 +73,9 @@ const CreateEmployee = () => {
 
   return (
     <div className="employee-register">
-      <div className="employee-register-company-part">
+      {/* <div className="employee-register-company-part">
         <div className="employee-register-company-text">Starbucks</div>
-      </div>
+      </div> */}
       <div className="employee-register-photo-section">
           {image ? (
             <img className="employee-register-avatar" src={URL.createObjectURL(image)} />

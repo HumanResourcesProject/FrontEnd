@@ -144,9 +144,9 @@ const App = () => {
       <Route
         path="/managermyprofilepage"
         element={
-          <ManagerElement>
+          <PublicElement>
             <ManagerMyProfilePage />
-          </ManagerElement>
+          </PublicElement>
         }
       />
       <Route

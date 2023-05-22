@@ -16,7 +16,7 @@ const EmployeeMainPage = () => {
       <div className="mainpage_sidebar">
       {sidebarOpen && <SidebarEmployee />}
       </div>
-      <div className="mainpage-right" style={{marginLeft: sidebarOpen ? '250px' : '0px'}}>
+      <div className="mainpage-right" style={{marginLeft: sidebarOpen ? '220px' : '0px'}}>
         <HeaderEmployee onToggleSidebar={handleToggleSidebar}/> 
         <MainEmployee />
       </div>

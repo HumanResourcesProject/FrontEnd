@@ -24,11 +24,11 @@ const TableManager = () => {
   const columns = useMemo(
     () => [
           {
-            accessorFn: (row) => `${row.name} `, //accessorFn used to join multiple data into a single cell
+            accessorFn: (row) => `${row.name} ${row.middleName} ${row.surname} `, //accessorFn used to join multiple data into a single cell
             id: 'name', //id is still required when using accessorFn instead of accessorKey
             header: 'Name',
             
-            size: 120,
+            size: 200,
             Cell: ({ renderedCellValue, row }) => (
               <Box
                 sx={{
@@ -53,22 +53,9 @@ const TableManager = () => {
             enableEditing:false 
           },
           {
-            accessorKey: 'middleName', //accessorKey used to define `data` column. `id` gets set to accessorKey automatically
-            header: 'Middle Name',
-            size: 100,
-            
-            enableEditing:false 
-          },
-          {
-            accessorKey: 'surname', //accessorKey used to define `data` column. `id` gets set to accessorKey automatically
-            header: 'Surname',
-            size: 100,
-            enableEditing:false 
-          },
-          {
             accessorKey: 'address', //accessorKey used to define `data` column. `id` gets set to accessorKey automatically
             header: 'Address',
-            size: 100,
+            size: 150,
             enableEditing:true 
 
           },
@@ -87,12 +74,6 @@ const TableManager = () => {
 
           },
           {
-            accessorKey: 'company', //accessorKey used to define `data` column. `id` gets set to accessorKey automatically
-            header: 'Company',
-            size: 100,
-            enableEditing:true 
-          },
-          {
             accessorKey: 'birthDate', //accessorKey used to define `data` column. `id` gets set to accessorKey automatically
             header: 'Date Of Birth',
             size: 150,
@@ -100,15 +81,15 @@ const TableManager = () => {
 
           },
           {
-            accessorKey: 'occupation', //accessorKey used to define `data` column. `id` gets set to accessorKey automatically
-            header: 'Job',
-            size: 150,
+            accessorKey: 'department', //accessorKey used to define `data` column. `id` gets set to accessorKey automatically
+            header: 'Department',
+            size: 100,
             enableEditing:true 
 
           },
           {
-            accessorKey: 'department', //accessorKey used to define `data` column. `id` gets set to accessorKey automatically
-            header: 'Department',
+            accessorKey: 'occupation', //accessorKey used to define `data` column. `id` gets set to accessorKey automatically
+            header: 'Job Title',
             size: 100,
             enableEditing:true 
 

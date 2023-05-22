@@ -60,7 +60,7 @@ const TableExpense = () => {
             accessorFn: (row) => ` `, //accessorFn used to join multiple data into a single cell
             id: 'invoice', //id is still required when using accessorFn instead of accessorKey
             header: 'Invoice',
-            size: 50,
+            size: 100,
            
               
             Cell: ({ renderedCellValue, row }) => (
@@ -99,20 +99,6 @@ const TableExpense = () => {
             
           },
           {
-            accessorFn: (row) => ` ${row.type}  `,
-            id: "Type",
-            header: "Type",
-            muiTableHeadCellProps: {
-                align: 'center',
-              },
-              muiTableBodyCellProps: {
-                align: 'center',
-              },
-            
-          },
-        
-      
-        {
             accessorFn: (row) => ` ${row.status}  `,
             id: "Status",
             header: "Status",
@@ -143,6 +129,21 @@ const TableExpense = () => {
                 </Box>
               ),
         },
+          {
+            accessorFn: (row) => ` ${row.type}  `,
+            id: "Type",
+            header: "Type",
+            muiTableHeadCellProps: {
+                align: 'center',
+              },
+              muiTableBodyCellProps: {
+                align: 'center',
+              },
+            
+          },
+        
+      
+
         {
           accessorKey: "approvalDate",
           header: "Approval Date",

@@ -64,6 +64,13 @@ const EmployeeMyProfile = () => {
     
   };
 
+  const [isActive, setIsActive] = useState(false);
+
+  const handleClick = (event) => {
+    event.preventDefault();
+    setIsActive(true);
+  }
+
   return (
     <div className="employee-profile-body">
       <div className="avatar-part">
@@ -91,6 +98,7 @@ const EmployeeMyProfile = () => {
         <input
           type="file"
           id="file"
+          onClick={handleClick}
           style={{ display: "none" }}
           onChange={onchangeImage}
         />
@@ -99,101 +107,52 @@ const EmployeeMyProfile = () => {
         <div className="left-part">
           <div className="input">
             <label className="text">IdentityNumber</label>
-            <input
-              disabled
-              className="detail-input"
-              type="text"
-              defaultValue={profile.data.identityNumber || ""}
-            />
+            <p
+              className="detail-p"
+            >{profile.data.identityNumber || "-"}</p>
           </div>
           <div className="input">
             <label className="text">Name</label>
-            <input
-              disabled
-              className="detail-input"
-              type="text"
-              defaultValue={profile.data.name || ""}
-            />
+            <p
+              className="detail-p">  
+              {profile.data.name || "-"}
+            </p>
           </div>
 
           <div className="input">
             <label className="text">Middle Name</label>
-            <input
-              disabled
-              className="detail-input"
-              type="text"
-              defaultValue={profile.data.middleName || ""}
-            />
+            <p
+              className="detail-p">  
+              {profile.data.middleName || "-"}
+            </p>
           </div>
           <div className="input">
             <label className="text">Surname</label>
-            <input
-              disabled
-              className="detail-input"
-              type="text"
-              defaultValue={profile.data.surname || ""}
-            />
+            <p
+              className="detail-p">  
+              {profile.data.surname || "-"}
+            </p>
           </div>
           <div className="input">
             <label className="text">Date of Birth</label>
-            <input
-              disabled
-              className="detail-input"
-              type="text"
-              defaultValue={profile.data.birthDate || ""}
-            />
+            <p
+              className="detail-p">  
+              {profile.data.birthDate || "-"}
+            </p>
           </div>
           <div className="input">
             <label className="text">Date of Place</label>
-            <input
-              disabled
-              className="detail-input"
-              type="text"
-              defaultValue={profile.data.birthPlace || ""}
-            />
+            <p
+              className="detail-p">  
+              {profile.data.birthPlace || "-"}
+            </p>
           </div>
-          <div className="input">
-            <label className="text">Job Start</label>
-            <input
-              disabled
-              className="detail-input"
-              type="text"
-              defaultValue="değişcek"
-            />
-          </div>
-        </div>
-        <div className="right-part">
-          <div className="input">
-            <label className="text">Occupation</label>
-            <input
-              disabled
-              className="detail-input"
-              type="text"
-              defaultValue={profile.data.occupation || ""}
-            />
-          </div>
-          <div className="input">
-            <label className="text">Department</label>
-            <input
-              disabled
-              className="detail-input"
-              type="text"
-              defaultValue={profile.data.department || ""}
-            />
-          </div>
-          <div className="input">
-            <label className="text">Email</label>
-            <input
-              disabled
-              className="detail-input"
-              type="text"
-              defaultValue={profile.data.email || ""}
-            />
-          </div>
+
           <div className="input">
             <label className="text">Phone *</label>
             <input
               className="editable"
+              onClick={handleClick}
               type="text"
               defaultValue={profile.data.phone || ""}
               onChange={(event) => {
@@ -204,10 +163,55 @@ const EmployeeMyProfile = () => {
               }}
             />
           </div>
+        </div>
+        <div className="right-part">
+          <div className="input">
+            <label className="text">Occupation</label>
+            <p
+              className="detail-p">  
+              {profile.data.occupation || "-"}
+            </p>
+          </div>
+          <div className="input">
+            <label className="text">Department</label>
+            <p
+              className="detail-p">  
+              {profile.data.department || "-"}
+            </p>
+          </div>
+          <div className="input">
+            <label className="text">Email</label>
+            <p
+              className="detail-p">  
+              {profile.data.email || "-"}
+            </p>
+          </div>
+          <div className="input">
+            <label className="text">Job Start</label>
+            <p
+              className="detail-p">  
+              {profile.data.jobStart || "-"}
+            </p>
+          </div>
+                    <div className="input">
+            <label className="text">Company</label>
+            <p
+              className="detail-p">  
+              {profile.data.company || "-"}
+            </p>
+          </div>
+          <div className="input">
+            <label className="text">Salary</label>
+            <p
+              className="detail-p">  
+              {profile.data.salary || "-"}
+            </p>
+          </div>
           <div className="input">
             <label className="text">Address *</label>
             <input
               className="editable"
+              onClick={handleClick}
               type="text"
               defaultValue={profile.data.address || ""}
               onChange={(event) => {
@@ -218,29 +222,15 @@ const EmployeeMyProfile = () => {
               }}
             />
           </div>
-          <div className="input">
-            <label className="text">Company</label>
-            <input
-              disabled
-              className="detail-input"
-              type="text"
-              defaultValue={profile.data.company || ""}
-            />
-          </div>
-          <div className="input">
-            <label className="text">Salary</label>
-            <input
-              disabled
-              className="detail-input"
-              type="text"
-              defaultValue={profile.data.salary || ""}
-            />
-          </div>
+
         </div>
       </div>
-      <div className="button-part">
-        <button onClick={handleSubmit} className="button-change">Change</button>
-      </div>
+   {isActive === true ? ( <div className="button-part">
+        <button  onClick={handleSubmit} className="button-change">
+          Save The Changes
+        </button>
+      </div>) : null}
+     
     </div>
   );
 };

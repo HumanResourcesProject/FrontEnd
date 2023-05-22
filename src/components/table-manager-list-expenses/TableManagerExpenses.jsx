@@ -315,26 +315,6 @@ const TableManagerExpenses = () => {
                   <Button
                     type="submit"
                     onClick={(e) => {
-                      setAccept(row.original.expenseId);
-                    }}
-                    sx={{
-                      flexDirection: "column",
-                      backgroundColor: "green",
-                      color: "white",
-                      ml: 13,
-                      mt: 5,
-                      fontSize: 12,
-                      "&:hover": {
-                        color: "white",
-                        backgroundColor: "#0066ff",
-                      },
-                    }}
-                  >
-                    Accept
-                  </Button>
-                  <Button
-                    type="submit"
-                    onClick={(e) => {
                       setReject(row.original.expenseId);
                     }}
                     sx={{
@@ -352,6 +332,27 @@ const TableManagerExpenses = () => {
                   >
                     Reject
                   </Button>
+                  <Button
+                    type="submit"
+                    onClick={(e) => {
+                      setAccept(row.original.expenseId);
+                    }}
+                    sx={{
+                      flexDirection: "column",
+                      backgroundColor: "green",
+                      color: "white",
+                      ml: 13,
+                      mt: 5,
+                      fontSize: 12,
+                      "&:hover": {
+                        color: "white",
+                        backgroundColor: "#0066ff",
+                      },
+                    }}
+                  >
+                    Accept
+                  </Button>
+
                 </Box>
               </form>
             </Modal>

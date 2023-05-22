@@ -16,7 +16,7 @@ const WorkerListPage = () => {
       <div >
       {sidebarOpen && <SidebarEmployee />}
       </div>
-      <div className="worker-list-right " style={{marginLeft: sidebarOpen ? '250px' : '0px'}}>
+      <div className="worker-list-right " style={{marginLeft: sidebarOpen ? '220px' : '0px'}}>
         <HeaderEmployee onToggleSidebar={handleToggleSidebar}/>
         <TableEmployee/>
       </div> 
