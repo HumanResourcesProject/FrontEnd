@@ -26,7 +26,7 @@ const HeaderManager = ({ onToggleSidebar }) => {
     <div className="navbar">
       <div className="navbarleftside">
         <MenuIcon onClick={onToggleSidebar} className="menuicon" />
-        <p>Home</p>
+
       </div>
       <div className="navbarrightside">
         <SearchOutlinedIcon className="searchicon" />
