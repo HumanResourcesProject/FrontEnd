@@ -105,6 +105,8 @@ const CreateEmployee = () => {
                 <div className="input-data">
                   <label>Identify number:</label>
                   <input
+                    pattern="^(?=.*[0-9])[0-9]{11}$"
+                    title="Please enter a valid identify number"
                     className="inputs"
                     type="number"
                     onChange={(e) =>
@@ -113,11 +115,14 @@ const CreateEmployee = () => {
                         identityNumber: e.target.value,
                       })
                     }
+                    required
                   />
                 </div>
                 <div className="input-data">
                   <label>Name:</label>
                   <input
+                  pattern="[a-zA-Z]{1,15}"
+                  title="Please enter a valid name"
                     className="inputs"
                     type="text"
                     onChange={(e) =>
@@ -126,11 +131,14 @@ const CreateEmployee = () => {
                         name: e.target.value,
                       })
                     }
+                    required
                   />
                 </div>
                 <div className="input-data">
                   <label>Surname:</label>
                   <input
+                  pattern="[a-zA-Z]{1,15}"
+                  title="Please enter a valid surname"
                     className="inputs"
                     type="text"
                     onChange={(e) =>
@@ -139,6 +147,7 @@ const CreateEmployee = () => {
                         surname: e.target.value,
                       })
                     }
+                    required
                   />
                 </div>
                 <div className="input-data">
@@ -158,6 +167,8 @@ const CreateEmployee = () => {
                 <div className="input-data">
                   <label>Date of Birth:</label>
                   <input
+                    pattern="^(0[1-9]|1[0-2])/(0[1-9]|[12][0-9]|3[01])/(\d{4})$"
+                    title="Please enter a valid birthday"
                     className="inputs"
                     type="date"
                     min="1900-01-01"
@@ -168,6 +179,7 @@ const CreateEmployee = () => {
                         birthDate: e.target.value,
                       })
                     }
+                    required
                   />
                 </div>
                 <div className="input-data">
@@ -188,6 +200,8 @@ const CreateEmployee = () => {
                 <div className="input-data">
                   <label>Job-start-date:</label>
                   <input
+                    pattern="^(0[1-9]|1[0-2])/(0[1-9]|[12][0-9]|3[01])/(\d{4})$"
+                    title="Please enter a valid day"
                     className="inputs"
                     type="date"
                     min={new Date().toISOString().substring(0, 10)}
@@ -198,6 +212,7 @@ const CreateEmployee = () => {
                         jobStart: e.target.value,
                       })
                     }
+                    required
                   />
                 </div>
                 <div className="input-data">
@@ -238,6 +253,8 @@ const CreateEmployee = () => {
                 <div className="input-data">
                   <label>Phone:</label>
                   <input
+                    pattern="^[0-9]{9,11}$"
+                    title="Please enter a valid phone"
                     type="number"
                     className="inputs"
                     onChange={(e) =>
