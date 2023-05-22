@@ -308,26 +308,6 @@ const TableManagerAdvancePayments = () => {
                   <Button
                     type="submit"
                     onClick={(e) => {
-                      setAccept(row.original.advancePaymentId);
-                    }}
-                    sx={{
-                      flexDirection: "column",
-                      backgroundColor: "green",
-                      color: "white",
-                      ml: 13,
-                      mt: 5,
-                      fontSize: 12,
-                      "&:hover": {
-                        color: "white",
-                        backgroundColor: "#0066ff",
-                      },
-                    }}
-                  >
-                    Accept
-                  </Button>
-                  <Button
-                    type="submit"
-                    onClick={(e) => {
                       setReject(row.original.advancePaymentId);
                     }}
                     sx={{
@@ -345,6 +325,27 @@ const TableManagerAdvancePayments = () => {
                   >
                     Reject
                   </Button>
+                  <Button
+                    type="submit"
+                    onClick={(e) => {
+                      setAccept(row.original.advancePaymentId);
+                    }}
+                    sx={{
+                      flexDirection: "column",
+                      backgroundColor: "z",
+                      color: "white",
+                      ml: 13,
+                      mt: 5,
+                      fontSize: 12,
+                      "&:hover": {
+                        color: "white",
+                        backgroundColor: "#0066ff",
+                      },
+                    }}
+                  >
+                    Accept
+                  </Button>
+
                 </Box>
               </form>
             </Modal>

@@ -46,35 +46,11 @@ const SidebarEmployee = () => {
               </Link>
             </li>
             <li>
-              <Link to="/employeeaddleave" className={`link d-flex ${
-                  activeItem === "/employeeaddleave" ? "active" : ""
-                }`}>
-                <HowToRegOutlinedIcon />
-                <div>Employee Add Leave</div>
-              </Link>
-            </li>
-            <li>
-              <Link to="/employeeadvancepayment" className={`link d-flex ${
-                  activeItem === "/employeeadvancepayment" ? "active" : ""
-                }`}>
-                <HowToRegOutlinedIcon />
-                <div>Advance Payment</div>
-              </Link>
-            </li>
-            <li>
               <Link to="/listallemployees" className={`link d-flex ${
                   activeItem === "/listallemployees" ? "active" : ""
                 }`}>
                 <HowToRegOutlinedIcon />
                 <div>Employee List</div>
-              </Link>
-            </li>
-            <li>
-              <Link to="/employeeexpense" className={`link d-flex ${
-                  activeItem === "/employeeexpense" ? "active" : ""
-                }`}>
-                <HowToRegOutlinedIcon />
-                <div>Expense Request</div>
               </Link>
             </li>
           </ul>
