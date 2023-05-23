@@ -9,7 +9,20 @@ import EngineeringOutlinedIcon from "@mui/icons-material/EngineeringOutlined";
 import Groups3Icon from "@mui/icons-material/Groups3";
 import AdminService from "../../service/AdminService";
 const Sidebar = () => {
-  
+  const [profil, setProfil] = useState([]);
+  const [token] = useState({
+    token: sessionStorage.getItem("token"),
+  });
+
+  const profilpart = () => {
+    AdminService.postShortDetails(token).then((response) => {
+      setProfil(response.data);
+    });
+  };
+
+  useEffect(() => {
+    profilpart();
+  }, []);
 
   return (
     <aside className="full-sidebar">

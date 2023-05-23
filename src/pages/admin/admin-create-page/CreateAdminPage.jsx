@@ -2,9 +2,7 @@ import React from 'react'
 import "./createAdminPage.scss";
 import Header from "../../../components/header/Header";
 import Sidebar from "../../../components/sidebar/Sidebar";
-
 import CreateAdmin from "../../../components/create-admin/CreateAdmin";
-
 const CreateAdminPage = () => {
   return (
     <div className="admin-page">

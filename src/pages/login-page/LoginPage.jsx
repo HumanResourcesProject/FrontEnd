@@ -19,16 +19,19 @@ const LoginPage = () => {
     setError(false);
     setErrorTextMail("");
     setErrorTextPassword("");
+    
     if (user.email === "") {
       setErrorTextMail("Email empty");
       setError(true);
       return;
     }
+
     if (user.password === "") {
       setErrorTextPassword("Password empty");
       setError(true);
       return;
     }
+
     AuthService.login(user)
       .then((response) => {
         console.log(response);
