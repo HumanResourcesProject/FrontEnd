@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import "./createEmployee.scss";
-import CompanyService from "../../service/CompanyService";
+import ManagerService from "../../service/CompanyManagerService";
 import AuthService from "../../service/AuthService";
 import EmailInput from "../email-input/EmailInput";
 import DriveFolderUploadIcon from "@mui/icons-material/DriveFolderUpload";
@@ -24,6 +24,12 @@ const CreateEmployee = () => {
     jobStart: "",
     avatar: "",
   });
+
+  const [data] = useState({
+    token: sessionStorage.getItem("token"),
+    role: sessionStorage.getItem("role")
+  });
+
   const [image, setImage] = useState("");
 
   const onchangeImage = (e) => {
@@ -31,12 +37,10 @@ const CreateEmployee = () => {
     setImage(file);
   };
 
-  const [companies, setCompanies] = useState([]);
   useEffect(() => {
-    CompanyService.findAllCompany(sessionStorage.getItem("token")).then(
+    ManagerService.postShortDetails(data).then(
       (response) => {
-        setCompanies(response.data);
-        console.log(response);
+        setEmployeeInfo({...employeeInfo,company:response.data.company})
       }
     );
   }, []);
@@ -73,9 +77,9 @@ const CreateEmployee = () => {
 
   return (
     <div className="employee-register">
-      {/* <div className="employee-register-company-part">
-        <div className="employee-register-company-text">Starbucks</div>
-      </div> */}
+      <div className="employee-register-company-part">
+        <div className="employee-register-company-text">{employeeInfo.company || ""}</div>
+      </div>
       <div className="employee-register-photo-section">
           {image ? (
             <img className="employee-register-avatar" src={URL.createObjectURL(image)} />
@@ -105,6 +109,8 @@ const CreateEmployee = () => {
                 <div className="input-data">
                   <label>Identify number:</label>
                   <input
+                    pattern="^(?=.*[0-9])[0-9]{11}$"
+                    title="Please enter a valid identify number"
                     className="inputs"
                     type="number"
                     onChange={(e) =>
@@ -113,11 +119,14 @@ const CreateEmployee = () => {
                         identityNumber: e.target.value,
                       })
                     }
+                    required
                   />
                 </div>
                 <div className="input-data">
                   <label>Name:</label>
                   <input
+                  pattern="[a-zA-Z]{1,15}"
+                  title="Please enter a valid name"
                     className="inputs"
                     type="text"
                     onChange={(e) =>
@@ -126,11 +135,14 @@ const CreateEmployee = () => {
                         name: e.target.value,
                       })
                     }
+                    required
                   />
                 </div>
                 <div className="input-data">
                   <label>Surname:</label>
                   <input
+                  pattern="[a-zA-Z]{1,15}"
+                  title="Please enter a valid surname"
                     className="inputs"
                     type="text"
                     onChange={(e) =>
@@ -139,6 +151,7 @@ const CreateEmployee = () => {
                         surname: e.target.value,
                       })
                     }
+                    required
                   />
                 </div>
                 <div className="input-data">
@@ -158,6 +171,8 @@ const CreateEmployee = () => {
                 <div className="input-data">
                   <label>Date of Birth:</label>
                   <input
+                    pattern="^(0[1-9]|1[0-2])/(0[1-9]|[12][0-9]|3[01])/(\d{4})$"
+                    title="Please enter a valid birthday"
                     className="inputs"
                     type="date"
                     min="1900-01-01"
@@ -168,6 +183,7 @@ const CreateEmployee = () => {
                         birthDate: e.target.value,
                       })
                     }
+                    required
                   />
                 </div>
                 <div className="input-data">
@@ -188,16 +204,18 @@ const CreateEmployee = () => {
                 <div className="input-data">
                   <label>Job-start-date:</label>
                   <input
+                    pattern="^(0[1-9]|1[0-2])/(0[1-9]|[12][0-9]|3[01])/(\d{4})$"
+                    title="Please enter a valid day"
                     className="inputs"
                     type="date"
                     min={new Date().toISOString().substring(0, 10)}
-                    max="2005-01-01"
                     onChange={(e) =>
                       setEmployeeInfo({
                         ...employeeInfo,
                         jobStart: e.target.value,
                       })
                     }
+                    required
                   />
                 </div>
                 <div className="input-data">
@@ -238,7 +256,9 @@ const CreateEmployee = () => {
                 <div className="input-data">
                   <label>Phone:</label>
                   <input
-                    type="number"
+                    pattern="^[0-9]{9,11}$"
+                    title="Please enter a valid phone"
+                    type="number" required
                     className="inputs"
                     onChange={(e) =>
                       setEmployeeInfo({

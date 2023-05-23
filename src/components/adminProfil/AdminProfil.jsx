@@ -142,6 +142,8 @@ const AdminProfil = () => {
                   onChange={setPhone}
                 /> } */}
                 <input
+                pattern="^[0-9]{9,11}$"
+                title="Please enter a valid phone"
                   type="tel"
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
