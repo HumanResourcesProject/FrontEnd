@@ -16,11 +16,9 @@ const TableEmployee = () => {
 
   });
   useEffect(() => {
-    console.log("token buuuuu .... "+token.token);
     ManagerService.getAllMyEmployee(token).then((response) => {
       setData(() => (response.data
       ));
-      console.log(response);
       
     });
   }, []);

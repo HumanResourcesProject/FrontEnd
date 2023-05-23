@@ -1,67 +1,43 @@
-.mainemployee-body {
-  display: flex;
-  gap: 50px;
-  justify-content: center;
-  height: 350px;
-  align-items: center;
-  .module-series {
-    background: -webkit-radial-gradient(
-        center,
-        ellipse cover,
-        rgba(0, 0, 0, 0.5) 0%,
-        rgba(0, 0, 0, 0) 70%
-      )
-      bottom center no-repeat;
-    background-size: 200px 50px;
-    text-align: center;
-    padding-bottom: 15px;
-    .module-title {
-      width: 300px;
-      margin-left: auto;
-      margin-right: auto;
-      font-family: "Crete Round";
-      border: 1px solid #ccc;
-      border-bottom: none;
-      margin-bottom: 15px;
-      margin-top: 11px;
-      box-sizing: border-box;
-      padding: 0px;
-      .title-inner {
-        text-align: center;
-        display: inline-block;
-        background: #fff;
-        padding: 0px 13px;
-        position: relative;
-        top: -11px;
-      }
-      .title-inner .span-0 {
-        font-size: 17px;
-        line-height: 23px;
-        font-family: "Francois One";
-        text-transform: uppercase;
-        display: inline-block;
-      }
-      .title-inner .span-1 {
-        font-size: 24px;
-        line-height: 18px;
-        color: #e65441;
-        font-family: "Crete Round";
-        text-transform: lowercase;
-      }
-    }
-    .media-title{
-        font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+.employee-main-container {
+    .small-boxes{
+        display: flex;
+        justify-content: space-between;
+        width: 93%;
         
-    }
-  }
-  .series-footer {
-    width: 300px;
-    margin-left: auto;
-    margin-right: auto;
-    height: 32px;
-    border: 1px solid #ccc;
-    border-top: none;
-    margin-top: 10px;
-    background: #fff;
-  }
+        flex-wrap: wrap;
+        .box{
+          box-shadow: 0px 0px 10px 3px rgba(0,0,0,0.1);
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          width: 320px;
+          padding: 15px;
+          background-color: white;
+          border-radius: 7px;
+          margin-top: 15px;
+          
+          
+          .box-left{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+           .upper{
+            font-size:30px;
+           }
+           .lower{
+            font-size: small;
+           } 
+          }
+          .box-right{
+            background-color: rgb(233, 113, 113);
+            border-radius: 50%;
+            padding: 10px;
+            display: flex;
+            .icon{
+              width: 30px;
+            }
+          }
+        }
+      }
 }
