@@ -3,76 +3,121 @@ import "./mainEmployee.scss";
 import EmployeeService from "../../service/EmployeeService";
 import { useState, useEffect } from "react";
 
-
 const MainEmployee = () => {
-  const [mahmut, setMahmut] = useState({
+  const [data] = useState({
     token: sessionStorage.getItem("token"),
     role: sessionStorage.getItem("role"),
   });
-  const [employee, setEmployee] = useState([]);
-  useEffect(() => {
-    EmployeeService.employeeCount(mahmut).then((response)=>{
-      setEmployee(response.data)
-      
-    })
-  }, []);
-  const [manager, setManager] = useState([]);
-  useEffect(() => {
-    EmployeeService.managerCount(mahmut).then((response)=>{
-      setManager(response.data)
-    })
-  }, []);
+
   return (
-    <div className="mainemployee-body">
-      
-      <div className="module module-multi module-series inset">
-        <div className="module-title">
-          <div className="title-inner">
-            <span className="span-0">related</span>
-            <span className="span-1">info</span>
+    <div className="employee-main-container">
+      <div className="small-boxes">
+        <div className="box">
+          <div className="box-left">
+            <div className="upper">555</div>
+            <div className="lower">All Employees</div>
+          </div>
+          <div className="box-right">
+            <img
+              src="https://img.icons8.com/?size=512&id=cD26kdwTbCzt&format=png"
+              className="icon"
+              alt=""
+            />
           </div>
         </div>
-        <div className="module-body">
-          <div className="module-body-wrap">
-            
-            <div className="fragment-media  module-member">
-              <div className="media-body-wrap">
-                <div className="media-title">Manager </div>
-              </div>
-            </div>
-            <div className="fragment-media  module-member">
-              <div className="media-body-wrap">
-                <div className="media-title">{manager}</div>
-              </div>
-            </div>
+        <div className="box">
+          <div className="box-left">
+            <div className="upper">555</div>
+            <div className="lower">My Employee Team</div>
+          </div>
+          <div className="box-right">
+            <img
+              src="https://img.icons8.com/?size=512&id=cD26kdwTbCzt&format=png"
+              className="icon"
+              alt=""
+            />
           </div>
         </div>
-        <div className="series-footer">&nbsp;</div>
+        <div className="box">
+          <div className="box-left">
+            <div className="upper">555</div>
+            <div className="lower">My Team's Average Age</div>
+          </div>
+          <div className="box-right">
+            <img
+              src="https://img.icons8.com/?size=512&id=cD26kdwTbCzt&format=png"
+              className="icon"
+              alt=""
+            />
+          </div>
+        </div>
+        <div className="box">
+          <div className="box-left">
+            <div className="upper">555</div>
+            <div className="lower">Company's Average Age</div>
+          </div>
+          <div className="box-right">
+            <img
+              src="https://img.icons8.com/?size=512&id=cD26kdwTbCzt&format=png"
+              className="icon"
+              alt=""
+            />
+          </div>
+        </div>
       </div>
-      <div className="module module-multi module-series inset">
-        <div className="module-title">
-          <div className="title-inner">
-            <span className="span-0">related</span>
-            <span className="span-1">info</span>
+      <div className="small-boxes">
+        <div className="box">
+          <div className="box-left">
+            <div className="upper">555</div>
+            <div className="lower">All Employees</div>
+          </div>
+          <div className="box-right">
+            <img
+              src="https://img.icons8.com/?size=512&id=cD26kdwTbCzt&format=png"
+              className="icon"
+              alt=""
+            />
           </div>
         </div>
-        <div className="module-body">
-         
-          <div className="module-body-wrap">
-            
-            <div className="fragment-media  module-member">
-              <div className="media-body-wrap">
-                <div className="media-title">Employee </div>
-              </div>
-            </div>
-            <div className="fragment-media  module-member">
-              <div className="media-body-wrap">
-                <div className="media-title">{employee}</div>
-              </div>
-            </div>
+        <div className="box">
+          <div className="box-left">
+            <div className="upper">555</div>
+            <div className="lower">My Employee Team</div>
+          </div>
+          <div className="box-right">
+            <img
+              src="https://img.icons8.com/?size=512&id=cD26kdwTbCzt&format=png"
+              className="icon"
+              alt=""
+            />
           </div>
         </div>
-        <div className="series-footer">&nbsp;</div>
+        <div className="box">
+          <div className="box-left">
+            <div className="upper">555</div>
+            <div className="lower">My Team's Average Age</div>
+          </div>
+          <div className="box-right">
+            <img
+              src="https://img.icons8.com/?size=512&id=cD26kdwTbCzt&format=png"
+              className="icon"
+              alt=""
+            />
+          </div>
+        </div>
+        <div className="box">
+          <div className="box-left">
+            <div className="upper">555</div>
+            <div className="lower">Company's Average Age</div>
+          </div>
+          <div className="box-right">
+            <img
+              src="https://img.icons8.com/?size=512&id=cD26kdwTbCzt&format=png"
+              className="icon"
+              alt=""
+            />
+          </div>
+        </div>
       </div>
     </div>
   );
