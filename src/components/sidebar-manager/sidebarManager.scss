@@ -52,7 +52,8 @@ body {
         margin-left: 1.6rem;
         max-height: 35px;
         width: auto;
-        background-color: rgb(0, 101, 62);
+        background-color:rgb(60, 181, 63);
+
         border-radius: 50%;
       }
 
@@ -109,7 +110,7 @@ body {
 
       li {
         .link.active {
-          background-color: rgb(0, 101, 62);
+          background-color: rgb(60, 181, 63);
           border-radius: 5px;
           color: white;
           .link {
@@ -126,7 +127,7 @@ body {
           font-size: small;
           padding: 5px 0px 5px 5px;
           &:hover{
-            background-color:rgb(0, 101, 62);
+            background-color:rgb(60, 181, 63);
             border-radius: 5px;
             color: white;
           }
@@ -147,7 +148,7 @@ body {
         height: 70px;
         color: black;
         &:hover{
-          background-color:  rgb(59, 102, 86);
+          background-color:  rgb(60, 181, 63);
           color: aliceblue;
           font-weight: 700;
         }

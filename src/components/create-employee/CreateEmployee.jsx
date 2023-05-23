@@ -77,8 +77,8 @@ const CreateEmployee = () => {
 
   return (
     <div className="employee-register">
-      <div className="employee-register-company-part">
-        <div className="employee-register-company-text">{employeeInfo.company || ""}</div>
+      <div className="employee-register-part">
+        <div className="employee-register-text">Employee Register</div>
       </div>
       <div className="employee-register-photo-section">
           {image ? (

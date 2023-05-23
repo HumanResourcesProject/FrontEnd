@@ -9,22 +9,27 @@ import ManageAccountsIcon from "@mui/icons-material/ManageAccounts";
 import DeleteIcon from "@mui/icons-material/Delete";
 import MailOutlineIcon from "@mui/icons-material/MailOutline";
 import styled from "@emotion/styled";
+import CompanyService from "../../service/CompanyService";
 
-const Card = ({ userData }) => {
-  const theme = createTheme();
+const Card = () => {
 
-  const P = styled('p')(unstable_styleFunctionSx);
+  const [data, setData] = useState([]);
 
-  const [open, setOpen] = React.useState(false);
-  const [anchorEl, setAnchorEl] = React.useState(null);
+  useEffect(() => {
+    const token = {
+      token: sessionStorage.getItem("token"),
+      role: sessionStorage.getItem("role"),
+    };
 
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
-    setOpen((previousOpen) => !previousOpen);
-  };
+    CompanyService.findAllCompany(token)
+      .then((response) => {
+        setData(response.data);
+      })
+      .catch((error) => {
+        console.error("Error fetching data: ", error);
+      });
+  }, []);
 
-  const canBeOpen = open && Boolean(anchorEl);
-  const id = canBeOpen ? "transition-popper" : undefined;
 
   return (
     <div className="widget-user-mini">
@@ -44,23 +49,7 @@ const Card = ({ userData }) => {
           <div className="description-block-mini">
             <MailOutlineIcon
               className="mailicon cardicons"
-              onClick={handleClick}
             />
-            <Popper id={id} open={open} anchorEl={anchorEl} transition>
-              {({ TransitionProps }) => (
-                <Fade {...TransitionProps} timeout={350}>
-                  <Box
-                    sx={{ border: 1, p: 1, bgcolor: "background.paper"  }}
-                    className="popperbox"
-                  >
-                    <P sx={{  fontWeight: 'bold'}} >Phone:</P>
-                    <P  >{userData.phone}</P>
-                    <P sx={{  fontWeight: 'bold'}}>Email:</P>
-                    <P>{userData.email}</P>
-                  </Box>
-                </Fade>
-              )}
-            </Popper>
           </div>
 
           <div className="description-block-mini border-leftright-mini">

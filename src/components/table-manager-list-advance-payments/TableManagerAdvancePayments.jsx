@@ -7,6 +7,7 @@ import { Button } from "@mui/material";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
+import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 
 const TableManagerAdvancePayments = () => {
   const [data, setData] = useState([]);
@@ -66,7 +67,6 @@ const TableManagerAdvancePayments = () => {
       handleClose();
       setReject([]);
       window.location.reload(false);
-
     }
   };
 
@@ -153,6 +153,12 @@ const TableManagerAdvancePayments = () => {
 
   return (
     <div className="table-manager-advance-payments">
+      <div className="linktobutton-manage-request">
+        <Link to="/managerequests" className="manage-request-button">
+          <ArrowBackIosNewIcon className="manage-request-back"/>
+          <p className="text-manage-request">Manage Requests</p>
+        </Link>
+      </div>
       <h2>Advance Payment Table</h2>
       <MaterialReactTable
         columns={columns}
@@ -165,7 +171,7 @@ const TableManagerAdvancePayments = () => {
             <Modal open={open} onClose={handleClose}>
               <form onSubmit={handleRequest}>
                 <Box sx={style}>
-                <Typography
+                  <Typography
                     component={"span"}
                     sx={{
                       fontWeight: "bold",
@@ -332,7 +338,7 @@ const TableManagerAdvancePayments = () => {
                     }}
                     sx={{
                       flexDirection: "column",
-                      backgroundColor: "z",
+                      backgroundColor: "green",
                       color: "white",
                       ml: 5,
                       mt: 5,
@@ -345,31 +351,12 @@ const TableManagerAdvancePayments = () => {
                   >
                     Accept
                   </Button>
-
                 </Box>
               </form>
             </Modal>
           </div>
         )}
       />{" "}
-      <div className="linktobuttons-advance-payments">
-        <Link
-          to="/listemployeeexpenses"
-          className="advance-payments-button-left advance-payments-button"
-        >
-
-            <p className="text-expense">Expenses Requests</p>
-
-        </Link>
-        <Link
-          to="/listemployeeleaves"
-          className="advance-payments-button-right advance-payments-button"
-        >
-
-            <p className="text-leave">Leave Requests</p>
-
-        </Link>
-      </div>
     </div>
   );
 };

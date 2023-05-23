@@ -14,6 +14,8 @@ import React from 'react'
         </div>
         <button>Submit</button>
     </form>
+
+    
   )
 }
 export default AdminMain
