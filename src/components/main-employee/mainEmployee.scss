@@ -1,4 +1,8 @@
 .employee-main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 35px;
     .small-boxes{
         display: flex;
         justify-content: space-between;

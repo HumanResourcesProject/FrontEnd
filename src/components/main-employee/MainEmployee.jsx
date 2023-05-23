@@ -3,17 +3,15 @@ import "./mainEmployee.scss";
 import EmployeeService from "../../service/EmployeeService";
 import { useState, useEffect } from "react";
 
-
 const MainEmployee = () => {
   const [data] = useState({
     token: sessionStorage.getItem("token"),
     role: sessionStorage.getItem("role"),
   });
-  
- 
+
   return (
     <div className="employee-main-container">
-        <div className="small-boxes">
+      <div className="small-boxes">
         <div className="box">
           <div className="box-left">
             <div className="upper">555</div>
