@@ -7,7 +7,6 @@ import SupervisorAccountOutlinedIcon from "@mui/icons-material/SupervisorAccount
 import LogoutOutlinedIcon from "@mui/icons-material/LogoutOutlined";
 import EngineeringOutlinedIcon from "@mui/icons-material/EngineeringOutlined";
 import Groups3Icon from "@mui/icons-material/Groups3";
-import AdminService from "../../service/AdminService";
 const Sidebar = () => {
   const [profil, setProfil] = useState([]);
   const [token] = useState({
@@ -25,10 +24,10 @@ const Sidebar = () => {
   }, []);
 
   return (
-    <aside className="full-sidebar">
+    <div className="full-sidebar">
       <div>
         <div className="sidebar-top">
-          <Link to="/" className="sidebar-title-link">
+          <Link to="/admin" className="sidebar-title-link">
             <img
               src="https://adminlte.io/themes/v3/dist/img/AdminLTELogo.png"
               alt=""
@@ -92,7 +91,7 @@ const Sidebar = () => {
           </div>
         </Link>
       </div>
-    </aside>
+    </div>
   );
 };
 export default Sidebar;

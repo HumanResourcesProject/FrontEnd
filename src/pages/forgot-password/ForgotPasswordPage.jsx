@@ -1,10 +1,28 @@
 import React from "react";
-import Background from "../../assets/images/forgot-password.svg";
+import { useState, useEffect } from "react";
 import "./forgotPasswordPage.scss";
 import backarrow from "../../assets/images/backarrow.png";
 import { Link } from "react-router-dom";
+import AuthService from "../../service/AuthService"
 
 const ForgotPasswordPage = () => {
+  const [data,setData] = useState({
+    role:"",
+    email:"",
+    password:"",
+  });
+  const handleSubmit = (e) =>{
+    e.preventDefault();
+    if(data.email !== "" && data.email.includes("@")){
+      AuthService.forgotPassword(data).then((response) =>{
+        alert("Nice")
+      })
+      .catch((error) =>{
+        alert("Error")
+      })
+    }
+
+  }
   return (
     <div className="forgot-container">
       <div className="background-part"></div>
@@ -30,13 +48,18 @@ const ForgotPasswordPage = () => {
               name="name"
               id="name"
               required
+              onChange={(e)=>
+              setData({
+                ...data,
+                email: e.target.value,
+              })}
             />
             <label htmlFor="name" className="form__label">
               E-Mail
             </label>
           </div>
           <div className="button-part">
-            <button className="button">Reset</button>
+            <button onClick={handleSubmit} className="button">Reset</button>
           </div>
         </div>
       </div>

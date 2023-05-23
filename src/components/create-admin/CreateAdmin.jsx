@@ -3,7 +3,10 @@ import { useState } from 'react';
 import './createAdmin.scss'
 import DriveFolderUploadIcon from '@mui/icons-material/DriveFolderUpload';
 import AuthService from '../../service/AuthService';
-import { red } from '@mui/material/colors';
+import EmailInput from "../email-input/EmailInput";
+
+
+
 const CreateAdmin = () => {
   const [adminInfo, setAdminInfo] = useState({
     name: "",
@@ -85,7 +88,12 @@ const CreateAdmin = () => {
         <div className='register-information'>
           <form onSubmit={handleCreate}>
             <label htmlFor="ad">Name:</label>
-            <input type="text" onChange={(e) =>
+            <input 
+            pattern="[a-zA-Z]{1,15}"
+            title="Please enter a valid name"
+            required
+            type="text" 
+            onChange={(e) =>
                   setAdminInfo({
                     ...adminInfo,
                     name: e.target.value,
@@ -95,16 +103,18 @@ const CreateAdmin = () => {
             {errors.name && <p className="error-text" style={{color: "red"}}> {errors.name} </p>}
 
             <label htmlFor="soyad">Surname:</label>
-            <input type="text" onChange={(e) =>
-              setAdminInfo({
-                ...adminInfo,
-                surname: e.target.value,
-              })
-            } />
-                                      {errors.surname && <p className="error-text">{errors.surname}</p>}
-
+            <input 
+            pattern="[a-zA-Z]{1,15}"
+            title="Please enter a valid surname"
+            type="text" required
+            onChange={(e) =>
+                  setAdminInfo({
+                    ...adminInfo,
+                    surname: e.target.value,
+                  })
+                }/>
             <label htmlFor="email">E-mail:</label>
-            <input type="text" onChange={(e) =>
+            <EmailInput type="text" required onChange={(e) =>
                   setAdminInfo({
                     ...adminInfo,
                     email: e.target.value,
@@ -113,7 +123,11 @@ const CreateAdmin = () => {
                           {errors.email && <p className="error-text">{errors.email}</p>}
 
             <label htmlFor="phone">Phone Number:</label>
-            <input type="tel" onChange={(e) =>
+            <input 
+            pattern="^[0-9]{9,11}$"
+            title="Please enter a valid phone"
+            type="tel" required
+            onChange={(e) =>
                   setAdminInfo({
                     ...adminInfo,
                     phone: e.target.value,

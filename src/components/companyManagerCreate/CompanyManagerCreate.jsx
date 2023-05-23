@@ -5,6 +5,8 @@ import DriveFolderUploadIcon from "@mui/icons-material/DriveFolderUpload";
 import "./companyManagerCreate.scss";
 import AuthService from "../../service/AuthService";
 import CompanyService from "../../service/CompanyService";
+import EmailInput from "../email-input/EmailInput";
+
 
 const CompanyManagerCreate = () => {
   const [managerInfo, setManagerInfo] = useState({
@@ -147,6 +149,9 @@ const CompanyManagerCreate = () => {
                 <div className="data">
                   <label>Identify number:</label>
                   <input
+                  pattern="^(?=.*[0-9])[0-9]{11}$"
+                  title="Please enter a valid identify number"
+                  required
                     type="text"
                     onChange={(e) =>
                       setManagerInfo({
@@ -159,6 +164,9 @@ const CompanyManagerCreate = () => {
                 <div className="data">
                   <label>Name:</label>
                   <input
+                  pattern="[a-zA-Z]{1,15}"
+                  title="Please enter a valid name"
+                  required
                     type="text"
                     onChange={(e) =>
                       setManagerInfo({
@@ -171,6 +179,9 @@ const CompanyManagerCreate = () => {
                 <div className="data">
                   <label>Surname:</label>
                   <input
+                  pattern="[a-zA-Z]{1,15}"
+                  title="Please enter a valid surname"
+                  required
                     type="text"
                     onChange={(e) =>
                       setManagerInfo({
@@ -196,6 +207,9 @@ const CompanyManagerCreate = () => {
                 <div className="data">
                   <label>Birth-date:</label>
                   <input
+                  pattern="^(0[1-9]|1[0-2])/(0[1-9]|[12][0-9]|3[01])/(\d{4})$"
+                  title="Please enter a valid birthday"
+                  required
                     type="text"
                     onChange={(e) =>
                       setManagerInfo({
@@ -222,6 +236,8 @@ const CompanyManagerCreate = () => {
                 <div className="data">
                   <label>Job-start-date:</label>
                   <input
+                  pattern="^(0[1-9]|1[0-2])/(0[1-9]|[12][0-9]|3[01])/(\d{4})$"
+                  title="Please enter a valid day"
                     type="text"
                     onChange={(e) =>
                       setManagerInfo({
@@ -258,7 +274,7 @@ const CompanyManagerCreate = () => {
 
                 <div className="data">
                   <label>E-Mail</label>
-                  <input
+                  <EmailInput
                     type="text"
                     onChange={(e) =>
                       setManagerInfo({
@@ -271,7 +287,9 @@ const CompanyManagerCreate = () => {
                 <div className="data">
                   <label>Phone:</label>
                   <input
-                    type="text"
+                  pattern="^[0-9]{9,11}$"
+                  title="Please enter a valid phone"
+                  type="number" required
                     onChange={(e) =>
                       setManagerInfo({
                         ...managerInfo,

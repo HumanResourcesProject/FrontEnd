@@ -2,30 +2,40 @@
   padding: 50px;
   display: flex;
   flex-direction: column;
+  gap: 50px;
+  h2 {
+    color: #3e3e3e;
+    margin-left: 20px;
+  }
 
-  .linktobuttons-advance-payments{
-    margin-top: 50px;
+  .linktobutton-manage-request{
     display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    .advance-payments-button{
+    justify-content: start;
+    margin-right: 50px;
+    .manage-request-button {
+      
+      display: flex;
+      align-items: center;
       text-decoration: none;
-      border: 2px solid #807f7f;
       color: #807f7f;
-      padding: 5px;
+      padding: 5px 15px 5px 2px;
       border-radius: 5px;
       transition: transform 1s;
+      gap: 20px;
+      box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.2);
+      .manage-request-back {
+        display: flex;
+        align-items: center;
+      }
+      .text-manage-request {
+        color: #5b5b5b;
+        font-weight: 700;
+      }
     }
-    .advance-payments-button-left:hover{
+    .manage-request-button:hover {
       cursor: pointer;
-      border: 2px solid #b22f00;
-      transform: scale(1.1);
+      padding: 3px 13px 3px 0px;
+      border: 2px solid rgb(60, 181, 63);
     }
-    .advance-payments-button-right:hover{
-      cursor: pointer;
-      border: 2px solid #00ac56;
-      transform: scale(1.1);
-    }
-
   }
 }

@@ -79,18 +79,6 @@ const TableStaffLeave = () => {
         },
       },
       {
-        accessorKey: "amountOfDay",
-        header: "Days of Leave",
-        size: 100,
-        enableEditing: false,
-        muiTableHeadCellProps: {
-          align: 'center',
-        },
-        muiTableBodyCellProps: {
-          align: 'center',
-        },
-      },
-      {
         accessorFn: (row) => ` ${row.status}  `,
             id: "Status",
             header: "Status",
@@ -123,6 +111,19 @@ const TableStaffLeave = () => {
               ),
       },
       {
+        accessorKey: "amountOfDay",
+        header: "Days of Leave",
+        size: 100,
+        enableEditing: false,
+        muiTableHeadCellProps: {
+          align: 'center',
+        },
+        muiTableBodyCellProps: {
+          align: 'center',
+        },
+      },
+
+      {
         accessorKey: "approvalDate",
         header: "Approval Date",
         size: 200,
@@ -144,7 +145,7 @@ const TableStaffLeave = () => {
         <div className="icon-div">
           <QueueIcon />
         </div>
-        <div>Apply staff leave</div>
+        <div className="icon-div-mini">Apply staff leave</div>
       </Link>
       <div className="table-staff-leave">
         <MaterialReactTable columns={columns} data={data} />
