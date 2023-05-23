@@ -1,15 +1,48 @@
 import React from "react";
 import "./managerMain.scss";
 import { useState, useEffect } from "react";
+import ManagerService from "../../service/CompanyManagerService";
+import EmployeeService from "../../service/EmployeeService";
 
 const MainPage = () => {
+  const [data] = useState({
+    token: sessionStorage.getItem("token"),
+    role: sessionStorage.getItem("role")
+  });
+  const[myEmployeeCount,setMyEmployeeCount]= useState("");
+  const[employeeCount,setEmployeeCount] = useState("");
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await ManagerService.findAllMyEmployeeCount(data);
+        setMyEmployeeCount(response.data)
+      } catch (error) {
+        console.error(error);
+      }
+      // try {
+      //   const response = await EmployeeService.employeeCount(data);
+      //   console.log(response.data);
+      // } catch (error) {
+      //   console.error(error);
+      // }
+      try {
+        const response = await EmployeeService.findAllMyEmployeeCount(data);
+        setMyEmployeeCount(response.data)
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   return (
     <div className="manager-main-container">
       <div className="small-boxes">
         <div className="box">
           <div className="box-left">
-            <div className="upper">352</div>
-            <div className="lower">Invoice Sent</div>
+            <div className="upper">{employeeCount || ""}</div>
+            <div className="lower">Employee</div>
           </div>
           <div className="box-right">
             <img
@@ -21,7 +54,7 @@ const MainPage = () => {
         </div>
         <div className="box">
           <div className="box-left">
-            <div className="upper">352</div>
+            <div className="upper">{myEmployeeCount || ""}</div>
             <div className="lower">Invoice Sent</div>
           </div>
           <div className="box-right">
