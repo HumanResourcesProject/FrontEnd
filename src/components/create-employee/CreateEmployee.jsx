@@ -283,8 +283,8 @@ const CreateEmployee = () => {
 
             <div className="employee-register-button-part">
               <button type="submit" className="save-button">
-              Save
-            </button>
+                Save
+              </button>
             </div>
           </form>
         </div>

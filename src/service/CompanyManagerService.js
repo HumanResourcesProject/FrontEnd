@@ -4,7 +4,7 @@ const FINDALL_MANAGER = "http://localhost:7072/manager/findall";
 const GET_MANAGER_INFO = "http://localhost:7072/manager/getfindme";
 const UPDATE_MANAGER_INFO = "http://localhost:7072/manager/updatemanager";
 const FINDALL_EMPLOYEE = "http://localhost:7072/manager/findallmyemployee";
-
+const FINDALL_MY_EMPLOYEE_COUNT = "http://localhost:7072/manager/findallmyemployeecount";
 
 
 
@@ -43,6 +43,13 @@ class CompanyManagerService {
             'Content-Type': 'multipart/form-data'
         }
         });
+    }
+    findAllMyEmployeeCount(data){
+        return axios.post(FINDALL_MY_EMPLOYEE_COUNT,data,{
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
     }
     
     
