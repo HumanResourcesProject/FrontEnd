@@ -12,8 +12,8 @@ const AdminPage = () => {
     setSidebarOpen(!sidebarOpen);
   };
   return (
-    <div className="adminpage">
-      <div className="admin_sidebar">
+    <div className="admin-main-page">
+      <div className="admin-sidebar">
       {sidebarOpen && <Sidebar />}
       </div>
       <div className="admin-right" style={{marginLeft: sidebarOpen ? '250px' : '0px'}}>

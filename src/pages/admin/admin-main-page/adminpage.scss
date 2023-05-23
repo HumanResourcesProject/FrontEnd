@@ -1,9 +1,12 @@
-.adminpage{
-    .admin-right{
-        display: flex;
-        flex-direction: column;
-        margin-left: 250px;
+.admin-main-page{
+    display: flex;
+    .admin-sidebar{
     }
+    .admin-right{
+        margin-left: 250px;
+        width: 100%;
+    }
+    
 }
 *{
     font-family: "Source Sans Pro",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
