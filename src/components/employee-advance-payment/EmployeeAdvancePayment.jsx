@@ -31,7 +31,7 @@ const EmployeeAdvancePayment = () => {
   const [profile, setProfile] = useState({
     salary:"",
   });
-  const [value, setValue] = useState("");
+  const [value, setValue] = useState();
   
   const [token] = useState({
     token: sessionStorage.getItem("token"),
@@ -44,7 +44,8 @@ const EmployeeAdvancePayment = () => {
         setProfile({
           ...profile,
           salary: response.data.salary *3,
-        }) 
+        })
+        setMax(response.data.salary *3) 
         
         
       }
@@ -89,20 +90,23 @@ const EmployeeAdvancePayment = () => {
   const [symbol, setSymbol] = useState();
 
   useEffect(() => {
+    setValue(advancePayment.amount)
+    setMax(profile.salary)
+    setSymbol("₺");
     if (advancePayment.currency === "TL") {
       setSymbol("₺");
       setValue(advancePayment.amount)
       setMax(profile.salary)
     } else if (advancePayment.currency === "DOLAR") {
       setSymbol("$");
-      setValue(advancePayment.amount*rates.USD)
-      setMax(profile.salary*rates.USD)
+      setValue(Number(advancePayment.amount/rates.USD).toFixed(2))
+      setMax(Number(profile.salary*rates.USD).toFixed(2))
     } else if (advancePayment.currency === "EURO") {
       setSymbol("€");
-      setValue(advancePayment.amount*rates.EUR)
-      setMax(profile.salary*rates.EUR)
+      setValue(Number(advancePayment.amount/rates.EUR).toFixed(2))
+      setMax(Number(profile.salary*rates.EUR).toFixed(2))
     }
-  }, [advancePayment.currency]);
+  }, [advancePayment.currency,advancePayment.amount]);
 
   
 
@@ -127,7 +131,7 @@ const EmployeeAdvancePayment = () => {
       <div className="amount-part">
         <div className="amount-part-mini">
         <div className="amount-text">Amount</div>
-        <div className="currency-text">{value} {symbol}, Max: {max} {symbol}</div>
+        <div className="currency-text">{value} ₺, Max: {max} {symbol}</div>
         </div>
         <div className="amount">
           <select
