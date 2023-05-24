@@ -36,8 +36,6 @@ body {
   .sidebar-upper {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-
     .sidebar-title-link {
       color: rgb(24, 21, 33);
       text-decoration: none;
@@ -45,15 +43,12 @@ body {
       display: flex;
       align-items: center;
       font-weight: 700;
-
       img {
         float: left;
         line-height: 0.8;
         margin-left: 1.6rem;
         max-height: 35px;
         width: auto;
-        background-color:rgb(60, 181, 63);
-
         border-radius: 50%;
       }
 

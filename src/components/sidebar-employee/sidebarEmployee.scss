@@ -33,8 +33,6 @@ body{
     .sidebar-top-employee{
       display: flex;
       flex-direction: column;
-
-      
       .sidebar-title-link-employee{
         color: rgb(24, 21, 33);
         text-decoration: none;
@@ -76,7 +74,7 @@ body{
 
         li {
           .link.active {
-            background-color: rgb(41, 128, 185);
+            background-color:  rgb(8, 192, 255);
             border-radius: 5px;
             color: white;
             .link {
@@ -93,7 +91,7 @@ body{
             font-size: small;
             padding: 5px 0px 5px 5px;
             &:hover{
-              background-color:  rgb(41, 128, 185);
+              background-color:    rgb(8, 192, 255);
               border-radius: 5px;
               color: white;
             }
@@ -112,7 +110,7 @@ body{
           height: 70px;
           color: black;
           &:hover{
-            background-color:  rgb(53, 118, 162);
+            background-color:   rgb(8, 192, 255);
             color: aliceblue;
             font-weight: 700;
           }

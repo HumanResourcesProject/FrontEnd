@@ -16,7 +16,7 @@ const AdminProfilPage = () => {
       <div>
        {sidebarOpen && <Sidebar />}
       </div>
-      <div className="adminprofilright" style={{marginLeft: sidebarOpen ? '250px' : '0px'}}>
+      <div className="adminprofilright" style={{marginLeft: sidebarOpen ? '220px' : '0px'}}>
         <Header onToggleSidebar={handleToggleSidebar} /> 
         <AdminProfil/>
       </div>

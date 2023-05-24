@@ -4,6 +4,8 @@ import { Link, useLocation  } from "react-router-dom";
 import HowToRegOutlinedIcon from "@mui/icons-material/HowToRegOutlined";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import LogoutOutlinedIcon from "@mui/icons-material/LogoutOutlined";
+import lettere from "../../assets/images/lettere.png";
+
 const SidebarEmployee = () => {
   const location = useLocation();
   const [activeItem, setActiveItem] = useState("");
@@ -20,7 +22,7 @@ const SidebarEmployee = () => {
         <div className="sidebar-top-employee">
           <Link to="/employee" className="sidebar-title-link-employee">
             <img
-              src="https://img.icons8.com/?size=512&id=vWvnvMErmrYg&format=png"
+              src={lettere}
               alt=""
             />
             <p className="sidebar-title-employee">HR Employee Page</p>
