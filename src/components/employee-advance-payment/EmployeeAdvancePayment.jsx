@@ -12,9 +12,9 @@ const EmployeeAdvancePayment = () => {
     advancedPaymentDate:""
   });
   const [profile, setProfile] = useState({
-    salary:"1000",
-
+    salary:"",
   });
+  
   const [token] = useState({
     token: sessionStorage.getItem("token"),
     role: sessionStorage.getItem("role")
@@ -69,7 +69,20 @@ const EmployeeAdvancePayment = () => {
     
   };
 
-  
+
+  const [symbol, setSymbol] = useState();
+
+  useEffect(() => {
+    if (advancePayment.currency === "TL") {
+      setSymbol("₺");
+    } else if (advancePayment.currency === "DOLAR") {
+      setSymbol("$");
+    } else if (advancePayment.currency === "EURO") {
+      setSymbol("€");
+    }
+  }, [advancePayment.currency]);
+
+
   return (
     <div className="payment-body">
       <form className="payment-form" onSubmit={handleSubmit}>
@@ -82,12 +95,16 @@ const EmployeeAdvancePayment = () => {
           setAdvancePayment({
             ...advancePayment,
             advancedPaymentDate: event.target.value,
+
           })
         }
          />
       </div>
       <div className="amount-part">
-        <div className="text">Amount</div>
+        <div className="amount-part-mini">
+        <div className="amount-text">Amount</div>
+        <div className="currency-text">{advancePayment.amount || ""} {symbol}, Max: {profile.salary} {symbol}</div>
+        </div>
         <div className="amount">
           <select
             className="amount-select"
