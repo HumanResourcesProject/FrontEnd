@@ -1,9 +1,26 @@
-import React from "react";
 import { useState,useEffect} from "react";
 import "./employeeAdvancePayment.scss";
-import EmployeeService from "../../service/EmployeeService"
+import EmployeeService from "../../service/EmployeeService";
+import * as React from 'react';
+import { ExchangeService} from '../../service/ExchangeService'
 
 const EmployeeAdvancePayment = () => {
+  
+  const[rates,setRates] = React.useState(null);
+
+  React.useEffect(() => {
+    const getFxData = () => {
+      ExchangeService().then(data =>{
+        console.log('fx data:', data);
+        setRates(data.rates);
+      }).catch(err =>{
+        console.log(err);
+      });
+    };
+    getFxData();
+  }, []);
+
+
   const [advancePayment, setAdvancePayment] = useState({
     token: sessionStorage.getItem("token"),
     amount: "",
@@ -14,6 +31,7 @@ const EmployeeAdvancePayment = () => {
   const [profile, setProfile] = useState({
     salary:"",
   });
+  const [value, setValue] = useState("");
   
   const [token] = useState({
     token: sessionStorage.getItem("token"),
@@ -66,21 +84,27 @@ const EmployeeAdvancePayment = () => {
           });
       }
       
-    
   };
-
-
+  const [max,setMax]= useState();
   const [symbol, setSymbol] = useState();
 
   useEffect(() => {
     if (advancePayment.currency === "TL") {
       setSymbol("₺");
+      setValue(advancePayment.amount)
+      setMax(profile.salary)
     } else if (advancePayment.currency === "DOLAR") {
       setSymbol("$");
+      setValue(advancePayment.amount*rates.USD)
+      setMax(profile.salary*rates.USD)
     } else if (advancePayment.currency === "EURO") {
       setSymbol("€");
+      setValue(advancePayment.amount*rates.EUR)
+      setMax(profile.salary*rates.EUR)
     }
   }, [advancePayment.currency]);
+
+  
 
 
   return (
@@ -103,7 +127,7 @@ const EmployeeAdvancePayment = () => {
       <div className="amount-part">
         <div className="amount-part-mini">
         <div className="amount-text">Amount</div>
-        <div className="currency-text">{advancePayment.amount || ""} {symbol}, Max: {profile.salary} {symbol}</div>
+        <div className="currency-text">{value} {symbol}, Max: {max} {symbol}</div>
         </div>
         <div className="amount">
           <select
