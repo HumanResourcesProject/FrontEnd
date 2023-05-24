@@ -23,11 +23,7 @@ const LoginPage = () => {
       setErrorTextMail("Email and password are required");
       return;
     }
-    if (user.password === "") {
-      setErrorTextPassword("Password empty");
-      setError(true);
-      return;
-    }
+
     AuthService.login(user)
       .then((response) => {
         console.log(response);

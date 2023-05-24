@@ -8,20 +8,7 @@ import LogoutOutlinedIcon from "@mui/icons-material/LogoutOutlined";
 import EngineeringOutlinedIcon from "@mui/icons-material/EngineeringOutlined";
 import Groups3Icon from "@mui/icons-material/Groups3";
 const Sidebar = () => {
-  const [profil, setProfil] = useState([]);
-  const [token] = useState({
-    token: sessionStorage.getItem("token"),
-  });
-
-  const profilpart = () => {
-    AdminService.postShortDetails(token).then((response) => {
-      setProfil(response.data);
-    });
-  };
-
-  useEffect(() => {
-    profilpart();
-  }, []);
+  
 
   return (
     <div className="full-sidebar">
