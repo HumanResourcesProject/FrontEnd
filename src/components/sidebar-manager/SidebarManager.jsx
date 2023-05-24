@@ -3,7 +3,7 @@ import "./sidebarManager.scss";
 import { Link, useLocation } from "react-router-dom";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import LogoutOutlinedIcon from "@mui/icons-material/LogoutOutlined";
-import managericon from "../../assets/images/manager-icon.png";
+import letterm from "../../assets/images/letter-m.png";
 import PersonAddIcon from "@mui/icons-material/PersonAdd";
 import GroupsIcon from "@mui/icons-material/Groups";
 import DescriptionIcon from "@mui/icons-material/Description";
@@ -21,7 +21,7 @@ const SidebarManager = () => {
       <div>
         <div className="sidebar-upper">
           <Link to="/manager" className="sidebar-title-link">
-            <img className="managericon" src={managericon} alt="" />
+            <img className="managericon" src={letterm} alt="" />
             <p className="sidebar-title">HRP Manager</p>
           </Link>
         </div>

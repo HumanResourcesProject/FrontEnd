@@ -7,6 +7,8 @@ import { Link } from "react-router-dom";
 import Modal from "@mui/material/Modal";
 import Typography from "@mui/material/Typography";
 import { Button } from "@mui/material";
+import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
+
 
 const TableManagerExpenses = () => {
   const [data2, setData] = useState([]);
@@ -136,6 +138,12 @@ const TableManagerExpenses = () => {
   };
   return (
     <div className="table-manager-expenses">
+            <div className="linktobutton-manage-request">
+        <Link to="/managerequests" className="manage-request-button">
+          <ArrowBackIosNewIcon className="manage-request-back"/>
+          <p className="text-manage-request">Manage Requests</p>
+        </Link>
+      </div>
       <h2>Expenses Table</h2>
       <MaterialReactTable
         columns={columns}
@@ -321,7 +329,7 @@ const TableManagerExpenses = () => {
                       flexDirection: "column",
                       backgroundColor: "red",
                       color: "white",
-                      ml: 5,
+                      ml: 13,
                       mt: 5,
                       fontSize: 12,
                       "&:hover": {
@@ -341,7 +349,7 @@ const TableManagerExpenses = () => {
                       flexDirection: "column",
                       backgroundColor: "green",
                       color: "white",
-                      ml: 13,
+                      ml: 5,
                       mt: 5,
                       fontSize: 12,
                       "&:hover": {
@@ -359,24 +367,6 @@ const TableManagerExpenses = () => {
           </div>
         )}
       />{" "}
-      <div className="linktobuttons-expenses">
-        <Link
-          to="/listemployeeleaves"
-          className="expenses-button-left expenses-button"
-        >
-
-            <p className="text-leave">Leave Requests</p>
-
-        </Link>
-        <Link
-          to="/listemployeeadvancepayments"
-          className="expenses-button-right expenses-button"
-        >
-
-            <p className="text-adv">Advance Payments Requests</p>
-
-        </Link>
-      </div>
     </div>
   );
 };

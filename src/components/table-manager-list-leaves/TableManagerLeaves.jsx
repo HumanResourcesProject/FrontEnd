@@ -2,11 +2,12 @@ import React, { useMemo, useState, useEffect } from "react";
 import MaterialReactTable from "material-react-table";
 import "./tableManagerLeaves.scss";
 import RequirementsService from "../../service/RequirementsService";
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 import { Button } from "@mui/material";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
+import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 
 const TableManagerLeaves = () => {
   const [data, setData] = useState([]);
@@ -26,7 +27,6 @@ const TableManagerLeaves = () => {
       });
   }, []);
 
-
   const [accept, setAccept] = useState(0);
   const [reject, setReject] = useState(0);
 
@@ -42,32 +42,27 @@ const TableManagerLeaves = () => {
     event.preventDefault();
     console.log(acceptanswer);
     if (reject === 0) {
-      RequirementsService.approveleave(acceptanswer).then(
-        (response) => {
-          if (response.status === 200) {
-            console.log("Request accepted.");
-          } else {
-            console.log("Request rejected.");
-          }
+      RequirementsService.approveleave(acceptanswer).then((response) => {
+        if (response.status === 200) {
+          console.log("Request accepted.");
+        } else {
+          console.log("Request rejected.");
         }
-      );
+      });
       handleClose();
       setAccept([]);
       window.location.reload(false);
     } else {
-      RequirementsService.rejectleave(rejectanswer).then(
-        (response) => {
-          if (response.status === 200) {
-            console.log("Request accepted.");
-          } else {
-            console.log("Request rejected.");
-          }
+      RequirementsService.rejectleave(rejectanswer).then((response) => {
+        if (response.status === 200) {
+          console.log("Request accepted.");
+        } else {
+          console.log("Request rejected.");
         }
-      );
+      });
       handleClose();
       setReject([]);
       window.location.reload(false);
-
     }
   };
 
@@ -75,9 +70,9 @@ const TableManagerLeaves = () => {
     () => [
       {
         accessorFn: (row) => `${row.employeeName} ${row.employeeSurname}`,
-        header: 'Employee',
+        header: "Employee",
         size: 150,
-        enableEditing:false 
+        enableEditing: false,
       },
       {
         accessorKey: "requestDate",
@@ -85,8 +80,7 @@ const TableManagerLeaves = () => {
         size: 150,
         enableEditing: false,
       },
-      
-      
+
       {
         accessorKey: "type",
         header: "Leave Type",
@@ -136,9 +130,18 @@ const TableManagerLeaves = () => {
     p: 4,
   };
   return (
-
-      <div className="table-manager-leaves">
-        <MaterialReactTable columns={columns} data={data}         displayColumnDefOptions={{ "mrt-row-actions": { size: 100 } }} //change width of actions column to 300px
+    <div className="table-manager-leaves">
+            <div className="linktobutton-manage-request">
+        <Link to="/managerequests" className="manage-request-button">
+          <ArrowBackIosNewIcon className="manage-request-back"/>
+          <p className="text-manage-request">Manage Requests</p>
+        </Link>
+      </div>
+      <h2>Leave Table</h2>
+      <MaterialReactTable
+        columns={columns}
+        data={data}
+        displayColumnDefOptions={{ "mrt-row-actions": { size: 100 } }} //change width of actions column to 300px
         enableRowActions
         renderRowActions={({ row }) => (
           <div>
@@ -146,7 +149,7 @@ const TableManagerLeaves = () => {
             <Modal open={open} onClose={handleClose}>
               <form onSubmit={handleRequest}>
                 <Box sx={style}>
-                <Typography
+                  <Typography
                     component={"span"}
                     sx={{
                       fontWeight: "bold",
@@ -223,7 +226,7 @@ const TableManagerLeaves = () => {
                     component={"span"}
                     sx={{ fontSize: 13, ml: 13, color: "#575757" }}
                   >
-                    {row.original.type} 
+                    {row.original.type}
                   </Typography>
                   <br />
                   <Typography
@@ -315,7 +318,7 @@ const TableManagerLeaves = () => {
                       flexDirection: "column",
                       backgroundColor: "red",
                       color: "white",
-                      ml: 5,
+                      ml: 13,
                       mt: 5,
                       fontSize: 12,
                       "&:hover": {
@@ -335,7 +338,7 @@ const TableManagerLeaves = () => {
                       flexDirection: "column",
                       backgroundColor: "green",
                       color: "white",
-                      ml: 13,
+                      ml: 5,
                       mt: 5,
                       fontSize: 12,
                       "&:hover": {
@@ -346,31 +349,13 @@ const TableManagerLeaves = () => {
                   >
                     Accept
                   </Button>
-
                 </Box>
               </form>
             </Modal>
           </div>
         )}
       />{" "}
-      <div className="linktobuttons-leaves">
-        <Link
-          to="/listemployeeadvancepayments"
-          className="leaves-button-right leaves-button"
-        >
-          
-            <p className="text-adv">Advance Payments Requests</p>
-          
-        </Link>
-        <Link
-          to="/listemployeeexpenses"
-          className="leaves-button-left leaves-button"
-        >
-          
-            <p className="text-expense">Expenses Requests</p>
-          
-        </Link>
-      </div>
+
     </div>
   );
 };

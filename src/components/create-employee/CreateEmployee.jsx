@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import "./createEmployee.scss";
-import CompanyService from "../../service/CompanyService";
+import ManagerService from "../../service/CompanyManagerService";
 import AuthService from "../../service/AuthService";
 import EmailInput from "../email-input/EmailInput";
 import DriveFolderUploadIcon from "@mui/icons-material/DriveFolderUpload";
@@ -24,6 +24,12 @@ const CreateEmployee = () => {
     jobStart: "",
     avatar: "",
   });
+
+  const [data] = useState({
+    token: sessionStorage.getItem("token"),
+    role: sessionStorage.getItem("role")
+  });
+
   const [image, setImage] = useState("");
 
   const onchangeImage = (e) => {
@@ -31,12 +37,10 @@ const CreateEmployee = () => {
     setImage(file);
   };
 
-  const [companies, setCompanies] = useState([]);
   useEffect(() => {
-    CompanyService.findAllCompany(sessionStorage.getItem("token")).then(
+    ManagerService.postShortDetails(data).then(
       (response) => {
-        setCompanies(response.data);
-        console.log(response);
+        setEmployeeInfo({...employeeInfo,company:response.data.company})
       }
     );
   }, []);
@@ -73,9 +77,9 @@ const CreateEmployee = () => {
 
   return (
     <div className="employee-register">
-      {/* <div className="employee-register-company-part">
-        <div className="employee-register-company-text">Starbucks</div>
-      </div> */}
+      <div className="employee-register-part">
+        <div className="employee-register-text">Employee Register</div>
+      </div>
       <div className="employee-register-photo-section">
           {image ? (
             <img className="employee-register-avatar" src={URL.createObjectURL(image)} />
@@ -205,7 +209,6 @@ const CreateEmployee = () => {
                     className="inputs"
                     type="date"
                     min={new Date().toISOString().substring(0, 10)}
-                    max="2005-01-01"
                     onChange={(e) =>
                       setEmployeeInfo({
                         ...employeeInfo,

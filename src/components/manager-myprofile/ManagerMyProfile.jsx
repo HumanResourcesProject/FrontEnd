@@ -79,9 +79,9 @@ const ManagerMyProfile = () => {
 
   return (
     <div className="manager-profile-body">
-      {/* <div className="company-part">
-        <div className="company-text">Starbucks</div>
-      </div> */}
+            <div className="myprofile-header-part">
+        <div className="myprofile-text">My Profile</div>
+      </div>
       <div className="avatar-part">
         {image ? (
           <img
