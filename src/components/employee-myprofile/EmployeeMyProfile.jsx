@@ -182,7 +182,7 @@ const EmployeeMyProfile = () => {
               className="editable"
               onClick={handleClick}
               type="text"
-              defaultValue={profile.data.phone || ""}
+              placeholder={profile.data.phone || ""}
               onChange={(event) => {
                 setUpdate({
                   ...update,
@@ -241,7 +241,7 @@ const EmployeeMyProfile = () => {
               className="editable"
               onClick={handleClick}
               type="text"
-              defaultValue={profile.data.address || ""}
+              placeholder={profile.data.address || ""}
               onChange={(event) => {
                 setUpdate({
                   ...update,

@@ -173,6 +173,7 @@ const AdminProfil = () => {
           <div className="input">
             <label className="text">Address *</label>
             <input
+            
               className="editable"
               onClick={handleClick}
               type="text"
