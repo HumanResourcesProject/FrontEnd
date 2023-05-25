@@ -26,7 +26,7 @@ const EmployeeMyProfile = () => {
     phone: "",
     address: "",
   });
-  const [token, setToken] = useState({
+  const [token] = useState({
     token: sessionStorage.getItem("token"),
     role: sessionStorage.getItem("role"),
   });
@@ -35,14 +35,16 @@ const EmployeeMyProfile = () => {
     const file = e.target.files[0];
     setUpdate({ ...update, avatar: file });
     setImage(file);
+    setIsActive(true)
   };
   
   
   const handleSubmit = (event) => {
     event.preventDefault();
-    setUpdate({...update,avatar:null})
+    // setUpdate({...update,avatar:null})
     console.log(typeof update.avatar);
-    if(update.avatar === null ){
+    console.log(update);
+    if(update.avatar === ""){
       console.log(update);
       alert("stringdeyiz")
       EmployeeService.updateEmployeeInformationsString(update).then((response) => {
@@ -52,9 +54,11 @@ const EmployeeMyProfile = () => {
         alert("unexpected error");
       });
     }else{
+      alert("RESİMLİ YOLLUYOZ")
       EmployeeService.updateEmployeeInformations(update)
       .then((response) => {
         alert("Updated successfully!");
+        
       })
       .catch((error) => {
         console.log(error);
@@ -98,7 +102,7 @@ const EmployeeMyProfile = () => {
         <input
           type="file"
           id="file"
-          onClick={handleClick}
+          
           style={{ display: "none" }}
           onChange={onchangeImage}
         />
