@@ -6,6 +6,7 @@ const UPDATE_MANAGER_INFO = "http://localhost:7072/manager/updatemanager";
 const UPDATE_MANAGER_INFO_STRING = "http://localhost:7071/admin/updatemanagernophoto";
 const FINDALL_EMPLOYEE = "http://localhost:7072/manager/findallmyemployee";
 const FINDALL_MY_EMPLOYEE_COUNT = "http://localhost:7072/manager/findallmyemployeecount";
+const TOTAL_MANAGER_COUNT = "http://localhost:7072/manager/getallmanagercount";
 
 
 
@@ -59,6 +60,9 @@ class CompanyManagerService {
         })
     }
     
+    totalmanagercount(token){
+        return axios.get(TOTAL_MANAGER_COUNT,token);
+    }
     
 
   

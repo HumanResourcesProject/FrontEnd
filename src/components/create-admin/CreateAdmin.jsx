@@ -72,7 +72,8 @@ const CreateAdmin = () => {
         </div>
       </div>
       <div className="register-profil-info">
-          <form onSubmit={handleCreate}>
+        <form onSubmit={handleCreate}>
+          <div className="input-data">
             <label htmlFor="ad">Name:</label>
             <input
               pattern="[a-zA-Z]{1,15}"
@@ -85,7 +86,10 @@ const CreateAdmin = () => {
                   name: e.target.value,
                 })
               }
-            />
+            />{" "}
+          </div>
+
+          <div className="input-data">
             <label htmlFor="soyad">Surname:</label>
             <input
               pattern="[a-zA-Z]{1,15}"
@@ -98,7 +102,10 @@ const CreateAdmin = () => {
                   surname: e.target.value,
                 })
               }
-            />
+            />{" "}
+          </div>
+
+          <div className="input-data">
             <label htmlFor="email">E-mail:</label>
             <EmailInput
               type="text"
@@ -110,6 +117,9 @@ const CreateAdmin = () => {
                 })
               }
             />
+          </div>
+
+          <div className="input-data">
             <label htmlFor="phone">Phone Number:</label>
             <input
               pattern="^[0-9]{9,11}$"
@@ -123,6 +133,9 @@ const CreateAdmin = () => {
                 })
               }
             />
+          </div>
+
+          <div className="input-data">
             <label htmlFor="address">Address:</label>
             <input
               type="text"
@@ -133,18 +146,20 @@ const CreateAdmin = () => {
                 })
               }
             />
-            <button
-              type="submit"
-              onClick={(e) =>
-                setAdminInfo({
-                  ...adminInfo,
-                  avatar: image,
-                })
-              }
-            >
-              Create
-            </button>
-          </form>
+          </div>
+
+          <button
+            type="submit"
+            onClick={(e) =>
+              setAdminInfo({
+                ...adminInfo,
+                avatar: image,
+              })
+            }
+          >
+            Create
+          </button>
+        </form>
       </div>
     </div>
   );
