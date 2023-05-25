@@ -3,6 +3,8 @@ import "./employeeMyProfile.scss";
 import DriveFolderUploadIcon from "@mui/icons-material/DriveFolderUpload";
 import { useState, useEffect } from "react";
 import EmployeeService from "../../service/EmployeeService";
+import Swal from 'sweetalert2';
+
 
 const EmployeeMyProfile = () => {
   const [profile, setProfile] = useState({ data: {} });
@@ -32,6 +34,7 @@ const EmployeeMyProfile = () => {
   });
   const [image, setImage] = useState("");
   const onchangeImage = (e) => {
+    setIsActive(true);
     const file = e.target.files[0];
     setUpdate({ ...update, avatar: file });
     setImage(file);
@@ -39,14 +42,25 @@ const EmployeeMyProfile = () => {
   
   
   const handleSubmit = (event) => {
+    console.log('burdayız');
+
     event.preventDefault();
-    setUpdate({...update,avatar:null})
-    console.log(typeof update.avatar);
-    if(update.avatar === null ){
+    if(update.avatar === ""){
       console.log(update);
-      alert("stringdeyiz")
       EmployeeService.updateEmployeeInformationsString(update).then((response) => {
-        alert("Updated successfully!");
+        Swal.fire({
+          position: 'top-end',
+          icon: 'success',
+          width: '400',
+          height: '150',
+          title: 'Updated successfully!',
+          showConfirmButton: false,
+          timer: 1500
+        });
+        setTimeout(function() {
+          window.location.reload(false);
+        }, 1500);
+
       })
       .catch((error) => {
         alert("unexpected error");
@@ -54,7 +68,19 @@ const EmployeeMyProfile = () => {
     }else{
       EmployeeService.updateEmployeeInformations(update)
       .then((response) => {
-        alert("Updated successfully!");
+        Swal.fire({
+          position: 'top-end',
+          icon: 'success',
+          width: '400',
+          height: '150',
+          title: 'Updated successfully!',
+          showConfirmButton: false,
+          timer: 1500
+        });
+        setTimeout(function() {
+          window.location.reload(false);
+        }, 1500);
+
       })
       .catch((error) => {
         console.log(error);
@@ -98,7 +124,6 @@ const EmployeeMyProfile = () => {
         <input
           type="file"
           id="file"
-          onClick={handleClick}
           style={{ display: "none" }}
           onChange={onchangeImage}
         />

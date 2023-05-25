@@ -3,7 +3,8 @@ import { useState, useEffect } from "react";
 import DriveFolderUploadIcon from "@mui/icons-material/DriveFolderUpload";
 import "./managerMyProfile.scss";
 import ManagerService from "../../service/CompanyManagerService";
-import { Button } from "@mui/material";
+import Swal from 'sweetalert2';
+
 
 const ManagerMyProfile = () => {
   const [profile, setProfile] = useState({ data: {} });
@@ -39,6 +40,7 @@ const ManagerMyProfile = () => {
 
   const [image, setImage] = useState("");
   const onchangeImage = (e) => {
+    setIsActive(true);
     const file = e.target.files[0];
     setUpdate({ ...update, avatar: file });
     setImage(file);
@@ -46,14 +48,24 @@ const ManagerMyProfile = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    setUpdate({ ...update, avatar: null });
-    console.log(typeof update.avatar);
+
     if (update.avatar === null) {
       console.log(update);
       alert("stringdeyiz");
       ManagerService.updateEmployeeInformationsString(update)
         .then((response) => {
-          alert("Updated successfully!");
+          Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            width: '400',
+            height: '150',
+            title: 'Updated successfully!',
+            showConfirmButton: false,
+            timer: 1500
+          });
+          setTimeout(function() {
+            window.location.reload(false);
+          }, 1500);
         })
         .catch((error) => {
           alert("unexpected error");
@@ -61,7 +73,18 @@ const ManagerMyProfile = () => {
     } else {
       ManagerService.updateEmployeeInformations(update)
         .then((response) => {
-          alert("Updated successfully!");
+          Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            width: '400',
+            height: '150',
+            title: 'Updated successfully!',
+            showConfirmButton: false,
+            timer: 1500
+          });
+          setTimeout(function() {
+            window.location.reload(false);
+          }, 1500);
         })
         .catch((error) => {
           console.log(error);
@@ -107,7 +130,6 @@ const ManagerMyProfile = () => {
         <input
           type="file"
           id="file"
-          onClick={handleClick}
           style={{ display: "none" }}
           onChange={onchangeImage}
         />
