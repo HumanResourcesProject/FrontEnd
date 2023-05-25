@@ -30,7 +30,7 @@ const CreateEmployee = () => {
     role: sessionStorage.getItem("role"),
   });
 
-  const [image, setImage] = useState("");
+  const [image, setImage] = useState(null);
 
   const onchangeImage = (e) => {
     const file = e.target.files[0];
@@ -78,7 +78,7 @@ const CreateEmployee = () => {
       <div className="employee-register-part">
         <div className="employee-register-text">Employee Register</div>
       </div>
-      <div className="employee-register-photo-section">
+      {/* <div className="employee-register-photo-section">
         {image ? (
           <img
             className="employee-register-avatar"
@@ -103,7 +103,7 @@ const CreateEmployee = () => {
           style={{ display: "none" }}
           onChange={onchangeImage}
         />
-      </div>
+      </div> */}
       <div className="employee-register-profil-info">
         <form onSubmit={handleCreate}>
           <div className="input-area">
