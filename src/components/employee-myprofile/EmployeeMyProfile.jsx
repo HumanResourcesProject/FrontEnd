@@ -28,7 +28,7 @@ const EmployeeMyProfile = () => {
     phone: "",
     address: "",
   });
-  const [token, setToken] = useState({
+  const [token] = useState({
     token: sessionStorage.getItem("token"),
     role: sessionStorage.getItem("role"),
   });
@@ -38,6 +38,7 @@ const EmployeeMyProfile = () => {
     const file = e.target.files[0];
     setUpdate({ ...update, avatar: file });
     setImage(file);
+    setIsActive(true)
   };
   
   
@@ -66,6 +67,7 @@ const EmployeeMyProfile = () => {
         alert("unexpected error");
       });
     }else{
+      alert("RESİMLİ YOLLUYOZ")
       EmployeeService.updateEmployeeInformations(update)
       .then((response) => {
         Swal.fire({

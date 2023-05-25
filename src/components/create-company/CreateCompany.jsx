@@ -141,7 +141,7 @@ const CreateCompany = () => {
 
               <label className='mersisno' htmlFor=""> Mersis no </label>
               <input
-                pattern="^\d{14}(15|16|17)$"
+                
                 title="Please enter a valid mernis number"
                 className='mersisno' placeholder='0000000000000019'
                 onChange={(e) =>
@@ -167,6 +167,7 @@ const CreateCompany = () => {
 
               <label>  E-Mail</label>
               <EmailInput
+                pattern="[A-Za-z0-9._+-]+@[A-Za-z0-9 -]+\.[a-z]{2,}"
                 onChange={(e) =>
                   setCompanyInfo({
                     ...companyInfo,
@@ -179,9 +180,9 @@ const CreateCompany = () => {
 
               <label> kuruluş yılı</label>
               <input 
-              pattern="^(0[1-9]|1[0-2])/(0[1-9]|[12][0-9]|3[01])/(\d{4})$"
+              
               title="Please enter a valid day"
-              type="text" 
+              type="date" 
               placeholder='01.01.2023' 
               onChange={(e) =>
                 setCompanyInfo({

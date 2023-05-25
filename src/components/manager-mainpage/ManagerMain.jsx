@@ -97,7 +97,7 @@ const MainPage = () => {
           </div>
           <div className="box-right">
             <img
-              src="https://img.icons8.com/?size=512&id=cD26kdwTbCzt&format=png"
+              src="https://img.icons8.com/?size=512&id=Z6pJyeccSgsz&format=png"
               className="icon"
               alt=""
             />
@@ -110,7 +110,7 @@ const MainPage = () => {
           </div>
           <div className="box-right">
             <img
-              src="https://img.icons8.com/?size=512&id=cD26kdwTbCzt&format=png"
+              src="https://img.icons8.com/?size=512&id=Z6pJyeccSgsz&format=png"
               className="icon"
               alt=""
             />
@@ -123,7 +123,7 @@ const MainPage = () => {
           </div>
           <div className="box-right">
             <img
-              src="https://img.icons8.com/?size=512&id=cD26kdwTbCzt&format=png"
+              src="https://img.icons8.com/?size=512&id=YnC1pvb1SFuQ&format=png"
               className="icon"
               alt=""
             />
@@ -136,7 +136,7 @@ const MainPage = () => {
           </div>
           <div className="box-right">
             <img
-              src="https://img.icons8.com/?size=512&id=cD26kdwTbCzt&format=png"
+              src="https://img.icons8.com/?size=512&id=YnC1pvb1SFuQ&format=png"
               className="icon"
               alt=""
             />
@@ -222,7 +222,7 @@ const MainPage = () => {
             <div className="expenses-data">
               <div className="left-side">
                 <img className="money-img"
-                  src="https://img.icons8.com/?size=512&id=63986&format=png"
+                  src="https://cdn-icons-png.flaticon.com/128/3188/3188580.png"
                   alt=""
                 />
                 <div className="text">
@@ -279,7 +279,7 @@ const MainPage = () => {
             <div className="expenses-data">
               <div className="left-side">
                 <img className="money-img"
-                  src="https://img.icons8.com/?size=512&id=63986&format=png"
+                  src="https://cdn-icons-png.flaticon.com/128/3188/3188580.png"
                   alt=""
                 />
                 <div className="text">
