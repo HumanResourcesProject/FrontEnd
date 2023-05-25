@@ -26,116 +26,14 @@ const MainEmployee = () => {
 
   return (
     <div className="employee-main-container">
-      <div className="small-boxes">
-        <div className="box">
-          <div className="box-left">
-            <div className="upper">5/20</div>
-            <div className="lower">İzin hakkı</div>
-          </div>
-          <div className="box-right">
-            <img
-              src="https://img.icons8.com/?size=512&id=cD26kdwTbCzt&format=png"
-              className="icon"
-              alt=""
-            />
-          </div>
-        </div>
-        <div className="box">
-          <div className="box-left">
-            <div className="upper">555</div>
-            <div className="lower">Son aldığı izin süresi</div>
-          </div>
-          <div className="box-right">
-            <img
-              src="https://img.icons8.com/?size=512&id=cD26kdwTbCzt&format=png"
-              className="icon"
-              alt=""
-            />
-          </div>
-        </div>
-        <div className="box">
-          <div className="box-left">
-            <div className="upper">555</div>
-            <div className="lower">En son aldığı izin tarihi</div>
-          </div>
-          <div className="box-right">
-            <img
-              src="https://img.icons8.com/?size=512&id=cD26kdwTbCzt&format=png"
-              className="icon"
-              alt=""
-            />
-          </div>
-        </div>
-        <div className="box">
-          <div className="box-left">
-            <div className="upper">555</div>
-            <div className="lower">En çok izin aldığı tür</div>
-          </div>
-          <div className="box-right">
-            <img
-              src="https://img.icons8.com/?size=512&id=cD26kdwTbCzt&format=png"
-              className="icon"
-              alt=""
-            />
-          </div>
-        </div>
-      </div>
-      <div className="small-boxes">
-        <div className="box">
-          <div className="box-left">
-            <div className="upper">555</div>
-            <div className="lower">Toplam aldığı avans</div>
-          </div>
-          <div className="box-right">
-            <img
-              src="https://img.icons8.com/?size=512&id=cD26kdwTbCzt&format=png"
-              className="icon"
-              alt=""
-            />
-          </div>
-        </div>
-        <div className="box">
-          <div className="box-left">
-            <div className="upper">555</div>
-            <div className="lower">Son aldığı avans</div>
-          </div>
-          <div className="box-right">
-            <img
-              src="https://img.icons8.com/?size=512&id=cD26kdwTbCzt&format=png"
-              className="icon"
-              alt=""
-            />
-          </div>
-        </div>
-        <div className="box">
-          <div className="box-left">
-            <div className="upper">555</div>
-            <div className="lower">Son aldığı avans tarihi</div>
-          </div>
-          <div className="box-right">
-            <img
-              src="https://img.icons8.com/?size=512&id=cD26kdwTbCzt&format=png"
-              className="icon"
-              alt=""
-            />
-          </div>
-        </div>
-        <div className="box">
-          <div className="box-left">
-            <div className="upper">555</div>
-            <div className="lower">En çok aldığı avans tipi</div>
-          </div>
-          <div className="box-right">
-            <img
-              src="https://img.icons8.com/?size=512&id=cD26kdwTbCzt&format=png"
-              className="icon"
-              alt=""
-            />
-          </div>
-        </div>
-      </div>
+      
+    
       <div className="second-row">
         <div className="left">
+        <div className="department">
+            <div className="department-title">Leave</div>
+            <div className="text">5/20</div>
+          </div>
           <div className="department">
             <div className="department-title">Department</div>
             <div className="text">Food</div>
