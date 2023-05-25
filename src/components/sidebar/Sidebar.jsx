@@ -7,6 +7,8 @@ import SupervisorAccountOutlinedIcon from "@mui/icons-material/SupervisorAccount
 import LogoutOutlinedIcon from "@mui/icons-material/LogoutOutlined";
 import EngineeringOutlinedIcon from "@mui/icons-material/EngineeringOutlined";
 import Groups3Icon from "@mui/icons-material/Groups3";
+import lettera from "../../assets/images/a.png";
+
 const Sidebar = () => {
   
 
@@ -16,7 +18,7 @@ const Sidebar = () => {
         <div className="sidebar-top">
           <Link to="/admin" className="sidebar-title-link">
             <img
-              src="https://adminlte.io/themes/v3/dist/img/AdminLTELogo.png"
+              src={lettera}
               alt=""
             />
             <p className="sidebar-title">HR Admin Page</p>
@@ -73,7 +75,7 @@ const Sidebar = () => {
       <div className="lg">
         <Link to="/loginpage" className="linklogout">
           <div className="logout d-flex">
-            <LogoutOutlinedIcon style={{ color: "white" }} />
+            <LogoutOutlinedIcon style={{ fontSize: 20 }} />
             <div className="fw-large lout">Logout </div>
           </div>
         </Link>

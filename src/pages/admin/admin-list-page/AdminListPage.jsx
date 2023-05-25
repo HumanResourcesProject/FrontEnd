@@ -16,7 +16,7 @@ const AdminListPage = () => {
       <div className="admin_sidebar2">
       {sidebarOpen && <Sidebar />}
       </div>
-      <div className="admin-right2" style={{marginLeft: sidebarOpen ? '250px' : '0px'}}>
+      <div className="admin-right2" style={{marginLeft: sidebarOpen ? '220px' : '0px'}}>
         <Header onToggleSidebar={handleToggleSidebar} />
         <TableAdmin/>
       </div> 

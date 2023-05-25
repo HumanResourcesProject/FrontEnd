@@ -33,6 +33,7 @@
     .choosefilebutton {
       display: flex;
       gap: 10px;
+      cursor: pointer;
     }
   }
   .detail-part {
@@ -54,12 +55,14 @@
           font-size: small;
           font-weight: 700;
           font-family: "Roboto", sans-serif;
+          padding: 0 5px 0 5px;
         }
         .detail-p {
             font-size: medium;
             font-weight: 300;
             line-height: 10px;
             margin: 10px;
+            padding: 0 5px 0 5px;
           }
           .editable {
             background-color: rgb(233, 231, 231);
@@ -86,12 +89,14 @@
             font-size: small;
             font-weight: 700;
             font-family: "Roboto", sans-serif;
+            padding: 0 5px 0 5px;
         }
         .detail-p {
             font-size: medium;
             font-weight: 300;
             line-height: 10px;
             margin: 10px;
+            padding: 0 5px 0 5px;
           }
         .editable {
           background-color: rgb(233, 231, 231);
@@ -100,6 +105,7 @@
           line-height: 25px;
           padding: 4px;
           font-weight: 500;
+          
         }
       }
     }

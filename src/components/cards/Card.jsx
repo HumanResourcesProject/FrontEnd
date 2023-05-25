@@ -1,40 +1,36 @@
 import React from "react";
-import { unstable_styleFunctionSx } from '@mui/system';
-import { createTheme } from '@mui/material/styles';
 import "./card.scss";
-import ManageAccountsIcon from "@mui/icons-material/ManageAccounts";
-import DeleteIcon from "@mui/icons-material/Delete";
-import MailOutlineIcon from "@mui/icons-material/MailOutline";
-import styled from "@emotion/styled";
 
-const Card = ({company}) => {
-
-
+const Card = ({ company }) => {
   return (
-    <div className="widget-user-mini">
-      <div className="widget-user-header-mini ">
-        <h3 className="widget-user-username-mini"></h3>
-        <h5 className="widget-user-desc-mini">{company.name}</h5>
-      </div>
-      <div className="img-cropper-mini">
-        <img
-          className="img-circle-mini"
-            src={company.logo}
-          alt="User Avatar"
-        />
-      </div>
-      <div className="card-footer-mini">
-        <div className="card-footer-row-mini">
-          <div className="description-block-mini">
-          {company.phone}
+    <div className="card-container">
+      <div className="card">
+        <div className="img-content">
+          <img className="img-content-img" src={company.logo} />
+          <h3 className="img-content-h3">{company.name}</h3>
+        </div>
+        <div className="content">
+          <p className="heading">{company.name}</p>
+          <div className="content-mini">
+            <p className="content-mini-p">Phone: </p>
+            <p className="content-mini-var">{company.phone}</p>
           </div>
-
-          <div className="description-block-mini border-leftright-mini">
-          {company.email}
+          <div className="content-mini">
+            <p className="content-mini-p">Email: </p>
+            <p className="content-mini-var">{company.email}</p>
           </div>
-
-          <div className="description-block-mini">
-          {company.address}          </div>
+          <div className="content-mini">
+            <p className="content-mini-p">Address: </p>
+            <p className="content-mini-var">{company.address}</p>
+          </div>
+          <div className="content-mini">
+            <p className="content-mini-p">Number of Employees: </p>
+            <p className="content-mini-var">{company.calisanSayisi}</p>
+          </div>
+          <div className="content-mini">
+            <p className="content-mini-p">Year of Establishment: </p>
+            <p className="content-mini-var">{company.kurulusYili}</p>
+          </div>
         </div>
       </div>
     </div>
