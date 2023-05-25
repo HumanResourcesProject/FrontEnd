@@ -101,6 +101,9 @@ const EmployeeMyProfile = () => {
 
   return (
     <div className="employee-profile-body">
+                  <div className="myprofile-header-part">
+        <div className="myprofile-text">My Profile</div>
+      </div>
       <div className="avatar-part">
         {image ? (
           <img
@@ -181,7 +184,7 @@ const EmployeeMyProfile = () => {
               className="editable"
               onClick={handleClick}
               type="text"
-              defaultValue={profile.data.phone || ""}
+              placeholder={profile.data.phone || ""}
               onChange={(event) => {
                 setUpdate({
                   ...update,
@@ -240,7 +243,7 @@ const EmployeeMyProfile = () => {
               className="editable"
               onClick={handleClick}
               type="text"
-              defaultValue={profile.data.address || ""}
+              placeholder={profile.data.address || ""}
               onChange={(event) => {
                 setUpdate({
                   ...update,

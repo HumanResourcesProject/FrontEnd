@@ -21,7 +21,10 @@ const MainEmployee = () => {
     sliceVisibilityThreshold: 0.2, // 20%
     fontSize: 12,
   };
-  const[employee,setEmployee] = useState()
+  const[employee,setEmployee] = useState({
+    department:"",
+    
+  })
   useEffect(() => {
     const fetchData = async () => {
       
@@ -53,7 +56,7 @@ const MainEmployee = () => {
           </div>
           <div className="department">
             <div className="department-title">Department</div>
-            <div className="text">{employee.department}</div>
+            <div className="text">{employee.department || ""}</div>
           </div>
           <div className="workdays">
             <div className="workdays-title">Occupation</div>

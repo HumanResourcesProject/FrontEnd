@@ -17,6 +17,8 @@ const ManagerMyProfile = () => {
           ...update,
           phone: response.data.phone,
           address: response.data.address,
+          company: response.data.company,
+          email: response.data.email,
           token: sessionStorage.getItem("token"),
         });
       } catch (error) {
@@ -32,6 +34,8 @@ const ManagerMyProfile = () => {
     avatar: "",
     phone: "",
     address: "",
+    company:"",
+    email:"",
   });
   const [token, setToken] = useState({
     token: sessionStorage.getItem("token"),
@@ -49,10 +53,10 @@ const ManagerMyProfile = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    if (update.avatar === null) {
+    if (update.avatar === "") {
       console.log(update);
       alert("stringdeyiz");
-      ManagerService.updateEmployeeInformationsString(update)
+      ManagerService.updateManagerInformationsString(update)
         .then((response) => {
           Swal.fire({
             position: 'top-end',
@@ -71,7 +75,7 @@ const ManagerMyProfile = () => {
           alert("unexpected error");
         });
     } else {
-      ManagerService.updateEmployeeInformations(update)
+      ManagerService.updateManagerInformations(update)
         .then((response) => {
           Swal.fire({
             position: 'top-end',
@@ -123,7 +127,7 @@ const ManagerMyProfile = () => {
           />
         )}
 
-        <label htmlFor="file" className="choosefilebutton" onClick={handleClick}>
+        <label htmlFor="file" className="choosefilebutton">
           <DriveFolderUploadIcon className="uploadicon" />
           Change Avatar
         </label>
@@ -178,7 +182,7 @@ const ManagerMyProfile = () => {
               onClick={handleClick}
 
               type="text"
-              defaultValue={profile.data.phone || "-"}
+              placeholder={profile.data.phone || "-"}
               onChange={(event) => {
                 setUpdate({
                   ...update,
@@ -232,7 +236,7 @@ const ManagerMyProfile = () => {
               className="editable"
               onClick={handleClick}
               type="text"
-              defaultValue={profile.data.address || "-"}
+              placeholder={profile.data.address || "-"}
               onChange={(event) => {
                 setUpdate({
                   ...update,

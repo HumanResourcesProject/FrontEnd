@@ -4,8 +4,8 @@ const CREATE_ADMIN_AUTH = "http://localhost:7070/auth/registeradmin";
 const FINDALL_ADMIN = "http://localhost:7071/admin/getalladmin";
 const GET_ADMIN_INFO = "http://localhost:7071/admin/getfindme";
 const UPDATE_PROFILEP = "http://localhost:7071/admin/updateimage";
-const UPDATE_ADMININFO = "http://localhost:7071/admin/updateadmin";;
-
+const ADMIN_UPDATE_INFO = "http://localhost:7071/admin/updateadmin";
+const ADMIN_UPDATE_INFO_STRING = "http://localhost:7071/admin/updateadminnophoto";
 class AdminService{
     getAllAdmins() {
         return axios.get(FINDALL_ADMIN);
@@ -30,14 +30,19 @@ class AdminService{
     getAdminProfilePhoto(formData){
         return axios.post(UPDATE_PROFILEP, formData)
     }
-    updateAdminInfo(data){
-        return axios
-        .put(UPDATE_ADMININFO, data, {
-          headers: {
-            'Content-Type': 'application/json'
-        }
+    updateAdminInformations(data){
+        return axios.put(ADMIN_UPDATE_INFO,data,{
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            }
         });
-
+    }
+    updateAdminInformationsString(data){
+        return axios.put(ADMIN_UPDATE_INFO_STRING,data,{
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
     }
     postShortDetails(token){
         return axios.post(GET_ADMIN_INFO,token);
