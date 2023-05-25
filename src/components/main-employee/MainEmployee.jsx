@@ -11,18 +11,35 @@ const MainEmployee = () => {
   });
 
   const dataTable = [
-    ["Pizza", "Popularity"],
-    ["Sosisli", 33],
-    ["Pepperoni", 31],
+    [ "Failure","Success"],
+    ["Success", 70],
+    ["Failure", 71],
   ];
 
   const options = {
     title: "Employee Performance",
     sliceVisibilityThreshold: 0.2, // 20%
     fontSize: 12,
-    
-   
   };
+  const[employee,setEmployee] = useState()
+  useEffect(() => {
+    const fetchData = async () => {
+      
+      //Takımdaki calisan sayisi
+      try {
+        const response = await EmployeeService.getEmployeeInformations(data);
+        setEmployee(response.data)
+      } catch (error) {
+        console.error(error);
+      }
+      
+     
+
+    };
+
+    fetchData();
+  }, []);
+  
 
   return (
     <div className="employee-main-container">
@@ -36,12 +53,17 @@ const MainEmployee = () => {
           </div>
           <div className="department">
             <div className="department-title">Department</div>
-            <div className="text">Food</div>
+            <div className="text">{employee.department}</div>
           </div>
           <div className="workdays">
-            <div className="workdays-title">Day of Work</div>
-            <div>142</div>
+            <div className="workdays-title">Occupation</div>
+            <div>{employee.occupation}</div>
           </div>
+          <div className="workdays">
+            <div className="workdays-title">Job Start</div>
+            <div>{employee.jobStart}</div>
+          </div>
+
         </div>
         <div className="chart">
           <div className="inner-chart">
