@@ -50,12 +50,12 @@ const AdminProfil = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    setUpdate({ ...update, avatar: null });
-    console.log(typeof update.avatar);
-    if (update.avatar === null) {
+    
+    if (update.avatar === "") {
       console.log(update);
       alert("stringdeyiz");
-      AdminService.updateAdminInfo(update)
+      console.log(update);
+      AdminService.updateAdminInformationsString(update)
         .then((response) => {
           Swal.fire({
             position: 'top-end',
@@ -74,7 +74,7 @@ const AdminProfil = () => {
         });
     } else {
 
-      AdminService.updateAdminInfo(update)
+      AdminService.updateAdminInformations(update)
         .then((response) => {
           Swal.fire({
             position: 'top-end',
@@ -128,7 +128,6 @@ const AdminProfil = () => {
         <label
           htmlFor="file"
           className="choosefilebutton"
-          onClick={handleClick}
         >
           <DriveFolderUploadIcon className="uploadicon" />
           Change Avatar

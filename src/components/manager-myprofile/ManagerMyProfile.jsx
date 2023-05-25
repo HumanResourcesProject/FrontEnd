@@ -49,10 +49,10 @@ const ManagerMyProfile = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    if (update.avatar === null) {
+    if (update.avatar === "") {
       console.log(update);
       alert("stringdeyiz");
-      ManagerService.updateEmployeeInformationsString(update)
+      ManagerService.updateManagerInformationsString(update)
         .then((response) => {
           Swal.fire({
             position: 'top-end',
@@ -71,7 +71,7 @@ const ManagerMyProfile = () => {
           alert("unexpected error");
         });
     } else {
-      ManagerService.updateEmployeeInformations(update)
+      ManagerService.updateManagerInformations(update)
         .then((response) => {
           Swal.fire({
             position: 'top-end',
@@ -123,7 +123,7 @@ const ManagerMyProfile = () => {
           />
         )}
 
-        <label htmlFor="file" className="choosefilebutton" onClick={handleClick}>
+        <label htmlFor="file" className="choosefilebutton">
           <DriveFolderUploadIcon className="uploadicon" />
           Change Avatar
         </label>

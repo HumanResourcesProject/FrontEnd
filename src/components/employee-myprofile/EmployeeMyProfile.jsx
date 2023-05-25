@@ -101,6 +101,9 @@ const EmployeeMyProfile = () => {
 
   return (
     <div className="employee-profile-body">
+                  <div className="myprofile-header-part">
+        <div className="myprofile-text">My Profile</div>
+      </div>
       <div className="avatar-part">
         {image ? (
           <img
