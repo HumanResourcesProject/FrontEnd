@@ -6,6 +6,7 @@ const GET_ADMIN_INFO = "http://localhost:7071/admin/getfindme";
 const UPDATE_PROFILEP = "http://localhost:7071/admin/updateimage";
 const ADMIN_UPDATE_INFO = "http://localhost:7071/admin/updateadmin";
 const ADMIN_UPDATE_INFO_STRING = "http://localhost:7071/admin/updateadminnophoto";
+const TOTAL_ADMIN_COUNT = "http://localhost:7071/admin/getalladmincount";
 class AdminService{
     getAllAdmins() {
         return axios.get(FINDALL_ADMIN);
@@ -47,7 +48,9 @@ class AdminService{
     postShortDetails(token){
         return axios.post(GET_ADMIN_INFO,token);
     }
-
+    totaladmincount(token){
+        return axios.get(TOTAL_ADMIN_COUNT,token);
+    }
     
 }
 
