@@ -35,6 +35,7 @@ const MainPage = () => {
       try {
         const response = await ManagerService.findAllMyEmployeeCount(data);
         setMyEmployeeCount(response.data)
+        console.log(response.data + " Buraaa");
       } catch (error) {
         console.error(error);
       }

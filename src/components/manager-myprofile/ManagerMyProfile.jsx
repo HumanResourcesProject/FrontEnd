@@ -17,6 +17,8 @@ const ManagerMyProfile = () => {
           ...update,
           phone: response.data.phone,
           address: response.data.address,
+          company: response.data.company,
+          email: response.data.email,
           token: sessionStorage.getItem("token"),
         });
       } catch (error) {
@@ -32,6 +34,8 @@ const ManagerMyProfile = () => {
     avatar: "",
     phone: "",
     address: "",
+    company:"",
+    email:"",
   });
   const [token, setToken] = useState({
     token: sessionStorage.getItem("token"),
