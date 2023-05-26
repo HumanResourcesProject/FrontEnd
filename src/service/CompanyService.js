@@ -1,8 +1,8 @@
 import axios from "axios";
 
-const CREATE_COMPANY = "http://localhost:7073/company/createcompany";
-const findAllCompany = "http://localhost:7073/company/findall";
-const TOTAL_COMPANY_COUNT = "http://localhost:7073/company/getallcompanycount";
+const CREATE_COMPANY = "http://35.228.35.18/company/createcompany";
+const findAllCompany = "http://35.228.35.18/company/findall";
+const TOTAL_COMPANY_COUNT = "http://35.228.35.18/company/getallcompanycount";
 
 
 class CompanyService{

@@ -13,6 +13,7 @@ const CreateAdmin = () => {
     phone: "",
     address: "",
     avatar: "",
+    token: sessionStorage.getItem("token"),
   });
   const [image, setImage] = useState("");
 
@@ -46,7 +47,7 @@ const CreateAdmin = () => {
   return (
     <div className="register">
       <div className="register-part">
-        <div className="register-text">Employee Register</div>
+        <div className="register-text">Admin Register</div>
       </div>
       <div className="register-photo-section">
         {image ? (
@@ -76,8 +77,8 @@ const CreateAdmin = () => {
           <div className="input-data">
             <label htmlFor="ad">Name:</label>
             <input
-              pattern="[a-zA-Z]{1,15}"
-              title="Please enter a valid name"
+              // pattern="[a-zA-Z]{1,15}"
+              // title="Please enter a valid name"
               required
               type="text"
               onChange={(e) =>
@@ -92,8 +93,8 @@ const CreateAdmin = () => {
           <div className="input-data">
             <label htmlFor="soyad">Surname:</label>
             <input
-              pattern="[a-zA-Z]{1,15}"
-              title="Please enter a valid surname"
+              // pattern="[a-zA-Z]{1,15}"
+              // title="Please enter a valid surname"
               type="text"
               required
               onChange={(e) =>
@@ -107,7 +108,7 @@ const CreateAdmin = () => {
 
           <div className="input-data">
             <label htmlFor="email">E-mail:</label>
-            <EmailInput
+            <input
               type="text"
               required
               onChange={(e) =>
@@ -115,15 +116,15 @@ const CreateAdmin = () => {
                   ...adminInfo,
                   email: e.target.value,
                 })
-              }
-            />
+              }  />
+            
           </div>
 
           <div className="input-data">
             <label htmlFor="phone">Phone Number:</label>
             <input
-              pattern="^[0-9]{9,11}$"
-              title="Please enter a valid phone"
+              // pattern="^[0-9]{9,11}$"
+              // title="Please enter a valid phone"
               type="tel"
               required
               onChange={(e) =>

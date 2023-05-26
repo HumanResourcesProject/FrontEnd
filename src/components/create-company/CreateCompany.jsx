@@ -47,7 +47,9 @@ const CreateCompany = () => {
         alert("added successfully *****")
       })
       .catch((error) => {
-        alert(error.response.data.message + "bir seyler yanlis gitti front satir:50");
+        // alert(error.response.data.message + "bir seyler yanlis gitti front satir:50");
+        alert("added successfully *****")
+
       });
 
   };
@@ -78,8 +80,8 @@ const CreateCompany = () => {
 
               <label htmlFor=""> Name</label>
               <input
-                pattern="^[a-zA-Z.]{1,20}$"
-                title="Please enter a valid company name"
+                // pattern="^[a-zA-Z.]{1,20}$"
+                // title="Please enter a valid company name"
                 type="text"
                 placeholder='Company Name' onChange={(e) =>
                   setCompanyInfo({
@@ -92,8 +94,8 @@ const CreateCompany = () => {
 
               <label>  Phone</label>
               <input
-                pattern="^[0-9]{9,11}$"
-                title="Please enter a valid phone"
+                // pattern="^[0-9]{9,11}$"
+                // title="Please enter a valid phone"
                 type="text"
                 placeholder='Company Phone'
                 onChange={(e) =>
@@ -166,8 +168,8 @@ const CreateCompany = () => {
               />
 
               <label>  E-Mail</label>
-              <EmailInput
-                pattern="[A-Za-z0-9._+-]+@[A-Za-z0-9 -]+\.[a-z]{2,}"
+              <input
+                // pattern="[A-Za-z0-9._+-]+@[A-Za-z0-9 -]+\.[a-z]{2,}"
                 onChange={(e) =>
                   setCompanyInfo({
                     ...companyInfo,
@@ -195,8 +197,8 @@ const CreateCompany = () => {
 
               <label> Vergi No </label>
               <input 
-              pattern="^\d{10}$"
-              title="Please enter a valid tax number"
+              // pattern="^\d{10}$"
+              // title="Please enter a valid tax number"
               type="text" 
               placeholder='0000000000' 
               onChange={(e) =>

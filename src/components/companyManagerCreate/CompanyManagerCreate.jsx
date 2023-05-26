@@ -25,7 +25,7 @@ const CompanyManagerCreate = () => {
     department:"",
     token: sessionStorage.getItem("token"),
   });
-
+console.log(managerInfo.email);
   // For Image ********
   const [image, setImage] = useState("");
 
@@ -76,9 +76,11 @@ const CompanyManagerCreate = () => {
         avatar: newImage,
       });
     }
-
+console.log(managerInfo);
     AuthService.registerManager(managerInfo)
+  
       .then(() => {
+        
         alert("added successfully *****");
       })
       .catch((error) => {
@@ -149,8 +151,6 @@ const CompanyManagerCreate = () => {
                 <div className="data">
                   <label>Identify number:</label>
                   <input
-                  pattern="^(?=.*[0-9])[0-9]{11}$"
-                  title="Please enter a valid identify number"
                   required
                     type="text"
                     onChange={(e) =>
@@ -207,10 +207,8 @@ const CompanyManagerCreate = () => {
                 <div className="data">
                   <label>Birth-date:</label>
                   <input
-                  pattern="^(0[1-9]|1[0-2])/(0[1-9]|[12][0-9]|3[01])/(\d{4})$"
-                  title="Please enter a valid birthday"
                   required
-                    type="text"
+                    type="date"
                     onChange={(e) =>
                       setManagerInfo({
                         ...managerInfo,
@@ -236,9 +234,7 @@ const CompanyManagerCreate = () => {
                 <div className="data">
                   <label>Job-start-date:</label>
                   <input
-                  pattern="^(0[1-9]|1[0-2])/(0[1-9]|[12][0-9]|3[01])/(\d{4})$"
-                  title="Please enter a valid day"
-                    type="text"
+                    type="date"
                     onChange={(e) =>
                       setManagerInfo({
                         ...managerInfo,
@@ -274,15 +270,15 @@ const CompanyManagerCreate = () => {
 
                 <div className="data">
                   <label>E-Mail</label>
-                  <EmailInput
+                  <input
                     type="text"
                     onChange={(e) =>
                       setManagerInfo({
                         ...managerInfo,
                         email: e.target.value,
                       })
-                    }
-                  />
+                    }/>
+                  
                 </div>
                 <div className="data">
                   <label>Phone:</label>

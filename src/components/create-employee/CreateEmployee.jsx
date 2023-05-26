@@ -143,8 +143,8 @@ const CreateEmployee = () => {
               <div className="input-data">
                 <label>Surname:</label>
                 <input
-                  pattern="[a-zA-Z]{1,15}"
-                  title="Please enter a valid surname"
+                  // pattern="[a-zA-Z]{1,15}"
+                  // title="Please enter a valid surname"
                   className="inputs"
                   type="text"
                   onChange={(e) =>
@@ -206,8 +206,8 @@ const CreateEmployee = () => {
               <div className="input-data">
                 <label>Job-start-date:</label>
                 <input
-                  pattern="^(0[1-9]|1[0-2])/(0[1-9]|[12][0-9]|3[01])/(\d{4})$"
-                  title="Please enter a valid day"
+                  // pattern="^(0[1-9]|1[0-2])/(0[1-9]|[12][0-9]|3[01])/(\d{4})$"
+                  // title="Please enter a valid day"
                   className="inputs"
                   type="date"
                   min={new Date().toISOString().substring(0, 10)}
@@ -248,19 +248,22 @@ const CreateEmployee = () => {
               </div>
 
               <div className="input-data">
-                <label>E-Mail</label>
-                <EmailInput
-                  className="email-input"
-                  onEmailChange={(email) =>
-                    setEmployeeInfo({ ...employeeInfo, email })
-                  }
-                />
+              <label htmlFor="email">E-mail:</label>
+            <input
+              type="text"
+              required
+              onChange={(e) =>
+                setEmployeeInfo({
+                  ...employeeInfo,
+                  email: e.target.value,
+                })
+              }  />
               </div>
               <div className="input-data">
                 <label>Phone:</label>
                 <input
-                  pattern="^[0-9]{9,11}$"
-                  title="Please enter a valid phone"
+                  // pattern="^[0-9]{9,11}$"
+                  // title="Please enter a valid phone"
                   type="number"
                   required
                   className="inputs"

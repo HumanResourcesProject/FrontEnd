@@ -1,21 +1,21 @@
 import axios from "axios";
 
-const FINDALL_EMPLOYEE = "http://localhost:7074/employee/findallemployee";
-const GET_EMPLOYEE_INFO = "http://localhost:7074/employee/findme";
-const EMPLOYEE_UPDATE_INFO = "http://localhost:7074/employee/updateemployee";
-const EMPLOYEE_UPDATE_INFO_STRING = "http://localhost:7074/employee/updateemployeenophoto";
-const CREATE_ADVANCE_PAYMENT= "http://localhost:7074/employee/createadvancepayment"
-const CREATE_LEAVE  = "http://localhost:7074/employee/createleave";
-const CREATE_EXPENSE = "http://localhost:7074/employee/createexpense";
-const EMPLOYEE_COUNT = "http://localhost:7074/employee/findallmyemployeecountformanager";
-const MANAGER_COUNT =   "http://localhost:7074/employee/findallmymanagercount";
-const EMPLOYEE_AVERAGE_AGE_MANAGER = "http://localhost:7074/employee/findallmyemployeeavarageage";
-const EMPLOYEE_AVERAGE_AGE = "http://localhost:7074/employee/findallmyemployeeavarageageforcompany";
-const ANNUAL_EXPENSE_COMPANY = "http://localhost:7074/employee/findallmycompanyexpenseforyear";
-const MONTHLY_EXPENSE_COMPANY = "http://localhost:7074/employee/findallmycompanyexpenseformonth";
-const MY_ANNUAL_EXPENSE = "http://localhost:7074/employee/findallmyemployeesalaryforyear";
-const MY_MONTHLY_EXPENSE = "http://localhost:7074/employee/findallmyemployeesalaryformonth";
-const TOTAL_EMPLOYEE_COUNT = "http://localhost:7074/employee/getallemployeecount";
+const FINDALL_EMPLOYEE = "http://35.228.35.18/employee/findallemployee";
+const GET_EMPLOYEE_INFO = "http://35.228.35.18/employee/findme";
+const EMPLOYEE_UPDATE_INFO = "http://35.228.35.18/employee/updateemployee";
+const EMPLOYEE_UPDATE_INFO_STRING = "http://35.228.35.18/employee/updateemployeenophoto";
+const CREATE_ADVANCE_PAYMENT= "http://35.228.35.18/employee/createadvancepayment"
+const CREATE_LEAVE  = "http://35.228.35.18/employee/createleave";
+const CREATE_EXPENSE = "http://35.228.35.18/employee/createexpense";
+const EMPLOYEE_COUNT = "http://35.228.35.18/employee/findallmyemployeecountformanager";
+const MANAGER_COUNT =   "http://35.228.35.18/employee/findallmymanagercount";
+const EMPLOYEE_AVERAGE_AGE_MANAGER = "http://35.228.35.18/employee/findallmyemployeeavarageage";
+const EMPLOYEE_AVERAGE_AGE = "http://35.228.35.18/employee/findallmyemployeeavarageageforcompany";
+const ANNUAL_EXPENSE_COMPANY = "http://35.228.35.18/employee/findallmycompanyexpenseforyear";
+const MONTHLY_EXPENSE_COMPANY = "http://35.228.35.18/employee/findallmycompanyexpenseformonth";
+const MY_ANNUAL_EXPENSE = "http://35.228.35.18/employee/findallmyemployeesalaryforyear";
+const MY_MONTHLY_EXPENSE = "http://35.228.35.18/employee/findallmyemployeesalaryformonth";
+const TOTAL_EMPLOYEE_COUNT = "http://35.228.35.18/employee/getallemployeecount";
 
 
 class EmployeeService {

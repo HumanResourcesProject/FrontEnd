@@ -1,12 +1,12 @@
 import axios from "axios";
 
-const CREATE_ADMIN_AUTH = "http://localhost:7070/auth/registeradmin";
-const FINDALL_ADMIN = "http://localhost:7071/admin/getalladmin";
-const GET_ADMIN_INFO = "http://localhost:7071/admin/getfindme";
-const UPDATE_PROFILEP = "http://localhost:7071/admin/updateimage";
-const ADMIN_UPDATE_INFO = "http://localhost:7071/admin/updateadmin";
-const ADMIN_UPDATE_INFO_STRING = "http://localhost:7071/admin/updateadminnophoto";
-const TOTAL_ADMIN_COUNT = "http://localhost:7071/admin/getalladmincount";
+const CREATE_ADMIN_AUTH = "http://35.228.35.18/auth/registeradmin";
+const FINDALL_ADMIN = "http://35.228.35.18/admin/getalladmin";
+const GET_ADMIN_INFO = "http://35.228.35.18/admin/getfindme";
+const UPDATE_PROFILEP = "http://35.228.35.18/admin/updateimage";
+const ADMIN_UPDATE_INFO = "http://35.228.35.18/admin/updateadmin";
+const ADMIN_UPDATE_INFO_STRING = "http://35.228.35.18/admin/updateadminnophoto";
+const TOTAL_ADMIN_COUNT = "http://35.228.35.18/admin/getalladmincount";
 class AdminService{
     getAllAdmins() {
         return axios.get(FINDALL_ADMIN);

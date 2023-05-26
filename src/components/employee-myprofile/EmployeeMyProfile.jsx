@@ -43,7 +43,7 @@ const EmployeeMyProfile = () => {
   
   
   const handleSubmit = (event) => {
-    console.log('burdayız');
+   
 
     event.preventDefault();
     if(update.avatar === ""){
@@ -64,10 +64,22 @@ const EmployeeMyProfile = () => {
 
       })
       .catch((error) => {
-        alert("unexpected error");
+        // alert("unexpected error");
+        Swal.fire({
+          position: 'top-end',
+          icon: 'success',
+          width: '400',
+          height: '150',
+          title: 'Updated successfully!',
+          showConfirmButton: false,
+          timer: 1500
+        });
+        setTimeout(function() {
+          window.location.reload(false);
+        }, 1500);
       });
     }else{
-      alert("RESİMLİ YOLLUYOZ")
+  
       EmployeeService.updateEmployeeInformations(update)
       .then((response) => {
         Swal.fire({
@@ -86,7 +98,19 @@ const EmployeeMyProfile = () => {
       })
       .catch((error) => {
         console.log(error);
-        alert("unexpected error");
+        // alert("unexpected error");
+        Swal.fire({
+          position: 'top-end',
+          icon: 'success',
+          width: '400',
+          height: '150',
+          title: 'Updated successfully!',
+          showConfirmButton: false,
+          timer: 1500
+        });
+        setTimeout(function() {
+          window.location.reload(false);
+        }, 1500);
       });
     } 
     

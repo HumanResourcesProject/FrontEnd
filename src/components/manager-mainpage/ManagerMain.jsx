@@ -229,7 +229,7 @@ const MainPage = () => {
                 <div className="text">
                   <div className="text-top">Company</div>
                   <div className="text-bottom">
-                    <div className="colored-text">17/23</div>
+                    {/* <div className="colored-text">17/23</div> */}
                     <div className="normal-text">months paid</div>
                   </div>
                 </div>
@@ -256,7 +256,7 @@ const MainPage = () => {
                 <div className="text">
                   <div className="text-top">Manager</div>
                   <div className="text-bottom">
-                    <div className="colored-text">17/23</div>
+                    {/* <div className="colored-text">17/23</div> */}
                     <div className="normal-text">months paid</div>
                   </div>
                 </div>
@@ -286,7 +286,7 @@ const MainPage = () => {
                 <div className="text">
                   <div className="text-top">Company</div>
                   <div className="text-bottom">
-                    <div className="colored-text">17/23</div>
+                    {/* <div className="colored-text">17/23</div> */}
                     <div className="normal-text">months paid</div>
                   </div>
                 </div>
@@ -313,7 +313,7 @@ const MainPage = () => {
                 <div className="text">
                   <div className="text-top">Manager</div>
                   <div className="text-bottom">
-                    <div className="colored-text">17/23</div>
+                    {/* <div className="colored-text">17/23</div> */}
                     <div className="normal-text">months paid</div>
                   </div>
                 </div>

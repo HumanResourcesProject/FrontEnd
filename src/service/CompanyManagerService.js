@@ -1,12 +1,12 @@
 import axios from "axios";
 
-const FINDALL_MANAGER = "http://localhost:7072/manager/findall";
-const GET_MANAGER_INFO = "http://localhost:7072/manager/getfindme";
-const UPDATE_MANAGER_INFO = "http://localhost:7072/manager/updatemanager";
-const UPDATE_MANAGER_INFO_STRING = "http://localhost:7071/admin/updatemanagernophoto";
-const FINDALL_EMPLOYEE = "http://localhost:7072/manager/findallmyemployee";
-const FINDALL_MY_EMPLOYEE_COUNT = "http://localhost:7072/manager/findallmyemployeecount";
-const TOTAL_MANAGER_COUNT = "http://localhost:7072/manager/getallmanagercount";
+const FINDALL_MANAGER = "http://35.228.35.18/manager/findall";
+const GET_MANAGER_INFO = "http://35.228.35.18/manager/getfindme";
+const UPDATE_MANAGER_INFO = "http://35.228.35.18/manager/updatemanager";
+const UPDATE_MANAGER_INFO_STRING = "http://35.228.35.18/manager/updatemanagernophoto";
+const FINDALL_EMPLOYEE = "http://35.228.35.18/manager/findallmyemployee";
+const FINDALL_MY_EMPLOYEE_COUNT = "http://35.228.35.18/manager/findallmyemployeecount";
+const TOTAL_MANAGER_COUNT = "http://35.228.35.18/manager/getallmanagercount";
 
 
 
