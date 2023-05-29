@@ -1,10 +1,10 @@
 import axios from "axios";
 
-const LOGIN = "http://35.228.35.18/auth/login";
-const REGISTER_ADMIN ="http://35.228.35.18/auth/registeradmin";
-const REGISTER_MANAGER ="http://35.228.35.18/auth/registermanager";
-const REGISTER_EMPLOYEE ="http://35.228.35.18/auth/registeremployee";
-const FORGOT_PASSWORD = "http://35.228.35.18/auth/forgotpassword";
+const LOGIN = "http://localhost/auth/login";
+const REGISTER_ADMIN ="http://localhost/auth/registeradmin";
+const REGISTER_MANAGER ="http://localhost/auth/registermanager";
+const REGISTER_EMPLOYEE ="http://localhost/auth/registeremployee";
+const FORGOT_PASSWORD = "http://localhost/auth/forgotpassword";
 
 class AuthService{
     login(user) { 

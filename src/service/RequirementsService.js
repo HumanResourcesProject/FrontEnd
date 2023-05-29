@@ -1,23 +1,23 @@
 import axios from "axios";
 
-const FINDALL_LEAVE  = "http://35.228.35.18/requirements/employee/findallmyleaves";
-const FINDALL_ADVANCE_PAYMENT  = "http://35.228.35.18/requirements/employee/findallmyadvances";
-const FINDALL_EXPENSE = "http://35.228.35.18/requirements/employee/findallmyexpenses";
-const FINDALL_EMPLOYEE_EXPENSES = "http://35.228.35.18/requirements/manager/findallmyexpenses";
-const FINDALL_PENDING_EXPENSES = "http://35.228.35.18/requirements/manager/findallmyexpensespending";
-const FINDALL_PENDING_EXPENSES_COUNT = "http://35.228.35.18/requirements/manager/findallmyexpensescount";
-const FINDALL_EMPLOYEE_LEAVES = "http://35.228.35.18/requirements/manager/findallmyleaves";
-const FINDALL_PENDING_LEAVES = "http://35.228.35.18/requirements/manager/findallmyleavespending";
-const FINDALL_PENDING_LEAVES_COUNT = "http://35.228.35.18/requirements/manager/findallmyleavescount";
-const FINDALL_EMPLOYEE_ADVANCEPAYMENT = "http://35.228.35.18/requirements/manager/findallmyadvances";
-const FINDALL_PENDING_ADVANCEPAYMENT = "http://35.228.35.18/requirements/manager/findallmyadvancespending";
-const FINDALL_PENDING_ADVANCEPAYMENT_COUNT = "http://35.228.35.18/requirements/manager/findallmyadvancescount";
-const APPROVE_ADVANCEPAYMENT= "http://35.228.35.18/requirements/manager/approveadvancepayment";
-const REJECT_ADVANCEPAYMENT= "http://35.228.35.18/requirements/manager/rejectadvancepayment";
-const APPROVE_EXPENSE= "http://35.228.35.18/requirements/manager/approveexpense";
-const REJECT_EXPENSE= "http://35.228.35.18/requirements/manager/rejectexpense";
-const APPROVE_LEAVE= "http://35.228.35.18/requirements/manager/approveleave";
-const REJECT_LEAVE= "http://35.228.35.18/requirements/manager/rejectleave";
+const FINDALL_LEAVE  = "http://localhost/requirements/employee/findallmyleaves";
+const FINDALL_ADVANCE_PAYMENT  = "http://localhost/requirements/employee/findallmyadvances";
+const FINDALL_EXPENSE = "http://localhost/requirements/employee/findallmyexpenses";
+const FINDALL_EMPLOYEE_EXPENSES = "http://localhost/requirements/manager/findallmyexpenses";
+const FINDALL_PENDING_EXPENSES = "http://localhost/requirements/manager/findallmyexpensespending";
+const FINDALL_PENDING_EXPENSES_COUNT = "http://localhost/requirements/manager/findallmyexpensescount";
+const FINDALL_EMPLOYEE_LEAVES = "http://localhost/requirements/manager/findallmyleaves";
+const FINDALL_PENDING_LEAVES = "http://localhost/requirements/manager/findallmyleavespending";
+const FINDALL_PENDING_LEAVES_COUNT = "http://localhost/requirements/manager/findallmyleavescount";
+const FINDALL_EMPLOYEE_ADVANCEPAYMENT = "http://localhost/requirements/manager/findallmyadvances";
+const FINDALL_PENDING_ADVANCEPAYMENT = "http://localhost/requirements/manager/findallmyadvancespending";
+const FINDALL_PENDING_ADVANCEPAYMENT_COUNT = "http://localhost/requirements/manager/findallmyadvancescount";
+const APPROVE_ADVANCEPAYMENT= "http://localhost/requirements/manager/approveadvancepayment";
+const REJECT_ADVANCEPAYMENT= "http://localhost/requirements/manager/rejectadvancepayment";
+const APPROVE_EXPENSE= "http://localhost/requirements/manager/approveexpense";
+const REJECT_EXPENSE= "http://localhost/requirements/manager/rejectexpense";
+const APPROVE_LEAVE= "http://localhost/requirements/manager/approveleave";
+const REJECT_LEAVE= "http://localhost/requirements/manager/rejectleave";
 
 
 class EmployeeService {

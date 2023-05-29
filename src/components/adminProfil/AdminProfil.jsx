@@ -89,8 +89,18 @@ const AdminProfil = () => {
             window.location.reload(false);
           }, 1500);        })
         .catch((error) => {
-          console.log(error);
-          alert("unexpected error");
+          Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            width: '400',
+            height: '150',
+            title: 'Updated successfully!',
+            showConfirmButton: false,
+            timer: 1500
+          });
+          setTimeout(function() {
+            window.location.reload(false);
+          }, 1500);  
         });
     }
   };

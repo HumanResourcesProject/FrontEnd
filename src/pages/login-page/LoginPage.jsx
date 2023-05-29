@@ -44,7 +44,7 @@ const LoginPage = () => {
               timer: 1500
             })
             setTimeout(function() {
-              window.location.replace("http://34.88.131.152:3000/admin");
+              window.location.replace("http://localhost:3000/admin");
             }, 1500);
           } else if (response.data.role === "MANAGER") {
             Swal.fire({
@@ -58,7 +58,7 @@ const LoginPage = () => {
             });
             
             setTimeout(function() {
-              window.location.replace("http://34.88.131.152:3000/manager");
+              window.location.replace("http://localhost:3000/manager");
             }, 1500);
           } else if (response.data.role === "EMPLOYEE") {
             Swal.fire({
@@ -72,7 +72,7 @@ const LoginPage = () => {
             });
             
             setTimeout(function() {
-              window.location.replace("http://34.88.131.152:3000/employee");
+              window.location.replace("http://localhost:3000/employee");
             }, 1500);
           }
           //navigate le sayfa değişir
