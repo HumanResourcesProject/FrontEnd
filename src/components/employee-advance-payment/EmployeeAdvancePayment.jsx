@@ -150,7 +150,7 @@ const EmployeeAdvancePayment = () => {
           <input
             className="amount-input"
             type="number"
-            max={profile.salary}
+            max={max}
             onChange={(e) =>
               setAdvancePayment({
                 ...advancePayment,

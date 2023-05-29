@@ -53,6 +53,7 @@ const CompanyManagerCreate = () => {
 
   const handleFindAllCompany = async (event) => {
     event.preventDefault();
+  
     CompanyService.findAllCompany(token)
       .then((response) => {
         alert("added successfully *****");
@@ -76,7 +77,7 @@ const CompanyManagerCreate = () => {
         avatar: newImage,
       });
     }
-
+    console.log(managerInfo);
     AuthService.registerManager(managerInfo)
       .then(() => {
         alert("added successfully *****");
@@ -192,7 +193,7 @@ const CompanyManagerCreate = () => {
                   />
                 </div>
                 <div className="data">
-                  <label>mid name:</label>
+                  <label>Mid name:</label>
                   <input
                     type="text"
                     onChange={(e) =>
