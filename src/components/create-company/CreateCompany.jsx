@@ -55,27 +55,24 @@ const CreateCompany = () => {
 
   return (
 
-    <div className='companyregistermain'>
       <div className='companyregistercart'>
-
-        <div className='logo'> {/* 1.0 */}
-
-          <div className='company-register-logo'> {/* 1.1 */}
-            {image ? <img src={URL.createObjectURL(image)} /> : <img src="https://cdn.pixabay.com/photo/2017/11/10/04/47/user-2935373_960_720.png" alt="Rengoku" />}
+      <div className="company-register-part">
+        <div className="company-register-text">Create Company</div>
+      </div>
+        <div className='logo'>
+          <div className='company-register-logo'>
+            {image ? <img  className="company-register-avatar" src={URL.createObjectURL(image)} /> : <img  className="company-register-logo" src="https://cdn.pixabay.com/photo/2017/11/10/04/47/user-2935373_960_720.png" alt="Rengoku" />}
 
           </div>
 
-          <div className='company-choose-logo'> {/*1.2 */}
+          <div className='company-choose-logo'> 
             <label htmlFor="file" className='choosefilebutton' ><DriveFolderUploadIcon className='uploadicon' />Choose a Logo</label>
             <input type="file" id='file' style={{ display: 'none' }} onChange={onchangeImage} />
           </div>
         </div>
+        <div className='company-register-info'>
         <form onSubmit={handleCreate}>
-          <div className='inputs'> {/* 2.0 */}
-
-
-            <div className='cartleft'> {/* 2.1 */}
-
+          <div className='inputs'> 
               <label htmlFor=""> Name</label>
               <input
                 pattern="^[a-zA-Z.]{1,20}$"
@@ -85,6 +82,26 @@ const CreateCompany = () => {
                   setCompanyInfo({
                     ...companyInfo,
                     name: e.target.value,
+                  })
+                }
+                required
+                 />
+              <label> Unvan</label>
+              <input type="text" placeholder='Lti.Şti Or Anonim vs.' onChange={(e) =>
+                setCompanyInfo({
+                  ...companyInfo,
+                  unvan: e.target.value,
+                })
+              } 
+              />
+
+              <label>  E-Mail</label>
+              <input
+                pattern="[A-Za-z0-9._+-]+@[A-Za-z0-9 -]+\.[a-z]{2,}"
+                onChange={(e) =>
+                  setCompanyInfo({
+                    ...companyInfo,
+                    email: e.target.value,
                   })
                 }
                 required
@@ -115,12 +132,12 @@ const CreateCompany = () => {
               required
                />
 
-              <label> calisan sayisi</label>
+              <label>Number of Employees</label>
               <input
                 pattern="^[0-9]+$"
                 title="Please enter a number"
                 type="text"
-                placeholder='toplam calisan sayisi' onChange={(e) =>
+                placeholder='Total Number of Employees' onChange={(e) =>
                   setCompanyInfo({
                     ...companyInfo,
                     calisanSayisi: e.target.value,
@@ -139,7 +156,7 @@ const CreateCompany = () => {
               required
                />
 
-              <label className='mersisno' htmlFor=""> Mersis no </label>
+              <label htmlFor=""> Mersis no </label>
               <input
                 
                 title="Please enter a valid mernis number"
@@ -152,31 +169,6 @@ const CreateCompany = () => {
                 }
                 required
                  />
-            </div>
-            <div className='cartright'> {/* 2.2 */}
-
-
-              <label> Unvan</label>
-              <input type="text" placeholder='Lti.Şti Or Anonim vs.' onChange={(e) =>
-                setCompanyInfo({
-                  ...companyInfo,
-                  unvan: e.target.value,
-                })
-              } 
-              />
-
-              <label>  E-Mail</label>
-              <EmailInput
-                pattern="[A-Za-z0-9._+-]+@[A-Za-z0-9 -]+\.[a-z]{2,}"
-                onChange={(e) =>
-                  setCompanyInfo({
-                    ...companyInfo,
-                    email: e.target.value,
-                  })
-                }
-                required
-                 />
-
 
               <label> kuruluş yılı</label>
               <input 
@@ -207,7 +199,6 @@ const CreateCompany = () => {
               }
               required
                />
-            </div>
           </div>
 
           <button type="submit" onClick={(e) =>
@@ -217,9 +208,10 @@ const CreateCompany = () => {
             })
           }>Create</button>
         </form>
+        </div>
+
 
       </div>
-    </div>
   )
 }
 export default CreateCompany;

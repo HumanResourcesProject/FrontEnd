@@ -91,20 +91,25 @@ const CompanyManagerCreate = () => {
 
   return (
     <div className="manager-register">
+            <div className="manager-register-part">
+        <div className="manager-register-text">Manager Register</div>
+      </div>
       <div className="register-photo-section">
         <div className="register-profile-holder">
           {/* <div className="register-profile-image">
             {image ? (
-              <img src={URL.createObjectURL(image)} />
+              <img             className="manager-register-avatar"
+ src={URL.createObjectURL(image)} />
             ) : (
-              <img
+              <img             className="manager-register-avatar"
+
                 src="https://cdn.pixabay.com/photo/2017/11/10/04/47/user-2935373_960_720.png"
                 alt="Tanjiro"
               />
             )}
           </div> */}
         </div>
-        {/* <div className="register-buttons">
+        {/* <div className="manager-register-buttons">
           <label htmlFor="file" className="choosefilebutton">
             <DriveFolderUploadIcon className="uploadicon" />
             Change Avatar
@@ -118,8 +123,6 @@ const CompanyManagerCreate = () => {
         </div> */}
       </div>
       <div className="manager-register-profil-info">
-        <div className="manager-register-information">
-          <h2>Company Manager</h2>
 
           <form onSubmit={handleCreate}>
             <div className="manager-company-section">
@@ -274,7 +277,7 @@ const CompanyManagerCreate = () => {
 
                 <div className="data">
                   <label>E-Mail</label>
-                  <EmailInput
+                  <input
                     type="text"
                     onChange={(e) =>
                       setManagerInfo({
@@ -317,7 +320,6 @@ const CompanyManagerCreate = () => {
               Save
             </button>
           </form>
-        </div>
       </div>
     </div>
   );

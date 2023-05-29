@@ -46,7 +46,7 @@ const CreateAdmin = () => {
   return (
     <div className="register">
       <div className="register-part">
-        <div className="register-text">Employee Register</div>
+        <div className="register-text">Admin Register</div>
       </div>
       <div className="register-photo-section">
         {image ? (
@@ -107,7 +107,7 @@ const CreateAdmin = () => {
 
           <div className="input-data">
             <label htmlFor="email">E-mail:</label>
-            <EmailInput
+            <input
               type="text"
               required
               onChange={(e) =>
