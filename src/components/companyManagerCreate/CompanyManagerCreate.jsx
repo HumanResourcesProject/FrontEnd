@@ -25,7 +25,7 @@ const CompanyManagerCreate = () => {
     department:"",
     token: sessionStorage.getItem("token"),
   });
-
+console.log(managerInfo.email);
   // For Image ********
   const [image, setImage] = useState("");
 
@@ -77,9 +77,11 @@ const CompanyManagerCreate = () => {
         avatar: newImage,
       });
     }
-    console.log(managerInfo);
+console.log(managerInfo);
     AuthService.registerManager(managerInfo)
+  
       .then(() => {
+        
         alert("added successfully *****");
       })
       .catch((error) => {
@@ -92,20 +94,25 @@ const CompanyManagerCreate = () => {
 
   return (
     <div className="manager-register">
+            <div className="manager-register-part">
+        <div className="manager-register-text">Manager Register</div>
+      </div>
       <div className="register-photo-section">
         <div className="register-profile-holder">
           {/* <div className="register-profile-image">
             {image ? (
-              <img src={URL.createObjectURL(image)} />
+              <img             className="manager-register-avatar"
+ src={URL.createObjectURL(image)} />
             ) : (
-              <img
+              <img             className="manager-register-avatar"
+
                 src="https://cdn.pixabay.com/photo/2017/11/10/04/47/user-2935373_960_720.png"
                 alt="Tanjiro"
               />
             )}
           </div> */}
         </div>
-        {/* <div className="register-buttons">
+        {/* <div className="manager-register-buttons">
           <label htmlFor="file" className="choosefilebutton">
             <DriveFolderUploadIcon className="uploadicon" />
             Change Avatar
@@ -119,8 +126,6 @@ const CompanyManagerCreate = () => {
         </div> */}
       </div>
       <div className="manager-register-profil-info">
-        <div className="manager-register-information">
-          <h2>Company Manager</h2>
 
           <form onSubmit={handleCreate}>
             <div className="manager-company-section">
@@ -150,8 +155,6 @@ const CompanyManagerCreate = () => {
                 <div className="data">
                   <label>Identify number:</label>
                   <input
-                  pattern="^(?=.*[0-9])[0-9]{11}$"
-                  title="Please enter a valid identify number"
                   required
                     type="text"
                     onChange={(e) =>
@@ -208,10 +211,8 @@ const CompanyManagerCreate = () => {
                 <div className="data">
                   <label>Birth-date:</label>
                   <input
-                  pattern="^(0[1-9]|1[0-2])/(0[1-9]|[12][0-9]|3[01])/(\d{4})$"
-                  title="Please enter a valid birthday"
                   required
-                    type="text"
+                    type="date"
                     onChange={(e) =>
                       setManagerInfo({
                         ...managerInfo,
@@ -237,9 +238,7 @@ const CompanyManagerCreate = () => {
                 <div className="data">
                   <label>Job-start-date:</label>
                   <input
-                  pattern="^(0[1-9]|1[0-2])/(0[1-9]|[12][0-9]|3[01])/(\d{4})$"
-                  title="Please enter a valid day"
-                    type="text"
+                    type="date"
                     onChange={(e) =>
                       setManagerInfo({
                         ...managerInfo,
@@ -275,15 +274,15 @@ const CompanyManagerCreate = () => {
 
                 <div className="data">
                   <label>E-Mail</label>
-                  <EmailInput
+                  <input
                     type="text"
                     onChange={(e) =>
                       setManagerInfo({
                         ...managerInfo,
                         email: e.target.value,
                       })
-                    }
-                  />
+                    }/>
+                  
                 </div>
                 <div className="data">
                   <label>Phone:</label>
@@ -318,7 +317,6 @@ const CompanyManagerCreate = () => {
               Save
             </button>
           </form>
-        </div>
       </div>
     </div>
   );

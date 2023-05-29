@@ -1,15 +1,77 @@
 import React from 'react'
 import CardList from '../cards/CardList'
 import './adminMain.scss'
+import { useState, useEffect } from "react";
+import ManagerService from "../../service/CompanyManagerService";
+import EmployeeService from "../../service/EmployeeService";
+import AdminService from '../../service/AdminService';
+import CompanyService from '../../service/CompanyService';
+
 
  const AdminMain = () => {
+  const [data] = useState({
+    token: sessionStorage.getItem("token"),
+    role: sessionStorage.getItem("role")
+  });
+  const[totalAdminCount,setTotalAdminCount]= useState("");              //total admin
+  const[totalCompanyCount,setTotalCompanyCount] = useState("");                   //total company
+  const[totalManagerCount,setTotalManagerCount] = useState("");    // total manager
+  const[totalEmployeeCount,setTotalEmployeeCount] = useState("");       //total employee
+
+
+  
+  
+  useEffect(() => {
+    const fetchData = async () => {
+      
+      //total admin
+      try {
+        const response = await AdminService.totaladmincount(data);
+        setTotalAdminCount(response.data)
+      } catch (error) {
+        console.error(error);
+      }
+
+      //total company
+      try {
+        const response = await CompanyService.totalcompanycount(data);
+        setTotalCompanyCount(response.data)
+      } catch (error) {
+        console.error(error);
+      }
+      
+      //total manager
+      try {
+        const response = await ManagerService.totalmanagercount(data);
+        setTotalManagerCount(response.data)
+      } catch (error) {
+        console.error(error);
+      }
+      //total employee
+      try {
+        const response = await EmployeeService.totalemployeecount(data);
+        setTotalEmployeeCount(response.data)
+      } catch (error) {
+        console.error(error);
+      }
+
+
+
+
+
+    };
+
+    fetchData();
+  }, []);
+
+
   return (
   <div className="main-admin-container">
       <div className="small-boxes">
         <div className="box">
           <div className="box-left">
-            <div className="upper">2</div>
-            <div className="lower">All Employees</div>
+            <div className="upper">{totalAdminCount || ""}</div>
+            <div className="lower">Total Number of Admins</div>
           </div>
           <div className="box-right">
             <img
@@ -21,8 +83,8 @@ import './adminMain.scss'
         </div>
         <div className="box">
           <div className="box-left">
-            <div className="upper">2</div>
-            <div className="lower">My Employee Team</div>
+            <div className="upper">{totalCompanyCount || ""}</div>
+            <div className="lower">Total Number of Companies</div>
           </div>
           <div className="box-right">
             <img
@@ -34,8 +96,8 @@ import './adminMain.scss'
         </div>
         <div className="box">
           <div className="box-left">
-            <div className="upper">2</div>
-            <div className="lower">My Team's Average Age</div>
+            <div className="upper">{totalManagerCount || ""}</div>
+            <div className="lower">Total Number of Managers</div>
           </div>
           <div className="box-right">
             <img
@@ -47,8 +109,8 @@ import './adminMain.scss'
         </div>
         <div className="box">
           <div className="box-left">
-            <div className="upper">2</div>
-            <div className="lower">Company's Average Age</div>
+            <div className="upper">{totalEmployeeCount || ""}</div>
+            <div className="lower">Total Number of Employees</div>
           </div>
           <div className="box-right">
             <img

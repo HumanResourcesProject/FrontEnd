@@ -1,7 +1,8 @@
 import axios from "axios";
 
-const CREATE_COMPANY = "http://localhost:7073/company/createcompany";
-const findAllCompany = "http://localhost:7073/company/findall";
+const CREATE_COMPANY = "http://localhost/company/createcompany";
+const findAllCompany = "http://localhost/company/findall";
+const TOTAL_COMPANY_COUNT = "http://localhost/company/getallcompanycount";
 
 
 class CompanyService{
@@ -20,7 +21,10 @@ class CompanyService{
             }
         });
     }
-
+    
+    totalcompanycount(token){
+        return axios.get(TOTAL_COMPANY_COUNT,token);
+    }
 }
 
 export default new CompanyService();

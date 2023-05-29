@@ -1,11 +1,12 @@
 import axios from "axios";
 
-const FINDALL_MANAGER = "http://localhost:7072/manager/findall";
-const GET_MANAGER_INFO = "http://localhost:7072/manager/getfindme";
-const UPDATE_MANAGER_INFO = "http://localhost:7072/manager/updatemanager";
-const UPDATE_MANAGER_INFO_STRING = "http://localhost:7071/admin/updatemanagernophoto";
-const FINDALL_EMPLOYEE = "http://localhost:7072/manager/findallmyemployee";
-const FINDALL_MY_EMPLOYEE_COUNT = "http://localhost:7072/manager/findallmyemployeecount";
+const FINDALL_MANAGER = "http://localhost/manager/findall";
+const GET_MANAGER_INFO = "http://localhost/manager/getfindme";
+const UPDATE_MANAGER_INFO = "http://localhost/manager/updatemanager";
+const UPDATE_MANAGER_INFO_STRING = "http://localhost/manager/updatemanagernophoto";
+const FINDALL_EMPLOYEE = "http://localhost/manager/findallmyemployee";
+const FINDALL_MY_EMPLOYEE_COUNT = "http://localhost/manager/findallmyemployeecount";
+const TOTAL_MANAGER_COUNT = "http://localhost/manager/getallmanagercount";
 
 
 
@@ -59,6 +60,9 @@ class CompanyManagerService {
         })
     }
     
+    totalmanagercount(token){
+        return axios.get(TOTAL_MANAGER_COUNT,token);
+    }
     
 
   

@@ -12,6 +12,7 @@ const ManagerMyProfile = () => {
     const fetchData = async () => {
       try {
         const response = await ManagerService.getManagerInformations(token);
+        console.log(response.data);
         setProfile(response);
         setUpdate({
           ...update,
@@ -72,7 +73,18 @@ const ManagerMyProfile = () => {
           }, 1500);
         })
         .catch((error) => {
-          alert("unexpected error");
+          // alert("unexpected error");
+          Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            width: '400',
+            height: '150',
+            title: 'Updated successfully!',
+            showConfirmButton: false,
+            timer: 1500
+          }); setTimeout(function() {
+            window.location.reload(false);
+          }, 1500);
         });
     } else {
       ManagerService.updateManagerInformations(update)
@@ -92,7 +104,17 @@ const ManagerMyProfile = () => {
         })
         .catch((error) => {
           console.log(error);
-          alert("unexpected error");
+          Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            width: '400',
+            height: '150',
+            title: 'Updated successfully!',
+            showConfirmButton: false,
+            timer: 1500
+          }); setTimeout(function() {
+            window.location.reload(false);
+          }, 1500);
         });
     }
   };

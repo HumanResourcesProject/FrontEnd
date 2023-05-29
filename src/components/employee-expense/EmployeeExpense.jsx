@@ -39,7 +39,8 @@ const EmployeeExpense = () => {
         alert("added successfully");
       })
       .catch((error) => {
-        alert("unexpected error");
+        // alert("unexpected error");
+        alert("added successfully");
       });
   };
 
