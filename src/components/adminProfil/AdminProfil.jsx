@@ -1,7 +1,5 @@
 import React from "react";
 import { useState, useEffect } from "react";
-//import PhoneInput from 'react-phone-number-input'
-import "./style.css";
 import "./adminProfil.scss";
 import AdminService from "../../service/AdminService";
 import DriveFolderUploadIcon from "@mui/icons-material/DriveFolderUpload";
@@ -114,9 +112,7 @@ const AdminProfil = () => {
 
   return (
     <div className="admin-profile-body">
-      <div className="myprofile-header-part">
-        <div className="myprofile-text">My Profile</div>
-      </div>
+      <div className="left">
       <div className="avatar-part">
         {image ? (
           <img
@@ -214,6 +210,10 @@ const AdminProfil = () => {
           </button>
         </div>
       ) : null}
+      </div>
+      <div className="right">
+
+      </div>
     </div>
   );
 };

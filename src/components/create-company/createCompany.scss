@@ -24,8 +24,10 @@
     align-items: center;
     gap: 20px;
     .company-register-logo {
-      height: 150px;
+      height: 200px;
       border-radius: 10px;
+      width: 200px;
+      object-fit: cover;
     }
     .company-choose-logo {
       display: flex;

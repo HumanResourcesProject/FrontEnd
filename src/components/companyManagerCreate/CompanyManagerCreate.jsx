@@ -94,9 +94,6 @@ console.log(managerInfo);
 
   return (
     <div className="manager-register">
-            <div className="manager-register-part">
-        <div className="manager-register-text">Manager Register</div>
-      </div>
       <div className="register-photo-section">
         <div className="register-profile-holder">
           {/* <div className="register-profile-image">

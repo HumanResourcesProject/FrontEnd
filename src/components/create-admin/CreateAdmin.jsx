@@ -46,9 +46,7 @@ const CreateAdmin = () => {
 
   return (
     <div className="register">
-      <div className="register-part">
-        <div className="register-text">Admin Register</div>
-      </div>
+      
       <div className="register-photo-section">
         {image ? (
           <img className="register-avatar" src={URL.createObjectURL(image)} />
