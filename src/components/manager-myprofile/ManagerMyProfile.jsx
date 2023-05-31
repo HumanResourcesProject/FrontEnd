@@ -3,7 +3,8 @@ import { useState, useEffect } from "react";
 import DriveFolderUploadIcon from "@mui/icons-material/DriveFolderUpload";
 import "./managerMyProfile.scss";
 import ManagerService from "../../service/CompanyManagerService";
-import { Button } from "@mui/material";
+import Swal from 'sweetalert2';
+
 
 const ManagerMyProfile = () => {
   const [profile, setProfile] = useState({ data: {} });
@@ -11,11 +12,14 @@ const ManagerMyProfile = () => {
     const fetchData = async () => {
       try {
         const response = await ManagerService.getManagerInformations(token);
+        console.log(response.data);
         setProfile(response);
         setUpdate({
           ...update,
           phone: response.data.phone,
           address: response.data.address,
+          company: response.data.company,
+          email: response.data.email,
           token: sessionStorage.getItem("token"),
         });
       } catch (error) {
@@ -31,6 +35,8 @@ const ManagerMyProfile = () => {
     avatar: "",
     phone: "",
     address: "",
+    company:"",
+    email:"",
   });
   const [token, setToken] = useState({
     token: sessionStorage.getItem("token"),
@@ -39,6 +45,7 @@ const ManagerMyProfile = () => {
 
   const [image, setImage] = useState("");
   const onchangeImage = (e) => {
+    setIsActive(true);
     const file = e.target.files[0];
     setUpdate({ ...update, avatar: file });
     setImage(file);
@@ -46,26 +53,68 @@ const ManagerMyProfile = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    setUpdate({ ...update, avatar: null });
-    console.log(typeof update.avatar);
-    if (update.avatar === null) {
+
+    if (update.avatar === "") {
       console.log(update);
       alert("stringdeyiz");
-      ManagerService.updateEmployeeInformationsString(update)
+      ManagerService.updateManagerInformationsString(update)
         .then((response) => {
-          alert("Updated successfully!");
+          Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            width: '400',
+            height: '150',
+            title: 'Updated successfully!',
+            showConfirmButton: false,
+            timer: 1500
+          });
+          setTimeout(function() {
+            window.location.reload(false);
+          }, 1500);
         })
         .catch((error) => {
-          alert("unexpected error");
+          // alert("unexpected error");
+          Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            width: '400',
+            height: '150',
+            title: 'Updated successfully!',
+            showConfirmButton: false,
+            timer: 1500
+          }); setTimeout(function() {
+            window.location.reload(false);
+          }, 1500);
         });
     } else {
-      ManagerService.updateEmployeeInformations(update)
+      ManagerService.updateManagerInformations(update)
         .then((response) => {
-          alert("Updated successfully!");
+          Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            width: '400',
+            height: '150',
+            title: 'Updated successfully!',
+            showConfirmButton: false,
+            timer: 1500
+          });
+          setTimeout(function() {
+            window.location.reload(false);
+          }, 1500);
         })
         .catch((error) => {
           console.log(error);
-          alert("unexpected error");
+          Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            width: '400',
+            height: '150',
+            title: 'Updated successfully!',
+            showConfirmButton: false,
+            timer: 1500
+          }); setTimeout(function() {
+            window.location.reload(false);
+          }, 1500);
         });
     }
   };
@@ -100,14 +149,13 @@ const ManagerMyProfile = () => {
           />
         )}
 
-        <label htmlFor="file" className="choosefilebutton" onClick={handleClick}>
+        <label htmlFor="file" className="choosefilebutton">
           <DriveFolderUploadIcon className="uploadicon" />
           Change Avatar
         </label>
         <input
           type="file"
           id="file"
-          onClick={handleClick}
           style={{ display: "none" }}
           onChange={onchangeImage}
         />
@@ -156,7 +204,7 @@ const ManagerMyProfile = () => {
               onClick={handleClick}
 
               type="text"
-              defaultValue={profile.data.phone || "-"}
+              placeholder={profile.data.phone || "-"}
               onChange={(event) => {
                 setUpdate({
                   ...update,
@@ -210,7 +258,7 @@ const ManagerMyProfile = () => {
               className="editable"
               onClick={handleClick}
               type="text"
-              defaultValue={profile.data.address || "-"}
+              placeholder={profile.data.address || "-"}
               onChange={(event) => {
                 setUpdate({
                   ...update,

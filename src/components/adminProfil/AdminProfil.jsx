@@ -1,171 +1,218 @@
 import React from "react";
 import { useState, useEffect } from "react";
-//import PhoneInput from 'react-phone-number-input'
-import "./style.css";
 import "./adminProfil.scss";
 import AdminService from "../../service/AdminService";
+import DriveFolderUploadIcon from "@mui/icons-material/DriveFolderUpload";
+import Swal from 'sweetalert2';
+
 
 const AdminProfil = () => {
-  const [admin, setAdmin] = useState([]);
-  const token = sessionStorage.getItem("token");
+  const [profile, setProfile] = useState({ data: {} });
   useEffect(() => {
-    AdminService.getAdminInformations(token).then((response) => {
-      setAdmin(response.data);
-    });
+    const fetchData = async () => {
+      try {
+        const response = await AdminService.getAdminInformations(token);
+        setProfile(response);
+        setUpdate({
+          ...update,
+          phone: response.data.phone,
+          address: response.data.address,
+          token: sessionStorage.getItem("token"),
+        });
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    fetchData();
   }, []);
 
-  const update = () => {
-    const gizlenecekDiv = document.getElementById("gizlenecekDiv");
-    const gosterilecekDiv = document.getElementById("gosterilecekDiv");
-    gizlenecekDiv.style.display = "none";
-    gosterilecekDiv.style.display = "block";
-  };
-  const refresh = () => {
-    window.location.reload();
-  };
-  const [selectedFile, setSelectedFile] = useState(null);
-  const [imageUrl, setImageUrl] = useState(null);
-  const [loading, setLoading] = useState(false);
-  const handleImageUpload = (event) => {
-    event.preventDefault();
-    setLoading(true);
-    const formData = new FormData();
-    formData.append("file", selectedFile);
+  const [update, setUpdate] = useState({
+    token: "",
+    avatar: "",
+    phone: "",
+    address: "",
+  });
+  const [token, setToken] = useState({
+    token: sessionStorage.getItem("token"),
+    role: sessionStorage.getItem("role"),
+  });
 
-    AdminService.getAdminProfilePhoto(formData)
-      .then((response) => {
-        console.log(
-          "Profil fotoğrafı başarıyla yüklendi ve database'e kaydedildi."
-        );
-        setTimeout(() => window.location.reload(), 1000);
-        setLoading(false);
-        setImageUrl(response.data.imageUrl);
-      })
-      .catch((error) => {
-        console.log(error);
-        setLoading(false);
-      });
+  const [image, setImage] = useState("");
+  const onchangeImage = (e) => {
+    setIsActive(true);
+    const file = e.target.files[0];
+    setUpdate({ ...update, avatar: file });
+    setImage(file);
   };
-  const [phone, setPhone] = useState("");
-  const [address, setAddress] = useState("");
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const data = {
-      phone: phone,
-      address: address,
-      token: sessionStorage.getItem("token"),
-    };
+    
+    if (update.avatar === "") {
+      console.log(update);
+      alert("stringdeyiz");
+      console.log(update);
+      AdminService.updateAdminInformationsString(update)
+        .then((response) => {
+          Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            width: '400',
+            height: '150',
+            title: 'Updated successfully!',
+            showConfirmButton: false,
+            timer: 1500
+          });
+          setTimeout(function() {
+            window.location.reload(false);
+          }, 1500);        })
+        .catch((error) => {
+          alert("unexpected error");
+        });
+    } else {
 
-    AdminService.updateAdminInfo(data)
-      .then((response) => {
-        console.log(response);
-        alert("Admin updated successfully!");
-        setPhone("");
-        setAddress("");
-      })
-      .catch((error) => {
-        console.log(error);
-        alert(error.response.data.message);
-      });
+      AdminService.updateAdminInformations(update)
+        .then((response) => {
+          Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            width: '400',
+            height: '150',
+            title: 'Updated successfully!',
+            showConfirmButton: false,
+            timer: 1500
+          });
+          setTimeout(function() {
+            window.location.reload(false);
+          }, 1500);        })
+        .catch((error) => {
+          Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            width: '400',
+            height: '150',
+            title: 'Updated successfully!',
+            showConfirmButton: false,
+            timer: 1500
+          });
+          setTimeout(function() {
+            window.location.reload(false);
+          }, 1500);  
+        });
+    }
+  };
+
+  const [isActive, setIsActive] = useState(false);
+
+  const handleClick = (event) => {
+    event.preventDefault();
+    setIsActive(true);
   };
 
   return (
-    <div className="profil">
-      <div className="photoSection">
-        <div className="profileHolder">
-          <h2>Profil Photo</h2>
-          <div className="profileImage">
-            {imageUrl ? (
-              <img src={imageUrl} alt="Rengoku" />
-            ) : (
-              <img src={admin.avatar} alt="Rengoku" />
-            )}
+    <div className="admin-profile-body">
+      <div className="left">
+      <div className="avatar-part">
+        {image ? (
+          <img
+            className="avatar"
+            src={URL.createObjectURL(image)}
+            alt="Rengoku"
+          />
+        ) : (
+          <img
+            className="avatar"
+            src={
+              profile.data.avatar ||
+              "https://cdn.pixabay.com/photo/2017/11/10/04/47/user-2935373_960_720.png"
+            }
+            alt="Rengoku"
+          />
+        )}
+
+        <label
+          htmlFor="file"
+          className="choosefilebutton"
+        >
+          <DriveFolderUploadIcon className="uploadicon" />
+          Change Avatar
+        </label>
+        <input
+          type="file"
+          id="file"
+          style={{ display: "none" }}
+          onChange={onchangeImage}
+        />
+      </div>
+      <div className="detail-part">
+        <div className="left-part">
+          <div className="input">
+            <label className="text">Name</label>
+            <p className="detail-p">{profile.data.name || "-"}</p>
           </div>
-          <div className="buttons">
-            <form onSubmit={handleImageUpload}>
-              <input
-                type="file"
-                onChange={(event) => setSelectedFile(event.target.files[0])}
-              />
-              <button type="button" onClick={handleImageUpload}>
-                Upload
-              </button>
-              {loading && <span>Yükleniyor...</span>}
-            </form>
+
+          <div className="input">
+            <label className="text">Surname</label>
+            <p className="detail-p">{profile.data.surname || "-"}</p>
           </div>
+          <div className="input">
+            <label className="text">Email</label>
+            <p className="detail-p">{profile.data.email || "-"}</p>
+          </div>
+          <div className="input">
+            <label className="text">Phone *</label>
+            <input
+              className="editable"
+              onClick={handleClick}
+              type="text"
+              placeholder={profile.data.phone || "-"}
+              onChange={(event) => {
+                setUpdate({
+                  ...update,
+                  phone: event.target.value,
+                });
+              }}
+            />
+          </div>
+
+          <div className="input">
+            <label className="text">Address *</label>
+            <input
+            
+              className="editable"
+              onClick={handleClick}
+              type="text"
+              placeholder={profile.data.address || "-"}
+              onChange={(event) => {
+                setUpdate({
+                  ...update,
+                  address: event.target.value,
+                });
+              }}
+            />
+          </div>
+          {/* <div className="input">
+            <label className="text">Company</label>
+            <input
+              disabled
+              className="detail-input"
+              type="text"
+              defaultValue={profile.data.company || ""}
+            />
+          </div> */}
         </div>
-        <div className="profilInfo">
-          <div className="informationHead">
-            <h2>Profil Information</h2>
-          </div>
-          <div id="gizlenecekDiv" className="information">
-            <form action="">
-              <div className="input-profile">
-                <label htmlFor="name">Name:</label>
-                <p>{admin.name}</p>
-              </div>
-
-              <div className="input-profile">
-                <label htmlFor="surname">Surname:</label>
-                <p>{admin.surname}</p>
-              </div>
-
-              <div className="input-profile">
-                <label htmlFor="email">E-mail:</label>
-                <p>{admin.email}</p>
-              </div>
-
-              <div className="input-profile">
-                <label htmlFor="phone">Phone number:</label>
-                <p>{admin.phone}</p>
-              </div>
-              <div className="input-profile">
-                <label htmlFor="address">Address:</label>
-                <p>{admin.address}</p>
-              </div>
-              <div className="update-button">
-                <button type="button" onClick={update}>
-                  Update
-                </button>
-              </div>
-            </form>
-          </div>
-          <div id="gosterilecekDiv" className="informationsecret">
-            <form onSubmit={handleSubmit}>
-              <div className="input-profile">
-                <label>Phone:</label>
-                {/* { <PhoneInput
-                  international
-                  defaultCountry="TR"
-                  value={phone}
-                  onChange={setPhone}
-                /> } */}
-                <input
-                pattern="^[0-9]{9,11}$"
-                title="Please enter a valid phone"
-                  type="tel"
-                  value={phone}
-                  onChange={(e) => setPhone(e.target.value)}
-                />
-              </div>
-              <div className="input-profile">
-                <label>Address:</label>
-                <input
-                  type="text"
-                  value={address}
-                  onChange={(e) => setAddress(e.target.value)}
-                />
-              </div>
-              <div className="update-button">
-                <button type="submit">Update Admin</button>
-                <button type="button" onClick={refresh}>
-                  Cancel
-                </button>
-              </div>
-            </form>
-          </div>
+      </div>
+      {isActive === true ? (
+        <div className="button-part">
+          <button onClick={handleSubmit} className="button-change">
+            Save The Changes
+          </button>
         </div>
+      ) : null}
+      </div>
+      <div className="right">
+
       </div>
     </div>
   );

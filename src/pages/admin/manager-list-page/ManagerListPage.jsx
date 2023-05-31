@@ -16,7 +16,7 @@ const ManagerListPage = () => {
       <div className="manager-sidebar">
       {sidebarOpen && <Sidebar />}
       </div>
-      <div className="manager-right" style={{marginLeft: sidebarOpen ? '250px' : '0px'}}>
+      <div className="manager-right" style={{marginLeft: sidebarOpen ? '220px' : '0px'}}>
         <Header onToggleSidebar={handleToggleSidebar} />
         <TableManager/>
       </div> 

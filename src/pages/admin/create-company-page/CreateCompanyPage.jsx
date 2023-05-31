@@ -16,7 +16,7 @@ const CreateCompanyPage = () => {
     <div className="admin_sidebar">
     {sidebarOpen && <Sidebar />}
     </div>
-    <div className="admin-right" style={{marginLeft: sidebarOpen ? '250px' : '0px'}}>
+    <div className="admin-right" style={{marginLeft: sidebarOpen ? '220px' : '0px'}}>
       <Header onToggleSidebar={handleToggleSidebar} />
       <CreateCompany/>
     </div> 

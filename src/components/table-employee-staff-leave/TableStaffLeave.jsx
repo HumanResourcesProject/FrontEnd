@@ -17,6 +17,7 @@ const TableStaffLeave = () => {
 
     RequirementsService.findAllLeave(token)
       .then((response) => {
+        console.log(response);
         setData(response.data);
       })
       .catch((error) => {

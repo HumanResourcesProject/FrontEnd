@@ -22,37 +22,31 @@ body{
 }
 
 .full-sidebar{
-  position: relative;
-  z-index: 1;
+  z-index: 3;
   display: flex;
   flex-direction: column;
-  width: 250px;
+  width: 220px;
   height: 100vh;
-  background-color: #343a40;
-  color: rgb(189, 188, 188);
-  justify-content: space-between;
   position: fixed;
+  justify-content: space-between;
+  border-right: 1px solid rgb(218, 212, 212);
   .sidebar-top{
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    
+    flex-direction: column;    
     .sidebar-title-link{
-      color: rgb(189, 188, 188);
+      color: rgb(24, 21, 33);
       text-decoration: none;
-      border-bottom: 1px solid rgb(102, 102, 102);
+      border-bottom: 1px solid rgb(218, 212, 212);
       display: flex;
       align-items: center;
-      &:hover{
-        background-color: rgb(112, 110, 110);
-      }
+      font-weight: 700;
       img{
         float: left;
-        line-height: .8;
+        line-height: 0.8;
         margin-left: 1.6rem;
         max-height: 35px;
         width: auto;
-        
+        border-radius: 50%;
       }
       .sidebar-title{
         margin-left: 1rem;
@@ -62,12 +56,12 @@ body{
     
     
     .sidebar-admin-panel{
-      
       padding-top: 3px;
       padding-bottom: 3px;
-      border-bottom: 1px solid rgb(102, 102, 102);
+      border-bottom: 1px solid rgb(233, 233, 233);
       gap: 15px;
-      &:hover{
+
+      &:hover {
         background-color: rgb(112, 110, 110);
       }
       .sidebar-admin-panel-link{
@@ -90,47 +84,68 @@ body{
     }
   }
   .sidebar-main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     .sidebar-nav{
       display: flex;
       flex-direction: column;
-      gap: 20px;
       list-style: none;
-      padding-left: 1.6rem;
-      padding-right: 2rem;
       margin-top: 20px;
+      width: 90%;
+      padding: 0;
+      gap: 10px;
       
-      li{
-        border-radius: 5px;
-        padding: 2px;
-        &:hover{
-          background-color: rgb(112, 110, 110);
+      li {
+        .link.active {
+          background-color: rgb(255, 101, 41);
+          border-radius: 5px;
+          color: white;
+          .link {
+            color: white;
+
+            .icon {
+              width: 50px;
+            }
+          }
         }
-        font-size: small;
-      }
-      
-    } 
-  }
-  .lg{
-    .linklogout{
-      text-decoration: none;
-      .logout{
-        display: flex;
-        align-items: center;
-        padding-left: 2rem;
-        border-top: 1px solid rgb(102, 102, 102);
-        height: 70px;
-        
-        &:hover{
-          background-color: rgb(112, 110, 110);
-        }
-        .lout{
-          color: rgb(255, 255, 255);
-    
+
+        .link {
+          color: black;
+          font-size: small;
+          padding: 5px 0px 5px 5px;
+          &:hover{
+            background-color: rgb(255, 101, 41);
+            border-radius: 5px;
+            color: white;
+          }
         }
       }
     }
-    
+  }
+
+  .lg {
+    .linklogout {
+      text-decoration: none;
+
+      .logout {
+        display: flex;
+        align-items: center;
+        padding-left: 2rem;
+        border-top: 1px solid rgb(233, 233, 233);
+        height: 70px;
+        color: black;
+        &:hover{
+          background-color: rgb(255, 101, 41);
+          color: aliceblue;
+          font-weight: 700;
+        }
+        .lout {
+          font-size: small;
+        }
+      }
+    }
   }
   
 }
-

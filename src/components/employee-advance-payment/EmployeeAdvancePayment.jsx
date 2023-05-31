@@ -1,9 +1,26 @@
-import React from "react";
 import { useState,useEffect} from "react";
 import "./employeeAdvancePayment.scss";
-import EmployeeService from "../../service/EmployeeService"
+import EmployeeService from "../../service/EmployeeService";
+import * as React from 'react';
+import { ExchangeService} from '../../service/ExchangeService'
 
 const EmployeeAdvancePayment = () => {
+  
+  const[rates,setRates] = React.useState(null);
+
+  React.useEffect(() => {
+    const getFxData = () => {
+      ExchangeService().then(data =>{
+        console.log('fx data:', data);
+        setRates(data.rates);
+      }).catch(err =>{
+        console.log(err);
+      });
+    };
+    getFxData();
+  }, []);
+
+
   const [advancePayment, setAdvancePayment] = useState({
     token: sessionStorage.getItem("token"),
     amount: "",
@@ -12,9 +29,10 @@ const EmployeeAdvancePayment = () => {
     advancedPaymentDate:""
   });
   const [profile, setProfile] = useState({
-    salary:"1000",
-
+    salary:"",
   });
+  const [value, setValue] = useState();
+  
   const [token] = useState({
     token: sessionStorage.getItem("token"),
     role: sessionStorage.getItem("role")
@@ -26,7 +44,8 @@ const EmployeeAdvancePayment = () => {
         setProfile({
           ...profile,
           salary: response.data.salary *3,
-        }) 
+        })
+        setMax(response.data.salary *3) 
         
         
       }
@@ -66,10 +85,32 @@ const EmployeeAdvancePayment = () => {
           });
       }
       
-    
   };
+  const [max,setMax]= useState();
+  const [symbol, setSymbol] = useState();
+
+  useEffect(() => {
+    setValue(advancePayment.amount)
+    setMax(profile.salary)
+    setSymbol("₺");
+    if (advancePayment.currency === "TL") {
+      setSymbol("₺");
+      setValue(advancePayment.amount)
+      setMax(profile.salary)
+    } else if (advancePayment.currency === "DOLAR") {
+      setSymbol("$");
+      setValue(Number(advancePayment.amount/rates.USD).toFixed(2))
+      setMax(Number(profile.salary*rates.USD).toFixed(2))
+    } else if (advancePayment.currency === "EURO") {
+      setSymbol("€");
+      setValue(Number(advancePayment.amount/rates.EUR).toFixed(2))
+      setMax(Number(profile.salary*rates.EUR).toFixed(2))
+    }
+  }, [advancePayment.currency,advancePayment.amount]);
 
   
+
+
   return (
     <div className="payment-body">
       <form className="payment-form" onSubmit={handleSubmit}>
@@ -82,12 +123,16 @@ const EmployeeAdvancePayment = () => {
           setAdvancePayment({
             ...advancePayment,
             advancedPaymentDate: event.target.value,
+
           })
         }
          />
       </div>
       <div className="amount-part">
-        <div className="text">Amount</div>
+        <div className="amount-part-mini">
+        <div className="amount-text">Amount</div>
+        <div className="currency-text">{value} ₺, Max: {max} {symbol}</div>
+        </div>
         <div className="amount">
           <select
             className="amount-select"
@@ -105,7 +150,7 @@ const EmployeeAdvancePayment = () => {
           <input
             className="amount-input"
             type="number"
-            max={profile.salary}
+            max={max}
             onChange={(e) =>
               setAdvancePayment({
                 ...advancePayment,

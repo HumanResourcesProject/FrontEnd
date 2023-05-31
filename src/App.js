@@ -63,17 +63,17 @@ const App = () => {
       <Route
         path="/admin"
         element={
-          <AdminElement>
+          <PublicElement>
             <AdminPage />
-          </AdminElement>
+          </PublicElement>
         }
       />
       <Route
         path="/createadmin"
         element={
-          <AdminElement>
+          <PublicElement>
             <CreateAdminPage />
-          </AdminElement>
+          </PublicElement>
         }
       />
       <Route
@@ -111,9 +111,9 @@ const App = () => {
       <Route
         path="/companyregisterpage"
         element={
-          <AdminElement>
+          <PublicElement>
             <CreateCompanyPage />
-          </AdminElement>
+          </PublicElement>
         }
       />
       {/* Manager Part */}

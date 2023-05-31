@@ -29,11 +29,22 @@
     }
     .amount-part {
       width: 25%;
+      .amount-part-mini{
+        display: flex;
+        justify-content: space-between;
+        .amount-text {
+          font-size: small;
+          font-weight: 500;
 
-      .text {
-        font-size: small;
-        font-weight: 500;
+        }
+        .currency-text {
+          font-size: small;
+          font-weight: 400;
+          color: rgb(133, 133, 133);
+   
+        }
       }
+
       
       .amount {
         display: flex;
