@@ -3,8 +3,9 @@ import { useState, useEffect } from "react";
 import DriveFolderUploadIcon from "@mui/icons-material/DriveFolderUpload";
 import "./managerMyProfile.scss";
 import ManagerService from "../../service/CompanyManagerService";
-import Swal from 'sweetalert2';
-
+import Swal from "sweetalert2";
+import EditIcon from '@mui/icons-material/Edit';
+import EmployeeImage from "../../assets/images/manager-myprofile.svg";
 
 const ManagerMyProfile = () => {
   const [profile, setProfile] = useState({ data: {} });
@@ -35,8 +36,8 @@ const ManagerMyProfile = () => {
     avatar: "",
     phone: "",
     address: "",
-    company:"",
-    email:"",
+    company: "",
+    email: "",
   });
   const [token, setToken] = useState({
     token: sessionStorage.getItem("token"),
@@ -60,29 +61,30 @@ const ManagerMyProfile = () => {
       ManagerService.updateManagerInformationsString(update)
         .then((response) => {
           Swal.fire({
-            position: 'top-end',
-            icon: 'success',
-            width: '400',
-            height: '150',
-            title: 'Updated successfully!',
+            position: "top-end",
+            icon: "success",
+            width: "400",
+            height: "150",
+            title: "Updated successfully!",
             showConfirmButton: false,
-            timer: 1500
+            timer: 1500,
           });
-          setTimeout(function() {
+          setTimeout(function () {
             window.location.reload(false);
           }, 1500);
         })
         .catch((error) => {
           // alert("unexpected error");
           Swal.fire({
-            position: 'top-end',
-            icon: 'success',
-            width: '400',
-            height: '150',
-            title: 'Updated successfully!',
+            position: "top-end",
+            icon: "success",
+            width: "400",
+            height: "150",
+            title: "Updated successfully!",
             showConfirmButton: false,
-            timer: 1500
-          }); setTimeout(function() {
+            timer: 1500,
+          });
+          setTimeout(function () {
             window.location.reload(false);
           }, 1500);
         });
@@ -90,29 +92,30 @@ const ManagerMyProfile = () => {
       ManagerService.updateManagerInformations(update)
         .then((response) => {
           Swal.fire({
-            position: 'top-end',
-            icon: 'success',
-            width: '400',
-            height: '150',
-            title: 'Updated successfully!',
+            position: "top-end",
+            icon: "success",
+            width: "400",
+            height: "150",
+            title: "Updated successfully!",
             showConfirmButton: false,
-            timer: 1500
+            timer: 1500,
           });
-          setTimeout(function() {
+          setTimeout(function () {
             window.location.reload(false);
           }, 1500);
         })
         .catch((error) => {
           console.log(error);
           Swal.fire({
-            position: 'top-end',
-            icon: 'success',
-            width: '400',
-            height: '150',
-            title: 'Updated successfully!',
+            position: "top-end",
+            icon: "success",
+            width: "400",
+            height: "150",
+            title: "Updated successfully!",
             showConfirmButton: false,
-            timer: 1500
-          }); setTimeout(function() {
+            timer: 1500,
+          });
+          setTimeout(function () {
             window.location.reload(false);
           }, 1500);
         });
@@ -124,13 +127,11 @@ const ManagerMyProfile = () => {
   const handleClick = (event) => {
     event.preventDefault();
     setIsActive(true);
-  }
+  };
 
   return (
     <div className="manager-profile-body">
-            <div className="myprofile-header-part">
-        <div className="myprofile-text">My Profile</div>
-      </div>
+      <div className="left">
       <div className="avatar-part">
         {image ? (
           <img
@@ -164,45 +165,52 @@ const ManagerMyProfile = () => {
         <div className="left-part">
           <div className="input">
             <label className="text">IdentityNumber</label>
-            <p
-              className="detail-p"
-            >{profile.data.identityNumber || "-"}</p>
+            <p className="detail-p">{profile.data.identityNumber || "-"}</p>
           </div>
           <div className="input">
             <label className="text">Name</label>
-            <p
-              className="detail-p">  
-              {profile.data.name || "-"}
-            </p>
+            <p className="detail-p">{profile.data.name || "-"}</p>
           </div>
 
           <div className="input">
             <label className="text">Middle Name</label>
-            <p
-              className="detail-p">  
-              {profile.data.middleName || "-"}
-            </p>
+            <p className="detail-p">{profile.data.middleName || "-"}</p>
           </div>
           <div className="input">
             <label className="text">Surname</label>
-            <p
-              className="detail-p">  
-              {profile.data.surname || "-"}
-            </p>
+            <p className="detail-p">{profile.data.surname || "-"}</p>
           </div>
           <div className="input">
             <label className="text">Date of Birth</label>
-            <p
-              className="detail-p">  
-              {profile.data.birthDate || "-"}
-            </p>
+            <p className="detail-p">{profile.data.birthDate || "-"}</p>
+          </div>
+         
+          <div className="input">
+            <label className="text">Email</label>
+            <p className="detail-p">{profile.data.email || "-"}</p>
           </div>
           <div className="input">
-            <label className="text">Phone *</label>
+            <label className="text">Job Start Date</label>
+            <p className="detail-p">{profile.data.jobStart || "-"}</p>
+          </div>
+          <div className="input">
+            <label className="text">Occupation</label>
+            <p className="detail-p">{profile.data.occupation || "-"}</p>
+          </div>
+          <div className="input">
+            <label className="text">Department</label>
+            <p className="detail-p">{profile.data.department || "-"}</p>
+          </div>
+
+          <div className="input">
+            <label className="text">Date of Place</label>
+            <p className="detail-p">{profile.data.birthPlace || "-"}</p>
+          </div>
+          <div className="input">
+            <label className="text">Phone <EditIcon sx={{fontSize:15}} /></label>
             <input
               className="editable"
               onClick={handleClick}
-
               type="text"
               placeholder={profile.data.phone || "-"}
               onChange={(event) => {
@@ -213,47 +221,8 @@ const ManagerMyProfile = () => {
               }}
             />
           </div>
-
-        </div>
-        <div className="right-part">
           <div className="input">
-            <label className="text">Email</label>
-            <p
-              className="detail-p">  
-              {profile.data.email || "-"}
-            </p>
-          </div>
-          <div className="input">
-            <label className="text">Job Start Date</label>
-            <p
-              className="detail-p">  
-              {profile.data.jobStart || "-"}
-            </p>
-          </div>
-          <div className="input">
-            <label className="text">Occupation</label>
-            <p
-              className="detail-p">  
-              {profile.data.occupation || "-"}
-            </p>
-          </div>
-          <div className="input">
-            <label className="text">Department</label>
-            <p
-              className="detail-p">  
-              {profile.data.department || "-"}
-            </p>
-          </div>
-
-          <div className="input">
-            <label className="text">Date of Place</label>
-            <p
-              className="detail-p">  
-              {profile.data.birthPlace || "-"}
-            </p>
-          </div>
-          <div className="input">
-            <label className="text">Address *</label>
+            <label className="text">Address <EditIcon sx={{fontSize:15}} /></label>
             <input
               className="editable"
               onClick={handleClick}
@@ -267,24 +236,21 @@ const ManagerMyProfile = () => {
               }}
             />
           </div>
-          {/* <div className="input">
-            <label className="text">Company</label>
-            <input
-              disabled
-              className="detail-input"
-              type="text"
-              defaultValue={profile.data.company || ""}
-            />
-          </div> */}
-
         </div>
+
       </div>
-      {isActive === true ? ( <div className="button-part">
-        <button  onClick={handleSubmit} className="button-change">
-          Save The Changes
-        </button>
-      </div>) : null}
-     
+      {isActive === true ? (
+        <div className="button-part">
+          <button onClick={handleSubmit} className="button-change">
+            Save The Changes
+          </button>
+        </div>
+      ) : null}
+      </div>
+      <div className="right">
+        <img className="manager-profil-image" src={EmployeeImage} alt="" />
+      </div>
+      
     </div>
   );
 };

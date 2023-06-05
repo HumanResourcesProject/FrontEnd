@@ -31,14 +31,14 @@ class AuthService{
     registerManager(info){
         return axios.post(REGISTER_MANAGER,info,{
             headers: {
-                "Content-Type": "application/json"
+                'Content-Type': 'multipart/form-data'
               }
         })
     }
     registerEmployee(info){
         return axios.post(REGISTER_EMPLOYEE,info,{
             headers: {
-                "Content-Type": "application/json"
+                'Content-Type': 'multipart/form-data'
               }
         })
     }

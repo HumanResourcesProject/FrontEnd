@@ -44,7 +44,7 @@ const SidebarEmployee = () => {
                   activeItem === "/employeelistleave" ? "active" : ""
                 }`}>
                 <HowToRegOutlinedIcon />
-                <div>Staff Leave Table</div>
+                <div>Requests</div>
               </Link>
             </li>
             <li>
