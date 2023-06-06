@@ -26,7 +26,7 @@ const Sidebar = () => {
               src={lettera}
               alt=""
             />
-            <p className="sidebar-title">HR Admin Page</p>
+            <p className="sidebar-title"> HRP Admin </p>
           </Link>
         </div>
         <div className="sidebar-main">

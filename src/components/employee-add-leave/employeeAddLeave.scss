@@ -5,89 +5,66 @@ input[type="number"]::-webkit-outer-spin-button {
   margin: 0;
 }
 
-.add-leave {
+.add-leave-body {
+  font-family: "Roboto", sans-serif;
   display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  border-radius: 20px;
-  margin-top: 150px;
-  background-color: #ffffff;
-  align-items: center;
-  color: #807F7F;
-  .add-leave-info {
-    width: 70%;
+  height: 100%;
+  .add-leave-left {
+    width: 50%;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-    .employee-register-information {
+    gap: 20xp;
+    .add-leave-information {
+      width: 100%;
       display: flex;
       flex-direction: column;
-      gap: 40px;
-    }
-    .add-leave-information {
-      width: 70%;
-      h2{
-        margin-bottom: 10px;
+      align-items: center;
+      h2 {
+        margin-bottom: 50px;
+        margin-left: 20%;
+        align-self: flex-start;
       }
       form {
+        width: 60%;
         display: flex;
         flex-direction: column;
+        justify-content: center;
         gap: 30px;
         .form-data {
+          width: 100%;
           display: flex;
+          flex-direction: column;
           gap: 10px;
-          .first-part {
+
+          .data {
             display: flex;
             flex-direction: column;
-            width: 50%;
-            gap: 10px;
-            .data {
+            gap: 3px;
+            .text{
+              font-size: 14px;
+              font-weight: 700;
+              font-family: "Roboto", sans-serif;
               display: flex;
               align-items: center;
-              justify-content: space-between;
-              margin-top: 20px;
-              .inputs {
-                margin: 5px;
-                background: none;
-                padding: 5px;
-                height: 25px;
-                width: 50%;
-                font-size: 16px;
-                border: 1px solid #afafaf;
-                border-radius: 3px;
-                color: #000000;
-              }
-              .leavecombobox{
-                margin: 5px;
-                background: none;
-                width: 53%;
-                padding: 5px;
-                font-size: 16px;
-              }
-            }
+              gap: 10px;
+              padding-left: 5px;
           }
-          .second-part {
-            display: flex;
-            flex-direction: column;
-            width: 50%;
-            gap: 10px;
-            .data {
-              display: flex;
-              align-items: center;
-              justify-content: space-between;
-              margin-top: 20px;
-              .inputs {
-                margin: 5px;
-                background: none;
-                padding: 5px;
-                height: 25px;
-                width: 50%;
-                font-size: 16px;
-                border: 1px solid #afafaf;
-                border-radius: 3px;
-                color: #000000;
-              }
+            .inputs {
+              margin: 5px;
+              background: none;
+              padding: 5px 5px 5px 10px;
+              height: 25px;
+              font-size: 16px;
+              border: 1px solid rgb(204, 204, 204);
+              border-radius: 3px;
+              color: #000000;
+            }
+            .leavecombobox {
+              margin: 5px;
+              background: none;
+              width: 98%;
+              font-size: 16px;
             }
           }
         }
@@ -96,26 +73,38 @@ input[type="number"]::-webkit-outer-spin-button {
           font-weight: 500;
         }
 
-        button {
-          display: block;
-          margin-top: 50px;
-          width: 100%;
+        .button-part {
+          display: flex;
+          justify-content: center;
           height: 40px;
-          font-weight: 700;
-          color: #fafafa;
-          background-color: #807F7F;
-          border: none;
-          border-radius: 3px;
-          font-size: 15px;
-          cursor: pointer;
-        }
-        button:hover,
-        button:focus {
-          box-shadow: 0 0.5em 0.5em -0.4em var(--color5);
-          transform: translateY(-0.25em);
-          transition: 0.4s;
+          .save-button {
+            width: 18%;
+            color: white;
+            padding: 5px;
+            background-color: rgb(2, 157, 225);
+            border: none;
+            border-radius: 5px;
+            font-weight: 500;
+            cursor: pointer;
+            box-shadow: 2px 2px rgb(0, 0, 0);
+          }
+          button:hover,
+          button:focus {
+            box-shadow: 0 0.5em 0.5em -0.4em var(--color5);
+            transform: translateY(-0.25em);
+            transition: 0.4s;
+          }
         }
       }
+    }
+  }
+  .right {
+    flex: 2;
+    display: flex;
+    align-items: center;
+    height: 85vh;
+    .employee-profil-image {
+      width: 600px;
     }
   }
 }

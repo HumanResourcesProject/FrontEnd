@@ -25,7 +25,7 @@ const SidebarEmployee = () => {
               src={lettere}
               alt=""
             />
-            <p className="sidebar-title-employee">HR Employee Page</p>
+            <p className="sidebar-title-employee">HRP Employee</p>
           </Link>
         </div>
         <div className="sidebar-main-employee">
