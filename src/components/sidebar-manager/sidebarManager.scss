@@ -156,3 +156,35 @@ body {
     }
   }
 }
+
+.dropdown-menu{
+  margin-top: 3px;
+}
+
+.dropdown-menu li {
+  list-style: none;
+  cursor: pointer;
+  padding: 2px 5px 2px 5px;
+  font-size: small;
+  font-weight: 500;
+  .link2 {
+    color: black;
+    font-size: small;
+    text-decoration: none;
+    padding:  5px 5px 5px 0px;
+    
+  }
+  .link2:hover{
+    color: white;
+  }
+}
+
+.dropdown-menu li:hover {
+  background-color: rgb(60, 181, 63);
+  color: white;
+  
+  box-shadow: 2px 2px rgb(0, 0, 0);
+  border-radius: 5px;
+  
+  
+}
