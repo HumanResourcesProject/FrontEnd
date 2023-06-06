@@ -12,17 +12,18 @@
     border-radius: 10px;
     transition: transform 1s;
     text-decoration: none;
-    color: #ffffff;
-    background-color: rgb(60, 181, 63);
+    color: rgb(60, 181, 63);
+    background-color: white;
       box-shadow: 3px 3px rgb(0, 0, 0);
+      border: 1px solid #010101;
     .text-leave{
-      color:#f2f4f4 ; 
+      color:rgb(60, 181, 63) ; 
     }
     .text-adv{
-     color:#f2f4f4 ; 
+     color:rgb(60, 181, 63) ; 
     }
     .text-expense{
-      color:#f2f4f4 ; 
+      color:rgb(60, 181, 63) ; 
     }
     p {
       padding: 30px;
