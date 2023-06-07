@@ -16,6 +16,7 @@ const MONTHLY_EXPENSE_COMPANY = "http://localhost:7074/employee/findallmycompany
 const MY_ANNUAL_EXPENSE = "http://localhost:7074/employee/findallmyemployeesalaryforyear";
 const MY_MONTHLY_EXPENSE = "http://localhost:7074/employee/findallmyemployeesalaryformonth";
 const TOTAL_EMPLOYEE_COUNT = "http://localhost:7074/employee/getallemployeecount";
+const NEW_EMPLOYEES ="http://localhost:7074/employee/newemployees";
 
 
 class EmployeeService {
@@ -126,8 +127,12 @@ class EmployeeService {
             }
         })
     }
+    
     totalemployeecount(token){
         return axios.get(TOTAL_EMPLOYEE_COUNT,token);
+    }
+    getNewEmployees(){
+        return axios.get(NEW_EMPLOYEES);
     }
 }
 export default new EmployeeService();

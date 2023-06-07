@@ -3,6 +3,12 @@ import "./managerMain.scss";
 import { useState, useEffect } from "react";
 import ManagerService from "../../service/CompanyManagerService";
 import EmployeeService from "../../service/EmployeeService";
+import AllEmployeeIcon from "../../assets/images/all-employee.svg";
+import AllEmployeeIconBlue from "../../assets/images/all-blue-employee.svg";
+import AgeBlue from "../../assets/images/age-blue.svg";
+import AgeGreen from "../../assets/images/age-green.svg";
+import CompanyLogo from "../../assets/images/company-logo.svg";
+import ManagerLogo from "../../assets/images/manager-logo.svg";
 
 const MainPage = () => {
   const [data] = useState({
@@ -17,6 +23,101 @@ const MainPage = () => {
   const[myAnnualExpense,setMyAnnualExpense] = useState("");
   const[monthlyExpense,setMonthlyExpense] = useState("");
   const[myMonthlyExpense,setMyMonthlyExpense] = useState("");
+  const[newEmployees,setNewEmployees] = useState([
+    {
+      address:"",
+      authId:"",
+      avatar:"",
+      birthDate: "",
+      birthPlace: "",
+      createdate:"",
+      department:"",
+      email:"",
+      id:"",
+      identityNumber:"",
+      jobEnd:"",
+      jobStart:"",
+      leaveCount:"",
+      managerId:"",
+      middleName:"",
+      name:"",
+      occupation:"",
+      phone:"",
+      salary:"",
+      state:"",
+      surname:"",
+      updatedate:"",
+    },{
+      address:"",
+      authId:"",
+      avatar:"",
+      birthDate: "",
+      birthPlace: "",
+      createdate:"",
+      department:"",
+      email:"",
+      id:"",
+      identityNumber:"",
+      jobEnd:"",
+      jobStart:"",
+      leaveCount:"",
+      managerId:"",
+      middleName:"",
+      name:"",
+      occupation:"",
+      phone:"",
+      salary:"",
+      state:"",
+      surname:"",
+      updatedate:"",
+    },{
+      address:"",
+      authId:"",
+      avatar:"",
+      birthDate: "",
+      birthPlace: "",
+      createdate:"",
+      department:"",
+      email:"",
+      id:"",
+      identityNumber:"",
+      jobEnd:"",
+      jobStart:"",
+      leaveCount:"",
+      managerId:"",
+      middleName:"",
+      name:"",
+      occupation:"",
+      phone:"",
+      salary:"",
+      state:"",
+      surname:"",
+      updatedate:"",
+    },{
+      address:"",
+      authId:"",
+      avatar:"",
+      birthDate: "",
+      birthPlace: "",
+      createdate:"",
+      department:"",
+      email:"",
+      id:"",
+      identityNumber:"",
+      jobEnd:"",
+      jobStart:"",
+      leaveCount:"",
+      managerId:"",
+      middleName:"",
+      name:"",
+      occupation:"",
+      phone:"",
+      salary:"",
+      state:"",
+      surname:"",
+      updatedate:"",
+    }
+  ]);
 
   
   
@@ -35,7 +136,6 @@ const MainPage = () => {
       try {
         const response = await ManagerService.findAllMyEmployeeCount(data);
         setMyEmployeeCount(response.data)
-        console.log(response.data + " Buraaa");
       } catch (error) {
         console.error(error);
       }
@@ -82,9 +182,15 @@ const MainPage = () => {
       } catch (error) {
         console.error(error);
       }
+      try {
+        const response = await EmployeeService.getNewEmployees();
+        
+        setNewEmployees(response.data);
 
+      } catch (error) {
+        console.error(error);
+      }
     };
-
     fetchData();
   }, []);
 
@@ -94,11 +200,11 @@ const MainPage = () => {
         <div className="box">
           <div className="box-left">
             <div className="upper">{employeeCount || ""}</div>
-            <div className="lower">All Employees</div>
+            <div className="lower">Company's Employees</div>
           </div>
           <div className="box-right">
             <img
-              src="https://img.icons8.com/?size=512&id=Z6pJyeccSgsz&format=png"
+              src={AllEmployeeIcon}
               className="icon"
               alt=""
             />
@@ -111,20 +217,7 @@ const MainPage = () => {
           </div>
           <div className="box-right">
             <img
-              src="https://img.icons8.com/?size=512&id=Z6pJyeccSgsz&format=png"
-              className="icon"
-              alt=""
-            />
-          </div>
-        </div>
-        <div className="box">
-          <div className="box-left">
-            <div className="upper">{myEmployeeAverageAge || ""}</div>
-            <div className="lower">My Team's Average Age</div>
-          </div>
-          <div className="box-right">
-            <img
-              src="https://img.icons8.com/?size=512&id=YnC1pvb1SFuQ&format=png"
+              src={AllEmployeeIconBlue}
               className="icon"
               alt=""
             />
@@ -137,7 +230,20 @@ const MainPage = () => {
           </div>
           <div className="box-right">
             <img
-              src="https://img.icons8.com/?size=512&id=YnC1pvb1SFuQ&format=png"
+              src={AgeGreen}
+              className="icon"
+              alt=""
+            />
+          </div>
+        </div>
+        <div className="box">
+          <div className="box-left">
+            <div className="upper">{myEmployeeAverageAge || ""}</div>
+            <div className="lower">My Team's Average Age</div>
+          </div>
+          <div className="box-right">
+            <img
+              src={AgeBlue}
               className="icon"
               alt=""
             />
@@ -147,72 +253,72 @@ const MainPage = () => {
       <div className="middle-part">
         <div className="left-part">
           <div className="title-part">
-            <p className="title">Best Seller</p>
-            <p className="extra">...</p>
+            <p className="title">New Employees</p>
+            
           </div>
           <div className="employees">
             <div className="employee-chart">
               <div className="employee-detail">
                 <img
                   className="employee-avatar"
-                  src="https://images.ctfassets.net/lh3zuq09vnm2/yBDals8aU8RWtb0xLnPkI/19b391bda8f43e16e64d40b55561e5cd/How_tracking_user_behavior_on_your_website_can_improve_customer_experience.png"
+                  src={newEmployees[0].avatar || "gcavocats.ca/wp-content/uploads/2018/09/man-avatar"}
                   alt=""
                 />
                 <div className="employee-text">
-                  <p className="name">Pete Sariya</p>
-                  <p className="date"> 24 jan, 2020</p>
+                  <p className="name">{newEmployees[0].name || ""} {newEmployees[0].surname || ""}</p>
+                  <p className="date"> {newEmployees[0].jobStart || ""}</p>
                 </div>
               </div>
               <div className="grade">
-                <div className="number">157</div>
+                <div className="number">{newEmployees[0].identityNumber || ""}</div>
               </div>
             </div>
             <div className="employee-chart">
               <div className="employee-detail">
                 <img
                   className="employee-avatar"
-                  src="https://images.ctfassets.net/lh3zuq09vnm2/yBDals8aU8RWtb0xLnPkI/19b391bda8f43e16e64d40b55561e5cd/How_tracking_user_behavior_on_your_website_can_improve_customer_experience.png"
+                  src={newEmployees[1].avatar || "gcavocats.ca/wp-content/uploads/2018/09/man-avatar"}
                   alt=""
                 />
                 <div className="employee-text">
-                  <p className="name">Pete Sariya</p>
-                  <p className="date"> 24 jan, 2020</p>
+                  <p className="name">{newEmployees[1].name || ""} {newEmployees[1].surname || ""}</p>
+                  <p className="date"> {newEmployees[1].jobStart || ""}</p>
                 </div>
               </div>
               <div className="grade">
-                <div className="number">157</div>
+                <div className="number">{newEmployees[1].identityNumber || ""}</div>
               </div>
             </div>
             <div className="employee-chart">
               <div className="employee-detail">
                 <img
                   className="employee-avatar"
-                  src="https://images.ctfassets.net/lh3zuq09vnm2/yBDals8aU8RWtb0xLnPkI/19b391bda8f43e16e64d40b55561e5cd/How_tracking_user_behavior_on_your_website_can_improve_customer_experience.png"
+                  src={newEmployees[2].avatar || "gcavocats.ca/wp-content/uploads/2018/09/man-avatar"}
                   alt=""
                 />
                 <div className="employee-text">
-                  <p className="name">Pete Sariya</p>
-                  <p className="date"> 24 jan, 2020</p>
+                  <p className="name">{newEmployees[2].name || ""} {newEmployees[2].surname || ""}</p>
+                  <p className="date"> {newEmployees[2].jobStart || ""}</p>
                 </div>
               </div>
               <div className="grade">
-                <div className="number">157</div>
+                <div className="number">{newEmployees[2].identityNumber || ""}</div>
               </div>
             </div>
             <div className="employee-chart">
               <div className="employee-detail">
                 <img
                   className="employee-avatar"
-                  src="https://images.ctfassets.net/lh3zuq09vnm2/yBDals8aU8RWtb0xLnPkI/19b391bda8f43e16e64d40b55561e5cd/How_tracking_user_behavior_on_your_website_can_improve_customer_experience.png"
+                  src={newEmployees[3].avatar || "gcavocats.ca/wp-content/uploads/2018/09/man-avatar"}
                   alt=""
                 />
                 <div className="employee-text">
-                  <p className="name">Pete Sariya</p>
-                  <p className="date"> 24 jan, 2020</p>
+                  <p className="name">{newEmployees[3].name || ""} {newEmployees[3].surname || ""}</p>
+                  <p className="date"> {newEmployees[3].jobStart || ""}</p>
                 </div>
               </div>
               <div className="grade">
-                <div className="number">157</div>
+                <div className="number">{newEmployees[3].identityNumber || ""}</div>
               </div>
             </div>
           </div>
@@ -223,7 +329,7 @@ const MainPage = () => {
             <div className="expenses-data">
               <div className="left-side">
                 <img className="money-img"
-                  src="https://cdn-icons-png.flaticon.com/128/3188/3188580.png"
+                  src={CompanyLogo}
                   alt=""
                 />
                 <div className="text">
@@ -250,7 +356,7 @@ const MainPage = () => {
             <div className="expenses-data">
               <div className="left-side">
                 <img className="money-img"
-                  src="https://img.icons8.com/?size=512&id=63986&format=png"
+                  src={ManagerLogo}
                   alt=""
                 />
                 <div className="text">
@@ -280,7 +386,7 @@ const MainPage = () => {
             <div className="expenses-data">
               <div className="left-side">
                 <img className="money-img"
-                  src="https://cdn-icons-png.flaticon.com/128/3188/3188580.png"
+                  src={CompanyLogo}
                   alt=""
                 />
                 <div className="text">
@@ -307,7 +413,7 @@ const MainPage = () => {
             <div className="expenses-data">
               <div className="left-side">
                 <img className="money-img"
-                  src="https://img.icons8.com/?size=512&id=63986&format=png"
+                  src={ManagerLogo}
                   alt=""
                 />
                 <div className="text">
