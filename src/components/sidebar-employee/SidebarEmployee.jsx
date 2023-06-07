@@ -38,7 +38,14 @@ const SidebarEmployee = () => {
                 <div>My Profile</div>
               </Link>
             </li>
-            
+                        <li>
+              <Link to="/listallemployees" className={`link d-flex ${
+                  activeItem === "/listallemployees" ? "active" : ""
+                }`}>
+                <HowToRegOutlinedIcon />
+                <div>Employee List</div>
+              </Link>
+            </li>
             <li>
               <Link to="/employeelistleave" className={`link d-flex ${
                   activeItem === "/employeelistleave" ? "active" : ""
@@ -47,14 +54,7 @@ const SidebarEmployee = () => {
                 <div>Requests</div>
               </Link>
             </li>
-            <li>
-              <Link to="/listallemployees" className={`link d-flex ${
-                  activeItem === "/listallemployees" ? "active" : ""
-                }`}>
-                <HowToRegOutlinedIcon />
-                <div>Employee List</div>
-              </Link>
-            </li>
+
           </ul>
         </div>
       </div>
