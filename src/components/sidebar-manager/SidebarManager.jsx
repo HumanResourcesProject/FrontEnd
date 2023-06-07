@@ -121,7 +121,7 @@ const SidebarManager = () => {
                 >
                   <li onClick={togglePage1}>
                     <Link
-                      to="listemployeeleaves"
+                      to="/listemployeeleaves"
                       className={`link2 ${
                         activeItem === "/listemployeeleaves" ? "active" : ""
                       }`}
@@ -131,7 +131,7 @@ const SidebarManager = () => {
                   </li>
                   <li onClick={togglePage2}>
                     <Link
-                      to="listemployeeadvancepayments"
+                      to="/listemployeeadvancepayments"
                       className={`link2 ${
                         activeItem === "/listemployeeadvancepayments"
                           ? "active"
@@ -143,7 +143,7 @@ const SidebarManager = () => {
                   </li>
                   <li onClick={togglePage3}>
                     <Link
-                      to="listemployeeexpenses"
+                      to="/listemployeeexpenses"
                       className={`link2 ${
                         activeItem === "/listemployeeexpenses" ? "active" : ""
                       }`}
