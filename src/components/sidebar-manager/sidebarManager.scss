@@ -162,6 +162,20 @@ body {
 }
 
 .dropdown-menu li {
+  .link2.active {
+    background-color: rgb(60, 181, 63);
+    border-radius: 5px;
+    color: white;
+    box-shadow: 2px 2px rgb(0, 0, 0);
+    .link2 {
+      color: white;
+
+      .icon {
+        width: 50px;
+      }
+    }
+  }
+
   list-style: none;
   cursor: pointer;
   padding: 2px 5px 2px 5px;
