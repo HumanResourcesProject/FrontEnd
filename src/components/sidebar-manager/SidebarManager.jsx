@@ -128,7 +128,7 @@ useEffect(() => {
                   <li onClick={togglePage1}>
                     <Link
                       to="/listemployeeleaves"
-                      className={`link2 ${
+                      className={` link2 ${
                         activeItem === "/listemployeeleaves" ? "active" : ""
                       }`}
                       onClick={handleLinkClick}
@@ -139,7 +139,7 @@ useEffect(() => {
                   <li onClick={togglePage2}>
                     <Link
                       to="/listemployeeadvancepayments"
-                      className={`link2 ${
+                      className={`link3  ${
                         activeItem === "/listemployeeadvancepayments"
                           ? "active"
                           : ""
@@ -152,7 +152,7 @@ useEffect(() => {
                   <li onClick={togglePage3}>
                     <Link
                       to="/listemployeeexpenses"
-                      className={`link2 ${
+                      className={` link4 ${
                         activeItem === "/listemployeeexpenses" ? "active" : ""
                       }`}
                       onClick={handleLinkClick}
