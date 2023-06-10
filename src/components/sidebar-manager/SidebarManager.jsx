@@ -108,7 +108,7 @@ useEffect(() => {
                 <div>Manager List</div>
               </Link>
             </li>
-            <li>
+            <li className="managerequestli">
               <div
                 className={`link d-flex ${
                   activeItem === "/managerequests" ? "active" : ""

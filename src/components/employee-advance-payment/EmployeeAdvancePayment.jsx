@@ -109,7 +109,6 @@ const EmployeeAdvancePayment = () => {
     <div className="payment-body">
       <div className="left-advance">
         <div className="advance-mini-part">
-        <h2>Advance Payment Page</h2>
         <form className="payment-form" onSubmit={handleSubmit}>
           <div className="date-part">
             <div className="text">Date</div>

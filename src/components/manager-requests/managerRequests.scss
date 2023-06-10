@@ -1,51 +1,51 @@
-.requests-container {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  margin-top: 200px;
-  padding: 20px;
-  .request-block {
-    display: flex;
-    flex-direction: column;
-    width: 25%;
-    padding: 10px 30px 10px 30px;
-    border-radius: 10px;
-    transition: transform 1s;
-    text-decoration: none;
-    color: rgb(60, 181, 63);
-    background-color: white;
-      box-shadow: 3px 3px rgb(0, 0, 0);
-      border: 1px solid #010101;
-    .text-leave{
-      color:rgb(60, 181, 63) ; 
-    }
-    .text-adv{
-     color:rgb(60, 181, 63) ; 
-    }
-    .text-expense{
-      color:rgb(60, 181, 63) ; 
-    }
-    p {
-      padding: 30px;
-      font-weight: 500;
-    }
-  }
-  .requests-left:hover {
-    cursor: pointer;
-    padding: 8px 28px 8px 28px;
-    border: 2px solid #010101;
-    transform: scale(1.1);
-  }
-  .requests-middle:hover {
-    padding: 8px 28px 8px 28px;
-    cursor: pointer;
-    border: 2px solid #010101;
-    transform: scale(1.1);
-  }
-  .requests-right:hover {
-    padding: 8px 28px 8px 28px;
-    cursor: pointer;
-    border: 2px solid #010101;
-    transform: scale(1.1);
-  }
-}
+// .requests-container {
+//   display: flex;
+//   justify-content: space-around;
+//   align-items: center;
+//   margin-top: 200px;
+//   padding: 20px;
+//   .request-block {
+//     display: flex;
+//     flex-direction: column;
+//     width: 25%;
+//     padding: 10px 30px 10px 30px;
+//     border-radius: 10px;
+//     transition: transform 1s;
+//     text-decoration: none;
+//     color: rgb(60, 181, 63);
+//     background-color: white;
+//       box-shadow: 3px 3px rgb(0, 0, 0);
+//       border: 1px solid #010101;
+//     .text-leave{
+//       color:rgb(60, 181, 63) ; 
+//     }
+//     .text-adv{
+//      color:rgb(60, 181, 63) ; 
+//     }
+//     .text-expense{
+//       color:rgb(60, 181, 63) ; 
+//     }
+//     p {
+//       padding: 30px;
+//       font-weight: 500;
+//     }
+//   }
+//   .requests-left:hover {
+//     cursor: pointer;
+//     padding: 8px 28px 8px 28px;
+//     border: 2px solid #010101;
+//     transform: scale(1.1);
+//   }
+//   .requests-middle:hover {
+//     padding: 8px 28px 8px 28px;
+//     cursor: pointer;
+//     border: 2px solid #010101;
+//     transform: scale(1.1);
+//   }
+//   .requests-right:hover {
+//     padding: 8px 28px 8px 28px;
+//     cursor: pointer;
+//     border: 2px solid #010101;
+//     transform: scale(1.1);
+//   }
+// }

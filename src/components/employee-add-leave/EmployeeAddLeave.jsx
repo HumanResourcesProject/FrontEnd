@@ -67,8 +67,6 @@ const EmployeeAddLeave = () => {
     <div className="add-leave-body">
       <div className="add-leave-left">
         <div className="add-leave-information">
-          <h2>Leave Request Page</h2>
-
           <form onSubmit={handleCreate}>
             <div className="form-data">
               <div className="data">

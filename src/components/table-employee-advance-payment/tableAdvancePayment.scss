@@ -7,21 +7,11 @@
         display: flex;
         align-items: center;
         gap: 10px;
-        font-size: small;
+        font-size: medium;
         text-decoration: none;
         color: black;
         font-weight: 500;
-        width: 11%;
-        .icon-div{
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background-color: rgb(100, 188, 223);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-        }
+    
     }
     .table-advance-payment{
         margin: 0px 100px 100px 100px;

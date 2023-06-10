@@ -138,12 +138,7 @@ const TableManagerExpenses = () => {
   };
   return (
     <div className="table-manager-expenses">
-            <div className="linktobutton-manage-request">
-        <Link to="/managerequests" className="manage-request-button">
-          <ArrowBackIosNewIcon className="manage-request-back"/>
-          <p className="text-manage-request">Manage Requests</p>
-        </Link>
-      </div>
+
       <h2>Expenses Table</h2>
       <MaterialReactTable
         columns={columns}

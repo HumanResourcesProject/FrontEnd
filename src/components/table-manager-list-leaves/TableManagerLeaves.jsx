@@ -131,12 +131,7 @@ const TableManagerLeaves = () => {
   };
   return (
     <div className="table-manager-leaves">
-      <div className="linktobutton-manage-request">
-        <Link to="/managerequests" className="manage-request-button">
-          <KeyboardReturnIcon className="manage-request-back" />
-          <p className="text-manage-request">Manage Requests</p>
-        </Link>
-      </div>
+
       <h2>Leave Table</h2>
       <MaterialReactTable
         columns={columns}

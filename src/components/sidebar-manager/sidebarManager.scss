@@ -7,6 +7,8 @@ body {
   text-align: left;
   margin: 0;
   padding: 0;
+  font-weight: 500;
+
 }
 .link {
   text-decoration: none;
@@ -157,110 +159,118 @@ body {
   }
 }
 
-.dropdown-menu{
-  margin-top: 3px;
+.managerequestli{
   display: flex;
   flex-direction: column;
   gap: 5px;
-}
 
-.dropdown-menu li {
-  .link2.active {
-    background-color: rgb(60, 181, 63);
-    border-radius: 5px;
-    color: white;
-    box-shadow: 2px 2px rgb(0, 0, 0);
+  .dropdown-menu{
+    margin-top: 3px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  
+  .dropdown-menu li {
+    .link2.active {
+      background-color: rgb(60, 181, 63);
+      border-radius: 5px;
+      color: white;
+      box-shadow: 2px 2px rgb(0, 0, 0);
+      .link2 {
+        color: white;
+  
+        .icon {
+          width: 50px;
+        }
+      }
+    }
+  
+    list-style: none;
+    cursor: pointer;
+    padding: 2px 5px 2px 5px;
+    font-size: small;
+    font-weight: 500;
     .link2 {
+      color: black;
+      font-size: small;
+      text-decoration: none;
+      padding:  5px 106px 5px 5px;
+      
+    }
+    .link2:hover{
       color: white;
-
-      .icon {
-        width: 50px;
+    }
+  
+  
+    .link3.active {
+      background-color: rgb(60, 181, 63);
+      border-radius: 5px;
+      color: white;
+      box-shadow: 2px 2px rgb(0, 0, 0);
+      .link3 {
+        color: white;
+  
+        .icon {
+          width: 50px;
+        }
       }
     }
-  }
-
-  list-style: none;
-  cursor: pointer;
-  padding: 2px 5px 2px 5px;
-  font-size: small;
-  font-weight: 500;
-  .link2 {
-    color: black;
+  
+    list-style: none;
+    cursor: pointer;
+    padding: 2px 5px 2px 5px;
     font-size: small;
-    text-decoration: none;
-    padding:  5px 106px 5px 5px;
-    
-  }
-  .link2:hover{
-    color: white;
-  }
-
-
-  .link3.active {
-    background-color: rgb(60, 181, 63);
-    border-radius: 5px;
-    color: white;
-    box-shadow: 2px 2px rgb(0, 0, 0);
+    font-weight: 500;
     .link3 {
+      color: black;
+      font-size: small;
+      text-decoration: none;
+      padding:  5px 31px 5px 5px;
+      
+    }
+    .link3:hover{
       color: white;
-
-      .icon {
-        width: 50px;
+    }
+  
+    .link4.active {
+      background-color: rgb(60, 181, 63);
+      border-radius: 5px;
+      color: white;
+      box-shadow: 2px 2px rgb(0, 0, 0);
+      .link4 {
+        color: white;
+  
+        .icon {
+          width: 50px;
+        }
       }
     }
-  }
-
-  list-style: none;
-  cursor: pointer;
-  padding: 2px 5px 2px 5px;
-  font-size: small;
-  font-weight: 500;
-  .link3 {
-    color: black;
+  
+    list-style: none;
+    cursor: pointer;
+    padding: 2px 5px 2px 5px;
     font-size: small;
-    text-decoration: none;
-    padding:  5px 31px 5px 5px;
-    
+    font-weight: 500;
+    .link4 {
+      color: black;
+      font-size: small;
+      text-decoration: none;
+      padding:  5px 90px 5px 5px;
+      
+    }
+    .link4:hover{
+      color: white;
+    }
   }
-  .link3:hover{
-    color: white;
-  }
-
-  .link4.active {
+  
+  .dropdown-menu .link2:hover , .link3:hover, .link4:hover {
     background-color: rgb(60, 181, 63);
-    border-radius: 5px;
     color: white;
     box-shadow: 2px 2px rgb(0, 0, 0);
-    .link4 {
-      color: white;
-
-      .icon {
-        width: 50px;
-      }
-    }
+    border-radius: 5px;
   }
-
-  list-style: none;
-  cursor: pointer;
-  padding: 2px 5px 2px 5px;
-  font-size: small;
-  font-weight: 500;
-  .link4 {
-    color: black;
-    font-size: small;
-    text-decoration: none;
-    padding:  5px 90px 5px 5px;
-    
-  }
-  .link4:hover{
-    color: white;
-  }
-}
-
-.dropdown-menu .link2:hover , .link3:hover, .link4:hover {
-  background-color: rgb(60, 181, 63);
-  color: white;
-  box-shadow: 2px 2px rgb(0, 0, 0);
-  border-radius: 5px;
+  
+  
 }
 

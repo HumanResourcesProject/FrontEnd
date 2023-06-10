@@ -49,7 +49,6 @@ const EmployeeExpense = () => {
     <div className="expense-body">
       <div className="expense-left">
         <div className="expense-mini-part">
-          <h2>Expense Page</h2>
           <form className="expense-form" onSubmit={handleSubmit}>
             <div className="invoice-part">
               <div className="register-profile-image">
