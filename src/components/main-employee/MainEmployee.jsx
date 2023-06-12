@@ -2,7 +2,7 @@ import React from "react";
 import "./mainEmployee.scss";
 import EmployeeService from "../../service/EmployeeService";
 import { useState, useEffect } from "react";
-import EmployeeMainImage from "../../assets/images/employee-main.svg";
+import EmployeeMainImage from "../../assets/images/employee-mainpage.svg";
 // import { Chart } from "react-google-charts";
 
 const MainEmployee = () => {

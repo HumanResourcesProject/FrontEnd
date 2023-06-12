@@ -79,7 +79,6 @@ const LoginPage = () => {
         }
       })
       .catch((error) => {
-        alert("oooo")
         Swal.fire({
           title: 'Invalid Login',
           text: 'Please check the values you entered',
