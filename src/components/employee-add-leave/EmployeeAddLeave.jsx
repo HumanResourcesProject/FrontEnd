@@ -4,6 +4,8 @@ import "./employeeAddLeave.scss";
 import EmployeeService from "../../service/EmployeeService";
 import Select from "react-select";
 import EmployeeLeaveImage from "../../assets/images/employee-leave.svg";
+import Swal from 'sweetalert2';
+
 
 const EmployeeAddLeave = () => {
   const [addLeaveInfo, setAddLeaveInfo] = useState({
@@ -56,11 +58,28 @@ const EmployeeAddLeave = () => {
 
     EmployeeService.createleave(addLeaveInfo)
       .then(() => {
-        alert("added successfully *****");
-      })
+        Swal.fire({
+          position: 'top-end',
+          icon: 'success',
+          width: '400',
+          height: '150',
+          title: 'Successful entry',
+          showConfirmButton: false,
+          timer: 1500
+        })
+        setTimeout(function() {
+          window.location.replace("http://localhost:3000/employeeaddleave");
+        }, 1500);           })
       .catch((error) => {
-        alert("unexpected error");
-      });
+        Swal.fire({
+          position: 'top-end',
+          icon: 'error',
+          width: '400',
+          height: '150',
+          title: 'Something went wrong!',
+          showConfirmButton: false,
+          timer: 1500
+        })      });
   };
 
   return (

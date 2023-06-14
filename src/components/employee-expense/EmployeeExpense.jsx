@@ -4,6 +4,8 @@ import "./employeeExpense.scss";
 import DriveFolderUploadIcon from "@mui/icons-material/DriveFolderUpload";
 import EmployeeService from "../../service/EmployeeService";
 import EmployeeExpenseImage from "../../assets/images/employee-expenses.svg";
+import Swal from 'sweetalert2';
+
 
 const EmployeeExpense = () => {
   const [expense, setExpense] = useState({
@@ -31,17 +33,43 @@ const EmployeeExpense = () => {
       expense.spendingDate === "" ||
       expense.type === ""
     ) {
-      alert("Fill the neccessary fields");
+      Swal.fire({
+        position: 'top-end',
+        icon: 'info',
+        width: '400',
+        height: '150',
+        title: 'Fill the neccessary fields.',
+        showConfirmButton: false,
+        timer: 1500
+      })
       return;
     }
     console.log(expense);
     EmployeeService.createexpense(expense)
       .then(() => {
-        alert("added successfully");
+        Swal.fire({
+          position: 'top-end',
+          icon: 'success',
+          width: '400',
+          height: '150',
+          title: 'Successful entry',
+          showConfirmButton: false,
+          timer: 1500
+        })
+        setTimeout(function() {
+          window.location.replace("http://localhost:3000/employeeexpense");
+        }, 1500); 
       })
       .catch((error) => {
-        // alert("unexpected error");
-        alert("added successfully");
+        Swal.fire({
+          position: 'top-end',
+          icon: 'error',
+          width: '400',
+          height: '150',
+          title: 'Something went wrong!',
+          showConfirmButton: false,
+          timer: 1500
+        }) 
       });
   };
 

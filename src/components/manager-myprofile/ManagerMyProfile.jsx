@@ -57,7 +57,6 @@ const ManagerMyProfile = () => {
 
     if (update.avatar === "") {
       console.log(update);
-      alert("stringdeyiz");
       ManagerService.updateManagerInformationsString(update)
         .then((response) => {
           Swal.fire({
@@ -74,13 +73,12 @@ const ManagerMyProfile = () => {
           }, 1500);
         })
         .catch((error) => {
-          // alert("unexpected error");
           Swal.fire({
             position: "top-end",
-            icon: "success",
+            icon: "error",
             width: "400",
             height: "150",
-            title: "Updated successfully!",
+            title: "Something went wrong!",
             showConfirmButton: false,
             timer: 1500,
           });
@@ -108,10 +106,10 @@ const ManagerMyProfile = () => {
           console.log(error);
           Swal.fire({
             position: "top-end",
-            icon: "success",
+            icon: "error",
             width: "400",
             height: "150",
-            title: "Updated successfully!",
+            title: "Something went wrong!",
             showConfirmButton: false,
             timer: 1500,
           });
