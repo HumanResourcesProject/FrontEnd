@@ -6,6 +6,8 @@ import AuthService from "../../service/AuthService";
 import EmailInput from "../email-input/EmailInput";
 import DriveFolderUploadIcon from "@mui/icons-material/DriveFolderUpload";
 import ImageEmp from "../../assets/images/employee-register.svg"
+import Swal from 'sweetalert2';
+
 
 const CreateEmployee = () => {
   const [employeeInfo, setEmployeeInfo] = useState({
@@ -62,11 +64,30 @@ const CreateEmployee = () => {
     console.log(employeeInfo);
     AuthService.registerEmployee(employeeInfo)
       .then(() => {
-        alert("added successfully *****");
-      })
+        Swal.fire({
+          position: 'top-end',
+          icon: 'success',
+          width: '400',
+          height: '150',
+          title: 'Successful entry',
+          showConfirmButton: false,
+          timer: 1500
+        })
+        setTimeout(function() {
+          window.location.replace("http://localhost:3000/employeeregister");
+        }, 1500);      })
       .catch((error) => {
-        alert("unexpected error");
-      });
+        Swal.fire({
+          title: 'Invalid parameter',
+          text: 'Please check the values you entered',
+          icon: 'error',
+          width: '400',
+          height: '400',
+          imageUrl: 'https://img.freepik.com/free-vector/warning-concept-illustration_114360-1551.jpg?w=826&t=st=1684682338~exp=1684682938~hmac=4875a35809cd122ac30985a1b47f1aa39d99d714605152608b2465f0300c1c27',
+          imageWidth:200,
+          imageHeight: 200,
+          imageAlt: 'Custom image',
+        })      });
   };
 
   return (
@@ -185,7 +206,7 @@ const CreateEmployee = () => {
                   />
                 </div>
                 <div className="input-data">
-                  <label>Birth-place:</label>
+                  <label>Birth Place:</label>
                   <input
                     className="inputs"
                     type="text"
@@ -198,7 +219,7 @@ const CreateEmployee = () => {
                   />
                 </div>
                 <div className="input-data">
-                  <label>Job-start-date:</label>
+                  <label>Job Start Date:</label>
                   <input
                     // pattern="^(0[1-9]|1[0-2])/(0[1-9]|[12][0-9]|3[01])/(\d{4})$"
                     // title="Please enter a valid day"

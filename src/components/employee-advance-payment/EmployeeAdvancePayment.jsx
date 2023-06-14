@@ -4,6 +4,9 @@ import EmployeeService from "../../service/EmployeeService";
 import * as React from "react";
 import { ExchangeService } from "../../service/ExchangeService";
 import EmployeeAdvanceImage from "../../assets/images/employee-advancepayment.svg";
+import Swal from 'sweetalert2';
+
+
 
 
 const EmployeeAdvancePayment = () => {
@@ -63,7 +66,15 @@ const EmployeeAdvancePayment = () => {
 
     event.preventDefault();
     if (advancePayment.advancedPaymentDate < newDate) {
-      alert("Advances cannot be taken in the past.");
+      Swal.fire({
+        position: 'top-end',
+        icon: 'info',
+        width: '400',
+        height: '150',
+        title: 'Advances cannot be taken in the past.',
+        showConfirmButton: false,
+        timer: 1500
+      })  
       return;
     }
     if (
@@ -71,16 +82,42 @@ const EmployeeAdvancePayment = () => {
       advancePayment.comment === "" ||
       advancePayment.advancedPaymentDate === ""
     ) {
-      alert("Fill the neccessary fields");
+       Swal.fire({
+        position: 'top-end',
+        icon: 'info',
+        width: '400',
+        height: '150',
+        title: 'Fill the neccessary fields.',
+        showConfirmButton: false,
+        timer: 1500
+      })  
     } else {
       console.log(advancePayment);
       EmployeeService.createadvancepayment(advancePayment)
         .then(() => {
-          alert("added successfully *****");
+          Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            width: '400',
+            height: '150',
+            title: 'Successful entry',
+            showConfirmButton: false,
+            timer: 1500
+          })
+          setTimeout(function() {
+            window.location.replace("http://localhost:3000/employeeadvancepayment");
+          }, 1500); 
         })
         .catch((error) => {
-          alert("unexpected error");
-        });
+          Swal.fire({
+            position: 'top-end',
+            icon: 'error',
+            width: '400',
+            height: '150',
+            title: 'Something went wrong!',
+            showConfirmButton: false,
+            timer: 1500
+          })          });
     }
   };
   const [max, setMax] = useState();
