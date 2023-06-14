@@ -4,7 +4,8 @@ import "./createAdmin.scss";
 import DriveFolderUploadIcon from "@mui/icons-material/DriveFolderUpload";
 import AuthService from "../../service/AuthService";
 import EmailInput from "../email-input/EmailInput";
-import AdminCreateImage from "../../assets/images/Admin_Create_Image.svg"
+import AdminCreateImage from "../../assets/images/Admin_Create_Image.svg";
+import Swal from 'sweetalert2';
 
 const CreateAdmin = () => {
   const [adminInfo, setAdminInfo] = useState({
@@ -38,10 +39,28 @@ const CreateAdmin = () => {
     console.log(adminInfo);
     AuthService.registerAdmin(adminInfo)
       .then(() => {
-        alert("added successfully *****");
+        Swal.fire({
+              position: 'center',
+              icon: 'success',
+              width: '400',
+              height: '150',
+              title: 'Admin Successfully Registered',
+              showConfirmButton: false,
+              timer: 1500
+            })
+            setTimeout(function() {
+             window.location.replace("http://localhost:3000/createadmin")
+            }, 1500);
       })
       .catch((error) => {
-        alert("unexpected error");
+        Swal.fire({
+          title: 'Invalid Parameter',
+          icon:"error",
+          text: 'Please check the values you entered',
+          width: '400',
+          height: '400',
+
+        })
       });
   };
 

@@ -7,6 +7,7 @@ import AuthService from "../../service/AuthService";
 import CompanyService from "../../service/CompanyService";
 
 import ImageManager from "../../assets/images/ManagerRegister.svg"
+import Swal from 'sweetalert2';
 
 const CompanyManagerCreate = () => {
   const [managerInfo, setManagerInfo] = useState({
@@ -85,13 +86,28 @@ const CompanyManagerCreate = () => {
     AuthService.registerManager(managerInfo)
 
       .then(() => {
-        alert("added successfully *****");
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          width: '400',
+          height: '150',
+          title: 'Manager Successfully Registered',
+          showConfirmButton: false,
+          timer: 1500
+        })
+        setTimeout(function() {
+         window.location.replace("http://localhost:3000/companymanagercreatepage")
+        }, 1500);
       })
       .catch((error) => {
-        alert(
-          error.response.data.message +
-            "isterler: password 3'den asaği olmucak ... mail: gmail.com ile bitecek.... telefon sadece numara olmalı... hicbir alan bos gecilemez"
-        );
+        Swal.fire({
+          title: 'Invalid Parameter',
+          text: 'Please check the values you entered',
+          icon:"error",
+          width: '400',
+          height: '400',
+
+        })
       });
   };
 

@@ -5,6 +5,7 @@ import DriveFolderUploadIcon from "@mui/icons-material/DriveFolderUpload";
 import CompanyService from "../../service/CompanyService";
 import EmailInput from "../email-input/EmailInput";
 import RegisterImage from "../../assets/images/CompanyRegisterImage.svg";
+import Swal from 'sweetalert2';
 
 const CreateCompany = () => {
   const [companyInfo, setCompanyInfo] = useState({
@@ -42,11 +43,28 @@ const CreateCompany = () => {
     console.log(companyInfo);
     CompanyService.register(companyInfo)
       .then(() => {
-        alert("added successfully *****");
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          width: '400',
+          height: '150',
+          title: 'Company Successfully Registered',
+          showConfirmButton: false,
+          timer: 1500
+        })
+        setTimeout(function() {
+         window.location.replace("http://localhost:3000/createadmin")
+        }, 1500);
       })
       .catch((error) => {
-        // alert(error.response.data.message + "bir seyler yanlis gitti front satir:50");
-        alert("added successfully *****");
+        Swal.fire({
+          title: 'Invalid Parameter',
+          text: 'Please check the values you entered',
+          icon:"error",
+          width: '400',
+          height: '400',
+
+        })
       });
   };
 
@@ -99,7 +117,7 @@ const CreateCompany = () => {
                 }
                 required
               />
-              <label> Unvan</label>
+              <label>Title</label>
               <input
                 type="text"
                 placeholder="Lti.Şti Or Anonim vs."
@@ -167,7 +185,7 @@ const CreateCompany = () => {
                 required
               />
 
-              <label> Tax Administration </label>
+              <label>Tax Administration </label>
               <input
                 type="text"
                 placeholder=" City"
@@ -180,7 +198,7 @@ const CreateCompany = () => {
                 required
               />
 
-              <label htmlFor=""> Mersis no </label>
+              <label htmlFor="">Mersis no </label>
               <input
                 title="Please enter a valid mernis number"
                 className="mersisno"
@@ -194,7 +212,7 @@ const CreateCompany = () => {
                 required
               />
 
-              <label> kuruluş yılı</label>
+              <label>Foundation Year</label>
               <input
                 title="Please enter a valid day"
                 type="date"
@@ -208,7 +226,7 @@ const CreateCompany = () => {
                 required
               />
 
-              <label> tax number </label>
+              <label>Tax number </label>
               <input
                 // pattern="^\d{10}$"
                 // title="Please enter a valid tax number"

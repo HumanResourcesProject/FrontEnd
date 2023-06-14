@@ -54,11 +54,11 @@ const AdminProfil = () => {
       AdminService.updateAdminInformationsString(update)
         .then((response) => {
           Swal.fire({
-            position: "top-end",
+            position: "center",
             icon: "success",
             width: "400",
             height: "150",
-            title: "Updated successfully!",
+            title: "Updated Successfully!",
             showConfirmButton: false,
             timer: 1500,
           });
@@ -67,7 +67,14 @@ const AdminProfil = () => {
           }, 1500);
         })
         .catch((error) => {
-          alert("unexpected error");
+          Swal.fire({
+            title: 'Error',
+            text: 'Something went wrong',
+            icon:"error",
+            width: '400',
+            height: '400',
+  
+          })
         });
     } else {
       AdminService.updateAdminInformations(update)
