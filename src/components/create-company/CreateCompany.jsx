@@ -53,7 +53,7 @@ const CreateCompany = () => {
           timer: 1500
         })
         setTimeout(function() {
-         window.location.replace("http://localhost:3000/createadmin")
+         window.location.replace("http://localhost:3000/companyregisterpage")
         }, 1500);
       })
       .catch((error) => {

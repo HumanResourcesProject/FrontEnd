@@ -99,6 +99,17 @@ useEffect(() => {
             </li>
             <li>
               <Link
+                to="/employeelistpage"
+                className={`link d-flex ${
+                  activeItem === "/employeelistpage" ? "active" : ""
+                }`}
+              >
+                <GroupsIcon />
+                <div>Employee List</div>
+              </Link>
+            </li>
+            <li>
+              <Link
                 to="/listmanagers"
                 className={`link d-flex ${
                   activeItem === "/listmanagers" ? "active" : ""
@@ -108,6 +119,8 @@ useEffect(() => {
                 <div>Manager List</div>
               </Link>
             </li>
+            
+            
             <li className="managerequestli">
               <div
                 className={`link d-flex ${
