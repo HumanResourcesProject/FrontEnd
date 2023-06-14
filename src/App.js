@@ -111,9 +111,9 @@ const App = () => {
       <Route
         path="/companyregisterpage"
         element={
-          <PublicElement>
+          <AdminElement>
             <CreateCompanyPage />
-          </PublicElement>
+          </AdminElement>
         }
       />
       {/* Manager Part */}

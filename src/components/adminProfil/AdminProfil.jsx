@@ -51,9 +51,6 @@ const AdminProfil = () => {
     event.preventDefault();
 
     if (update.avatar === "") {
-      console.log(update);
-      alert("stringdeyiz");
-      console.log(update);
       AdminService.updateAdminInformationsString(update)
         .then((response) => {
           Swal.fire({

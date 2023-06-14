@@ -167,10 +167,10 @@ const CreateCompany = () => {
                 required
               />
 
-              <label> Vergi dairesi </label>
+              <label> Tax Administration </label>
               <input
                 type="text"
-                placeholder="Vergi Dairesi Adı. ilçe/il"
+                placeholder=" City"
                 onChange={(e) =>
                   setCompanyInfo({
                     ...companyInfo,
@@ -208,7 +208,7 @@ const CreateCompany = () => {
                 required
               />
 
-              <label> Vergi No </label>
+              <label> tax number </label>
               <input
                 // pattern="^\d{10}$"
                 // title="Please enter a valid tax number"
