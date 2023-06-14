@@ -3,7 +3,8 @@ import { useState, useEffect } from "react";
 import "./forgotPasswordPage.scss";
 import backarrow from "../../assets/images/backarrow.png";
 import { Link } from "react-router-dom";
-import AuthService from "../../service/AuthService"
+import AuthService from "../../service/AuthService";
+import Swal from 'sweetalert2';
 
 const ForgotPasswordPage = () => {
   const [data,setData] = useState({
@@ -15,10 +16,34 @@ const ForgotPasswordPage = () => {
     e.preventDefault();
     if(data.email !== "" && data.email.includes("@")){
       AuthService.forgotPassword(data).then((response) =>{
-        alert("Nice")
+        Swal.fire({
+          
+          position: 'center',
+          width: '400',
+          height: '300',
+          icon: 'success',
+          title: 'Password Renewal',
+          text: 'Your password has been sent to your e-mail',
+          showConfirmButton: false,
+          timer: 1500
+        })
+        setTimeout(function() {
+         window.location.replace("http://localhost:3000/loginpage")
+        }, 1500);
       })
       .catch((error) =>{
-        alert("Error")
+        Swal.fire({
+          
+          position: 'center',
+          width: '400',
+          height: '300',
+          icon: 'error',
+          title: 'Password Renewal',
+          text: 'Something went wrong!',
+          showConfirmButton: false,
+          timer: 1500
+        })
+        
       })
     }
 
