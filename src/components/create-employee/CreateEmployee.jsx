@@ -6,6 +6,8 @@ import AuthService from "../../service/AuthService";
 import EmailInput from "../email-input/EmailInput";
 import DriveFolderUploadIcon from "@mui/icons-material/DriveFolderUpload";
 import ImageEmp from "../../assets/images/employee-register.svg"
+import Swal from 'sweetalert2';
+
 
 const CreateEmployee = () => {
   const [employeeInfo, setEmployeeInfo] = useState({
@@ -62,8 +64,18 @@ const CreateEmployee = () => {
     console.log(employeeInfo);
     AuthService.registerEmployee(employeeInfo)
       .then(() => {
-        alert("added successfully *****");
-      })
+        Swal.fire({
+          position: 'top-end',
+          icon: 'success',
+          width: '400',
+          height: '150',
+          title: 'Successful entry',
+          showConfirmButton: false,
+          timer: 1500
+        })
+        setTimeout(function() {
+          window.location.replace("http://localhost:3000/admin");
+        }, 1500);      })
       .catch((error) => {
         alert("unexpected error");
       });
