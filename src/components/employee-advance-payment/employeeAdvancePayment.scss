@@ -1,102 +1,149 @@
 .payment-body {
-  .payment-form {
+  font-family: "Open Sans", sans-serif;
+  display: flex;
+  height: 100%;
+  .left-advance {
+    width: 50%;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
-    width: 100%;
-    height: 500px;
-    gap: 40px;
-
-    .date-part {
-      width: 25%;
+    justify-content: center;
+    gap: 20px;
+    .advance-mini-part {
+      width: 100%;
       display: flex;
       flex-direction: column;
-      .text {
-        font-size: small;
-        font-weight: 500;
+      align-items: center;
+      h2 {
+        margin-bottom: 50px;
+        margin-left: 20%;
+        align-self: flex-start;
       }
-      .date-input {
-        background-color: rgb(233, 231, 231);
-                border: none;
-                border-radius: 3px;
-                line-height: 25px;
-                padding-right: 5px;
-                font-size: small;
-                font-weight: 500;
-                padding-left: 10px;
-      }
-    }
-    .amount-part {
-      width: 25%;
-      .amount-part-mini{
+      .payment-form {
+        width: 60%;
         display: flex;
-        justify-content: space-between;
-        .amount-text {
-          font-size: small;
-          font-weight: 500;
-
-        }
-        .currency-text {
-          font-size: small;
-          font-weight: 400;
-          color: rgb(133, 133, 133);
-   
-        }
-      }
-
-      
-      .amount {
-        display: flex;
-        gap: 5px;
-        .amount-input {
-          width: 90%;
-          background-color: rgb(233, 231, 231);
-          border: none;
-          border-radius: 3px;
-          line-height: 25px;
-        }
-        .amount-select{
-          background-color: rgb(233, 231, 231);
-          border: none;
-          border-radius: 3px;
-          
-        }
-      }
-    }
-    .comment-part {
-      .text {
-        font-size: small;
-        font-weight: 500;
-      }
-      width: 25%;
-      .comment-textarea {
-        background-color: rgb(233, 231, 231);
-        border: none;
-        border-radius: 3px;
-        font-weight: 500;
-        width: 94%;
-        height: 150px;
-        resize: none;
-        line-height: 1.5;
-        
-        padding: 10px;
-      }
-    }
-    .button-part {
-      
-        width: 25%;
-        display: flex;
+        flex-direction: column;
         justify-content: center;
-      .button-apply {
-        width: 100%;
-        color: white;
-        padding: 5px;
-        background-color: rgb(59, 59, 59);
-        border: none;
+        gap: 30px;
+        .date-part {
+          display: flex;
+          flex-direction: column;
+          gap: 3px;  
+          .text {
+            font-size: small;
+            font-weight: 700;
+            font-family: "Roboto", sans-serif;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+          }
+          .date-input {
+            font-size: small;
+            font-weight: 500;
         border-radius: 3px;
-        font-weight: 500;
+        border: 1px solid rgb(200, 200, 200);
+        padding: 10px 5px 10px 10px;
+        margin: 0;
+          }
+        }
+        .amount-part {
+          display: flex;
+          flex-direction: column;
+          gap: 3px;  
+          .amount-part-mini {
+            display: flex;
+            justify-content: space-between;
+            .amount-text {
+              font-size: small;
+              font-weight: 700;
+              font-family: "Roboto", sans-serif;
+              display: flex;
+              align-items: center;
+              gap: 10px;
+            }
+            .currency-text {
+              font-size: small;
+              font-weight: 400;
+              color: rgb(133, 133, 133);
+            }
+          }
+
+          .amount {
+            display: flex;
+            gap: 5px;
+            .amount-input {
+              font-size: small;
+              font-weight: 500;
+          border-radius: 3px;
+          border: 1px solid rgb(200, 200, 200);
+          padding: 10px 5px 10px 5px;
+          margin: 0;
+          width: 85%;
+            }
+            .amount-select {
+              padding-left: 10px;
+              width: 15%;
+              border-radius: 3px;
+              border: 1px solid rgb(200, 200, 200);
+
+            }
+          }
+        }
+        .comment-part {
+          display: flex;
+          flex-direction: column;
+          gap: 3px;  
+          .text {
+            font-size: small;
+            font-weight: 700;
+            font-family: "Roboto", sans-serif;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+          }
+          .comment-textarea {
+            border: 1px solid rgb(200, 200, 200);
+            border-radius: 3px;
+            font-weight: 500;
+            width: 94%;
+            height: 150px;
+            resize: none;
+            line-height: 1.5;
+            padding: 10px;
+          }
+        }
+        .button-part {
+          display: flex;
+          justify-content: center;
+          height: 40px;
+          .button-apply {
+            width: 18%;
+            color: white;
+            padding: 5px;
+            background-color: rgb(2, 157, 225);
+            border: none;
+            border-radius: 5px;
+            font-weight: 500;
+            cursor: pointer;
+            box-shadow: 2px 2px rgb(0, 0, 0);  
+          }
+        }
+        button:hover,
+        button:focus {
+          box-shadow: 0 0.5em 0.5em -0.4em var(--color5);
+          transform: translateY(-0.25em);
+          transition: 0.4s;
+        }
       }
+    }
+  }
+
+  .right {
+    flex: 2;
+    display: flex;
+    align-items: center;
+    height: 85vh;
+    .employee-advance-image {
+      width: 600px;
     }
   }
 }

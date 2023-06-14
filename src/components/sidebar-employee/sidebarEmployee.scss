@@ -1,129 +1,239 @@
-body{
-    font-family: "Source Sans Pro",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 1.5;
-    color: #212529;
-    text-align: left;
-    margin: 0;
-    padding: 0;
-  }
-  .link{
-    text-decoration: none;
-    color: white;
-  }
-  .d-flex{
-    display: flex;
-    gap: 10px;
-  }
-  .fw-large{
-    font-weight: 600;
-    font-size: large;
-  }
-  
-  .full-sidebar-employee{
-    z-index: 3;
+body {
+  font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  text-align: left;
+  margin: 0;
+  padding: 0;
+  font-weight: 500;
+
+}
+.link {
+  text-decoration: none;
+  color: white;
+}
+.d-flex {
+  display: flex;
+  gap: 10px;
+}
+.fw-large {
+  font-weight: 600;
+  font-size: large;
+}
+
+.full-sidebar-employee {
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  width: 220px;
+  height: 100vh;
+  position: fixed;
+  justify-content: space-between;
+  border-right: 1px solid rgb(218, 212, 212);
+  .sidebar-top-employee {
     display: flex;
     flex-direction: column;
-    width: 220px;
-    height: 100vh;
-    position: fixed;
-    justify-content: space-between;
-    border-right: 1px solid rgb(218, 212, 212);
-    .sidebar-top-employee{
+    .sidebar-title-link-employee {
+      color: rgb(24, 21, 33);
+      text-decoration: none;
+      border-bottom: 1px solid rgb(218, 212, 212);
       display: flex;
-      flex-direction: column;
-      .sidebar-title-link-employee{
-        color: rgb(24, 21, 33);
-        text-decoration: none;
-        border-bottom: 1px solid rgb(218, 212, 212);
-        display: flex;
-        align-items: center;
-        font-weight: 700;
-        gap: 5px;
-        img{
-          float: left;
-          line-height: .8;
-          margin-left: 1.6rem;
-          max-height: 35px;
-          width: auto;
-          
-        }
-        .sidebar-title{
-          margin-left: 1rem;
-          
-        }
-      }
-      
-    }
-    .sidebar-main-employee{
-      display: flex;
-      flex-direction: column;
       align-items: center;
-      justify-content: center;
-      .sidebar-nav-employee{
-        display: flex;
-        flex-direction: column;
-        list-style: none;
-        margin-top: 20px;
-        width: 90%;
-        padding: 0;
-        gap: 10px;
-  
-        
+      font-weight: 700;
+      img {
+        float: left;
+        line-height: 0.8;
+        margin-left: 1.6rem;
+        max-height: 35px;
+        width: auto;
+        border-radius: 50%;
+      }
+      .sidebar-title-employee {
+        margin-left: 10%;
+      }
+    }
+  }
+  .sidebar-main-employee {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    .sidebar-nav-employee {
+      display: flex;
+      flex-direction: column;
+      list-style: none;
+      margin-top: 20px;
+      width: 90%;
+      padding: 0;
+      gap: 10px;
 
-        li {
-          .link.active {
-            background-color:  rgb(8, 192, 255);
+      li {
+        .link.active {
+          background-color: rgb(2, 157, 225);
+          border-radius: 5px;
+          color: white;
+          box-shadow: 2px 2px rgb(0, 0, 0);
+          .link {
+            color: white;
+
+            .icon {
+              width: 50px;
+            }
+          }
+        }
+
+        .link {
+          color: black;
+          font-size: small;
+          padding: 5px 0px 5px 5px;
+          &:hover {
+            background-color: rgb(2, 157, 225);
             border-radius: 5px;
             color: white;
-            .link {
-              color: white;
-  
-              .icon {
-                width: 50px;
-              }
-            }
-          }
-  
-          .link {
-            color: black;
-            font-size: small;
-            padding: 5px 0px 5px 5px;
-            &:hover{
-              background-color:    rgb(8, 192, 255);
-              border-radius: 5px;
-              color: white;
-            }
-          }
-        }
-      }
-    }
-    .lg{
-      .linklogout{
-        text-decoration: none;
-        .logout{
-          display: flex;
-          align-items: center;
-          padding-left: 2rem;
-          border-top: 1px solid rgb(233, 233, 233);
-          height: 70px;
-          color: black;
-          &:hover{
-            background-color:   rgb(8, 192, 255);
-            color: aliceblue;
-            font-weight: 700;
-          }
-          .lout{
-            font-size: small;      
-            font-weight: 700;
+            box-shadow: 2px 2px rgb(0, 0, 0);
 
           }
         }
       }
-      
     }
-    
+  }
+  .lg {
+    .linklogout {
+      text-decoration: none;
+      .logout {
+        display: flex;
+        align-items: center;
+        padding-left: 2rem;
+        border-top: 1px solid rgb(233, 233, 233);
+        height: 70px;
+        color: black;
+        &:hover {
+          background-color: rgb(2, 157, 225);
+          color: aliceblue;
+          font-weight: 700;
+        }
+        .lout {
+          font-size: small;
+          font-weight: 700;
+        }
+      }
+    }
+  }
+}
+.requestli{
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+
+  .dropdown-menu-employee{
+    margin-top: 3px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
   }
   
+  .dropdown-menu-employee li {
+    .link2-employee.active {
+      background-color: rgb(2, 157, 225);
+      border-radius: 5px;
+      color: white;
+      box-shadow: 2px 2px rgb(0, 0, 0);
+      .link2-employee {
+        color: white;
   
+        .icon {
+          width: 50px;
+        }
+      }
+    }
+  
+    list-style: none;
+    cursor: pointer;
+    padding: 2px 5px 2px 5px;
+    font-size: small;
+    font-weight: 500;
+    .link2-employee {
+      color: black;
+      font-size: small;
+      text-decoration: none;
+      padding:  5px 106px 5px 5px;
+      
+    }
+    .link2-employee:hover{
+      color: white;
+    }
+  
+  
+    .link3-employee.active {
+      background-color: rgb(2, 157, 225);
+      border-radius: 5px;
+      color: white;
+      box-shadow: 2px 2px rgb(0, 0, 0);
+      .link3-employee {
+        color: white;
+  
+        .icon {
+          width: 50px;
+        }
+      }
+    }
+  
+    list-style: none;
+    cursor: pointer;
+    padding: 2px 5px 2px 5px;
+    font-size: small;
+    font-weight: 500;
+    .link3-employee {
+      color: black;
+      font-size: small;
+      text-decoration: none;
+      padding:  5px 31px 5px 5px;
+      
+    }
+    .link3-employee:hover{
+      color: white;
+    }
+  
+    .link4-employee.active {
+      background-color: rgb(2, 157, 225);
+      border-radius: 5px;
+      color: white;
+      box-shadow: 2px 2px rgb(0, 0, 0);
+      .link4-employee {
+        color: white;
+  
+        .icon {
+          width: 50px;
+        }
+      }
+    }
+  
+    list-style: none;
+    cursor: pointer;
+    padding: 2px 5px 2px 5px;
+    font-size: small;
+    font-weight: 500;
+    .link4-employee {
+      color: black;
+      font-size: small;
+      text-decoration: none;
+      padding:  5px 90px 5px 5px;
+      
+    }
+    .link4-employee:hover{
+      color: white;
+    }
+  }
+  
+  .dropdown-menu-employee .link2-employee:hover , .link3-employee:hover, .link4-employee:hover {
+    background-color: rgb(2, 157, 225);
+    color: white;
+    box-shadow: 2px 2px rgb(0, 0, 0);
+    border-radius: 5px;
+  }
+  
+}

@@ -20,7 +20,6 @@ import CompanyService from '../../service/CompanyService';
 
 
   
-  
   useEffect(() => {
     const fetchData = async () => {
       
@@ -68,58 +67,61 @@ import CompanyService from '../../service/CompanyService';
   return (
   <div className="main-admin-container">
       <div className="small-boxes">
-        <div className="box">
+        <div className="box orange">
           <div className="box-left">
             <div className="upper">{totalAdminCount || ""}</div>
             <div className="lower">Total Number of Admins</div>
           </div>
           <div className="box-right">
             <img
-              src="https://img.icons8.com/?size=512&id=Z6pJyeccSgsz&format=png"
+              src="https://img.icons8.com/?size=512&id=cfGtoFQFGV9e&format=png"
               className="icon"
               alt=""
             />
           </div>
         </div>
-        <div className="box">
+        <div className="box blue">
           <div className="box-left">
             <div className="upper">{totalCompanyCount || ""}</div>
             <div className="lower">Total Number of Companies</div>
           </div>
           <div className="box-right">
             <img
-              src="https://img.icons8.com/?size=512&id=Z6pJyeccSgsz&format=png"
+              src="https://img.icons8.com/?size=512&id=p8ii741wDy2D&format=png"
               className="icon"
               alt=""
             />
           </div>
         </div>
-        <div className="box">
+        <div className="box green">
           <div className="box-left">
             <div className="upper">{totalManagerCount || ""}</div>
             <div className="lower">Total Number of Managers</div>
           </div>
           <div className="box-right">
             <img
-              src="https://img.icons8.com/?size=512&id=YnC1pvb1SFuQ&format=png"
+              src="https://cdn-icons-png.flaticon.com/128/912/912267.png"
               className="icon"
               alt=""
             />
           </div>
         </div>
-        <div className="box">
+        <div className="box pink">
           <div className="box-left">
             <div className="upper">{totalEmployeeCount || ""}</div>
             <div className="lower">Total Number of Employees</div>
           </div>
           <div className="box-right">
             <img
-              src="https://img.icons8.com/?size=512&id=YnC1pvb1SFuQ&format=png"
+              src="https://cdn-icons-png.flaticon.com/128/6823/6823086.png"
               className="icon"
               alt=""
             />
           </div>
         </div>
+      </div>
+      <div className="company-title">
+        <div>Companies</div>
       </div>
       <div className="cards">
       <CardList />

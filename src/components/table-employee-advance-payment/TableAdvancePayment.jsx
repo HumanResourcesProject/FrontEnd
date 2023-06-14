@@ -129,12 +129,9 @@ const TableAdvancePayment = () => {
   );
   return (
     <div className="advance-payment-list-container">
-      <Link to="/employeeadvancepayment" className="addadvpayment">
-        <div className="icon-div">
-          <QueueIcon />
-        </div>
-        <div>Request an advance</div>
-      </Link>
+      <div className="addadvpayment">
+        <div>Advance Payment History</div>
+      </div>
       <div className="table-advance-payment">
         <MaterialReactTable columns={columns} data={data} />
       </div>

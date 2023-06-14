@@ -7,7 +7,7 @@ import { Button } from "@mui/material";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
-import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
+import KeyboardReturnIcon from '@mui/icons-material/KeyboardReturn';
 
 const TableManagerLeaves = () => {
   const [data, setData] = useState([]);
@@ -131,12 +131,7 @@ const TableManagerLeaves = () => {
   };
   return (
     <div className="table-manager-leaves">
-            <div className="linktobutton-manage-request">
-        <Link to="/managerequests" className="manage-request-button">
-          <ArrowBackIosNewIcon className="manage-request-back"/>
-          <p className="text-manage-request">Manage Requests</p>
-        </Link>
-      </div>
+
       <h2>Leave Table</h2>
       <MaterialReactTable
         columns={columns}
@@ -355,7 +350,6 @@ const TableManagerLeaves = () => {
           </div>
         )}
       />{" "}
-
     </div>
   );
 };

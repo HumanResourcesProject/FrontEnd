@@ -5,6 +5,7 @@ import ManagerService from "../../service/CompanyManagerService";
 import AuthService from "../../service/AuthService";
 import EmailInput from "../email-input/EmailInput";
 import DriveFolderUploadIcon from "@mui/icons-material/DriveFolderUpload";
+import ImageEmp from "../../assets/images/employee-register.svg"
 
 const CreateEmployee = () => {
   const [employeeInfo, setEmployeeInfo] = useState({
@@ -23,6 +24,7 @@ const CreateEmployee = () => {
     department: "",
     jobStart: "",
     avatar: "",
+    salary: "",
   });
 
   const [data] = useState({
@@ -35,6 +37,7 @@ const CreateEmployee = () => {
   const onchangeImage = (e) => {
     const file = e.target.files[0];
     setImage(file);
+    setEmployeeInfo({ ...employeeInfo, avatar: file });
   };
 
   useEffect(() => {
@@ -46,24 +49,17 @@ const CreateEmployee = () => {
   const handleCreate = async (event) => {
     event.preventDefault();
     console.log(employeeInfo);
-    // if (
-    //   image ===
-    //   "https://cdn.pixabay.com/photo/2017/11/10/04/47/user-2935373_960_720.png"
-    // ) {
-    //   const newImage = URL.createObjectURL(image);
-    //   setEmployeeInfo({
-    //     ...employeeInfo,
-    //     avatar: newImage,
-    //   });
-    // }
-    // console.log(employeeInfo);
-    // CompanyManagerService.createEmployee(employeeInfo)
-    //   .then(() => {
-    //     alert("added successfully *****");
-    //   })
-    //   .catch((error) => {
-    //     alert(error.response.data.message);
-    //   });
+    if (
+      image ===
+      "https://cdn.pixabay.com/photo/2017/11/10/04/47/user-2935373_960_720.png"
+    ) {
+      const newImage = URL.createObjectURL(image);
+      setEmployeeInfo({
+        ...employeeInfo,
+        avatar: newImage,
+      });
+    }
+    console.log(employeeInfo);
     AuthService.registerEmployee(employeeInfo)
       .then(() => {
         alert("added successfully *****");
@@ -75,228 +71,244 @@ const CreateEmployee = () => {
 
   return (
     <div className="employee-register">
-      <div className="employee-register-part">
-        <div className="employee-register-text">Employee Register</div>
-      </div>
-      {/* <div className="employee-register-photo-section">
-        {image ? (
-          <img
-            className="employee-register-avatar"
-            src={URL.createObjectURL(image)}
-          />
-        ) : (
-          <img
-            className="employee-register-avatar"
-            src="https://cdn.pixabay.com/photo/2017/11/10/04/47/user-2935373_960_720.png"
-            alt="Rengoku"
-          />
-        )}
-      </div>
-      <div className="employee-register-buttons">
-        <label htmlFor="file" className="choosefilebutton">
-          <DriveFolderUploadIcon className="uploadicon" />
-          Choose a File
-        </label>
-        <input
-          type="file"
-          id="file"
-          style={{ display: "none" }}
-          onChange={onchangeImage}
-        />
-      </div> */}
-      <div className="employee-register-profil-info">
-        <form onSubmit={handleCreate}>
-          <div className="input-area">
-            <div className="first-6">
-              <div className="input-data">
-                <label>Identify number:</label>
-                <input
-                  pattern="^(?=.*[0-9])[0-9]{11}$"
-                  title="Please enter a valid identify number"
-                  className="inputs"
-                  type="number"
-                  onChange={(e) =>
-                    setEmployeeInfo({
-                      ...employeeInfo,
-                      identityNumber: e.target.value,
-                    })
-                  }
-                  required
-                />
-              </div>
-              <div className="input-data">
-                <label>Name:</label>
-                <input
-                  pattern="[a-zA-Z]{1,15}"
-                  title="Please enter a valid name"
-                  className="inputs"
-                  type="text"
-                  onChange={(e) =>
-                    setEmployeeInfo({
-                      ...employeeInfo,
-                      name: e.target.value,
-                    })
-                  }
-                  required
-                />
-              </div>
-              <div className="input-data">
-                <label>Surname:</label>
-                <input
-                  // pattern="[a-zA-Z]{1,15}"
-                  // title="Please enter a valid surname"
-                  className="inputs"
-                  type="text"
-                  onChange={(e) =>
-                    setEmployeeInfo({
-                      ...employeeInfo,
-                      surname: e.target.value,
-                    })
-                  }
-                  required
-                />
-              </div>
-              <div className="input-data">
-                <label>Mid Name:</label>
-                <input
-                  className="inputs"
-                  type="text"
-                  onChange={(e) =>
-                    setEmployeeInfo({
-                      ...employeeInfo,
-                      middleName: e.target.value,
-                    })
-                  }
-                />
-              </div>
-
-              <div className="input-data">
-                <label>Date of Birth:</label>
-                <input
-                  pattern="^(0[1-9]|1[0-2])/(0[1-9]|[12][0-9]|3[01])/(\d{4})$"
-                  title="Please enter a valid birthday"
-                  className="inputs"
-                  type="date"
-                  min="1900-01-01"
-                  max="2005-01-01"
-                  onChange={(e) =>
-                    setEmployeeInfo({
-                      ...employeeInfo,
-                      birthDate: e.target.value,
-                    })
-                  }
-                  required
-                />
-              </div>
-              <div className="input-data">
-                <label>Birth-place:</label>
-                <input
-                  className="inputs"
-                  type="text"
-                  onChange={(e) =>
-                    setEmployeeInfo({
-                      ...employeeInfo,
-                      birthPlace: e.target.value,
-                    })
-                  }
-                />
-              </div>
-            </div>
-            <div className="second-6">
-              <div className="input-data">
-                <label>Job-start-date:</label>
-                <input
-                  // pattern="^(0[1-9]|1[0-2])/(0[1-9]|[12][0-9]|3[01])/(\d{4})$"
-                  // title="Please enter a valid day"
-                  className="inputs"
-                  type="date"
-                  min={new Date().toISOString().substring(0, 10)}
-                  onChange={(e) =>
-                    setEmployeeInfo({
-                      ...employeeInfo,
-                      jobStart: e.target.value,
-                    })
-                  }
-                  required
-                />
-              </div>
-              <div className="input-data">
-                <label>Occupation:</label>
-                <input
-                  className="inputs"
-                  type="text"
-                  onChange={(e) =>
-                    setEmployeeInfo({
-                      ...employeeInfo,
-                      occupation: e.target.value,
-                    })
-                  }
-                />
-              </div>
-              <div className="input-data">
-                <label>Department:</label>
-                <input
-                  className="inputs"
-                  type="text"
-                  onChange={(e) =>
-                    setEmployeeInfo({
-                      ...employeeInfo,
-                      department: e.target.value,
-                    })
-                  }
-                />
-              </div>
-
-              <div className="input-data">
-              <label htmlFor="email">E-mail:</label>
+      <div className="left-part">
+        <div className="register-photo-section">
+          <div className="employee-register-image">
+            {image ? (
+              <img
+                className="employee-register-avatar"
+                src={URL.createObjectURL(image)}
+              />
+            ) : (
+              <img
+                className="employee-register-avatar"
+                src="https://cdn.pixabay.com/photo/2017/11/10/04/47/user-2935373_960_720.png"
+                alt="Rengoku"
+              />
+            )}
+          </div>
+          <div className="employee-register-buttons">
+            <label htmlFor="file" className="choosefilebutton">
+              <DriveFolderUploadIcon className="uploadicon" />
+              Choose Avatar
+            </label>
             <input
-              type="text"
-              required
-              onChange={(e) =>
-                setEmployeeInfo({
-                  ...employeeInfo,
-                  email: e.target.value,
-                })
-              }  />
-              </div>
-              <div className="input-data">
-                <label>Phone:</label>
-                <input
-                  // pattern="^[0-9]{9,11}$"
-                  // title="Please enter a valid phone"
-                  type="number"
-                  required
-                  className="inputs"
-                  onChange={(e) =>
-                    setEmployeeInfo({
-                      ...employeeInfo,
-                      phone: e.target.value,
-                    })
-                  }
-                />
-              </div>
-              <div className="input-data">
-                <label>Address:</label>
-                <input
-                  className="inputs"
-                  type="text"
-                  onChange={(e) =>
-                    setEmployeeInfo({
-                      ...employeeInfo,
-                      address: e.target.value,
-                    })
-                  }
-                />
-              </div>
-            </div>
+              type="file"
+              id="file"
+              style={{ display: "none" }}
+              onChange={onchangeImage}
+            />
           </div>
+        </div>
+        <div className="employee-register-profil-info">
+          <form onSubmit={handleCreate}>
+            
+             
+                <div className="input-data">
+                  <label>Identify number:</label>
+                  <input
+                    pattern="^(?=.*[0-9])[0-9]{11}$"
+                    title="Please enter a valid identify number"
+                    className="inputs"
+                    type="number"
+                    onChange={(e) =>
+                      setEmployeeInfo({
+                        ...employeeInfo,
+                        identityNumber: e.target.value,
+                      })
+                    }
+                    required
+                  />
+                </div>
+                <div className="input-data">
+                  <label>Name:</label>
+                  <input
+                    pattern="[a-zA-Z]{1,15}"
+                    title="Please enter a valid name"
+                    className="inputs"
+                    type="text"
+                    onChange={(e) =>
+                      setEmployeeInfo({
+                        ...employeeInfo,
+                        name: e.target.value,
+                      })
+                    }
+                    required
+                  />
+                </div>
+                <div className="input-data">
+                  <label>Surname:</label>
+                  <input
+                    // pattern="[a-zA-Z]{1,15}"
+                    // title="Please enter a valid surname"
+                    className="inputs"
+                    type="text"
+                    onChange={(e) =>
+                      setEmployeeInfo({
+                        ...employeeInfo,
+                        surname: e.target.value,
+                      })
+                    }
+                    required
+                  />
+                </div>
+                <div className="input-data">
+                  <label>Mid Name:</label>
+                  <input
+                    className="inputs"
+                    type="text"
+                    onChange={(e) =>
+                      setEmployeeInfo({
+                        ...employeeInfo,
+                        middleName: e.target.value,
+                      })
+                    }
+                  />
+                </div>
 
-          <div className="employee-register-button-part">
-            <button type="submit" className="save-button">
-              Save
-            </button>
-          </div>
-        </form>
+                <div className="input-data">
+                  <label>Date of Birth:</label>
+                  <input
+                    pattern="^(0[1-9]|1[0-2])/(0[1-9]|[12][0-9]|3[01])/(\d{4})$"
+                    title="Please enter a valid birthday"
+                    className="inputs"
+                    type="date"
+                    min="1900-01-01"
+                    max="2005-01-01"
+                    onChange={(e) =>
+                      setEmployeeInfo({
+                        ...employeeInfo,
+                        birthDate: e.target.value,
+                      })
+                    }
+                    required
+                  />
+                </div>
+                <div className="input-data">
+                  <label>Birth-place:</label>
+                  <input
+                    className="inputs"
+                    type="text"
+                    onChange={(e) =>
+                      setEmployeeInfo({
+                        ...employeeInfo,
+                        birthPlace: e.target.value,
+                      })
+                    }
+                  />
+                </div>
+                <div className="input-data">
+                  <label>Job-start-date:</label>
+                  <input
+                    // pattern="^(0[1-9]|1[0-2])/(0[1-9]|[12][0-9]|3[01])/(\d{4})$"
+                    // title="Please enter a valid day"
+                    className="inputs"
+                    type="date"
+                    min={new Date().toISOString().substring(0, 10)}
+                    onChange={(e) =>
+                      setEmployeeInfo({
+                        ...employeeInfo,
+                        jobStart: e.target.value,
+                      })
+                    }
+                    required
+                  />
+                </div>
+                <div className="input-data">
+                  <label>Occupation:</label>
+                  <input
+                    className="inputs"
+                    type="text"
+                    onChange={(e) =>
+                      setEmployeeInfo({
+                        ...employeeInfo,
+                        occupation: e.target.value,
+                      })
+                    }
+                  />
+                </div>
+                <div className="input-data">
+                  <label>Salary:</label>
+                  <input
+                    className="inputs"
+                    type="text"
+                    onChange={(e) =>
+                      setEmployeeInfo({
+                        ...employeeInfo,
+                        salary: e.target.value,
+                      })
+                    }
+                  />
+                </div>
+                <div className="input-data">
+                  <label>Department:</label>
+                  <input
+                    className="inputs"
+                    type="text"
+                    onChange={(e) =>
+                      setEmployeeInfo({
+                        ...employeeInfo,
+                        department: e.target.value,
+                      })
+                    }
+                  />
+                </div>
+
+                <div className="input-data">
+                  <label htmlFor="email">E-mail:</label>
+                  <input
+                    type="text"
+                    required
+                    onChange={(e) =>
+                      setEmployeeInfo({
+                        ...employeeInfo,
+                        email: e.target.value,
+                      })
+                    }
+                  />
+                </div>
+                <div className="input-data">
+                  <label>Phone:</label>
+                  <input
+                    // pattern="^[0-9]{9,11}$"
+                    // title="Please enter a valid phone"
+                    type="number"
+                    required
+                    className="inputs"
+                    onChange={(e) =>
+                      setEmployeeInfo({
+                        ...employeeInfo,
+                        phone: e.target.value,
+                      })
+                    }
+                  />
+                </div>
+                <div className="input-data">
+                  <label>Address:</label>
+                  <input
+                    className="inputs"
+                    type="text"
+                    onChange={(e) =>
+                      setEmployeeInfo({
+                        ...employeeInfo,
+                        address: e.target.value,
+                      })
+                    }
+                  />
+                </div>
+              
+            
+
+           
+              <button type="submit" className="save-button">
+                Save
+              </button>
+            
+          </form>
+        </div>
+      </div>
+      <div className="right-part">
+        <img className="manager-register-image" src={ImageEmp} alt="" />
       </div>
     </div>
   );

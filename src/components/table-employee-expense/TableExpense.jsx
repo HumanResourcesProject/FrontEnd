@@ -161,12 +161,9 @@ const TableExpense = () => {
     );
   return (
     <div className="expense-list-container">
-    <Link to="/employeeexpense" className="addexpense">
-      <div className="icon-div">
-        <QueueIcon />
-      </div>
-      <div>Expense Declare</div>
-    </Link>
+    <div className="addexpense">
+      <div>Expense History</div>
+    </div>
     <div className="table-expense">
       <MaterialReactTable
        columns={columns}

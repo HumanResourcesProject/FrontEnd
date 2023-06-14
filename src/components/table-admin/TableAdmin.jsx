@@ -26,7 +26,7 @@ const TableAdmin = () => {
             accessorFn: (row) => `${row.name} `, //accessorFn used to join multiple data into a single cell
             id: 'name', //id is still required when using accessorFn instead of accessorKey
             header: 'Name',
-            size: 250,
+            size: 150,
             Cell: ({ renderedCellValue, row }) => (
               <Box
                 sx={{
@@ -53,27 +53,27 @@ const TableAdmin = () => {
           {
             accessorKey: 'surname', //accessorKey used to define `data` column. `id` gets set to accessorKey automatically
             header: 'Surname',
-            size: 300,
+            size: 150,
             enableEditing:false 
           },
           {
             accessorKey: 'address', //accessorKey used to define `data` column. `id` gets set to accessorKey automatically
             header: 'Address',
-            size: 300,
+            size: 150,
             enableEditing:true 
 
           },
           {
             accessorKey: 'email', //accessorKey used to define `data` column. `id` gets set to accessorKey automatically
             header: 'E-Mail',
-            size: 300,
+            size: 150,
             enableEditing:false 
 
           },
           {
             accessorKey: 'phone', //accessorKey used to define `data` column. `id` gets set to accessorKey automatically
             header: 'Phone',
-            size: 300,
+            size: 150,
             enableEditing:true 
 
           },
@@ -105,8 +105,8 @@ const TableAdmin = () => {
         columns={columns} 
         data={data2} 
         editingMode="modal"
-        enableEditing={true} 
-        onEditingRowSave={handleSaveRow}
+        
+        
         />
     </div>
   );

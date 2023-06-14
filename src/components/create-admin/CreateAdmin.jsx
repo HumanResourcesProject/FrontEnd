@@ -4,6 +4,7 @@ import "./createAdmin.scss";
 import DriveFolderUploadIcon from "@mui/icons-material/DriveFolderUpload";
 import AuthService from "../../service/AuthService";
 import EmailInput from "../email-input/EmailInput";
+import AdminCreateImage from "../../assets/images/Admin_Create_Image.svg"
 
 const CreateAdmin = () => {
   const [adminInfo, setAdminInfo] = useState({
@@ -46,9 +47,7 @@ const CreateAdmin = () => {
 
   return (
     <div className="register">
-      <div className="register-part">
-        <div className="register-text">Admin Register</div>
-      </div>
+      <div className="left-part">
       <div className="register-photo-section">
         {image ? (
           <img className="register-avatar" src={URL.createObjectURL(image)} />
@@ -62,7 +61,7 @@ const CreateAdmin = () => {
         <div className="register-buttons">
           <label htmlFor="file" className="choosefilebutton">
             <DriveFolderUploadIcon className="uploadicon" />
-            Choose a File
+            Choose Avatar
           </label>
           <input
             type="file"
@@ -75,7 +74,7 @@ const CreateAdmin = () => {
       <div className="register-profil-info">
         <form onSubmit={handleCreate}>
           <div className="input-data">
-            <label htmlFor="ad">Name:</label>
+            <label className="text" htmlFor="ad">Name</label>
             <input
               // pattern="[a-zA-Z]{1,15}"
               // title="Please enter a valid name"
@@ -91,7 +90,7 @@ const CreateAdmin = () => {
           </div>
 
           <div className="input-data">
-            <label htmlFor="soyad">Surname:</label>
+            <label className="text" htmlFor="soyad">Surname</label>
             <input
               // pattern="[a-zA-Z]{1,15}"
               // title="Please enter a valid surname"
@@ -107,7 +106,7 @@ const CreateAdmin = () => {
           </div>
 
           <div className="input-data">
-            <label htmlFor="email">E-mail:</label>
+            <label className="text" htmlFor="email">E-mail</label>
             <input
               type="text"
               required
@@ -121,7 +120,7 @@ const CreateAdmin = () => {
           </div>
 
           <div className="input-data">
-            <label htmlFor="phone">Phone Number:</label>
+            <label className="text" htmlFor="phone">Phone Number</label>
             <input
               // pattern="^[0-9]{9,11}$"
               // title="Please enter a valid phone"
@@ -137,7 +136,7 @@ const CreateAdmin = () => {
           </div>
 
           <div className="input-data">
-            <label htmlFor="address">Address:</label>
+            <label className="text" htmlFor="address">Address</label>
             <input
               type="text"
               onChange={(e) =>
@@ -161,6 +160,11 @@ const CreateAdmin = () => {
             Create
           </button>
         </form>
+      </div>
+      
+      </div>
+      <div className="right-part">
+          <img src= {AdminCreateImage} alt="" />
       </div>
     </div>
   );

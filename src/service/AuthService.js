@@ -1,10 +1,10 @@
 import axios from "axios";
 
-const LOGIN = "http://localhost/auth/login";
-const REGISTER_ADMIN ="http://localhost/auth/registeradmin";
-const REGISTER_MANAGER ="http://localhost/auth/registermanager";
-const REGISTER_EMPLOYEE ="http://localhost/auth/registeremployee";
-const FORGOT_PASSWORD = "http://localhost/auth/forgotpassword";
+const LOGIN = "http://localhost:7070/auth/login";
+const REGISTER_ADMIN ="http://localhost:7070/auth/registeradmin";
+const REGISTER_MANAGER ="http://localhost:7070/auth/registermanager";
+const REGISTER_EMPLOYEE ="http://localhost:7070/auth/registeremployee";
+const FORGOT_PASSWORD = "http://localhost:7070/auth/forgotpassword";
 
 class AuthService{
     login(user) { 
@@ -31,14 +31,14 @@ class AuthService{
     registerManager(info){
         return axios.post(REGISTER_MANAGER,info,{
             headers: {
-                "Content-Type": "application/json"
+                'Content-Type': 'multipart/form-data'
               }
         })
     }
     registerEmployee(info){
         return axios.post(REGISTER_EMPLOYEE,info,{
             headers: {
-                "Content-Type": "application/json"
+                'Content-Type': 'multipart/form-data'
               }
         })
     }

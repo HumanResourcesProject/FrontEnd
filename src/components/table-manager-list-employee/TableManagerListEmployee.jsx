@@ -91,7 +91,7 @@ const TableEmployee = () => {
 
   return (
     <div className="table-employee">
-      <h2>Employee Table</h2>
+      
       <MaterialReactTable  
         columns={columns} 
         data={data2} 

@@ -101,7 +101,6 @@ const TableManager = () => {
 
   return (
     <div className="own-manager-table">
-      <h2>Manager Table</h2>
       <MaterialReactTable  
         columns={columns} 
         data={data2} 

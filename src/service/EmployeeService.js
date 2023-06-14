@@ -1,21 +1,22 @@
 import axios from "axios";
 
-const FINDALL_EMPLOYEE = "http://localhost/employee/findallemployee";
-const GET_EMPLOYEE_INFO = "http://localhost/employee/findme";
-const EMPLOYEE_UPDATE_INFO = "http://localhost/employee/updateemployee";
-const EMPLOYEE_UPDATE_INFO_STRING = "http://localhost/employee/updateemployeenophoto";
-const CREATE_ADVANCE_PAYMENT= "http://localhost/employee/createadvancepayment"
-const CREATE_LEAVE  = "http://localhost/employee/createleave";
-const CREATE_EXPENSE = "http://localhost/employee/createexpense";
-const EMPLOYEE_COUNT = "http://localhost/employee/findallmyemployeecountformanager";
-const MANAGER_COUNT =   "http://localhost/employee/findallmymanagercount";
-const EMPLOYEE_AVERAGE_AGE_MANAGER = "http://localhost/employee/findallmyemployeeavarageage";
-const EMPLOYEE_AVERAGE_AGE = "http://localhost/employee/findallmyemployeeavarageageforcompany";
-const ANNUAL_EXPENSE_COMPANY = "http://localhost/employee/findallmycompanyexpenseforyear";
-const MONTHLY_EXPENSE_COMPANY = "http://localhost/employee/findallmycompanyexpenseformonth";
-const MY_ANNUAL_EXPENSE = "http://localhost/employee/findallmyemployeesalaryforyear";
-const MY_MONTHLY_EXPENSE = "http://localhost/employee/findallmyemployeesalaryformonth";
-const TOTAL_EMPLOYEE_COUNT = "http://localhost/employee/getallemployeecount";
+const FINDALL_EMPLOYEE = "http://localhost:7074/employee/findallemployee";
+const GET_EMPLOYEE_INFO = "http://localhost:7074/employee/findme";
+const EMPLOYEE_UPDATE_INFO = "http://localhost:7074/employee/updateemployee";
+const EMPLOYEE_UPDATE_INFO_STRING = "http://localhost:7074/employee/updateemployeenophoto";
+const CREATE_ADVANCE_PAYMENT= "http://localhost:7074/employee/createadvancepayment"
+const CREATE_LEAVE  = "http://localhost:7074/employee/createleave";
+const CREATE_EXPENSE = "http://localhost:7074/employee/createexpense";
+const EMPLOYEE_COUNT = "http://localhost:7074/employee/findallmyemployeecountformanager";
+const MANAGER_COUNT =   "http://localhost:7074/employee/findallmymanagercount";
+const EMPLOYEE_AVERAGE_AGE_MANAGER = "http://localhost:7074/employee/findallmyemployeeavarageage";
+const EMPLOYEE_AVERAGE_AGE = "http://localhost:7074/employee/findallmyemployeeavarageageforcompany";
+const ANNUAL_EXPENSE_COMPANY = "http://localhost:7074/employee/findallmycompanyexpenseforyear";
+const MONTHLY_EXPENSE_COMPANY = "http://localhost:7074/employee/findallmycompanyexpenseformonth";
+const MY_ANNUAL_EXPENSE = "http://localhost:7074/employee/findallmyemployeesalaryforyear";
+const MY_MONTHLY_EXPENSE = "http://localhost:7074/employee/findallmyemployeesalaryformonth";
+const TOTAL_EMPLOYEE_COUNT = "http://localhost:7074/employee/getallemployeecount";
+const NEW_EMPLOYEES ="http://localhost:7074/employee/newemployees";
 
 
 class EmployeeService {
@@ -126,8 +127,12 @@ class EmployeeService {
             }
         })
     }
+    
     totalemployeecount(token){
         return axios.get(TOTAL_EMPLOYEE_COUNT,token);
+    }
+    getNewEmployees(){
+        return axios.get(NEW_EMPLOYEES);
     }
 }
 export default new EmployeeService();

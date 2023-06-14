@@ -1,12 +1,16 @@
 .cardlistcontainer {
+  width: 80%;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  padding: 50px 0px 50px 0px;
+  padding: 15px 0px 15px 0px;
+  background-color: rgb(244, 244, 244);
+  border-radius: 15px;
   .card-container {
+    
     width: 300px;
     height: 300px;
-    margin: 30px;
+    margin: 30px 15px 30px 15px;
     position: relative;
     border-radius: 10px;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
@@ -27,6 +31,7 @@
       border-radius: inherit;
       overflow: hidden;
       .img-content {
+        
         width: 100%;
         height: 100%;
         display: flex;

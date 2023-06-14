@@ -141,12 +141,9 @@ const TableStaffLeave = () => {
 
   return (
     <div className="staff-leave-list-container">
-      <Link to="/employeeaddleave" className="addleave">
-        <div className="icon-div">
-          <QueueIcon />
-        </div>
-        <div className="icon-div-mini">Apply staff leave</div>
-      </Link>
+      <div className="addleave">
+        <div className="icon-div-mini">Staff Leave History</div>
+      </div>
       <div className="table-staff-leave">
         <MaterialReactTable columns={columns} data={data} />
       </div>
