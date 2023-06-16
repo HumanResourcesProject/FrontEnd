@@ -1,70 +1,96 @@
-# Getting Started with Create React App
+# Human Resources Management System
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This repository contains the source code for a comprehensive Human Resources Management System (HRMS). The project focuses on developing a robust microservice architecture to effectively manage various HR processes and enhance the overall efficiency of HR management.
 
-## Available Scripts
+## Backend
 
-In the project directory, you can run:
+The backend components of the HRMS system are built using Spring Frameworks and utilize various technologies for data storage, messaging, and deployment.
 
-### `npm start`
+### Technologies Used
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Spring Frameworks (Spring Boot, Spring Data, etc.)
+- Gradle (Dependency management and build tool)
+- PostgreSQL (Relational database for data storage)
+- MongoDB (NoSQL database for data storage)
+- RabbitMQ (Message broker for asynchronous communication)
+- Zipkin (Distributed tracing and performance monitoring)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Prerequisites
 
-### `npm test`
+Before running the HRMS backend services, ensure that you have the following prerequisites installed:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Java Development Kit (JDK) version X or above.
+- Gradle (latest version recommended)
+- PostgreSQL database
+- MongoDB database
+- RabbitMQ message broker
 
-### `npm run build`
+### Getting Started
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+To get started with the HRMS backend services, follow these steps:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. Clone this repository to your local machine using `git clone https://github.com/HumanResourcesProject/HumanResourcesProject.git`.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+2. Navigate to the project directory: `cd HumanResourcesProject/HumanResourcesProject`.
 
-### `npm run eject`
+3. Configure the backend components:
+   - Open the `src/main/resources/application.properties` file and update the necessary configuration settings for database connections, RabbitMQ, etc.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+4. Build and run the backend services:
+   - Run `gradle bootRun` to build and start each microservice.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Frontend
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+The frontend of the HRMS system is built using React and leverages Axios for making HTTP requests to the backend APIs.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Technologies Used
 
-## Learn More
+- React (JavaScript library for building user interfaces)
+- Axios (HTTP client for making API requests)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Prerequisites
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Before running the HRMS frontend, ensure that you have the following prerequisites installed:
 
-### Code Splitting
+- Node.js (with npm)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Getting Started
 
-### Analyzing the Bundle Size
+To get started with the HRMS frontend, follow these steps:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+1. Clone this repository to your local machine using `git clone https://github.com/HumanResourcesProject/FrontEnd.git`.
 
-### Making a Progressive Web App
+2. Navigate to the project directory: `cd HumanResourcesProject/FrontEnd`.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+3. Configure the frontend components:
+   - Open the `src/config.js` file and set the appropriate backend API endpoints.
 
-### Advanced Configuration
+4. Install the dependencies:
+   - Run `npm install` to install the necessary packages.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+5. Start the frontend development server:
+   - Run `npm start` to start the development server.
 
-### Deployment
+6. Access the HRMS system by visiting `http://localhost:3000` in your web browser.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## Contribution Guidelines
 
-### `npm run build` fails to minify
+If you would like to contribute to the HRMS project, please follow these guidelines:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+1. Fork the repository and create your branch: `git checkout -b feature/my-feature`.
+
+2. Commit your changes: `git commit -am 'Add some feature'`.
+
+3. Push to the branch: `git push origin feature/my-feature`.
+
+4. Submit a pull request detailing your changes and their purpose.
+
+## Contact
+
+For any inquiries or questions, feel free to reach out to the project team:
+
+- Buse Cankaya - [LinkedIn](https://linkedin.com/in/buse-cankaya/)
+- Email: cankayabuse94@gmail.com
+
+We appreciate your interest and contributions to the HRMS project!
+
