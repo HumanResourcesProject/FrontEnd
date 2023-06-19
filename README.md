@@ -19,14 +19,13 @@ The backend components of the HRMS system are built using Spring Frameworks and 
 
 Before running the HRMS backend services, ensure that you have the following prerequisites installed:
 
-- Java Development Kit (JDK) version X or above.
-- Gradle (latest version recommended)
+- Java Development Kit (JDK) version 8 or above.
+- Gradle - Ensure that Java and Gradle are installed correctly and the JAVA_HOME environment variable is properly set.
 - PostgreSQL database
 - MongoDB database
 - RabbitMQ message broker
 
 ### Getting Started
-
 To get started with the HRMS backend services, follow these steps:
 
 1. Clone this repository to your local machine using `git clone https://github.com/HumanResourcesProject/HumanResourcesProject.git`.
@@ -34,10 +33,19 @@ To get started with the HRMS backend services, follow these steps:
 2. Navigate to the project directory: `cd HumanResourcesProject/HumanResourcesProject`.
 
 3. Configure the backend components:
-   - Open the `src/main/resources/application.properties` file and update the necessary configuration settings for database connections, RabbitMQ, etc.
+   - Open the `src/main/resources/application.yml` file and update the necessary configuration settings for database connections, RabbitMQ, etc.
 
-4. Build and run the backend services:
-   - Run `gradle bootRun` to build and start each microservice.
+4. Run the backend services:
+   - ConfigServer
+   - AdminMicroService
+   - AuthMicroService
+   - CompanyMicroService
+   - EmployeeMicroService
+   - MailService
+   - ManagerMicroService
+   - RequirementMicroService
+
+Note: Make sure to start each microservice in the correct order as per the dependencies they have.
 
 ## Frontend
 
@@ -89,8 +97,17 @@ If you would like to contribute to the HRMS project, please follow these guideli
 
 For any inquiries or questions, feel free to reach out to the project team:
 
-- Buse Cankaya - [LinkedIn](https://linkedin.com/in/buse-cankaya/)
+- Buse Cankaya - [LinkedIn](https://linkedin.com/in/buse-cankaya/) - [GitHub](https://github.com/busecnky)
 - Email: cankayabuse94@gmail.com
+
+- Irfan Mert Namsal - [LinkedIn](https://linkedin.com/in/irfanmertnamsal/) - [GitHub](https://github.com/mertnamsal)
+- Email: namsalmert@gmail.com
+
+- Muhammed Furkan Turkmen - [LinkedIn](https://linkedin.com/in/muhammedfurkanturkmen/) - [GitHub](https://github.com/MFurkanTurkmen)
+- Email: f.turkmen06@gmail.com
+
+- Oguz Tasgin - [LinkedIn](https://linkedin.com/in/oguztasgin/) - [GitHub](https://github.com/oguztasgin1)
+- Email: tasginoguz@gmail.com
 
 We appreciate your interest and contributions to the HRMS project!
 
