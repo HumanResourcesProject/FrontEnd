@@ -1,113 +1,112 @@
-.registercompany {
+.companyregistercart {
   display: flex;
-  font-weight: 700;
-  justify-content: space-evenly;
-  height: 600px;
-  margin: 7% 10% 7% 10%;
-  border: 2px solid rgb(0, 0, 0);
-  border-radius: 20px;
-  background-color: rgba(151, 157, 192, 0.9); //b2cbff
-  align-items: center;
-  box-shadow: 10px 10px;
 
-  .registercompany-photo-section {
+  .left{
+    flex: 3;
     display: flex;
     flex-direction: column;
-    gap: 50x;
-    align-items: center;
-    justify-content: space-between;
-    height: 45%;
-    .registercompany-profile-holder {
-      h3 {
-        color: #343a40;
-        text-align: center;
-        border-bottom: 2px solid #000000;
-        border-radius: 50%;
-      }
-      .registercompany-profile-image {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        border-radius: 50%;
-        img {
-          width: 200px;
-          height: 200px;
-          border-radius: 50%;
-          object-fit: cover;
-        }
-      }
+    gap: 40px;
+    .company-register-part {
+    display: flex;
+    flex-direction: column;
+    
+    .company-register-text {
+      font-size: xx-large;
+      font-weight: 700;
+      font-family: Arial, Helvetica, sans-serif;
+      color: rgb(90, 90, 90);
     }
-    .registercompany-buttons {
+  }
+  .logo {
+    margin-top: 25px;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #000000;
+      gap: 30px;
+    .company-register-logo {
+      height: 220px;
+        border-radius: 50%;
+        width: 220px;
+        object-fit: cover; 
+    }
+    .company-choose-logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
       gap: 10px;
       .choosefilebutton{
         display: flex;
-        align-items: center;
         gap: 10px;
+        cursor: pointer;
+        background-color: rgb(255, 101, 41);
+        box-shadow: 2px 2px rgb(0, 0, 0);
+        border-radius: 3px;
+        padding:  7px 10px 7px 10px;
+        color: white;
       }
     }
+    
   }
-  .registercompany-profil-info {
-    width: 50%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-
-    .registercompany-information-head {
-      text-align: center;
-    }
-    .registercompany-information {
-      
-      form {
+  .company-register-info{
+    align-items: center;
+    form {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      color: rgb(3, 3, 3);
+      gap: 30px;
+      margin-bottom: 30px;
+      .inputs {
         display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 6px;
-        color: rgb(0, 0, 0);
-        
+              flex-direction: column;
+              gap: 10px;
+              width: 51%;
+
         label {
-          text-align: center;
+          font-size: small;
+                font-weight: 700;
+                font-family: "Roboto", sans-serif;
+                display: flex;
+                align-items: center;
+                gap: 10px;
         }
         input {
-          border: none;
-          outline: none;
-          background: none;
-          display: block;
-          width: 80%;
-          margin-top: 5px;
-          font-size: 16px;
-          border-bottom: 2px solid #000000;
-          text-align: center;
-          color: rgb(0, 0, 0);
+          font-size: small;
+                font-weight: 500;
+                border-radius: 3px;
+                border: 1px solid rgb(200, 200, 200);
+                padding: 10px 5px 10px 5px;
+                margin: 0;
         }
-        button {
-          display: block;
-          margin: 20px;
-          width: 80%;
-          height: 40px;
-          color: #f7f7f7;
-          background-color: #000000cc;
-          border: none;
-          border-radius: 10px;
-          font-size: 15px;
-          cursor: pointer;
-        }
-        button:hover,
-        button:focus {
-          box-shadow: 0 0.5em 0.5em -0.4em var(--color5);
-          background-color: adjust-hue($color: #a41515, $degrees: 211.2);
+      }
+
+      button {
+        height: 40px;
+            width: 18%;
+            color: white;
+            padding: 5px;
+            background-color: rgb(255, 101, 41);
+            border: none;
+            border-radius: 5px;
+            font-weight: 500;
+            cursor: pointer;
+            box-shadow: 2px 2px rgb(0, 0, 0);
+      }
+      button:hover,
+      button:focus {
+        box-shadow: 0 0.5em 0.5em -0.4em var(--color5);
           transform: translateY(-0.25em);
           transition: 0.4s;
-          
-        }
-        
       }
     }
   }
+  }
+  .right{
+    display: flex;
+    flex-direction: column;
+    margin-top: 100px;
+    flex: 2;
+
+  }
+  
 }

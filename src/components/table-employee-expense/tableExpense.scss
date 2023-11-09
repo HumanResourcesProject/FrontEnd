@@ -1,0 +1,19 @@
+.expense-list-container{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    .addexpense{
+        margin-left: 100px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: medium;
+        text-decoration: none;
+        color: black;
+        font-weight: 500;
+        
+    }
+    .table-expense{
+        margin: 0px 100px 100px 100px;
+    }
+}

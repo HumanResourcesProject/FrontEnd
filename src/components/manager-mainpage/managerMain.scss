@@ -1,0 +1,220 @@
+.manager-main-container {
+
+  margin-top: 50px;
+  margin-left: 50px;
+  .small-boxes{
+    display: flex;
+    justify-content: space-between;
+    width: 93%;
+    
+    flex-wrap: wrap;
+    .box{
+      box-shadow: 0px 0px 5px 2px rgba(0,0,0,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 320px;
+      padding: 15px;
+      background-color: white;
+      border-radius: 7px;
+      margin-top: 15px;
+      
+      
+      .box-left{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+       .upper{
+        font-size:30px;
+       }
+       .lower{
+        font-size: small;
+       } 
+      }
+      .box-right{
+        
+        border-radius: 50%;
+        display: flex;
+        margin-right: 10px;
+        .icon{
+          width: 70px;
+        }
+      }
+    }
+  }
+  .middle-part{
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    width: 93%;
+    margin-bottom: 50px;
+    .left-part{
+      display: flex;
+      flex-direction: column;
+      width: 40%;
+      .title-part{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .title{
+          font-size: 30px;
+        }
+        .extra{
+          font-size: 35px;
+        }
+      }
+      .employees{
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        .employee-chart{
+          display: flex;
+          justify-content: space-between;
+          box-shadow: 0px 0px 5px 2px rgba(0,0,0,0.1);
+          border-radius: 8px;
+          padding: 8px 40px 8px 30px;
+          .employee-detail{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+            padding: 20px;
+            .employee-avatar{
+              width: 60px;
+              height: 60px;
+              border-radius: 50%;
+              object-fit: cover;
+            }
+            .employee-text{
+              display: flex;
+              flex-direction: column;
+              
+              justify-content: space-between;
+              .name{
+                margin: 0;
+                font-weight: 600;
+                font-size: 18px;
+              }
+              .date{
+                margin: 0;
+                font-weight: 600;
+                font-size: 14px;
+                color: rgb(90, 90, 90);
+              }
+            }
+          }
+          .grade{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            
+            .number{
+              background-color: rgb(60, 181, 63);
+              padding: 2px 10px 2px 10px;
+              border-radius: 5px;
+              color: white;
+              font-size: small;
+              font-weight: 600;
+            }
+          }
+        }
+      }
+    }
+    .right-part{
+      display: flex;
+      flex-direction: column;
+      width: 35%;
+      gap: 30px;
+      .annual-box{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 20px;
+        padding: 0px 30px 0px 30px;
+        height: 240px;
+
+        box-shadow: 0px 0px 5px 2px rgba(0,0,0,0.1);
+        border-radius: 10px;
+        .expenses-title{
+          font-size: 30px;
+        }
+        .expenses-data{ 
+          display: flex;
+          justify-content: space-between;
+          .left-side{
+            display: flex;
+            flex-direction: row; 
+            align-items: center;
+            gap: 15px;
+              .money-img{
+                width: 50px;
+                height: 50px;
+              }  
+              .text{
+                display: flex;
+                flex-direction: column;
+                .text-top{
+                  font-weight: 600;
+                }
+                .text-bottom{
+                  display: flex;
+                  gap: 5px;
+                  align-items: center;
+                  .colored-text{
+                    color: green;
+                    font-weight: 500;
+                  }
+                  .normal-text{
+                    font-size: 13px;
+                  }
+                }
+              }
+          }
+          .right-side{
+            display: flex;
+            flex-direction: column;
+            align-items: end;
+            .text-top{
+              display: flex;
+              .dolar-img{
+                width: 30px;
+                mix-blend-mode: color;
+              }
+              .amount{
+                font-weight: 600;
+                font-size: 18px;
+              }
+            }
+            .text-bottom{
+              font-weight: 500;
+              color: rgb(98, 98, 98);
+              font-size: 15px;
+            }
+          }
+        }
+      }
+    }
+    .last-part{
+      width: 10%;
+      height: 510px;
+      .requests-container {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        .request-block {
+          border-radius: 8px;
+          padding: 8px 40px 8px 30px;
+          box-shadow: 0px 0px 5px 2px rgba(0,0,0,0.1);
+          p {
+            font-weight: 500;
+            font-size: small;
+          }
+        }
+      }
+    }
+  }
+}
+

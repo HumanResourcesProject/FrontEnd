@@ -1,0 +1,276 @@
+body {
+  font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  text-align: left;
+  margin: 0;
+  padding: 0;
+  font-weight: 500;
+
+}
+.link {
+  text-decoration: none;
+  color: white;
+}
+
+.d-flex {
+  display: flex;
+  gap: 10px;
+}
+
+.fw-large {
+  font-weight: 600;
+  font-size: large;
+}
+
+.full-sidebar-manager {
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  width: 220px;
+  height: 100vh;
+  position: fixed;
+  justify-content: space-between;
+  border-right: 1px solid rgb(218, 212, 212);
+
+  .sidebar-upper {
+    display: flex;
+    flex-direction: column;
+    .sidebar-title-link {
+      color: rgb(24, 21, 33);
+      text-decoration: none;
+      border-bottom: 1px solid rgb(218, 212, 212);
+      display: flex;
+      align-items: center;
+      font-weight: 700;
+      img {
+        float: left;
+        line-height: 0.8;
+        margin-left: 1.6rem;
+        max-height: 35px;
+        width: auto;
+        border-radius: 50%;
+      }
+
+      .sidebar-title {
+        margin-left: 10%;
+      }
+    }
+
+    .sidebar-admin-panel {
+      padding-top: 3px;
+      padding-bottom: 3px;
+      border-bottom: 1px solid rgb(233, 233, 233);
+      gap: 15px;
+
+      &:hover {
+        background-color: rgb(112, 110, 110);
+      }
+
+      .sidebar-admin-panel-link {
+        display: flex;
+        align-items: center;
+        color: rgb(189, 188, 188);
+        text-decoration: none;
+      }
+
+      img {
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-left: 1.6rem;
+      }
+
+      .admin-name {
+        margin-left: 1rem;
+      }
+    }
+  }
+
+  .sidebar-main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .sidebar-nav {
+      display: flex;
+      flex-direction: column;
+      list-style: none;
+      margin-top: 20px;
+      width: 90%;
+      padding: 0;
+      gap: 10px;
+
+      li {
+        .link.active {
+          background-color: rgb(60, 181, 63);
+          border-radius: 5px;
+          color: white;
+          box-shadow: 2px 2px rgb(0, 0, 0);
+          .link {
+            color: white;
+
+            .icon {
+              width: 50px;
+            }
+          }
+        }
+
+        .link {
+          color: black;
+          font-size: small;
+          padding: 5px 0px 5px 5px;
+          &:hover{
+            background-color:rgb(60, 181, 63);
+            border-radius: 5px;
+            color: white;
+            box-shadow: 2px 2px rgb(0, 0, 0);
+          }
+        }
+      }
+    }
+  }
+
+  .lg {
+    .linklogout {
+      text-decoration: none;
+
+      .logout {
+        display: flex;
+        align-items: center;
+        padding-left: 2rem;
+        border-top: 1px solid rgb(233, 233, 233);
+        height: 70px;
+        color: black;
+        &:hover{
+          background-color:  rgb(60, 181, 63);
+          color: aliceblue;
+          font-weight: 700;
+        }
+        .lout {
+          font-size: small;
+        }
+      }
+    }
+  }
+}
+
+.managerequestli{
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+
+  .dropdown-menu{
+    margin-top: 3px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  
+  .dropdown-menu li {
+    .link2.active {
+      background-color: rgb(60, 181, 63);
+      border-radius: 5px;
+      color: white;
+      box-shadow: 2px 2px rgb(0, 0, 0);
+      .link2 {
+        color: white;
+  
+        .icon {
+          width: 50px;
+        }
+      }
+    }
+  
+    list-style: none;
+    cursor: pointer;
+    padding: 2px 5px 2px 5px;
+    font-size: small;
+    font-weight: 500;
+    .link2 {
+      color: black;
+      font-size: small;
+      text-decoration: none;
+      padding:  5px 106px 5px 5px;
+      
+    }
+    .link2:hover{
+      color: white;
+    }
+  
+  
+    .link3.active {
+      background-color: rgb(60, 181, 63);
+      border-radius: 5px;
+      color: white;
+      box-shadow: 2px 2px rgb(0, 0, 0);
+      .link3 {
+        color: white;
+  
+        .icon {
+          width: 50px;
+        }
+      }
+    }
+  
+    list-style: none;
+    cursor: pointer;
+    padding: 2px 5px 2px 5px;
+    font-size: small;
+    font-weight: 500;
+    .link3 {
+      color: black;
+      font-size: small;
+      text-decoration: none;
+      padding:  5px 31px 5px 5px;
+      
+    }
+    .link3:hover{
+      color: white;
+    }
+  
+    .link4.active {
+      background-color: rgb(60, 181, 63);
+      border-radius: 5px;
+      color: white;
+      box-shadow: 2px 2px rgb(0, 0, 0);
+      .link4 {
+        color: white;
+  
+        .icon {
+          width: 50px;
+        }
+      }
+    }
+  
+    list-style: none;
+    cursor: pointer;
+    padding: 2px 5px 2px 5px;
+    font-size: small;
+    font-weight: 500;
+    .link4 {
+      color: black;
+      font-size: small;
+      text-decoration: none;
+      padding:  5px 90px 5px 5px;
+      
+    }
+    .link4:hover{
+      color: white;
+    }
+  }
+  
+  .dropdown-menu .link2:hover , .link3:hover, .link4:hover {
+    background-color: rgb(60, 181, 63);
+    color: white;
+    box-shadow: 2px 2px rgb(0, 0, 0);
+    border-radius: 5px;
+  }
+  
+  
+}
+

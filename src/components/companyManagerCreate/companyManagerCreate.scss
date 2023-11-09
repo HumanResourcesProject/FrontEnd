@@ -1,169 +1,172 @@
 .manager-register {
+  display: flex;
+  .left{
+    flex: 3;
     display: flex;
-    justify-content: space-evenly;
-    height: 800px;
-    margin: 7% 10% 7% 10%;
-    border: 2px solid black;
-    border-radius: 20px;
-    background-color: #2c2e30;
-    align-items: center;
+    flex-direction: column;
+    gap: 40px;
+    .manager-register-part {
+      display: flex;
+      flex-direction: column;
+ 
+      .manager-register-text {
+        font-size: xx-large;
+      font-weight: 700;
+      font-family: Arial, Helvetica, sans-serif;
+      color: rgb(90, 90, 90);
+      }
+    }
     .register-photo-section {
-        background-color: #ffffff;
-        display: flex;
-        flex-direction: column;
-        gap: 40px;
-        background-color: #2c2e30;
-        
-        .register-profile-holder {
-          h3 {
-            color: #343a40;
-            text-align: center;
-            border-bottom: 2px solid #343a40;
+      margin-top: 25px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 30px;
+      .register-profile-holder{
+        .register-profile-image{
+          .manager-register-avatar {
+            height: 220px;
             border-radius: 50%;
+            width: 220px;
+            object-fit: cover; 
           }
-          .register-profile-image {
+        }
+      }
+      
+      .manager-register-buttons {
+        display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+        .choosefilebutton{
+          display: flex;
+          gap: 10px;
+          cursor: pointer;
+          background-color: rgb(255, 101, 41);
+          box-shadow: 2px 2px rgb(0, 0, 0);
+          border-radius: 3px;
+          padding:  7px 10px 7px 10px;
+          color: white;
+        }
+      }
+    }
+    .manager-register-profil-info {
+      display: flex;
+      flex-direction: column;
+      form {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      color: rgb(3, 3, 3);
+      
+      margin-bottom: 30px;
+        .manager-company-section {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          gap: 30px;
+          align-items: center;
+          margin-bottom: 20px;
+          width: 100%;
+          .inner-company-section{
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            width: 51%;
+            label{
+              font-size: small;
+                font-weight: 700;
+                font-family: "Roboto", sans-serif;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+            }
+            .select-style{
+              background: none;
+              color: rgb(39, 39, 39);
+              
+              font-size: small;
+                  font-weight: 500;
+                  border-radius: 3px;
+                  border: 1px solid rgb(200, 200, 200);
+                  padding: 9px 5px 9px 5px;
+                  margin: 0;
+            }
+    
+            .select-style option {
+              font-size: 16px;
+              color: #bebebe;
+              background-color: #2c2e30;
+            }
+          }
+          
+        }
+  
+        .form-data {
+          display: flex;
+          width: 100%;
+          color: rgb(3, 3, 3);
+          gap: 30px;
+          margin-bottom: 30px;
+          .first-6 {
+            width: 100%;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            border-radius: 50%;
-            img {
-              width: 200px;
-              height: 200px;
-              border-radius: 50%;
-              object-fit: cover;
-            }
-          }
-        }
-        .register-buttons {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          color: #4c83bb;
-          gap: 10px;
-          .choosefilebutton{
-            display: flex;
-            align-items: center;
-            gap: 10px;
-          }
-        }
-      }
-    .manager-register-profil-info {
-        width: 60%;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        .manager-register-information{
-          display: flex;
-          flex-direction: column;
-          gap: 40px;
-        }
-        .manager-company-section{
-          display: flex;
-          gap: 30px;
-          align-items: center;
-          select{
-              
-                background: none;
-                width: 35%;
-                font-size: 16px;
-                border: 2px solid #afafaf;
-                border-radius: 10px;
-                color: rgb(196, 194, 194);
-                padding: 2px;
-          }
-          .select-style select {
-            width: 100%;
-            height: 100%;
-            padding: 8px;
-            background-color: transparent;
-            border: none;
-            outline: none;
-            font-size: 16px;
-            color: #333;
-          }
-          
-          .select-style option {
-            font-size: 16px;
-            color: #bebebe;
-            background-color: #2c2e30;
-          }
-        }
-        h2{
-          color: rgb(202, 202, 202);
-        }
-        .manager-register-information-head {
-          text-align: center;
-        }
-        .manager-register-information {
-          
-          form {
-            display: flex;
-            flex-direction: column;
-            color: rgb(167, 166, 166);
-            gap: 30px;
-            .form-data{
+            gap: 20px;
+            .data {
               display: flex;
+              flex-direction: column;
               gap: 10px;
-              .first-6{
+              width: 51%;
+              label {
+                font-size: small;
+                font-weight: 700;
+                font-family: "Roboto", sans-serif;
                 display: flex;
-                flex-direction: column;
-                width: 50%;
+                align-items: center;
                 gap: 10px;
-                .data{
-                  display: flex;
-                  align-items: center;
-                  justify-content: space-between;
-                }
               }
-              .second-6{
-                display: flex;
-                flex-direction: column;
-                width: 50%;
-                gap: 10px;
-                .data{
-                  display: flex;
-                  align-items: center;
-                  justify-content: space-between;
-                }
+              input {
+                font-size: small;
+                font-weight: 500;
+                border-radius: 3px;
+                border: 1px solid rgb(200, 200, 200);
+                padding: 10px 5px 10px 5px;
+                margin: 0;
               }
             }
-            
-            label {
-              font-weight: 500;
-            }
-            input {
-                margin: 5px;
-                background: none;
-                width: 50%;
-                font-size: 16px;
-                border: 2px solid #afafaf;
-                border-radius: 10px;
-                color: white;
-            }
-            button {
-              display: block;
-              margin: 20px;
-              width: 80%;
-              height: 40px;
-              font-weight: 700;
-              color: #fafafa;
-              background-color: #7a7a7a;
-              border: none;
-              border-radius: 10px;
-              font-size: 15px;
-              cursor: pointer;
-            }
-            button:hover,
-            button:focus {
-              box-shadow: 0 0.5em 0.5em -0.4em var(--color5);
-              transform: translateY(-0.25em);
-              transition: 0.4s;
-            }
-            
           }
+         
+        }
+        button {
+          height: 40px;
+          width: 18%;
+          color: white;
+          padding: 5px;
+          background-color: rgb(255, 101, 41);
+          border: none;
+          border-radius: 5px;
+          font-weight: 500;
+          cursor: pointer;
+          box-shadow: 2px 2px rgb(0, 0, 0);
+        }
+        button:hover,
+        button:focus {
+          box-shadow: 0 0.5em 0.5em -0.4em var(--color5);
+          transform: translateY(-0.25em);
+          transition: 0.4s;
         }
       }
+    }
+  }
+  .right{
+    display: flex;
+    flex-direction: column;
+    margin-top: 100px;
+    flex: 2;
+  }
+  
 }
