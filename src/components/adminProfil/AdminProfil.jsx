@@ -10,14 +10,14 @@ import ProfileImage from "../../assets/images/Admin_MyProfileImage.svg"
 const AdminProfil = () => {
   const [profile, setProfile] = useState({ data: {} });
   useEffect(() => {
-<<<<<<< HEAD
+
     AdminService.getAdminInformations(token)
     .then((response) => {
       setAdmin(response.data);
     }).catch((error)=>{
       console.log(error);
     });
-=======
+
     const fetchData = async () => {
       try {
         const response = await AdminService.getAdminInformations(token);
@@ -34,7 +34,7 @@ const AdminProfil = () => {
     };
 
     fetchData();
->>>>>>> origin/busecnky
+
   }, []);
 
   const [update, setUpdate] = useState({
